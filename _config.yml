@@ -1,0 +1,29 @@
+title: Spotlight Rules
+name: Spotlight Rules
+description: An openly-governed, well-maintained build of the Spectral API linter — a maintained CLI, a standalone ruleset specification, and a VS Code extension.
+url: https://spotlight-rules.com
+keywords:
+  - API linting
+  - Spectral
+  - API governance
+  - rulesets
+  - OpenAPI
+  - AsyncAPI
+  - JSON Schema
+
+author:
+  name: API Commons
+  email: apicommons@gmail.com
+
+markdown: kramdown
+highlighter: rouge
+
+github_org: api-commons
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+
+permalink: pretty
