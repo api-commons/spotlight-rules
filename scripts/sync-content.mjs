@@ -46,8 +46,12 @@ async function syncReleases() {
   if (res.ok) {
     const doc = await res.json();
     const time = doc.time || {};
+    // doc.time retains timestamps for unpublished versions; only list versions
+    // still present in doc.versions.
+    const published = new Set(Object.keys(doc.versions || {}));
     for (const [version, date] of Object.entries(time)) {
       if (version === 'created' || version === 'modified') continue;
+      if (!published.has(version)) continue;
       releases.push({
         package: pkg,
         version,
