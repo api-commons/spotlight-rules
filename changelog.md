@@ -35,13 +35,32 @@ one-time launch record. Each repository also keeps its own changelog
 
 ## Project history
 
+### 2026-06-23 — spotlight-validator
+
+- **spotlight-validator** — Launched a browser-based API governance playground at
+  [validator.spotlight-rules.com](https://validator.spotlight-rules.com). It runs
+  the Spotlight engine entirely client-side (Vite + Monaco) to lint OpenAPI,
+  AsyncAPI, and JSON Schema. Ships a **best-of-breed ruleset of ~289 rules**
+  compiled from 10 public Spectral rulesets (SPS Commerce, Italian Government,
+  Adidas, Trimble, Paystack, DigitalOcean, Microcks, Baloise, Team Digitale,
+  Schwarz IT) — selectable by `source:`/`category:`/`format:` tags — plus a
+  custom-ruleset editor.
+
+### 2026-06-23 — 1.0 reboot
+
+- Rebooted **spotlight-cli**, **spotlight-spec**, and **spotlight-vscode** as a
+  clean **1.0**: everything product-facing renamed from Spectral to Spotlight
+  (the `Spotlight` engine class, `spotlight:` ruleset aliases, `.spotlight.*`
+  ruleset files), package versions reset to `1.0.0`, and the npm packages
+  republished. spotlight-vscode now embeds the published `@spotlight-rules`
+  engine. Stoplight Spectral's Apache-2.0 attribution is preserved throughout.
+
 ### 2026-06-23 — Launch
 
 - **spotlight-cli** — Forked [Stoplight Spectral](https://github.com/stoplightio/spectral)
   as an API Commons project; renamed the 11 packages to the
-  `@spotlight-rules/spotlight-*` scope and the CLI binary to `spotlight`,
-  preserving the `spectral:` aliases and `.spectral.*` filenames. **Published all
-  11 packages to npm.**
+  `@spotlight-rules/spotlight-*` scope and the CLI binary to `spotlight`.
+  **Published all 11 packages to npm.**
 - **spotlight-spec** — Created a standalone ruleset specification with a portable
   JSON Schema (`v1`), examples, and a generator that keeps it in sync with the
   engine.

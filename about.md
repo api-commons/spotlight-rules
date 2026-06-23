@@ -25,13 +25,16 @@ published specification for the ruleset format, and first-class editor support.
 | [**spotlight-cli**](https://github.com/api-commons/spotlight-cli) | The linter engine and command-line tool — a fork of Spectral, published to npm as `@spotlight-rules/spotlight-*`. The `spotlight` binary lints OpenAPI, AsyncAPI, and Arazzo documents against rulesets. |
 | [**spotlight-spec**](https://github.com/api-commons/spotlight-spec) | A standalone specification of the ruleset format (rules and rulesets), with a single portable JSON Schema for validation — so rulesets can be authored, validated, and tooled independently of any one linter. |
 | [**spotlight-vscode**](https://github.com/api-commons/spotlight-vscode) | The VS Code extension — lint-on-save and lint-on-type, with custom ruleset support, in your editor. |
+| [**spotlight-validator**](https://github.com/api-commons/spotlight-validator) | A browser-based governance playground at [validator.spotlight-rules.com](https://validator.spotlight-rules.com) — lint OpenAPI, AsyncAPI, and JSON Schema with best-of-breed rules compiled from public rulesets (selectable by tag), or edit your own. Runs the Spotlight engine entirely client-side. |
 
 ## Relationship to Spectral
 
-Spotlight Rules is **derived from** Stoplight Spectral and stays compatible with
-the rulesets Spectral consumes. Existing `spectral:` rulesets (`spectral:oas`,
-`spectral:asyncapi`, `spectral:arazzo`) and `.spectral.*` ruleset files continue
-to work unchanged. Provenance and attribution are documented in each repository,
+Spotlight Rules is **derived from** Stoplight Spectral. It was released as an
+independent **1.0** — the engine, CLI binary (`spotlight`), built-in ruleset
+aliases (`spotlight:oas`, `spotlight:asyncapi`, `spotlight:arazzo`), and ruleset
+filenames (`.spotlight.*`) all use the Spotlight name. Spectral's Apache-2.0
+license is preserved, and provenance and attribution are documented in each
+repository,
 and Spectral's Apache 2.0 license is preserved throughout.
 
 ## Governance
