@@ -2,33 +2,50 @@
 layout: default
 nav: changelog
 title: Changelog
-description: Notable changes across the Spotlight Rules projects.
+description: Notable changes and releases across the Spotlight Rules projects.
 ---
 
-<div class="content">
 
 # Changelog
 
-Notable changes across Spotlight Rules. Each project also keeps its own changelog
-in its repository.
+Releases below are pulled automatically from npm; the project history is the
+one-time launch record. Each repository also keeps its own changelog
+([spotlight-cli](https://github.com/api-commons/spotlight-cli/blob/main/FORK.md),
+[spotlight-spec](https://github.com/api-commons/spotlight-spec),
+[spotlight-vscode](https://github.com/api-commons/spotlight-vscode/blob/main/CHANGELOG.md)).
 
-## 2026-06-23 — Launch
+## Releases
+
+{% if site.data.releases and site.data.releases.size > 0 %}
+<table>
+  <thead><tr><th>Package</th><th>Version</th><th>Published</th></tr></thead>
+  <tbody>
+  {% for r in site.data.releases %}
+    <tr>
+      <td><code>{{ r.package }}</code></td>
+      <td><a href="{{ r.url }}">{{ r.version }}</a></td>
+      <td>{{ r.date | date: "%Y-%m-%d" }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="text-muted">No published releases recorded yet.</p>
+{% endif %}
+
+## Project history
+
+### 2026-06-23 — Launch
 
 - **spotlight-cli** — Forked [Stoplight Spectral](https://github.com/stoplightio/spectral)
-  (`develop`, June 2026) as an API Commons project. Renamed the 11 internal
-  packages to the `@spotlight-rules/spotlight-*` scope and the CLI binary to
-  `spotlight`, preserving the `spectral:` ruleset aliases and `.spectral.*`
-  filenames for compatibility. Verified build and tests.
-- **spotlight-cli** — **Published all 11 packages to npm** under the
-  `@spotlight-rules` scope. Install with
-  `npm i -g @spotlight-rules/spotlight-cli`.
-- **spotlight-spec** — Created a standalone specification of the ruleset format
-  with a single portable JSON Schema (draft-07), a written specification, worked
-  examples, and a generator that keeps it in sync with the engine. Versioned at
-  `v1` and served over GitHub Pages.
-- **spotlight-vscode** — Forked Stoplight's `vscode-spectral` and rebranded it
-  (extension id `api-commons.spotlight`, `spotlight.*` settings, `spotlight`
-  command namespace), keeping the Spectral engine. Build and unit tests pass.
+  as an API Commons project; renamed the 11 packages to the
+  `@spotlight-rules/spotlight-*` scope and the CLI binary to `spotlight`,
+  preserving the `spectral:` aliases and `.spectral.*` filenames. **Published all
+  11 packages to npm.**
+- **spotlight-spec** — Created a standalone ruleset specification with a portable
+  JSON Schema (`v1`), examples, and a generator that keeps it in sync with the
+  engine.
+- **spotlight-vscode** — Forked and rebranded the VS Code extension
+  (`api-commons.spotlight`, `spotlight.*` settings).
 - **spotlight-rules.com** — Launched this site under API Commons.
 
-</div>

@@ -5,7 +5,6 @@ title: About
 description: Spotlight Rules is an openly-governed, maintained build of the Spectral API linter under API Commons.
 ---
 
-<div class="content">
 
 # About Spotlight Rules
 
@@ -42,4 +41,3 @@ group focused on open, machine-readable API operations. The goal is a
 vendor-neutral, community-maintained linter that the API governance community can
 rely on.
 
-</div>

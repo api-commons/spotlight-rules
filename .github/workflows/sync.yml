@@ -1,0 +1,35 @@
+name: sync-content
+
+# Keeps the roadmap and release list in sync with the project repos so the site
+# isn't hand-maintained. Runs daily, on manual dispatch, and can be poked by the
+# source repos via repository_dispatch (event type: sync-content).
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+  repository_dispatch:
+    types: [sync-content]
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/sync-content.mjs
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain roadmap.md _data/releases.json)" ]; then
+            git config user.name "API Commons"
+            git config user.email "apicommons@gmail.com"
+            git add roadmap.md _data/releases.json
+            git commit -m "sync: refresh roadmap + releases from project repos"
+            git push
+          else
+            echo "no changes"
+          fi
