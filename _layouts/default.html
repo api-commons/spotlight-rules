@@ -7,7 +7,7 @@
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     <meta name="keywords" content="{{ site.keywords | join: ', ' }}">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="icon" type="image/png" href="/assets/spotlight-rules-logo.png">
 
     <!-- Open Graph -->
     <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}">
@@ -46,7 +46,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="/"><img src="/assets/favicon.svg" alt="" width="26" height="26" class="me-2">Spotlight Rules</a>
+        <a class="navbar-brand d-flex align-items-center" href="/"><img src="/assets/spotlight-rules-logo.png" alt="" width="30" height="30" class="me-2">Spotlight Rules</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -70,12 +70,18 @@
 
     <footer class="footer">
       <div class="container">
-        <div class="d-flex justify-content-center flex-wrap gap-4 align-items-center" style="height: 60px;">
+        <div class="d-flex justify-content-center flex-wrap gap-4 align-items-center pt-3">
           <a href="https://github.com/api-commons/spotlight-cli">spotlight-cli</a>
           <a href="https://github.com/api-commons/spotlight-spec">spotlight-spec</a>
           <a href="https://github.com/api-commons/spotlight-vscode">spotlight-vscode</a>
           <a href="https://apicommons.org">API Commons</a>
           <a href="https://github.com/api-commons">GitHub</a>
+        </div>
+        <div class="text-center py-3">
+          <a href="https://apievangelist.com" target="_blank" rel="noopener" class="d-inline-flex align-items-center gap-2 text-decoration-none text-muted">
+            <img src="/assets/api-evangelist-butterfly.png" alt="API Evangelist" width="22" height="22">
+            <span>A project of <strong>API Evangelist</strong></span>
+          </a>
         </div>
       </div>
     </footer>
