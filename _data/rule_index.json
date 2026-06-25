@@ -3521,5 +3521,58 @@
     "severity": "warn"
    }
   ]
+ },
+ "agent-skill": {
+  "label": "Agent Skill",
+  "rules": [
+   {
+    "slug": "skill-description",
+    "name": "Skill Description",
+    "experience": "discoverability",
+    "severity": "error"
+   },
+   {
+    "slug": "skill-description-length",
+    "name": "Skill Description Length",
+    "experience": "discoverability",
+    "severity": "warn"
+   },
+   {
+    "slug": "skill-has-usage-section",
+    "name": "Skill Has Usage Section",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "skill-license",
+    "name": "Skill License",
+    "experience": "governance",
+    "severity": "warn"
+   },
+   {
+    "slug": "skill-name",
+    "name": "Skill Name",
+    "experience": "governance",
+    "severity": "error"
+   },
+   {
+    "slug": "skill-name-kebab-case",
+    "name": "Skill Name Kebab Case",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "skill-allowed-tools-array",
+    "name": "Skill Allowed Tools Array",
+    "experience": "security",
+    "severity": "warn"
+   },
+   {
+    "slug": "skill-body-length",
+    "name": "Skill Body Length",
+    "experience": "usability",
+    "severity": "info"
+   }
+  ]
  }
 }

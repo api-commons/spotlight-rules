@@ -36,7 +36,7 @@ permalink: /spec/
 <h2 class="mb-2">Explore the rules</h2>
 <p class="text-muted">Every rule Spotlight applies, grouped by artifact. Expand an artifact and open any rule for its full detail, tags, and where it applies — with next / previous navigation.</p>
 
-{% assign order = "openapi,apis-json,asyncapi,arazzo,json-schema,json-structure,json-ld,mcp,plans,rate-limits,finops" | split: "," %}
+{% assign order = "openapi,apis-json,asyncapi,arazzo,json-schema,json-structure,json-ld,mcp,plans,rate-limits,finops,agent-skill" | split: "," %}
 {% for art in order %}
   {% assign info = site.data.rule_index[art] %}
   {% if info %}
