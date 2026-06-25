@@ -1,0 +1,3525 @@
+{
+ "openapi": {
+  "label": "OpenAPI",
+  "rules": [
+   {
+    "slug": "default-content-language-en-us",
+    "name": "Default Content Language En Us",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "delete-must-not-have-request-body",
+    "name": "Delete Must Not Have Request Body",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "delete-must-not-return-body",
+    "name": "Delete Must Not Return Body",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "delete-no-request-body",
+    "name": "Delete No Request Body",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "delete-no-request-body-2",
+    "name": "Delete No Request Body 2",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "delete-no-response-body",
+    "name": "Delete No Response Body",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "delete-require-204-response",
+    "name": "Delete Require 204 Response",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "filter-param-only-on-get",
+    "name": "Filter Param Only On Get",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "get-must-not-have-request-body",
+    "name": "Get Must Not Have Request Body",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "get-must-return-response-body",
+    "name": "Get Must Return Response Body",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "get-no-request-body",
+    "name": "Get No Request Body",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "get-no-request-body-2",
+    "name": "Get No Request Body 2",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "get-response-support-json",
+    "name": "Get Response Support JSON",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "head-must-not-have-request-body",
+    "name": "Head Must Not Have Request Body",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "head-must-not-return-body",
+    "name": "Head Must Not Return Body",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "info-title-max-length",
+    "name": "Info Title Max Length",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "location-header-only-on-201",
+    "name": "Location Header Only On 201",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "no-forbidden-http-headers",
+    "name": "No Forbidden HTTP Headers",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "no-hybrid-and-root-filtering",
+    "name": "No Hybrid And Root Filtering",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "no-id-query-parameter",
+    "name": "No ID Query Parameter",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "no-operational-headers-in-spec",
+    "name": "No Operational Headers In Spec",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "no-query-strings-in-paths",
+    "name": "No Query Strings In Paths",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "oas3-server-trailing-slash",
+    "name": "Server Trailing Slash",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "oas3-unused-component",
+    "name": "Unused Component",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "ok-response-use-hal-or-problem-json",
+    "name": "Ok Response Use Hal Or Problem JSON",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "openapi-tags-alphabetical",
+    "name": "Openapi Tags Alphabetical",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "openapi-tags-uniqueness",
+    "name": "Openapi Tags Uniqueness",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-operationId",
+    "name": "Operation OperationId",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-operationId-unique",
+    "name": "Operation OperationId Unique",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-parameters",
+    "name": "Operation Parameters",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-ref-resource-file",
+    "name": "Operation Ref Resource File",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-require-identifier",
+    "name": "Operation Require Identifier",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-require-operation-id",
+    "name": "Operation Require Operation ID",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-singular-tag",
+    "name": "Operation Singular Tag",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-summary-no-period",
+    "name": "Operation Summary No Period",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "operations-use-ref",
+    "name": "Operations Use Ref",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "options-must-not-have-request-body",
+    "name": "Options Must Not Have Request Body",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "options-must-not-return-body",
+    "name": "Options Must Not Return Body",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "parameter-schema-use-ref",
+    "name": "Parameter Schema Use Ref",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "patch-media-type-not-plain-json",
+    "name": "Patch Media Type Not Plain JSON",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "patch-must-have-request-body",
+    "name": "Patch Must Have Request Body",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "path-keys-no-trailing-slash",
+    "name": "Path Keys No Trailing Slash",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "path-max-nesting-depth",
+    "name": "Path Max Nesting Depth",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "path-not-include-query",
+    "name": "Path Not Include Query",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "path-parameters-not-empty",
+    "name": "Path Parameters Not Empty",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "path-params-declared-in-block",
+    "name": "Path Params Declared In Block",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "path-require-valid-http-verb",
+    "name": "Path Require Valid HTTP Verb",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "post-not-for-retrieval",
+    "name": "Post Not For Retrieval",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "post-require-201-or-202-response",
+    "name": "Post Require 201 Or 202 Response",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "put-require-request-body",
+    "name": "Put Require Request Body",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "request-body-must-use-json-content-type",
+    "name": "Request Body Must Use JSON Content Type",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "request-support-json-media-type",
+    "name": "Request Support JSON Media Type",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "request-support-json-media-type-2",
+    "name": "Request Support JSON Media Type 2",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "require-components-section",
+    "name": "Require Components Section",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "response-206-require-content-range",
+    "name": "Response 206 Require Content Range",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "response-must-use-json-content-type",
+    "name": "Response Must Use JSON Content Type",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "server-url-meet-standards",
+    "name": "Server URL Meet Standards",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "sort-param-only-on-get",
+    "name": "Sort Param Only On Get",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "success-response-use-hal-json",
+    "name": "Success Response Use Hal JSON",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "use-standard-http-methods",
+    "name": "Use Standard HTTP Methods",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "use-standard-mime-types",
+    "name": "Use Standard Mime Types",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "write-response-require-content-type",
+    "name": "Write Response Require Content Type",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "write-response-support-json",
+    "name": "Write Response Support JSON",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "array-items",
+    "name": "Array Items",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "array-parameters-typed-items",
+    "name": "Array Parameters Typed Items",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "array-properties-typed-items",
+    "name": "Array Properties Typed Items",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "created-datetime-must-be-date-time",
+    "name": "Created Datetime Must Be Date Time",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "createdby-property-must-be-string",
+    "name": "Createdby Property Must Be String",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "deletedby-property-must-be-string",
+    "name": "Deletedby Property Must Be String",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "description-property-must-be-string",
+    "name": "Description Property Must Be String",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "duplicated-entry-in-enum",
+    "name": "Duplicated Entry In Enum",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "fingerprint-property-must-be-string",
+    "name": "Fingerprint Property Must Be String",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "id-property-must-be-string",
+    "name": "ID Property Must Be String",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "integer-format-allowed-values",
+    "name": "Integer Format Allowed Values",
+    "experience": "data-modeling",
+    "severity": "hint"
+   },
+   {
+    "slug": "integer-require-format",
+    "name": "Integer Require Format",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "modified-datetime-must-be-date-time",
+    "name": "Modified Datetime Must Be Date Time",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "modifiedby-property-must-be-string",
+    "name": "Modifiedby Property Must Be String",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "name-property-must-be-string",
+    "name": "Name Property Must Be String",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "number-format-allowed-values",
+    "name": "Number Format Allowed Values",
+    "experience": "data-modeling",
+    "severity": "hint"
+   },
+   {
+    "slug": "number-require-format",
+    "name": "Number Require Format",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "oas3-schema",
+    "name": "Schema",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "oas3-valid-media-example",
+    "name": "Valid Media Example",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "oas3-valid-schema-example",
+    "name": "Valid Schema Example",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "orgid-property-must-be-string",
+    "name": "Orgid Property Must Be String",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "parameter-array-require-items",
+    "name": "Parameter Array Require Items",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "parameter-integer-require-maximum",
+    "name": "Parameter Integer Require Maximum",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "parameter-integer-require-minimum",
+    "name": "Parameter Integer Require Minimum",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "parameter-require-in",
+    "name": "Parameter Require In",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "parameter-require-required-flag",
+    "name": "Parameter Require Required Flag",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "parameter-require-schema",
+    "name": "Parameter Require Schema",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "parameter-schema-require-type",
+    "name": "Parameter Schema Require Type",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "parameter-string-require-max-length",
+    "name": "Parameter String Require Max Length",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "parameter-string-require-min-length",
+    "name": "Parameter String Require Min Length",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "parameter-string-require-pattern",
+    "name": "Parameter String Require Pattern",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "post-require-request-body",
+    "name": "Post Require Request Body",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "put-require-request-body-2",
+    "name": "Put Require Request Body 2",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "ref-property-must-be-string",
+    "name": "Ref Property Must Be String",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "ref-property-require-format",
+    "name": "Ref Property Require Format",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "ref-property-standard-schema",
+    "name": "Ref Property Standard Schema",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "requestid-property-must-be-string",
+    "name": "Requestid Property Must Be String",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "response-body-must-be-object",
+    "name": "Response Body Must Be Object",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-array-property-require-items",
+    "name": "Schema Array Property Require Items",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-array-property-require-max-items",
+    "name": "Schema Array Property Require Max Items",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-array-property-require-min-items",
+    "name": "Schema Array Property Require Min Items",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-number-property-require-maximum",
+    "name": "Schema Number Property Require Maximum",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-number-property-require-minimum",
+    "name": "Schema Number Property Require Minimum",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-properties-require-type",
+    "name": "Schema Properties Require Type",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-require-type",
+    "name": "Schema Require Type",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-string-property-require-max-length",
+    "name": "Schema String Property Require Max Length",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-string-property-require-min-length",
+    "name": "Schema String Property Require Min Length",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "success-response-match-hal-schema",
+    "name": "Success Response Match Hal Schema",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "typed-enum",
+    "name": "Typed Enum",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "contact-require-email",
+    "name": "Contact Require Email",
+    "experience": "discoverability",
+    "severity": "error"
+   },
+   {
+    "slug": "contact-require-name",
+    "name": "Contact Require Name",
+    "experience": "discoverability",
+    "severity": "error"
+   },
+   {
+    "slug": "contact-require-url",
+    "name": "Contact Require URL",
+    "experience": "discoverability",
+    "severity": "error"
+   },
+   {
+    "slug": "info-require-api-identifier",
+    "name": "Info Require API Identifier",
+    "experience": "discoverability",
+    "severity": "error"
+   },
+   {
+    "slug": "info-require-contact-2",
+    "name": "Info Require Contact 2",
+    "experience": "discoverability",
+    "severity": "error"
+   },
+   {
+    "slug": "openapi-tags",
+    "name": "Openapi Tags",
+    "experience": "discoverability",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-require-one-tag",
+    "name": "Operation Require One Tag",
+    "experience": "discoverability",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-require-tags",
+    "name": "Operation Require Tags",
+    "experience": "discoverability",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-tag-defined",
+    "name": "Operation Tag Defined",
+    "experience": "discoverability",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-tags",
+    "name": "Operation Tags",
+    "experience": "discoverability",
+    "severity": "warn"
+   },
+   {
+    "slug": "require-at-least-one-tag",
+    "name": "Require At Least One Tag",
+    "experience": "discoverability",
+    "severity": "error"
+   },
+   {
+    "slug": "require-tags-object",
+    "name": "Require Tags Object",
+    "experience": "discoverability",
+    "severity": "error"
+   },
+   {
+    "slug": "responses-include-hypermedia-links",
+    "name": "Responses Include Hypermedia Links",
+    "experience": "discoverability",
+    "severity": "hint"
+   },
+   {
+    "slug": "tags-require-name",
+    "name": "Tags Require Name",
+    "experience": "discoverability",
+    "severity": "error"
+   },
+   {
+    "slug": "channel-parameters-require-examples",
+    "name": "Channel Parameters Require Examples",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "component-messages-require-examples",
+    "name": "Component Messages Require Examples",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "contact-properties",
+    "name": "Contact Properties",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "document-cache-control-parameter",
+    "name": "Document Cache Control Parameter",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "document-cache-response-headers",
+    "name": "Document Cache Response Headers",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "error-response-require-description",
+    "name": "Error Response Require Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "examples-form-complete-mocks",
+    "name": "Examples Form Complete Mocks",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "headers-require-examples",
+    "name": "Headers Require Examples",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "info-contact",
+    "name": "Info Contact",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "info-description",
+    "name": "Info Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "info-description-length-limit",
+    "name": "Info Description Length Limit",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "info-license",
+    "name": "Info License",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "info-require-contact",
+    "name": "Info Require Contact",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "info-require-description",
+    "name": "Info Require Description",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "info-require-summary",
+    "name": "Info Require Summary",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "info-require-terms-of-service",
+    "name": "Info Require Terms Of Service",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "info-require-title",
+    "name": "Info Require Title",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "license-url",
+    "name": "License URL",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "message-examples-form-complete-mocks",
+    "name": "Message Examples Form Complete Mocks",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "messages-require-examples",
+    "name": "Messages Require Examples",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "oas3-examples-value-or-externalValue",
+    "name": "Examples Value Or ExternalValue",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "oas3-parameter-description",
+    "name": "Parameter Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-description",
+    "name": "Operation Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-description-max-length",
+    "name": "Operation Description Max Length",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-require-description",
+    "name": "Operation Require Description",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-require-response",
+    "name": "Operation Require Response",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-require-summary",
+    "name": "Operation Require Summary",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-summary-description-differ",
+    "name": "Operation Summary Description Differ",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-summary-max-length",
+    "name": "Operation Summary Max Length",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "optional-parameters-include-examples",
+    "name": "Optional Parameters Include Examples",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "parameter-description-max-length",
+    "name": "Parameter Description Max Length",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "parameter-require-description",
+    "name": "Parameter Require Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "parameters-require-examples",
+    "name": "Parameters Require Examples",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "properties-require-examples",
+    "name": "Properties Require Examples",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "request-content-require-examples",
+    "name": "Request Content Require Examples",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "require-external-docs",
+    "name": "Require External Docs",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "require-info-object",
+    "name": "Require Info Object",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "require-realistic-examples",
+    "name": "Require Realistic Examples",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "required-parameters-require-examples",
+    "name": "Required Parameters Require Examples",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "response-content-require-examples",
+    "name": "Response Content Require Examples",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "schema-description-max-length",
+    "name": "Schema Description Max Length",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-property-description-max-length",
+    "name": "Schema Property Description Max Length",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-property-require-description",
+    "name": "Schema Property Require Description",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-require-description",
+    "name": "Schema Require Description",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "server-require-description",
+    "name": "Server Require Description",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "success-response-require-description",
+    "name": "Success Response Require Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "tag-description",
+    "name": "Tag Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "tags-require-description",
+    "name": "Tags Require Description",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "delete-404-use-schema-ref",
+    "name": "Delete 404 Use Schema Ref",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "delete-define-500-response",
+    "name": "Delete Define 500 Response",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "delete-response-codes-allowed",
+    "name": "Delete Response Codes Allowed",
+    "experience": "error-handling",
+    "severity": "warn"
+   },
+   {
+    "slug": "error-response-match-problem-schema",
+    "name": "Error Response Match Problem Schema",
+    "experience": "error-handling",
+    "severity": "hint"
+   },
+   {
+    "slug": "error-response-standard-payload",
+    "name": "Error Response Standard Payload",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "error-response-use-problem-type",
+    "name": "Error Response Use Problem Type",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "error-response-use-problem-type-2",
+    "name": "Error Response Use Problem Type 2",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "error-schema-problem-property-names",
+    "name": "Error Schema Problem Property Names",
+    "experience": "error-handling",
+    "severity": "hint"
+   },
+   {
+    "slug": "get-define-404-response",
+    "name": "Get Define 404 Response",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "get-define-500-response",
+    "name": "Get Define 500 Response",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "get-must-return-200",
+    "name": "Get Must Return 200",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "get-response-codes-allowed",
+    "name": "Get Response Codes Allowed",
+    "experience": "error-handling",
+    "severity": "warn"
+   },
+   {
+    "slug": "head-response-codes-allowed",
+    "name": "Head Response Codes Allowed",
+    "experience": "error-handling",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-define-429-response",
+    "name": "Operation Define 429 Response",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-define-500-response",
+    "name": "Operation Define 500 Response",
+    "experience": "error-handling",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-success-response",
+    "name": "Operation Success Response",
+    "experience": "error-handling",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-well-understood-status-codes",
+    "name": "Operation Well Understood Status Codes",
+    "experience": "error-handling",
+    "severity": "warn"
+   },
+   {
+    "slug": "options-response-codes-allowed",
+    "name": "Options Response Codes Allowed",
+    "experience": "error-handling",
+    "severity": "warn"
+   },
+   {
+    "slug": "patch-define-200-response",
+    "name": "Patch Define 200 Response",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "patch-define-400-response",
+    "name": "Patch Define 400 Response",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "patch-define-404-response",
+    "name": "Patch Define 404 Response",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "patch-response-codes-allowed",
+    "name": "Patch Response Codes Allowed",
+    "experience": "error-handling",
+    "severity": "warn"
+   },
+   {
+    "slug": "post-define-400-response",
+    "name": "Post Define 400 Response",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "post-define-500-response",
+    "name": "Post Define 500 Response",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "post-response-codes-allowed",
+    "name": "Post Response Codes Allowed",
+    "experience": "error-handling",
+    "severity": "warn"
+   },
+   {
+    "slug": "prefer-400-over-422",
+    "name": "Prefer 400 Over 422",
+    "experience": "error-handling",
+    "severity": "warn"
+   },
+   {
+    "slug": "put-define-400-response",
+    "name": "Put Define 400 Response",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "put-define-500-response",
+    "name": "Put Define 500 Response",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "put-response-codes-allowed",
+    "name": "Put Response Codes Allowed",
+    "experience": "error-handling",
+    "severity": "warn"
+   },
+   {
+    "slug": "response-400-require-body",
+    "name": "Response 400 Require Body",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "response-code-must-be-valid",
+    "name": "Response Code Must Be Valid",
+    "experience": "error-handling",
+    "severity": "warn"
+   },
+   {
+    "slug": "responses-define-401",
+    "name": "Responses Define 401",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "responses-define-404",
+    "name": "Responses Define 404",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "responses-define-429",
+    "name": "Responses Define 429",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "responses-define-500",
+    "name": "Responses Define 500",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "status-path-problem-schema-fields",
+    "name": "Status Path Problem Schema Fields",
+    "experience": "error-handling",
+    "severity": "warn"
+   },
+   {
+    "slug": "status-path-return-problem-type",
+    "name": "Status Path Return Problem Type",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "use-standard-status-codes",
+    "name": "Use Standard Status Codes",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "use-standard-status-codes-2",
+    "name": "Use Standard Status Codes 2",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "gateway-from-allowed-list",
+    "name": "Gateway From Allowed List",
+    "experience": "governance",
+    "severity": "warn"
+   },
+   {
+    "slug": "info-microcks-extension-valid",
+    "name": "Info Microcks Extension Valid",
+    "experience": "governance",
+    "severity": "warn"
+   },
+   {
+    "slug": "info-require-audience",
+    "name": "Info Require Audience",
+    "experience": "governance",
+    "severity": "error"
+   },
+   {
+    "slug": "info-require-gateway",
+    "name": "Info Require Gateway",
+    "experience": "governance",
+    "severity": "warn"
+   },
+   {
+    "slug": "info-require-leanix-id",
+    "name": "Info Require Leanix ID",
+    "experience": "governance",
+    "severity": "warn"
+   },
+   {
+    "slug": "info-require-license",
+    "name": "Info Require License",
+    "experience": "governance",
+    "severity": "error"
+   },
+   {
+    "slug": "info-require-terms-of-service-2",
+    "name": "Info Require Terms Of Service 2",
+    "experience": "governance",
+    "severity": "error"
+   },
+   {
+    "slug": "leanix-id-valid-uuid",
+    "name": "Leanix ID Valid Uuid",
+    "experience": "governance",
+    "severity": "warn"
+   },
+   {
+    "slug": "license-require-name",
+    "name": "License Require Name",
+    "experience": "governance",
+    "severity": "error"
+   },
+   {
+    "slug": "license-require-url",
+    "name": "License Require URL",
+    "experience": "governance",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-microcks-extension-valid",
+    "name": "Operation Microcks Extension Valid",
+    "experience": "governance",
+    "severity": "warn"
+   },
+   {
+    "slug": "require-paths-declared",
+    "name": "Require Paths Declared",
+    "experience": "governance",
+    "severity": "error"
+   },
+   {
+    "slug": "servers-on-approved-domain",
+    "name": "Servers On Approved Domain",
+    "experience": "governance",
+    "severity": "warn"
+   },
+   {
+    "slug": "spec-must-not-be-empty",
+    "name": "Spec Must Not Be Empty",
+    "experience": "governance",
+    "severity": "error"
+   },
+   {
+    "slug": "boolean-no-prefix",
+    "name": "Boolean No Prefix",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "custom-header-naming-format",
+    "name": "Custom Header Naming Format",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "example-keys-snake-case",
+    "name": "Example Keys Snake Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "header-names-hyphenated-pascal-case",
+    "name": "Header Names Hyphenated Pascal Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "headers-no-x-prefix",
+    "name": "Headers No X Prefix",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "info-title-capitalized",
+    "name": "Info Title Capitalized",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "no-api-prefix-in-paths",
+    "name": "No API Prefix In Paths",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "no-empty-path-segments",
+    "name": "No Empty Path Segments",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "no-environment-names-in-paths",
+    "name": "No Environment Names In Paths",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "no-file-extension-in-paths",
+    "name": "No File Extension In Paths",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "no-format-extensions-in-paths",
+    "name": "No Format Extensions In Paths",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "no-http-methods-in-paths",
+    "name": "No HTTP Methods In Paths",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "no-trailing-slash-in-paths",
+    "name": "No Trailing Slash In Paths",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "no-x-prefixed-request-headers",
+    "name": "No X Prefixed Request Headers",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "no-x-prefixed-response-headers",
+    "name": "No X Prefixed Response Headers",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-id-camel-case",
+    "name": "Operation ID Camel Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-id-url-safe",
+    "name": "Operation ID URL Safe",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-operationId-valid-in-url",
+    "name": "Operation OperationId Valid In URL",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-tags-title-case",
+    "name": "Operation Tags Title Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "parameter-enum-upper-snake-case",
+    "name": "Parameter Enum Upper Snake Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "parameter-keys-snake-case",
+    "name": "Parameter Keys Snake Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "parameter-name-max-length",
+    "name": "Parameter Name Max Length",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "parameter-names-camel-case",
+    "name": "Parameter Names Camel Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "parameter-require-name",
+    "name": "Parameter Require Name",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "path-no-http-method-names",
+    "name": "Path No HTTP Method Names",
+    "experience": "naming",
+    "severity": "hint"
+   },
+   {
+    "slug": "path-no-http-verbs",
+    "name": "Path No HTTP Verbs",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "path-no-invalid-symbols",
+    "name": "Path No Invalid Symbols",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "path-parameters-camel-case",
+    "name": "Path Parameters Camel Case",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "path-parameters-camel-case-2",
+    "name": "Path Parameters Camel Case 2",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "path-resources-plural",
+    "name": "Path Resources Plural",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "path-segments-kebab-case",
+    "name": "Path Segments Kebab Case",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "path-segments-kebab-case-2",
+    "name": "Path Segments Kebab Case 2",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "path-segments-kebab-case-3",
+    "name": "Path Segments Kebab Case 3",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "path-segments-kebab-case-4",
+    "name": "Path Segments Kebab Case 4",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "paths-no-file-extensions",
+    "name": "Paths No File Extensions",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "paths-no-query-string",
+    "name": "Paths No Query String",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "paths-no-trailing-slash",
+    "name": "Paths No Trailing Slash",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "paths-no-verbs",
+    "name": "Paths No Verbs",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "property-names-camel-case",
+    "name": "Property Names Camel Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "property-names-camel-case-2",
+    "name": "Property Names Camel Case 2",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "property-no-language-keywords",
+    "name": "Property No Language Keywords",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "property-no-prepositions",
+    "name": "Property No Prepositions",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "query-parameter-allowed-characters",
+    "name": "Query Parameter Allowed Characters",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "query-parameters-camel-case",
+    "name": "Query Parameters Camel Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "query-parameters-camel-case-2",
+    "name": "Query Parameters Camel Case 2",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "query-parameters-camel-case-3",
+    "name": "Query Parameters Camel Case 3",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "request-header-names-pascal-case",
+    "name": "Request Header Names Pascal Case",
+    "experience": "naming",
+    "severity": "hint"
+   },
+   {
+    "slug": "response-header-names-pascal-case",
+    "name": "Response Header Names Pascal Case",
+    "experience": "naming",
+    "severity": "hint"
+   },
+   {
+    "slug": "response-headers-no-x-prefix",
+    "name": "Response Headers No X Prefix",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "response-keys-snake-case",
+    "name": "Response Keys Snake Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "response-names-pascal-case",
+    "name": "Response Names Pascal Case",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "schema-definitions-camel-case",
+    "name": "Schema Definitions Camel Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-keys-snake-case",
+    "name": "Schema Keys Snake Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-name-max-length",
+    "name": "Schema Name Max Length",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-names-pascal-case",
+    "name": "Schema Names Pascal Case",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "schema-properties-camel-case",
+    "name": "Schema Properties Camel Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-properties-camel-case-2",
+    "name": "Schema Properties Camel Case 2",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-properties-camel-case-3",
+    "name": "Schema Properties Camel Case 3",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-property-enum-upper-snake-case",
+    "name": "Schema Property Enum Upper Snake Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-property-names-camel-case",
+    "name": "Schema Property Names Camel Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-property-names-length-limit",
+    "name": "Schema Property Names Length Limit",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "schema-require-name",
+    "name": "Schema Require Name",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "server-url-must-be-lowercase",
+    "name": "Server URL Must Be Lowercase",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "tag-names-title-case",
+    "name": "Tag Names Title Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "tag-no-camel-case",
+    "name": "Tag No Camel Case",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "tag-no-pascal-case",
+    "name": "Tag No Pascal Case",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "tag-no-version-info",
+    "name": "Tag No Version Info",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "use-fingerprint-not-hash",
+    "name": "Use Fingerprint Not Hash",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "use-id-not-identifier",
+    "name": "Use ID Not Identifier",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "use-org-not-organization",
+    "name": "Use Org Not Organization",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "collection-require-limit-parameter",
+    "name": "Collection Require Limit Parameter",
+    "experience": "pagination",
+    "severity": "error"
+   },
+   {
+    "slug": "collection-require-pagination-params",
+    "name": "Collection Require Pagination Params",
+    "experience": "pagination",
+    "severity": "warn"
+   },
+   {
+    "slug": "collection-require-results-array",
+    "name": "Collection Require Results Array",
+    "experience": "pagination",
+    "severity": "error"
+   },
+   {
+    "slug": "collection-response-support-paging",
+    "name": "Collection Response Support Paging",
+    "experience": "pagination",
+    "severity": "warn"
+   },
+   {
+    "slug": "pagination-params-in-query",
+    "name": "Pagination Params In Query",
+    "experience": "pagination",
+    "severity": "error"
+   },
+   {
+    "slug": "post-collection-require-paging-object",
+    "name": "Post Collection Require Paging Object",
+    "experience": "pagination",
+    "severity": "error"
+   },
+   {
+    "slug": "cache-headers-no-conflict",
+    "name": "Cache Headers No Conflict",
+    "experience": "reliability",
+    "severity": "info"
+   },
+   {
+    "slug": "delete-define-204-response",
+    "name": "Delete Define 204 Response",
+    "experience": "reliability",
+    "severity": "info"
+   },
+   {
+    "slug": "get-define-200-response",
+    "name": "Get Define 200 Response",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "no-$ref-siblings",
+    "name": "No $ref Siblings",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "oas3_1-callbacks-in-webhook",
+    "name": "1 Callbacks In Webhook",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "oas3_1-servers-in-webhook",
+    "name": "1 Servers In Webhook",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "oas3-callbacks-in-callbacks",
+    "name": "Callbacks In Callbacks",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "oas3-server-not-example.com",
+    "name": "Server Not Example.com",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "oas3-server-variables",
+    "name": "Server Variables",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "path-declarations-must-exist",
+    "name": "Path Declarations Must Exist",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "path-params",
+    "name": "Path Params",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "post-define-201-response",
+    "name": "Post Define 201 Response",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "require-status-health-check-path",
+    "name": "Require Status Health Check Path",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "require-tracing-headers",
+    "name": "Require Tracing Headers",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "responses-include-ratelimit-headers",
+    "name": "Responses Include Ratelimit Headers",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "success-response-require-ratelimit-headers",
+    "name": "Success Response Require Ratelimit Headers",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "throttled-response-require-retry-after",
+    "name": "Throttled Response Require Retry After",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "array-require-min-max-items",
+    "name": "Array Require Min Max Items",
+    "experience": "security",
+    "severity": "warn"
+   },
+   {
+    "slug": "avoid-integer-id-parameters",
+    "name": "Avoid Integer ID Parameters",
+    "experience": "security",
+    "severity": "warn"
+   },
+   {
+    "slug": "delete-define-401-response",
+    "name": "Delete Define 401 Response",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "get-define-401-response",
+    "name": "Get Define 401 Response",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "get-operation-require-security",
+    "name": "Get Operation Require Security",
+    "experience": "security",
+    "severity": "info"
+   },
+   {
+    "slug": "info-description-no-eval-tag",
+    "name": "Info Description No Eval Tag",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "info-description-no-script-tag",
+    "name": "Info Description No Script Tag",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "jwt-scheme-require-description",
+    "name": "JWT Scheme Require Description",
+    "experience": "security",
+    "severity": "warn"
+   },
+   {
+    "slug": "no-api-keys-in-query-parameters",
+    "name": "No API Keys In Query Parameters",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "no-eval-in-markdown",
+    "name": "No Eval In Markdown",
+    "experience": "security",
+    "severity": "warn"
+   },
+   {
+    "slug": "no-http-basic-auth",
+    "name": "No HTTP Basic Auth",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "no-script-tags-in-markdown",
+    "name": "No Script Tags In Markdown",
+    "experience": "security",
+    "severity": "warn"
+   },
+   {
+    "slug": "no-sensitive-data-in-headers",
+    "name": "No Sensitive Data In Headers",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "no-technology-leak-in-paths",
+    "name": "No Technology Leak In Paths",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "number-require-min-max",
+    "name": "Number Require Min Max",
+    "experience": "security",
+    "severity": "warn"
+   },
+   {
+    "slug": "oas3-operation-security-defined",
+    "name": "Operation Security Defined",
+    "experience": "security",
+    "severity": "warn"
+   },
+   {
+    "slug": "oauth-disallow-insecure-flows",
+    "name": "Oauth Disallow Insecure Flows",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "oauth-endpoints-require-https",
+    "name": "Oauth Endpoints Require HTTPS",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "oauth-scheme-require-description",
+    "name": "Oauth Scheme Require Description",
+    "experience": "security",
+    "severity": "warn"
+   },
+   {
+    "slug": "object-constrain-additional-properties",
+    "name": "Object Constrain Additional Properties",
+    "experience": "security",
+    "severity": "warn"
+   },
+   {
+    "slug": "object-disallow-additional-properties",
+    "name": "Object Disallow Additional Properties",
+    "experience": "security",
+    "severity": "warn"
+   },
+   {
+    "slug": "object-set-additional-properties",
+    "name": "Object Set Additional Properties",
+    "experience": "security",
+    "severity": "warn"
+   },
+   {
+    "slug": "operation-require-security",
+    "name": "Operation Require Security",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-require-security-2",
+    "name": "Operation Require Security 2",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "operation-security-use-defined-scheme",
+    "name": "Operation Security Use Defined Scheme",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "post-define-401-response",
+    "name": "Post Define 401 Response",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "put-define-401-response",
+    "name": "Put Define 401 Response",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "require-https-servers",
+    "name": "Require HTTPS Servers",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "require-https-servers-2",
+    "name": "Require HTTPS Servers 2",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "require-root-security",
+    "name": "Require Root Security",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "require-root-security-scheme",
+    "name": "Require Root Security Scheme",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "require-security-schemes",
+    "name": "Require Security Schemes",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "server-url-require-https",
+    "name": "Server URL Require HTTPS",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "servers-must-use-https",
+    "name": "Servers Must Use HTTPS",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "string-require-max-length",
+    "name": "String Require Max Length",
+    "experience": "security",
+    "severity": "warn"
+   },
+   {
+    "slug": "string-require-pattern-or-format",
+    "name": "String Require Pattern Or Format",
+    "experience": "security",
+    "severity": "hint"
+   },
+   {
+    "slug": "write-operation-require-security",
+    "name": "Write Operation Require Security",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "limit-nested-sub-resources",
+    "name": "Limit Nested Sub Resources",
+    "experience": "usability",
+    "severity": "warn"
+   },
+   {
+    "slug": "limit-path-length",
+    "name": "Limit Path Length",
+    "experience": "usability",
+    "severity": "warn"
+   },
+   {
+    "slug": "limit-path-parameters",
+    "name": "Limit Path Parameters",
+    "experience": "usability",
+    "severity": "warn"
+   },
+   {
+    "slug": "oas3-api-servers",
+    "name": "API Servers",
+    "experience": "usability",
+    "severity": "warn"
+   },
+   {
+    "slug": "path-require-query-parameter",
+    "name": "Path Require Query Parameter",
+    "experience": "usability",
+    "severity": "warn"
+   },
+   {
+    "slug": "query-parameters-must-be-optional",
+    "name": "Query Parameters Must Be Optional",
+    "experience": "usability",
+    "severity": "error"
+   },
+   {
+    "slug": "require-servers-defined",
+    "name": "Require Servers Defined",
+    "experience": "usability",
+    "severity": "error"
+   },
+   {
+    "slug": "servers-must-not-specify-port",
+    "name": "Servers Must Not Specify Port",
+    "experience": "usability",
+    "severity": "error"
+   },
+   {
+    "slug": "info-require-version",
+    "name": "Info Require Version",
+    "experience": "versioning",
+    "severity": "error"
+   },
+   {
+    "slug": "paths-include-version",
+    "name": "Paths Include Version",
+    "experience": "versioning",
+    "severity": "error"
+   },
+   {
+    "slug": "paths-no-version-segment",
+    "name": "Paths No Version Segment",
+    "experience": "versioning",
+    "severity": "error"
+   },
+   {
+    "slug": "require-openapi-version-3x",
+    "name": "Require Openapi Version 3x",
+    "experience": "versioning",
+    "severity": "error"
+   },
+   {
+    "slug": "server-url-include-version",
+    "name": "Server URL Include Version",
+    "experience": "versioning",
+    "severity": "warn"
+   },
+   {
+    "slug": "uri-versioning-single-version",
+    "name": "URI Versioning Single Version",
+    "experience": "versioning",
+    "severity": "error"
+   },
+   {
+    "slug": "version-must-be-semver",
+    "name": "Version Must Be Semver",
+    "experience": "versioning",
+    "severity": "error"
+   },
+   {
+    "slug": "version-must-use-semver",
+    "name": "Version Must Use Semver",
+    "experience": "versioning",
+    "severity": "warn"
+   },
+   {
+    "slug": "version-semantic-and-stable",
+    "name": "Version Semantic And Stable",
+    "experience": "versioning",
+    "severity": "error"
+   }
+  ]
+ },
+ "apis-json": {
+  "label": "APIs.json",
+  "rules": [
+   {
+    "slug": "api-property-require-valid-url",
+    "name": "API Property Require Valid URL",
+    "experience": "consistency",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-vocabulary",
+    "name": "API Property Require Vocabulary",
+    "experience": "consistency",
+    "severity": "info"
+   },
+   {
+    "slug": "api-entry-require-tags",
+    "name": "API Entry Require Tags",
+    "experience": "discoverability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-include-contact",
+    "name": "API Include Contact",
+    "experience": "discoverability",
+    "severity": "warn"
+   },
+   {
+    "slug": "api-property-require-road-map",
+    "name": "API Property Require Road Map",
+    "experience": "discoverability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-require-aid",
+    "name": "API Require Aid",
+    "experience": "discoverability",
+    "severity": "error"
+   },
+   {
+    "slug": "include-developer-portal",
+    "name": "Include Developer Portal",
+    "experience": "discoverability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-github-organization",
+    "name": "Include Github Organization",
+    "experience": "discoverability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-github-repository",
+    "name": "Include Github Repository",
+    "experience": "discoverability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-include-about-page",
+    "name": "API Include About Page",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-use-cases",
+    "name": "API Property Require Use Cases",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-video",
+    "name": "API Property Require Video",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "contact-include-email",
+    "name": "Contact Include Email",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "contact-include-full-name",
+    "name": "Contact Include Full Name",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "include-blog",
+    "name": "Include Blog",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "include-blog-feed",
+    "name": "Include Blog Feed",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "include-documentation",
+    "name": "Include Documentation",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "include-examples",
+    "name": "Include Examples",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "include-getting-started",
+    "name": "Include Getting Started",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "include-openapi-definition",
+    "name": "Include Openapi Definition",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-linting-rules",
+    "name": "API Property Require Linting Rules",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-team",
+    "name": "API Property Require Team",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-terms-of-service",
+    "name": "API Property Require Terms Of Service",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-api-lifecycle",
+    "name": "Include API Lifecycle",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-business-impact-canvas",
+    "name": "Include Business Impact Canvas",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-business-model-canvas",
+    "name": "Include Business Model Canvas",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-business-validator",
+    "name": "Include Business Validator",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-capacity-canvas",
+    "name": "Include Capacity Canvas",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-customer-journey-canvas",
+    "name": "Include Customer Journey Canvas",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-domain-canvas",
+    "name": "Include Domain Canvas",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-event-canvas",
+    "name": "Include Event Canvas",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-gateway-reference",
+    "name": "Include Gateway Reference",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-github-action",
+    "name": "Include Github Action",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-governance-policies",
+    "name": "Include Governance Policies",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-interaction-canvas",
+    "name": "Include Interaction Canvas",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-interface-license",
+    "name": "Include Interface License",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-locations-canvas",
+    "name": "Include Locations Canvas",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-openapi-governance-rules",
+    "name": "Include Openapi Governance Rules",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-openapi-validator",
+    "name": "Include Openapi Validator",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-operational-rules",
+    "name": "Include Operational Rules",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-privacy-policy",
+    "name": "Include Privacy Policy",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-rest-canvas",
+    "name": "Include Rest Canvas",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "include-value-proposition-canvas",
+    "name": "Include Value Proposition Canvas",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "api-tags-require-upper-case",
+    "name": "API Tags Require Upper Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "tags-require-upper-case",
+    "name": "Tags Require Upper Case",
+    "experience": "naming",
+    "severity": "error"
+   },
+   {
+    "slug": "api-property-require-status-page",
+    "name": "API Property Require Status Page",
+    "experience": "reliability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-performance-testing",
+    "name": "Include Performance Testing",
+    "experience": "reliability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-rate-limits-reference",
+    "name": "Include Rate Limits Reference",
+    "experience": "reliability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-security-page",
+    "name": "API Property Require Security Page",
+    "experience": "security",
+    "severity": "info"
+   },
+   {
+    "slug": "include-authentication-page",
+    "name": "Include Authentication Page",
+    "experience": "security",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-go-sdk",
+    "name": "API Property Require Go SDK",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-java-sdk",
+    "name": "API Property Require Java SDK",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-node-sdk",
+    "name": "API Property Require Node SDK",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-python-sdk",
+    "name": "API Property Require Python SDK",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-sandbox",
+    "name": "API Property Require Sandbox",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-sdk",
+    "name": "API Property Require SDK",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-signup",
+    "name": "API Property Require Signup",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-support-email",
+    "name": "API Property Require Support Email",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-support-issues-url",
+    "name": "API Property Require Support Issues URL",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-support-page",
+    "name": "API Property Require Support Page",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-require-base-url",
+    "name": "API Require Base URL",
+    "experience": "usability",
+    "severity": "error"
+   },
+   {
+    "slug": "include-api-plans",
+    "name": "Include API Plans",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-discussion-forum",
+    "name": "Include Discussion Forum",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-feedback-email",
+    "name": "Include Feedback Email",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-feedback-issues-url",
+    "name": "Include Feedback Issues URL",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-insomnia-collection",
+    "name": "Include Insomnia Collection",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-mock-server",
+    "name": "Include Mock Server",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-postman-collection",
+    "name": "Include Postman Collection",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-postman-public-workspace",
+    "name": "Include Postman Public Workspace",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-pricing",
+    "name": "Include Pricing",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-production-environment",
+    "name": "Include Production Environment",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-questions-issues-url",
+    "name": "Include Questions Issues URL",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "include-staging-environment",
+    "name": "Include Staging Environment",
+    "experience": "usability",
+    "severity": "info"
+   },
+   {
+    "slug": "api-property-require-versioning",
+    "name": "API Property Require Versioning",
+    "experience": "versioning",
+    "severity": "info"
+   },
+   {
+    "slug": "include-change-log",
+    "name": "Include Change Log",
+    "experience": "versioning",
+    "severity": "info"
+   },
+   {
+    "slug": "include-deprecation-policy",
+    "name": "Include Deprecation Policy",
+    "experience": "versioning",
+    "severity": "info"
+   },
+   {
+    "slug": "include-version-comparison",
+    "name": "Include Version Comparison",
+    "experience": "versioning",
+    "severity": "info"
+   }
+  ]
+ },
+ "asyncapi": {
+  "label": "AsyncAPI",
+  "rules": [
+   {
+    "slug": "asyncapi-3-channel-no-query-nor-fragment",
+    "name": "Asyncapi 3 Channel No Query Nor Fragment",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-3-channel-no-trailing-slash",
+    "name": "Asyncapi 3 Channel No Trailing Slash",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-3-server-no-trailing-slash",
+    "name": "Asyncapi 3 Server No Trailing Slash",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-3-tags-alphabetical",
+    "name": "Asyncapi 3 Tags Alphabetical",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-3-tags-uniqueness",
+    "name": "Asyncapi 3 Tags Uniqueness",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-channel-no-query-nor-fragment",
+    "name": "Asyncapi Channel No Query Nor Fragment",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-channel-no-trailing-slash",
+    "name": "Asyncapi Channel No Trailing Slash",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-message-messageId-uniqueness",
+    "name": "Asyncapi Message MessageId Uniqueness",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-operation-operationId",
+    "name": "Asyncapi Operation OperationId",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-operation-operationId-uniqueness",
+    "name": "Asyncapi Operation OperationId Uniqueness",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-server-no-trailing-slash",
+    "name": "Asyncapi Server No Trailing Slash",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-tags-alphabetical",
+    "name": "Asyncapi Tags Alphabetical",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-tags-uniqueness",
+    "name": "Asyncapi Tags Uniqueness",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-unused-components-schema",
+    "name": "Asyncapi Unused Components Schema",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-unused-components-server",
+    "name": "Asyncapi Unused Components Server",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-3-document-resolved",
+    "name": "Asyncapi 3 Document Resolved",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-3-document-unresolved",
+    "name": "Asyncapi 3 Document Unresolved",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-3-headers-schema-type-object",
+    "name": "Asyncapi 3 Headers Schema Type Object",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-3-payload-unsupported-schemaFormat",
+    "name": "Asyncapi 3 Payload Unsupported SchemaFormat",
+    "experience": "data-modeling",
+    "severity": "info"
+   },
+   {
+    "slug": "asyncapi-headers-schema-type-object",
+    "name": "Asyncapi Headers Schema Type Object",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-message-examples",
+    "name": "Asyncapi Message Examples",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-payload",
+    "name": "Asyncapi Payload",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-payload-default",
+    "name": "Asyncapi Payload Default",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-payload-examples",
+    "name": "Asyncapi Payload Examples",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-payload-unsupported-schemaFormat",
+    "name": "Asyncapi Payload Unsupported SchemaFormat",
+    "experience": "data-modeling",
+    "severity": "info"
+   },
+   {
+    "slug": "asyncapi-schema",
+    "name": "Asyncapi Schema",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-schema-default",
+    "name": "Asyncapi Schema Default",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-schema-examples",
+    "name": "Asyncapi Schema Examples",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-3-tags",
+    "name": "Asyncapi 3 Tags",
+    "experience": "discoverability",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-tags",
+    "name": "Asyncapi Tags",
+    "experience": "discoverability",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-3-operation-description",
+    "name": "Asyncapi 3 Operation Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-3-tag-description",
+    "name": "Asyncapi 3 Tag Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-info-contact",
+    "name": "Asyncapi Info Contact",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-info-contact-properties",
+    "name": "Asyncapi Info Contact Properties",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-info-description",
+    "name": "Asyncapi Info Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-info-license",
+    "name": "Asyncapi Info License",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-info-license-url",
+    "name": "Asyncapi Info License URL",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-operation-description",
+    "name": "Asyncapi Operation Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-parameter-description",
+    "name": "Asyncapi Parameter Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-tag-description",
+    "name": "Asyncapi Tag Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-3-channel-no-empty-parameter",
+    "name": "Asyncapi 3 Channel No Empty Parameter",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-3-channel-servers",
+    "name": "Asyncapi 3 Channel Servers",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-3-server-no-empty-variable",
+    "name": "Asyncapi 3 Server No Empty Variable",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-3-server-not-example-com",
+    "name": "Asyncapi 3 Server Not Example Com",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-channel-no-empty-parameter",
+    "name": "Asyncapi Channel No Empty Parameter",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-channel-parameters",
+    "name": "Asyncapi Channel Parameters",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-channel-servers",
+    "name": "Asyncapi Channel Servers",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-server-no-empty-variable",
+    "name": "Asyncapi Server No Empty Variable",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-server-not-example-com",
+    "name": "Asyncapi Server Not Example Com",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-server-variables",
+    "name": "Asyncapi Server Variables",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-3-operation-security",
+    "name": "Asyncapi 3 Operation Security",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-operation-security",
+    "name": "Asyncapi Operation Security",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-server-security",
+    "name": "Asyncapi Server Security",
+    "experience": "security",
+    "severity": "error"
+   },
+   {
+    "slug": "asyncapi-servers",
+    "name": "Asyncapi Servers",
+    "experience": "usability",
+    "severity": "warn"
+   },
+   {
+    "slug": "asyncapi-latest-version",
+    "name": "Asyncapi Latest Version",
+    "experience": "versioning",
+    "severity": "info"
+   }
+  ]
+ },
+ "arazzo": {
+  "label": "Arazzo",
+  "rules": [
+   {
+    "slug": "arazzo-step-operationPath",
+    "name": "Arazzo Step OperationPath",
+    "experience": "consistency",
+    "severity": "hint"
+   },
+   {
+    "slug": "arazzo-workflow-stepId-unique",
+    "name": "Arazzo Workflow StepId Unique",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "arazzo-workflowId-unique",
+    "name": "Arazzo WorkflowId Unique",
+    "experience": "consistency",
+    "severity": "error"
+   },
+   {
+    "slug": "arazzo-document-schema",
+    "name": "Arazzo Document Schema",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "arazzo-step-output-validation",
+    "name": "Arazzo Step Output Validation",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "arazzo-workflow-output-validation",
+    "name": "Arazzo Workflow Output Validation",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "arazzo-info-description",
+    "name": "Arazzo Info Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "arazzo-info-summary",
+    "name": "Arazzo Info Summary",
+    "experience": "documentation",
+    "severity": "hint"
+   },
+   {
+    "slug": "arazzo-step-description",
+    "name": "Arazzo Step Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "arazzo-workflow-description",
+    "name": "Arazzo Workflow Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "arazzo-workflow-summary",
+    "name": "Arazzo Workflow Summary",
+    "experience": "documentation",
+    "severity": "hint"
+   },
+   {
+    "slug": "arazzo-step-failure-actions-validation",
+    "name": "Arazzo Step Failure Actions Validation",
+    "experience": "error-handling",
+    "severity": "error"
+   },
+   {
+    "slug": "arazzo-step-stepId",
+    "name": "Arazzo Step StepId",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "arazzo-workflow-workflowId",
+    "name": "Arazzo Workflow WorkflowId",
+    "experience": "naming",
+    "severity": "warn"
+   },
+   {
+    "slug": "arazzo-source-descriptions-type",
+    "name": "Arazzo Source Descriptions Type",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "arazzo-step-parameters-validation",
+    "name": "Arazzo Step Parameters Validation",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "arazzo-step-request-body-validation",
+    "name": "Arazzo Step Request Body Validation",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "arazzo-step-success-actions-validation",
+    "name": "Arazzo Step Success Actions Validation",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "arazzo-step-success-criteria-validation",
+    "name": "Arazzo Step Success Criteria Validation",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "arazzo-step-validation",
+    "name": "Arazzo Step Validation",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "arazzo-workflow-depends-on-validation",
+    "name": "Arazzo Workflow Depends On Validation",
+    "experience": "reliability",
+    "severity": "error"
+   },
+   {
+    "slug": "arazzo-no-script-tags-in-markdown",
+    "name": "Arazzo No Script Tags In Markdown",
+    "experience": "security",
+    "severity": "warn"
+   }
+  ]
+ },
+ "json-schema": {
+  "label": "JSON Schema",
+  "rules": [
+   {
+    "slug": "property-require-type",
+    "name": "Property Require Type",
+    "experience": "data-modeling",
+    "severity": "info"
+   },
+   {
+    "slug": "require-id",
+    "name": "Require ID",
+    "experience": "data-modeling",
+    "severity": "info"
+   },
+   {
+    "slug": "require-properties",
+    "name": "Require Properties",
+    "experience": "data-modeling",
+    "severity": "info"
+   },
+   {
+    "slug": "require-required-list",
+    "name": "Require Required List",
+    "experience": "data-modeling",
+    "severity": "info"
+   },
+   {
+    "slug": "require-schema",
+    "name": "Require Schema",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "require-type",
+    "name": "Require Type",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "property-require-description",
+    "name": "Property Require Description",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "require-description",
+    "name": "Require Description",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "require-title",
+    "name": "Require Title",
+    "experience": "documentation",
+    "severity": "info"
+   }
+  ]
+ },
+ "json-structure": {
+  "label": "JSON Structure",
+  "rules": [
+   {
+    "slug": "property-require-type",
+    "name": "Property Require Type",
+    "experience": "data-modeling",
+    "severity": "info"
+   },
+   {
+    "slug": "require-id",
+    "name": "Require ID",
+    "experience": "data-modeling",
+    "severity": "info"
+   },
+   {
+    "slug": "require-name",
+    "name": "Require Name",
+    "experience": "data-modeling",
+    "severity": "info"
+   },
+   {
+    "slug": "require-properties",
+    "name": "Require Properties",
+    "experience": "data-modeling",
+    "severity": "info"
+   },
+   {
+    "slug": "require-schema",
+    "name": "Require Schema",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "require-type",
+    "name": "Require Type",
+    "experience": "data-modeling",
+    "severity": "warn"
+   }
+  ]
+ },
+ "json-ld": {
+  "label": "JSON-LD",
+  "rules": [
+   {
+    "slug": "require-context",
+    "name": "Require Context",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "require-id",
+    "name": "Require ID",
+    "experience": "data-modeling",
+    "severity": "info"
+   },
+   {
+    "slug": "require-type",
+    "name": "Require Type",
+    "experience": "data-modeling",
+    "severity": "warn"
+   }
+  ]
+ },
+ "mcp": {
+  "label": "MCP",
+  "rules": [
+   {
+    "slug": "capability-require-prompts",
+    "name": "Capability Require Prompts",
+    "experience": "data-modeling",
+    "severity": "info"
+   },
+   {
+    "slug": "capability-require-resources",
+    "name": "Capability Require Resources",
+    "experience": "data-modeling",
+    "severity": "info"
+   },
+   {
+    "slug": "capability-require-tools",
+    "name": "Capability Require Tools",
+    "experience": "data-modeling",
+    "severity": "info"
+   },
+   {
+    "slug": "require-capabilities",
+    "name": "Require Capabilities",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "require-name",
+    "name": "Require Name",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "require-description",
+    "name": "Require Description",
+    "experience": "documentation",
+    "severity": "warn"
+   },
+   {
+    "slug": "require-instructions",
+    "name": "Require Instructions",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "require-protocol-version",
+    "name": "Require Protocol Version",
+    "experience": "versioning",
+    "severity": "info"
+   },
+   {
+    "slug": "require-version",
+    "name": "Require Version",
+    "experience": "versioning",
+    "severity": "warn"
+   }
+  ]
+ },
+ "plans": {
+  "label": "Plans",
+  "rules": [
+   {
+    "slug": "plan-require-name",
+    "name": "Plan Require Name",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "require-name",
+    "name": "Require Name",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "require-plans",
+    "name": "Require Plans",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "plan-require-description",
+    "name": "Plan Require Description",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "require-description",
+    "name": "Require Description",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "plan-require-limits",
+    "name": "Plan Require Limits",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "plan-require-price",
+    "name": "Plan Require Price",
+    "experience": "governance",
+    "severity": "warn"
+   },
+   {
+    "slug": "require-currency",
+    "name": "Require Currency",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "plan-require-features",
+    "name": "Plan Require Features",
+    "experience": "usability",
+    "severity": "info"
+   }
+  ]
+ },
+ "rate-limits": {
+  "label": "Rate Limits",
+  "rules": [
+   {
+    "slug": "limit-require-name",
+    "name": "Limit Require Name",
+    "experience": "data-modeling",
+    "severity": "warn"
+   },
+   {
+    "slug": "require-name",
+    "name": "Require Name",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "require-description",
+    "name": "Require Description",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "limit-require-max",
+    "name": "Limit Require Max",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "limit-require-scope",
+    "name": "Limit Require Scope",
+    "experience": "reliability",
+    "severity": "info"
+   },
+   {
+    "slug": "limit-require-window",
+    "name": "Limit Require Window",
+    "experience": "reliability",
+    "severity": "warn"
+   },
+   {
+    "slug": "require-limits",
+    "name": "Require Limits",
+    "experience": "reliability",
+    "severity": "error"
+   }
+  ]
+ },
+ "finops": {
+  "label": "FinOps",
+  "rules": [
+   {
+    "slug": "finops-require-name",
+    "name": "Finops Require Name",
+    "experience": "data-modeling",
+    "severity": "error"
+   },
+   {
+    "slug": "finops-require-description",
+    "name": "Finops Require Description",
+    "experience": "documentation",
+    "severity": "info"
+   },
+   {
+    "slug": "finops-cost-require-monthly",
+    "name": "Finops Cost Require Monthly",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "finops-cost-require-service",
+    "name": "Finops Cost Require Service",
+    "experience": "governance",
+    "severity": "warn"
+   },
+   {
+    "slug": "finops-require-budget",
+    "name": "Finops Require Budget",
+    "experience": "governance",
+    "severity": "warn"
+   },
+   {
+    "slug": "finops-require-costs",
+    "name": "Finops Require Costs",
+    "experience": "governance",
+    "severity": "info"
+   },
+   {
+    "slug": "finops-require-currency",
+    "name": "Finops Require Currency",
+    "experience": "governance",
+    "severity": "warn"
+   }
+  ]
+ }
+}

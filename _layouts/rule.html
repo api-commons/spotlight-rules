@@ -1,0 +1,50 @@
+---
+layout: default
+---
+{% assign sc = 'secondary' %}
+{% if page.severity == 'error' %}{% assign sc = 'danger' %}
+{% elsif page.severity == 'warn' %}{% assign sc = 'warning text-dark' %}
+{% elsif page.severity == 'info' %}{% assign sc = 'info text-dark' %}{% endif %}
+
+<nav class="small text-muted mb-2">
+  <a href="/spec/">Spotlight Spec</a> ›
+  <a href="/spec/#{{ page.artifact }}">{{ page.artifact_label }}</a> ›
+  {{ page.title }}
+</nav>
+
+<h1 class="mb-1">{{ page.title }}</h1>
+<p class="text-muted mb-3"><code>{{ page.slug }}</code>{% if page.builtin %} · <span class="badge bg-secondary">built-in</span>{% endif %}</p>
+
+<div class="d-flex flex-wrap gap-2 mb-3">
+  <span class="badge bg-{{ sc }}">{{ page.severity }}</span>
+  {% for e in page.experience %}<span class="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle">experience: {{ e }}</span>{% endfor %}
+  {% for s in page.spec %}<span class="badge rounded-pill bg-primary-subtle text-primary-emphasis border border-primary-subtle">spec: {{ s }}</span>{% endfor %}
+</div>
+
+{% if page.message %}<p class="lead">{{ page.message }}</p>{% endif %}
+
+<div class="content">{{ page.description | markdownify }}</div>
+
+<table class="table table-sm mt-4">
+  <tbody>
+    <tr><th scope="row" class="text-muted" style="width:11rem">Artifact</th><td>{{ page.artifact_label }}</td></tr>
+    <tr><th scope="row" class="text-muted">Applies at (given)</th><td><code>{{ page.given }}</code></td></tr>
+    <tr><th scope="row" class="text-muted">Severity</th><td>{{ page.severity }}</td></tr>
+    {% if page.source.size > 0 %}<tr><th scope="row" class="text-muted">Source</th><td>{{ page.source | join: ", " }}</td></tr>{% endif %}
+  </tbody>
+</table>
+
+{% assign list = site.data.rule_index[page.artifact].rules %}
+{% assign pos = -1 %}
+{% for r in list %}{% if r.slug == page.slug %}{% assign pos = forloop.index0 %}{% break %}{% endif %}{% endfor %}
+<div class="d-flex justify-content-between align-items-center border-top pt-3 mt-4 gap-3">
+  {% assign pp = pos | minus: 1 %}
+  {% assign np = pos | plus: 1 %}
+  <div class="text-start" style="max-width:45%">
+    {% if pos > 0 %}{% assign prev = list[pp] %}<a href="/spec/rules/{{ page.artifact }}/{{ prev.slug }}/">← {{ prev.name }}</a>{% endif %}
+  </div>
+  <a href="/spec/#{{ page.artifact }}" class="text-muted small">all {{ page.artifact_label }} rules</a>
+  <div class="text-end" style="max-width:45%">
+    {% if np < list.size %}{% assign nxt = list[np] %}<a href="/spec/rules/{{ page.artifact }}/{{ nxt.slug }}/">{{ nxt.name }} →</a>{% endif %}
+  </div>
+</div>

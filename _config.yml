@@ -27,3 +27,8 @@ exclude:
   - vendor
 
 permalink: pretty
+
+collections:
+  rules:
+    output: true
+    permalink: /spec/rules/:path/
