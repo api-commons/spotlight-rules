@@ -3526,6 +3526,12 @@
   "label": "Agent Skill",
   "rules": [
    {
+    "slug": "skill-single-title",
+    "name": "Skill Single Title",
+    "experience": "consistency",
+    "severity": "warn"
+   },
+   {
     "slug": "skill-description",
     "name": "Skill Description",
     "experience": "discoverability",
@@ -3536,6 +3542,18 @@
     "name": "Skill Description Length",
     "experience": "discoverability",
     "severity": "warn"
+   },
+   {
+    "slug": "skill-body-present",
+    "name": "Skill Body Present",
+    "experience": "documentation",
+    "severity": "error"
+   },
+   {
+    "slug": "skill-has-examples-section",
+    "name": "Skill Has Examples Section",
+    "experience": "documentation",
+    "severity": "info"
    },
    {
     "slug": "skill-has-usage-section",
@@ -3572,6 +3590,12 @@
     "name": "Skill Body Length",
     "experience": "usability",
     "severity": "info"
+   },
+   {
+    "slug": "skill-version-semver",
+    "name": "Skill Version Semver",
+    "experience": "versioning",
+    "severity": "warn"
    }
   ]
  }
