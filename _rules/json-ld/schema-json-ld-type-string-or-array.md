@@ -5,7 +5,7 @@ artifact_label: JSON-LD
 slug: schema-json-ld-type-string-or-array
 title: Schema JSON LD Type String Or Array
 severity: info
-given: $.@type
+given: $['@type']
 message: "@type should be a string or array."
 description: "@type should be a string or an array of type strings."
 experience:

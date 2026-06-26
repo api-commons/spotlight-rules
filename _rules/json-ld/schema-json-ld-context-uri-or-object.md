@@ -5,7 +5,7 @@ artifact_label: JSON-LD
 slug: schema-json-ld-context-uri-or-object
 title: Schema JSON LD Context URI Or Object
 severity: info
-given: $.@context
+given: $['@context']
 message: "@context should be a URI, object, or array."
 description: "@context should be a URI string, an inline object, or an array of those."
 experience:

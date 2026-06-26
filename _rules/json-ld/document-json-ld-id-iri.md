@@ -5,7 +5,7 @@ artifact_label: JSON-LD
 slug: document-json-ld-id-iri
 title: Document JSON LD ID IRI
 severity: info
-given: $.@id
+given: $['@id']
 message: "@id should be an IRI."
 description: "@id should be an IRI (https://, urn:, did:) or a blank-node identifier."
 experience:
