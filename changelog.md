@@ -35,6 +35,40 @@ one-time launch record. Each repository also keeps its own changelog
 
 ## Project history
 
+### 2026-06-26 — Curated rule catalog + the validator as a workbench
+
+- **One curated catalog of 733 rules across 12 artifact types** now drives both the
+  validator and the [rule explorer](/spec/). Every rule carries a Title Case
+  `title`, namespaced `tags` (`format:` / `spec:` / `experience:` / `topic:` /
+  `owasp:`), a canonical `reference` URL, and an AI **`prompt`**. Rules ship at
+  `info` by default — educate first, raise to `warn`/`error` to enforce.
+- **spotlight-validator** grew from a linter into a workbench: **AI Fix** (Claude /
+  Gemini / ChatGPT — whole-document or precise single-node fragment splice), a
+  **tag filter** across Results + Rules, a **Utilities** tab of per-artifact
+  transforms (componentize, split, extract schemas, prune, migrate drafts,
+  flatten, bundle `$ref`s, …), a **Repos** tab with **commit / PR** of any saved
+  artifact to GitHub, and **Download as APIs.json** (0.21). The validator now runs
+  the curated catalog directly.
+
+### 2026-06-26 — Spec extensions + JSON Schema 2020-12
+
+- Added three first-class Spotlight rule properties beyond the Spectral baseline,
+  documented in [spotlight-spec](/spec/#schema): **`title`**, **`reference`**, and
+  **`prompt`** (joining `tags`). Bumped the ruleset JSON Schema to **2020-12**.
+
+### 2026-06-25 — The governance suite (api · mcp · discovery · pipeline)
+
+- **spotlight-api** — an OpenAPI-first HTTP service over the engine (`POST /lint`,
+  list rulesets, validate a ruleset, list formats).
+- **spotlight-mcp** — a Model Context Protocol server exposing lint + rulesets to
+  any AI client.
+- **spotlight-discovery** — a browser artifact registry: search APIs.io +
+  GitHub/GitLab/Bitbucket, keep provenance, save locally or commit/PR to git.
+- **spotlight-pipeline** — governance-gate CI: a composite GitHub Action plus
+  templates for GitLab, Bitbucket, Azure, and AWS.
+- **Agent skills** became a first-class artifact (`spotlight:skill` lints
+  `SKILL.md`); APIs.io now indexes Arazzo, APIs.json, and skills.
+
 ### 2026-06-23 — spotlight-validator
 
 - **spotlight-validator** — Launched a browser-based API governance playground at
