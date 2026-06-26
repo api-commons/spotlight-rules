@@ -5,7 +5,7 @@ artifact_label: OpenAPI
 slug: path-delete-no-response-body
 title: Path Delete No Response Body
 severity: info
-given: $.paths.*.
+given: $.paths.*
 message: "{{error}}"
 description: Check if the delete response does not have any body.
 experience:

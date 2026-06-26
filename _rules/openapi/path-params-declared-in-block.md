@@ -5,7 +5,7 @@ artifact_label: OpenAPI
 slug: path-params-declared-in-block
 title: Path Params Declared In Block
 severity: info
-given: $.paths.
+given: $.paths
 message: "{{error}}"
 description: Check for the path parameter in the parameter block.
 experience:

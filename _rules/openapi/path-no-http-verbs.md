@@ -5,7 +5,7 @@ artifact_label: OpenAPI
 slug: path-no-http-verbs
 title: Path No HTTP Verbs
 severity: info
-given: $.paths
+given: $.paths[*]~
 message: "{{property}} has HTTP verb in path: {{error}}"
 description: HTTP verbs should be not be in URL paths.
 experience:

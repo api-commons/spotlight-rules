@@ -5,7 +5,7 @@ artifact_label: OpenAPI
 slug: path-get-response-support-json
 title: Path Get Response Support JSON
 severity: info
-given: $.paths.*.
+given: $.paths.*
 message: "{{error}}"
 description: All APIs returning structured data SHOULD support JSON as the default format.
 experience:

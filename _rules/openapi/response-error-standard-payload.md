@@ -5,7 +5,7 @@ artifact_label: OpenAPI
 slug: response-error-standard-payload
 title: Response Error Standard Payload
 severity: info
-given: $.paths.*.*.responses.
+given: $.paths.*.*.responses
 message: "{{error}}"
 description: All 4XX and 5XX response codes must follow Trimble API Standard.
 experience:

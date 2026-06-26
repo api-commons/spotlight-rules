@@ -5,7 +5,7 @@ artifact_label: OpenAPI
 slug: path-require-query-parameter
 title: Path Require Query Parameter
 severity: info
-given: $.paths
+given: $.paths[*]~
 message: "{{error}}"
 description: Check if the given resource path has queryparameter.
 experience:

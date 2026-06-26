@@ -5,7 +5,7 @@ artifact_label: OpenAPI
 slug: path-success-response-require-description
 title: Path Success Response Require Description
 severity: info
-given: $.paths.*.
+given: $.paths.*
 message: "{{error}}"
 description: Check if the response description is appropriate for all requests.
 experience:

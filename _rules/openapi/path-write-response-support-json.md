@@ -5,7 +5,7 @@ artifact_label: OpenAPI
 slug: path-write-response-support-json
 title: Path Write Response Support JSON
 severity: info
-given: $.paths.*.
+given: $.paths.*
 message: "{{error}}"
 description: All APIs returning structured data SHOULD support JSON as the default format.
 experience:

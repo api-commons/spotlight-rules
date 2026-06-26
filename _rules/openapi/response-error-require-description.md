@@ -5,7 +5,7 @@ artifact_label: OpenAPI
 slug: response-error-require-description
 title: Response Error Require Description
 severity: info
-given: $.paths.*.*.responses.
+given: $.paths.*.*.responses
 message: "{{error}}"
 description: Check if the response description is appropriate for all requests.
 experience:
