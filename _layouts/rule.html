@@ -19,18 +19,28 @@ layout: default
   <span class="badge bg-{{ sc }}">{{ page.severity }}</span>
   {% for e in page.experience %}<span class="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle">experience: {{ e }}</span>{% endfor %}
   {% for s in page.spec %}<span class="badge rounded-pill bg-primary-subtle text-primary-emphasis border border-primary-subtle">spec: {{ s }}</span>{% endfor %}
+  {% for t in page.topic %}<span class="badge rounded-pill bg-info-subtle text-info-emphasis border border-info-subtle">topic: {{ t }}</span>{% endfor %}
+  {% for o in page.owasp %}<span class="badge rounded-pill bg-danger-subtle text-danger-emphasis border border-danger-subtle">owasp: {{ o }}</span>{% endfor %}
 </div>
 
 {% if page.message %}<p class="lead">{{ page.message }}</p>{% endif %}
 
 <div class="content">{{ page.description | markdownify }}</div>
 
+{% if page.prompt %}
+<details class="mt-4 border rounded p-3 bg-body-tertiary">
+  <summary class="fw-semibold">AI fix prompt <span class="text-muted small fw-normal">— send this to Claude, Gemini, or ChatGPT with your artifact to auto-fix this rule</span></summary>
+  <pre class="mt-3 mb-2 p-3 bg-body border rounded" style="white-space:pre-wrap"><code id="fixprompt">{{ page.prompt }}</code></pre>
+  <button class="btn btn-sm btn-outline-secondary" onclick="navigator.clipboard.writeText(document.getElementById('fixprompt').innerText);this.textContent='Copied';">Copy prompt</button>
+</details>
+{% endif %}
+
 <table class="table table-sm mt-4">
   <tbody>
     <tr><th scope="row" class="text-muted" style="width:11rem">Artifact</th><td>{{ page.artifact_label }}</td></tr>
     <tr><th scope="row" class="text-muted">Applies at (given)</th><td><code>{{ page.given }}</code></td></tr>
-    <tr><th scope="row" class="text-muted">Severity</th><td>{{ page.severity }}</td></tr>
-    {% if page.source.size > 0 %}<tr><th scope="row" class="text-muted">Source</th><td>{{ page.source | join: ", " }}</td></tr>{% endif %}
+    <tr><th scope="row" class="text-muted">Severity</th><td>{{ page.severity }} <span class="text-muted small">— educational by default; raise to <code>warn</code>/<code>error</code> to enforce</span></td></tr>
+    {% if page.reference %}<tr><th scope="row" class="text-muted">Reference</th><td><a href="{{ page.reference }}"><code>{{ page.reference }}</code></a></td></tr>{% endif %}
   </tbody>
 </table>
 

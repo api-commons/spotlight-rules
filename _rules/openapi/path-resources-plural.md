@@ -4,19 +4,30 @@ artifact: openapi
 artifact_label: OpenAPI
 slug: path-resources-plural
 title: Path Resources Plural
-severity: warn
+severity: info
 given: $.paths
 message: Path Resources Should Be Plural
-description: "Resource names in paths should use plural nouns to maintain
+description: Resource names in paths should use plural nouns to maintain
   consistency and follow REST conventions for collection-oriented resource
-  design. It requires the targeted value to match the pattern
-  `^(/[a-z].*s(/\\{[^}]+\\})?)*$` (evaluated at `$.paths`). Severity: warn."
+  design.
 experience:
   - naming
   - consistency
 spec:
   - paths
-source:
-  - api-evangelist
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/path-resources-plural/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'path-resources-plural' (Path Resources Plural). Requirement:
+  Resource names in paths should use plural nouns to maintain consistency and
+  follow REST conventions for collection-oriented resource design. To fix:
+  Ensure the targeted value matches the regular expression
+  `^(/[a-z].*s(/\\{[^}]+\\})?)*$`; rewrite any value that does not. This rule is
+  evaluated at the JSONPath `$.paths` — inspect every location it matches and
+  correct only what violates the rule. Make the smallest change that satisfies
+  the rule, leave all unrelated content, key order, comments, and formatting
+  unchanged, and keep the document valid OpenAPI. Return only the complete
+  corrected document, with no commentary."
 builtin: false
 ---

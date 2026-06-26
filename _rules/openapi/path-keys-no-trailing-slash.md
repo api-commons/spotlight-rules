@@ -4,15 +4,26 @@ artifact: openapi
 artifact_label: OpenAPI
 slug: path-keys-no-trailing-slash
 title: Path Keys No Trailing Slash
-severity: warn
+severity: info
 given: $.paths
 message: Path must not end with slash.
-description: ""
+description: Path Keys No Trailing Slash.
 experience:
   - consistency
   - naming
 spec:
   - paths
-source: []
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/path-keys-no-trailing-slash/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'path-keys-no-trailing-slash' (Path Keys No Trailing Slash).
+  Requirement: Path Keys No Trailing Slash. To fix: Ensure `@key` does NOT match
+  the regular expression `.+\\/$`; rename or rewrite any value that does. This
+  rule is evaluated at the JSONPath `$.paths` — inspect every location it
+  matches and correct only what violates the rule. Make the smallest change that
+  satisfies the rule, leave all unrelated content, key order, comments, and
+  formatting unchanged, and keep the document valid OpenAPI. Return only the
+  complete corrected document, with no commentary."
 builtin: true
 ---

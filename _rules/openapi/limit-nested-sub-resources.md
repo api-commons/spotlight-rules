@@ -4,19 +4,29 @@ artifact: openapi
 artifact_label: OpenAPI
 slug: limit-nested-sub-resources
 title: Limit Nested Sub Resources
-severity: warn
+severity: info
 given: $.paths.*~
 message: The hierarchy of nested resources SHOULD NOT contain more than 8
   resource names in the path.
-description: "The hierarchy of nested resources SHOULD NOT contain more than 8
-  resource names in the path. It requires the targeted value not to match
-  `^([^/]*/){9,}` (evaluated at `$.paths.*~`). Severity: warn."
+description: The hierarchy of nested resources SHOULD NOT contain more than 8
+  resource names in the path.
 experience:
   - usability
   - consistency
 spec:
   - paths
-source:
-  - sps-commerce
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/limit-nested-sub-resources/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'limit-nested-sub-resources' (Limit Nested Sub Resources).
+  Requirement: The hierarchy of nested resources SHOULD NOT contain more than 8
+  resource names in the path. To fix: Ensure the targeted value does NOT match
+  the regular expression `^([^/]*/){9,}`; rename or rewrite any value that does.
+  This rule is evaluated at the JSONPath `$.paths.*~` — inspect every location
+  it matches and correct only what violates the rule. Make the smallest change
+  that satisfies the rule, leave all unrelated content, key order, comments, and
+  formatting unchanged, and keep the document valid OpenAPI. Return only the
+  complete corrected document, with no commentary."
 builtin: false
 ---

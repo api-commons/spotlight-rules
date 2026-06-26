@@ -13,6 +13,17 @@ experience:
   - consistency
 spec:
   - document
-source: []
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/asyncapi/asyncapi-latest-version/
+prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
+  governance rule 'asyncapi-latest-version' (Asyncapi Latest Version).
+  Requirement: Checking if the AsyncAPI document is using the latest version. To
+  fix: Adjust the targeted value so it conforms to the schema this rule
+  requires. This rule is evaluated at the JSONPath `$.asyncapi` — inspect every
+  location it matches and correct only what violates the rule. Make the smallest
+  change that satisfies the rule, leave all unrelated content, key order,
+  comments, and formatting unchanged, and keep the document valid AsyncAPI.
+  Return only the complete corrected document, with no commentary."
 builtin: true
 ---

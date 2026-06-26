@@ -4,21 +4,31 @@ artifact: openapi
 artifact_label: OpenAPI
 slug: schema-require-description
 title: Schema Require Description
-severity: error
+severity: info
 given: $.components.schemas.*
 message: Schema MUST Have a Description.
-description: "Schema should have descriptions that provide a narrative of what a
+description: Schema should have descriptions that provide a narrative of what a
   schema object is for, and how it can be used, leaving examples to demonstrate
-  what can actually be expected. It requires the `description` field to be
-  present and non-empty (evaluated at `$.components.schemas.*`). Severity:
-  error."
+  what can actually be expected.
 experience:
   - documentation
   - data-modeling
 spec:
   - schemas
   - components
-source:
-  - api-evangelist
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/schema-require-description/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'schema-require-description' (Schema Require Description).
+  Requirement: Schema should have descriptions that provide a narrative of what
+  a schema object is for, and how it can be used, leaving examples to
+  demonstrate what can actually be expected. To fix: Ensure `description` is
+  present and non-empty at each matching location. This rule is evaluated at the
+  JSONPath `$.components.schemas.*` — inspect every location it matches and
+  correct only what violates the rule. Make the smallest change that satisfies
+  the rule, leave all unrelated content, key order, comments, and formatting
+  unchanged, and keep the document valid OpenAPI. Return only the complete
+  corrected document, with no commentary."
 builtin: false
 ---

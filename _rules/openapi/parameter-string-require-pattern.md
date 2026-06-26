@@ -4,19 +4,30 @@ artifact: openapi
 artifact_label: OpenAPI
 slug: parameter-string-require-pattern
 title: Parameter String Require Pattern
-severity: warn
+severity: info
 given: $.apis.*.properties.* | $.common.*
 message: Parameter Schema Type String Pattern
-description: "Parameters that are of the string schema type must have a pattern
+description: Parameters that are of the string schema type must have a pattern
   set, using a regex to define the shape of parameter data passed in with a
-  request. It requires the `pattern` field to be present and non-empty
-  (evaluated at `$.apis.*.properties.*`, `$.common.*`). Severity: warn."
+  request.
 experience:
   - data-modeling
   - reliability
 spec:
   - schemas
-source:
-  - api-evangelist
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/parameter-string-require-pattern/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'parameter-string-require-pattern' (Parameter String Require
+  Pattern). Requirement: Parameters that are of the string schema type must have
+  a pattern set, using a regex to define the shape of parameter data passed in
+  with a request. To fix: Ensure `pattern` is present and non-empty at each
+  matching location. This rule is evaluated at the JSONPath
+  `$.apis.*.properties.* | $.common.*` — inspect every location it matches and
+  correct only what violates the rule. Make the smallest change that satisfies
+  the rule, leave all unrelated content, key order, comments, and formatting
+  unchanged, and keep the document valid OpenAPI. Return only the complete
+  corrected document, with no commentary."
 builtin: false
 ---

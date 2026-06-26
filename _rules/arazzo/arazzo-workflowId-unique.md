@@ -4,7 +4,7 @@ artifact: arazzo
 artifact_label: Arazzo
 slug: arazzo-workflowId-unique
 title: Arazzo WorkflowId Unique
-severity: error
+severity: info
 given: $
 message: "{{error}}"
 description: Every workflow must have unique "workflowId".
@@ -14,6 +14,14 @@ experience:
   - reliability
 spec:
   - document
-source: []
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/arazzo/arazzo-workflowId-unique/
+prompt: "You are editing an Arazzo document to satisfy the Spotlight API
+  governance rule 'arazzo-workflowId-unique' (Arazzo WorkflowId Unique).
+  Requirement: Every workflow must have unique \"workflowId\". Make the smallest
+  change that satisfies the rule, leave all unrelated content, key order,
+  comments, and formatting unchanged, and keep the document valid Arazzo. Return
+  only the complete corrected document, with no commentary."
 builtin: true
 ---

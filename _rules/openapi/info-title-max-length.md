@@ -4,19 +4,29 @@ artifact: openapi
 artifact_label: OpenAPI
 slug: info-title-max-length
 title: Info Title Max Length
-severity: error
+severity: info
 given: $.info
 message: Info Title MUST Be Less Than 50 Characters
-description: "Having a limitation on the length of the title for your API helps
+description: Having a limitation on the length of the title for your API helps
   provide constraints for teams naming it, but also keep consistent with other
-  APIs from across teams. It constrains the length of the `title` field and at
-  most 50 (evaluated at `$.info`). Severity: error."
+  APIs from across teams.
 experience:
   - consistency
   - documentation
 spec:
   - info
-source:
-  - api-evangelist
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/info-title-max-length/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'info-title-max-length' (Info Title Max Length). Requirement:
+  Having a limitation on the length of the title for your API helps provide
+  constraints for teams naming it, but also keep consistent with other APIs from
+  across teams. To fix: Ensure the length of `title` is at most 50. This rule is
+  evaluated at the JSONPath `$.info` — inspect every location it matches and
+  correct only what violates the rule. Make the smallest change that satisfies
+  the rule, leave all unrelated content, key order, comments, and formatting
+  unchanged, and keep the document valid OpenAPI. Return only the complete
+  corrected document, with no commentary."
 builtin: false
 ---

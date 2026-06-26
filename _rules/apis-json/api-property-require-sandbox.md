@@ -16,6 +16,20 @@ experience:
 spec:
   - apis
   - properties
-source: []
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/apis-json/api-property-require-sandbox/
+prompt: "You are editing an APIs.json document to satisfy the Spotlight API
+  governance rule 'api-property-require-sandbox' (API Property Require Sandbox).
+  Requirement: This property ensures that an API has a reference to a sandbox
+  for individual APIs or as part of common properties, providing sandbox,
+  synthetic data, and mock servers for use in making test requests. To fix:
+  Ensure `type` does NOT match the regular expression `\\b(sandbox|Sandbox)\\b`;
+  rename or rewrite any value that does. This rule is evaluated at the JSONPath
+  `$.apis.*.properties.* | $.common.*` — inspect every location it matches and
+  correct only what violates the rule. Make the smallest change that satisfies
+  the rule, leave all unrelated content, key order, comments, and formatting
+  unchanged, and keep the document valid APIs.json. Return only the complete
+  corrected document, with no commentary."
 builtin: false
 ---

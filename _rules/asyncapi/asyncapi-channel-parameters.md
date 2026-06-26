@@ -4,7 +4,7 @@ artifact: asyncapi
 artifact_label: AsyncAPI
 slug: asyncapi-channel-parameters
 title: Asyncapi Channel Parameters
-severity: error
+severity: info
 given: $.channels.* | $.components.channels.*
 message: "{{error}}"
 description: Channel parameters must be defined and there must be no redundant parameters.
@@ -14,6 +14,17 @@ experience:
 spec:
   - channels
   - components
-source: []
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/asyncapi/asyncapi-channel-parameters/
+prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
+  governance rule 'asyncapi-channel-parameters' (Asyncapi Channel Parameters).
+  Requirement: Channel parameters must be defined and there must be no redundant
+  parameters. This rule is evaluated at the JSONPath `$.channels.* |
+  $.components.channels.*` — inspect every location it matches and correct only
+  what violates the rule. Make the smallest change that satisfies the rule,
+  leave all unrelated content, key order, comments, and formatting unchanged,
+  and keep the document valid AsyncAPI. Return only the complete corrected
+  document, with no commentary."
 builtin: true
 ---

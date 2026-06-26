@@ -4,21 +4,31 @@ artifact: openapi
 artifact_label: OpenAPI
 slug: parameter-require-name
 title: Parameter Require Name
-severity: error
+severity: info
 given: $.components.parameters.*
 message: Parameters MUST Have a Name
-description: "Providing a simple, intuitive, and consistent names for your
+description: Providing a simple, intuitive, and consistent names for your
   parameters helps make it easier for API consumers to understand how they are
-  able to configure their API requests. It requires the `name` field to be
-  present and non-empty (evaluated at `$.components.parameters.*`). Severity:
-  error."
+  able to configure their API requests.
 experience:
   - naming
   - documentation
 spec:
   - parameters
   - components
-source:
-  - api-evangelist
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/parameter-require-name/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'parameter-require-name' (Parameter Require Name).
+  Requirement: Providing a simple, intuitive, and consistent names for your
+  parameters helps make it easier for API consumers to understand how they are
+  able to configure their API requests. To fix: Ensure `name` is present and
+  non-empty at each matching location. This rule is evaluated at the JSONPath
+  `$.components.parameters.*` — inspect every location it matches and correct
+  only what violates the rule. Make the smallest change that satisfies the rule,
+  leave all unrelated content, key order, comments, and formatting unchanged,
+  and keep the document valid OpenAPI. Return only the complete corrected
+  document, with no commentary."
 builtin: false
 ---

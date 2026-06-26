@@ -3,16 +3,27 @@ layout: rule
 artifact: openapi
 artifact_label: OpenAPI
 slug: oas3-callbacks-in-callbacks
-title: Callbacks In Callbacks
-severity: warn
+title: OAS3 Callbacks In Callbacks
+severity: info
 given: "#OperationObject.callbacks[*][*][*].callbacks"
 message: Callbacks should not be defined within a callback
-description: ""
+description: OAS3 Callbacks In Callbacks.
 experience:
   - reliability
   - consistency
 spec:
   - document
-source: []
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/oas3-callbacks-in-callbacks/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'oas3-callbacks-in-callbacks' (OAS3 Callbacks In Callbacks).
+  Requirement: OAS3 Callbacks In Callbacks. To fix: Remove the targeted value
+  from each matching location. This rule is evaluated at the JSONPath
+  `#OperationObject.callbacks[*][*][*].callbacks` — inspect every location it
+  matches and correct only what violates the rule. Make the smallest change that
+  satisfies the rule, leave all unrelated content, key order, comments, and
+  formatting unchanged, and keep the document valid OpenAPI. Return only the
+  complete corrected document, with no commentary."
 builtin: true
 ---

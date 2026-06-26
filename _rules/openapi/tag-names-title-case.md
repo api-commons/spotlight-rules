@@ -4,20 +4,30 @@ artifact: openapi
 artifact_label: OpenAPI
 slug: tag-names-title-case
 title: Tag Names Title Case
-severity: error
+severity: info
 given: $.tags.*.name
 message: Tag Names MUST Have First Letter in Each Word Capitalized
-description: "The first letter of each word in a tag being applied to APIs needs
+description: The first letter of each word in a tag being applied to APIs needs
   to be capitalized, keeping the tags being applied across APIs the same look
-  and feel for organizing and publishing to documentation. It requires the
-  targeted value to match the pattern `[A-Z]\\w*` (evaluated at
-  `$.tags.*.name`). Severity: error."
+  and feel for organizing and publishing to documentation.
 experience:
   - naming
   - consistency
 spec:
   - tags
-source:
-  - api-evangelist
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/tag-names-title-case/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'tag-names-title-case' (Tag Names Title Case). Requirement:
+  The first letter of each word in a tag being applied to APIs needs to be
+  capitalized, keeping the tags being applied across APIs the same look and feel
+  for organizing and publishing to documentation. To fix: Ensure the targeted
+  value matches the regular expression `[A-Z]\\w*`; rewrite any value that does
+  not. This rule is evaluated at the JSONPath `$.tags.*.name` — inspect every
+  location it matches and correct only what violates the rule. Make the smallest
+  change that satisfies the rule, leave all unrelated content, key order,
+  comments, and formatting unchanged, and keep the document valid OpenAPI.
+  Return only the complete corrected document, with no commentary."
 builtin: false
 ---

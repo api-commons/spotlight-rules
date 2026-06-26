@@ -4,7 +4,7 @@ artifact: agent-skill
 artifact_label: Agent Skill
 slug: skill-description-length
 title: Skill Description Length
-severity: warn
+severity: info
 given: $.frontmatter.description
 message: Skill description should be at least 40 characters.
 description: Skill descriptions should be specific enough to drive good
@@ -14,6 +14,18 @@ experience:
   - usability
 spec:
   - frontmatter
-source: []
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/agent-skill/skill-description-length/
+prompt: "You are editing an Agent Skill document to satisfy the Spotlight API
+  governance rule 'skill-description-length' (Skill Description Length).
+  Requirement: Skill descriptions should be specific enough to drive good
+  selection — at least 40 characters of meaningful intent. To fix: Ensure the
+  length of the targeted value is at least 40 and at most 1024. This rule is
+  evaluated at the JSONPath `$.frontmatter.description` — inspect every location
+  it matches and correct only what violates the rule. Make the smallest change
+  that satisfies the rule, leave all unrelated content, key order, comments, and
+  formatting unchanged, and keep the document valid Agent Skill. Return only the
+  complete corrected document, with no commentary."
 builtin: false
 ---

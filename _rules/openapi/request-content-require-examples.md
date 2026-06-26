@@ -4,12 +4,10 @@ artifact: openapi
 artifact_label: OpenAPI
 slug: request-content-require-examples
 title: Request Content Require Examples
-severity: warn
+severity: info
 given: $.paths..requestBody..content.*
 message: Request with content must have examples
-description: "Request with content must have examples. It requires the
-  `examples` field to be present and non-empty (evaluated at
-  `$.paths..requestBody..content.*`). Severity: warn."
+description: Request with content must have examples.
 experience:
   - documentation
   - usability
@@ -17,7 +15,17 @@ spec:
   - paths
   - request-body
   - media-types
-source:
-  - microcks
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/request-content-require-examples/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'request-content-require-examples' (Request Content Require
+  Examples). Requirement: Request with content must have examples. To fix:
+  Ensure `examples` is present and non-empty at each matching location. This
+  rule is evaluated at the JSONPath `$.paths..requestBody..content.*` — inspect
+  every location it matches and correct only what violates the rule. Make the
+  smallest change that satisfies the rule, leave all unrelated content, key
+  order, comments, and formatting unchanged, and keep the document valid
+  OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: false
 ---

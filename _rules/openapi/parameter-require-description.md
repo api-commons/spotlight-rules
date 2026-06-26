@@ -4,19 +4,30 @@ artifact: openapi
 artifact_label: OpenAPI
 slug: parameter-require-description
 title: Parameter Require Description
-severity: warn
+severity: info
 given: $.paths.*.*.parameters.*
 message: Parameters MUST Have a Description
-description: "Having a parameters description provides more depth to what a
+description: Having a parameters description provides more depth to what a
   parameter does and will be displayed via documentation, and other tooling used
-  across the API lifecycle. It requires the `description` field to be present
-  and non-empty (evaluated at `$.paths.*.*.parameters.*`). Severity: warn."
+  across the API lifecycle.
 experience:
   - documentation
 spec:
   - paths
   - parameters
-source:
-  - api-evangelist
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/parameter-require-description/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'parameter-require-description' (Parameter Require
+  Description). Requirement: Having a parameters description provides more depth
+  to what a parameter does and will be displayed via documentation, and other
+  tooling used across the API lifecycle. To fix: Ensure `description` is present
+  and non-empty at each matching location. This rule is evaluated at the
+  JSONPath `$.paths.*.*.parameters.*` — inspect every location it matches and
+  correct only what violates the rule. Make the smallest change that satisfies
+  the rule, leave all unrelated content, key order, comments, and formatting
+  unchanged, and keep the document valid OpenAPI. Return only the complete
+  corrected document, with no commentary."
 builtin: false
 ---

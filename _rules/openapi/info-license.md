@@ -4,15 +4,24 @@ artifact: openapi
 artifact_label: OpenAPI
 slug: info-license
 title: Info License
-severity: warn
+severity: info
 given: $
-message: ""
+message: Info object must have "license" object.
 description: Info object must have "license" object.
 experience:
   - documentation
   - governance
 spec:
   - document
-source: []
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/info-license/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'info-license' (Info License). Requirement: Info object must
+  have \"license\" object. To fix: Ensure `info.license` is present and
+  non-empty at each matching location. Make the smallest change that satisfies
+  the rule, leave all unrelated content, key order, comments, and formatting
+  unchanged, and keep the document valid OpenAPI. Return only the complete
+  corrected document, with no commentary."
 builtin: true
 ---

@@ -4,19 +4,27 @@ artifact: openapi
 artifact_label: OpenAPI
 slug: response-400-require-body
 title: Response 400 Require Body
-severity: error
+severity: info
 given: $.paths.*.*.responses['400']
-message: ""
-description: "All 400 responses must include a response body. It requires the
-  `content` field to be present and non-empty (evaluated at
-  `$.paths.*.*.responses['400']`). Severity: error."
+message: All 400 responses must include a response body.
+description: All 400 responses must include a response body.
 experience:
   - error-handling
   - documentation
 spec:
   - paths
   - responses
-source:
-  - trimble
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/response-400-require-body/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'response-400-require-body' (Response 400 Require Body).
+  Requirement: All 400 responses must include a response body. To fix: Ensure
+  `content` is present and non-empty at each matching location. This rule is
+  evaluated at the JSONPath `$.paths.*.*.responses['400']` — inspect every
+  location it matches and correct only what violates the rule. Make the smallest
+  change that satisfies the rule, leave all unrelated content, key order,
+  comments, and formatting unchanged, and keep the document valid OpenAPI.
+  Return only the complete corrected document, with no commentary."
 builtin: false
 ---

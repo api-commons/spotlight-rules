@@ -4,9 +4,10 @@ artifact: arazzo
 artifact_label: Arazzo
 slug: arazzo-step-validation
 title: Arazzo Step Validation
-severity: error
+severity: info
 given: $
-message: ""
+message: Every step must have a valid "stepId" and an valid "operationId" or
+  "operationPath" or "workflowId".
 description: Every step must have a valid "stepId" and an valid "operationId" or
   "operationPath" or "workflowId".
 experience:
@@ -14,6 +15,15 @@ experience:
   - consistency
 spec:
   - document
-source: []
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/arazzo/arazzo-step-validation/
+prompt: "You are editing an Arazzo document to satisfy the Spotlight API
+  governance rule 'arazzo-step-validation' (Arazzo Step Validation).
+  Requirement: Every step must have a valid \"stepId\" and an valid
+  \"operationId\" or \"operationPath\" or \"workflowId\". Make the smallest
+  change that satisfies the rule, leave all unrelated content, key order,
+  comments, and formatting unchanged, and keep the document valid Arazzo. Return
+  only the complete corrected document, with no commentary."
 builtin: true
 ---

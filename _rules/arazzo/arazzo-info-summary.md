@@ -4,14 +4,23 @@ artifact: arazzo
 artifact_label: Arazzo
 slug: arazzo-info-summary
 title: Arazzo Info Summary
-severity: hint
+severity: info
 given: $
-message: ""
+message: Info "summary" is recommended be present and be a non-empty string.
 description: Info "summary" is recommended be present and be a non-empty string.
 experience:
   - documentation
 spec:
   - document
-source: []
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/arazzo/arazzo-info-summary/
+prompt: "You are editing an Arazzo document to satisfy the Spotlight API
+  governance rule 'arazzo-info-summary' (Arazzo Info Summary). Requirement: Info
+  \"summary\" is recommended be present and be a non-empty string. To fix:
+  Ensure `info.summary` is present and non-empty at each matching location. Make
+  the smallest change that satisfies the rule, leave all unrelated content, key
+  order, comments, and formatting unchanged, and keep the document valid Arazzo.
+  Return only the complete corrected document, with no commentary."
 builtin: true
 ---

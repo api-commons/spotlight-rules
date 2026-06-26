@@ -4,20 +4,29 @@ artifact: openapi
 artifact_label: OpenAPI
 slug: schema-require-name
 title: Schema Require Name
-severity: error
+severity: info
 given: $.components.schemas
 message: Schema Names MUST Exist
-description: "Schema names, keeping the naming of them consistent across APIs,
-  standardizing how consumers can use in their applications. It requires the
-  `@key` field to be present and non-empty (evaluated at
-  `$.components.schemas`). Severity: error."
+description: Schema names, keeping the naming of them consistent across APIs,
+  standardizing how consumers can use in their applications.
 experience:
   - naming
   - data-modeling
 spec:
   - schemas
   - components
-source:
-  - api-evangelist
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/schema-require-name/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'schema-require-name' (Schema Require Name). Requirement:
+  Schema names, keeping the naming of them consistent across APIs, standardizing
+  how consumers can use in their applications. To fix: Ensure `@key` is present
+  and non-empty at each matching location. This rule is evaluated at the
+  JSONPath `$.components.schemas` — inspect every location it matches and
+  correct only what violates the rule. Make the smallest change that satisfies
+  the rule, leave all unrelated content, key order, comments, and formatting
+  unchanged, and keep the document valid OpenAPI. Return only the complete
+  corrected document, with no commentary."
 builtin: false
 ---

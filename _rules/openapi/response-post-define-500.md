@@ -1,0 +1,33 @@
+---
+layout: rule
+artifact: openapi
+artifact_label: OpenAPI
+slug: response-post-define-500
+title: Response Post Define 500
+severity: info
+given: $.paths.*.post.responses
+message: POST Responses MUST Have 500 Status Codes
+description: POST responses should have a 500 internal server erorr HTTP status
+  code, communicating the API had a problem to consumers.
+experience:
+  - error-handling
+  - reliability
+spec:
+  - paths
+  - operations
+  - responses
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/response-post-define-500/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'response-post-define-500' (Response Post Define 500).
+  Requirement: POST responses should have a 500 internal server erorr HTTP
+  status code, communicating the API had a problem to consumers. To fix: Ensure
+  `500` is present and non-empty at each matching location. This rule is
+  evaluated at the JSONPath `$.paths.*.post.responses` — inspect every location
+  it matches and correct only what violates the rule. Make the smallest change
+  that satisfies the rule, leave all unrelated content, key order, comments, and
+  formatting unchanged, and keep the document valid OpenAPI. Return only the
+  complete corrected document, with no commentary."
+builtin: false
+---

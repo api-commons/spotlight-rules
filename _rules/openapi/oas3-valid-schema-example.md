@@ -3,8 +3,8 @@ layout: rule
 artifact: openapi
 artifact_label: OpenAPI
 slug: oas3-valid-schema-example
-title: Valid Schema Example
-severity: error
+title: OAS3 Valid Schema Example
+severity: info
 given: $.components.schemas..[?(@property !== 'properties' && @ && (@ &&
   @.example !== void 0 || @.default !== void 0) && (@.enum || @.type || @.format
   || @.$ref || @.properties || @.items))] | $..content..[?(@property !==
@@ -28,6 +28,25 @@ spec:
   - schemas
   - components
   - examples
-source: []
+topic: []
+owasp: []
+reference: https://spotlight-rules.com/spec/rules/openapi/oas3-valid-schema-example/
+prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+  governance rule 'oas3-valid-schema-example' (OAS3 Valid Schema Example).
+  Requirement: Examples must be valid against their defined schema. This rule is
+  evaluated at the JSONPath `$.components.schemas..[?(@property !== 'properties'
+  && @ && (@ && @.example !== void 0 || @.default !== void 0) && (@.enum ||
+  @.type || @.format || @.$ref || @.properties || @.items))] |
+  $..content..[?(@property !== 'properties' && @ && (@ && @.example !== void 0
+  || @.default !== void 0) && (@.enum || @.type || @.format || @.$ref ||
+  @.properties || @.items))] | $..headers..[?(@property !== 'properties' && @ &&
+  (@ && @.example !== void 0 || @.default !== void 0) && (@.enum || @.type ||
+  @.format || @.$ref || @.properties || @.items))] | $..parameters..[?(@property
+  !== 'properties' && @ && (@ && @.example !== void 0 || @.default !== void 0)
+  && (@.enum || @.type || @.format || @.$ref || @.properties || @.items))]` —
+  inspect every location it matches and correct only what violates the rule.
+  Make the smallest change that satisfies the rule, leave all unrelated content,
+  key order, comments, and formatting unchanged, and keep the document valid
+  OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: true
 ---
