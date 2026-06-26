@@ -12,17 +12,15 @@ permalink: /spec/
   <strong>spotlight-spec</strong> defines the portable, serializable shape of a Spotlight (Spectral)
   ruleset — the <code>rules</code>, <code>extends</code>, <code>formats</code>, <code>functions</code>,
   and severities you put in a <code>.yaml</code>/<code>.json</code> file and hand to any conforming
-  linter. It is published as a single, self-contained <strong>JSON Schema (draft-07)</strong>, derived
+  linter. It is published as a single, self-contained <strong>JSON Schema (2020-12)</strong>, derived
   faithfully from Spectral's own internal meta-schemas and reconciled into one document, so the format is
   documented and validatable independent of any single implementation.
 </p>
 
 <p>
-  Spotlight extends that baseline with its own first-class properties. The first is <strong><code>tags</code></strong>
-  on a rule — namespaced strings that classify it so tooling can group and filter rules:
-  <code>format:&lt;artifact&gt;</code> (where it applies), <code>spec:&lt;location&gt;</code>
-  (where in the document), <code>experience:&lt;dimension&gt;</code> (the developer-experience quality it
-  improves), and <code>source:&lt;provider&gt;</code> (provenance).
+  Spotlight extends that baseline with its own first-class rule properties — <code>tags</code> (namespaced
+  classifiers), <code>title</code> (a display name), <code>reference</code> (a canonical docs URL), and
+  <code>prompt</code> (an AI fix instruction). They're detailed in the schema below.
 </p>
 
 <div class="d-flex gap-3 mb-4">
@@ -33,35 +31,92 @@ permalink: /spec/
 
 <hr class="my-4">
 
+<h2 class="mb-2" id="schema">Schema properties</h2>
+<p class="text-muted">The shape of a ruleset document, and of a single rule. Spotlight's own additions are highlighted.</p>
+
+<h5 class="mt-3">Ruleset (top level)</h5>
+<div class="table-responsive">
+<table class="table table-sm align-middle">
+  <thead><tr><th style="width:10rem">Property</th><th style="width:9rem">Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>rules</code></td><td>object</td><td>Map of rule name → rule definition (or a severity to toggle a rule inherited via <code>extends</code>).</td></tr>
+    <tr><td><code>extends</code></td><td>string · array</td><td>Inherit rules from other rulesets — e.g. <code>spotlight:oas</code>, <code>spotlight:asyncapi</code>, <code>spotlight:arazzo</code>.</td></tr>
+    <tr><td><code>formats</code></td><td>array</td><td>Document formats the whole ruleset targets (e.g. <code>oas3</code>, <code>asyncapi2</code>).</td></tr>
+    <tr><td><code>functions</code></td><td>array</td><td>Names of custom functions a rule's <code>then</code> may reference.</td></tr>
+    <tr><td><code>functionsDir</code></td><td>string</td><td>Directory the custom functions are loaded from.</td></tr>
+    <tr><td><code>overrides</code></td><td>array</td><td>Apply or re-scope rules to specific files / JSON Pointers.</td></tr>
+    <tr><td><code>aliases</code></td><td>object</td><td>Reusable named JSONPath targets that a rule's <code>given</code> can reference.</td></tr>
+    <tr><td><code>documentationUrl</code></td><td>string</td><td>Docs URL for the ruleset.</td></tr>
+    <tr><td><code>description</code></td><td>string</td><td>Human description of the ruleset.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h5 class="mt-3">Rule</h5>
+<div class="table-responsive">
+<table class="table table-sm align-middle">
+  <thead><tr><th style="width:10rem">Property</th><th style="width:9rem">Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>given</code></td><td>JSONPath · array</td><td>Where in the document the rule applies.</td></tr>
+    <tr><td><code>then</code></td><td>object · array</td><td>The assertion — a <code>field</code> plus a <code>function</code> (with optional <code>functionOptions</code>).</td></tr>
+    <tr><td><code>severity</code></td><td>error · warn · info · hint · off</td><td>How a violation is reported. Spotlight ships every rule at <code>info</code> — raise to <code>warn</code>/<code>error</code> to enforce.</td></tr>
+    <tr><td><code>message</code></td><td>string</td><td>The lint message; supports <code>{{value}}</code>, <code>{{property}}</code>, <code>{{error}}</code> placeholders.</td></tr>
+    <tr><td><code>description</code></td><td>string</td><td>What the rule checks, and why it matters.</td></tr>
+    <tr><td><code>formats</code></td><td>array</td><td>Restrict the rule to specific document formats.</td></tr>
+    <tr><td><code>recommended</code></td><td>boolean</td><td>Whether the rule runs in the ruleset's recommended set.</td></tr>
+    <tr><td><code>resolved</code></td><td>boolean</td><td>Lint the resolved (<code>$ref</code>-dereferenced) document, or the raw source.</td></tr>
+    <tr><td><code>documentationUrl</code></td><td>string</td><td>Per-rule documentation link.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h5 class="mt-3">Spotlight extensions <span class="badge bg-warning text-dark align-middle">beyond Spectral</span></h5>
+<div class="table-responsive">
+<table class="table table-sm align-middle">
+  <thead><tr><th style="width:10rem">Property</th><th style="width:9rem">Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>tags</code></td><td>array</td><td>Namespaced classifiers tooling groups &amp; filters by: <code>format:&lt;artifact&gt;</code>, <code>spec:&lt;location&gt;</code>, <code>experience:&lt;dimension&gt;</code>, <code>topic:&lt;feature&gt;</code>, <code>owasp:&lt;apiN&gt;</code>.</td></tr>
+    <tr><td><code>title</code></td><td>string</td><td>A short Title Case display name (e.g. <code>Response Define 429</code>).</td></tr>
+    <tr><td><code>reference</code></td><td>string (url)</td><td>Canonical documentation URL — every Spotlight rule points at its page on this site.</td></tr>
+    <tr><td><code>prompt</code></td><td>string</td><td>A natural-language fix instruction an AI assistant (Claude, Gemini, ChatGPT) can apply to remediate a violation.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<hr class="my-4">
+
 <h2 class="mb-2">Explore the rules</h2>
-<p class="text-muted">Every rule Spotlight applies, grouped by artifact. Expand an artifact and open any rule for its full detail, tags, and where it applies — with next / previous navigation.</p>
+<p class="text-muted">Every rule Spotlight applies, grouped by artifact and listed alphabetically. Expand an artifact to scroll its rules; open any rule for its full detail and where it applies.</p>
 
 {% assign order = "openapi,apis-json,asyncapi,arazzo,json-schema,json-structure,json-ld,mcp,plans,rate-limits,finops,agent-skill" | split: "," %}
 {% for art in order %}
   {% assign info = site.data.rule_index[art] %}
   {% if info %}
 <details class="rule-artifact card mb-2" id="{{ art }}">
-  <summary class="card-body py-2 px-3 d-flex justify-content-between align-items-center">
+  <summary class="card-body py-2 px-3 text-start">
     <span class="fw-semibold">{{ info.label }}</span>
-    <span class="text-muted small">{{ info.rules | size }} rules</span>
+    <span class="text-muted small ms-2">{{ info.rules | size }} rules</span>
   </summary>
-  <div class="card-body pt-0">
-    <div class="row g-1">
+  <div class="card-body pt-0" style="max-height: 480px; overflow-y: auto;">
+    <ul class="list-unstyled mb-0">
       {% for r in info.rules %}
-      <div class="col-md-6 col-lg-4 small">
-        <a href="/spec/rules/{{ art }}/{{ r.slug }}/">{{ r.name }}</a>
-      </div>
+      <li class="border-top py-2">
+        <div class="d-flex justify-content-between align-items-start gap-2">
+          <a href="/spec/rules/{{ art }}/{{ r.slug }}/" class="fw-semibold">{{ r.name }}</a>
+          <span class="badge bg-light text-dark border flex-shrink-0">{{ r.severity }}</span>
+        </div>
+        <div class="text-muted small font-monospace">{{ r.slug }}</div>
+        {% if r.description %}<div class="small mt-1">{{ r.description }}</div>{% endif %}
+        <div class="mt-1">
+          {% for e in r.experience %}<span class="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle me-1">experience: {{ e }}</span>{% endfor %}
+          {% for s in r.spec %}<span class="badge rounded-pill bg-primary-subtle text-primary-emphasis border border-primary-subtle me-1">spec: {{ s }}</span>{% endfor %}
+          {% for t in r.topic %}<span class="badge rounded-pill bg-info-subtle text-info-emphasis border border-info-subtle me-1">topic: {{ t }}</span>{% endfor %}
+          {% for o in r.owasp %}<span class="badge rounded-pill bg-danger-subtle text-danger-emphasis border border-danger-subtle me-1">owasp: {{ o }}</span>{% endfor %}
+        </div>
+      </li>
       {% endfor %}
-    </div>
+    </ul>
   </div>
 </details>
   {% endif %}
 {% endfor %}
-
-<style>
-  details.rule-artifact > summary { cursor: pointer; list-style: none; }
-  details.rule-artifact > summary::-webkit-details-marker { display: none; }
-  details.rule-artifact > summary::before { content: "▸"; color: #999; margin-right: .5rem; }
-  details.rule-artifact[open] > summary::before { content: "▾"; }
-  details.rule-artifact[open] > summary { border-bottom: 1px solid #eee; }
-</style>
