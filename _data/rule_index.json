@@ -665,7 +665,7 @@
     "owasp": []
    },
    {
-    "slug": "info-require-version",
+    "slug": "info-skill-require-version",
     "name": "Info Require Version",
     "severity": "info",
     "description": "Publishing a version for your OpenAPI technical contract helps you communicate change with consumers using Semantic or date-based versioning published to the info version property.",
@@ -7279,7 +7279,7 @@
     "owasp": []
    },
    {
-    "slug": "api-property-require-versioning",
+    "slug": "api-property-skill-require-versioning",
     "name": "API Property Require Versioning",
     "severity": "info",
     "description": "This property ensures there is a reference to how APIs are versioned, providing a single place where teams can learn about how change is communicated.",
@@ -10822,7 +10822,7 @@
     "owasp": []
    },
    {
-    "slug": "info-require-version",
+    "slug": "info-skill-require-version",
     "name": "Info Require Version",
     "severity": "info",
     "description": "The `version` property should be present.",
@@ -11362,51 +11362,6 @@
   "label": "Agent Skill",
   "rules": [
    {
-    "slug": "require-allowed-tools",
-    "name": "Require Allowed Tools",
-    "severity": "info",
-    "description": "agent-skill document should declare a `allowed-tools` property.",
-    "experience": [
-     "governance",
-     "discoverability"
-    ],
-    "spec": [
-     "document"
-    ],
-    "topic": [],
-    "owasp": []
-   },
-   {
-    "slug": "require-metadata",
-    "name": "Require Metadata",
-    "severity": "info",
-    "description": "agent-skill document should declare a `metadata` property.",
-    "experience": [
-     "governance",
-     "discoverability"
-    ],
-    "spec": [
-     "document"
-    ],
-    "topic": [],
-    "owasp": []
-   },
-   {
-    "slug": "require-version",
-    "name": "Require Version",
-    "severity": "info",
-    "description": "agent-skill document should declare a `version` property.",
-    "experience": [
-     "governance",
-     "discoverability"
-    ],
-    "spec": [
-     "document"
-    ],
-    "topic": [],
-    "owasp": []
-   },
-   {
     "slug": "skill-allowed-tools-array",
     "name": "Skill Allowed Tools Array",
     "severity": "info",
@@ -11591,6 +11546,51 @@
     ],
     "spec": [
      "frontmatter"
+    ],
+    "topic": [],
+    "owasp": []
+   },
+   {
+    "slug": "skill-require-allowed-tools",
+    "name": "Skill Require Allowed Tools",
+    "severity": "info",
+    "description": "agent-skill document should declare a `allowed-tools` property.",
+    "experience": [
+     "governance",
+     "discoverability"
+    ],
+    "spec": [
+     "document"
+    ],
+    "topic": [],
+    "owasp": []
+   },
+   {
+    "slug": "skill-require-metadata",
+    "name": "Skill Require Metadata",
+    "severity": "info",
+    "description": "agent-skill document should declare a `metadata` property.",
+    "experience": [
+     "governance",
+     "discoverability"
+    ],
+    "spec": [
+     "document"
+    ],
+    "topic": [],
+    "owasp": []
+   },
+   {
+    "slug": "skill-require-version",
+    "name": "Skill Require Version",
+    "severity": "info",
+    "description": "agent-skill document should declare a `version` property.",
+    "experience": [
+     "governance",
+     "discoverability"
+    ],
+    "spec": [
+     "document"
     ],
     "topic": [],
     "owasp": []

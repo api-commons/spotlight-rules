@@ -2,7 +2,7 @@
 layout: rule
 artifact: apis-json
 artifact_label: APIs.json
-slug: api-property-require-versioning
+slug: api-property-skill-require-versioning
 title: API Property Require Versioning
 severity: info
 given: $.apis.*.properties.* | $.common.*
@@ -18,9 +18,9 @@ spec:
   - properties
 topic: []
 owasp: []
-reference: https://spotlight-rules.com/spec/rules/apis-json/api-property-require-versioning/
+reference: https://spotlight-rules.com/spec/rules/apis-json/api-property-skill-require-versioning/
 prompt: "You are editing an APIs.json document to satisfy the Spotlight API
-  governance rule 'api-property-require-versioning' (API Property Require
+  governance rule 'api-property-skill-require-versioning' (API Property Require
   Versioning). Requirement: This property ensures there is a reference to how
   APIs are versioned, providing a single place where teams can learn about how
   change is communicated. To fix: Ensure `type` does NOT match the regular
