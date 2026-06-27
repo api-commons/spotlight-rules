@@ -88,36 +88,35 @@ permalink: /spec/
 {% assign order = "openapi,apis-json,asyncapi,arazzo,json-schema,json-structure,json-ld,mcp,plans,rate-limits,finops,agent-skill" | split: "," %}
 {% assign total = 0 %}{% for art in order %}{% assign info = site.data.rule_index[art] %}{% if info %}{% assign total = total | plus: info.rules.size %}{% endif %}{% endfor %}
 <h2 class="mb-2">Explore the rules</h2>
-<p class="text-muted">All <strong>{{ total }} rules</strong> Spotlight applies, grouped by artifact and listed alphabetically — every section is expanded below. Click a section header to collapse it, or open any rule for its full detail and where it applies.</p>
+<p class="text-muted">All <strong>{{ total }} rules</strong> Spotlight applies, grouped by artifact and listed alphabetically. Jump to an artifact below, or open any rule for its full detail.</p>
+
+<div class="d-flex flex-wrap gap-2 mb-4">
+  {% for art in order %}{% assign info = site.data.rule_index[art] %}{% if info %}<a href="#{{ art }}" class="btn btn-sm btn-outline-secondary">{{ info.label }} <span class="badge bg-secondary ms-1">{{ info.rules | size }}</span></a>{% endif %}{% endfor %}
+</div>
 
 {% for art in order %}
   {% assign info = site.data.rule_index[art] %}
   {% if info %}
-<details class="rule-artifact card mb-2" id="{{ art }}" open>
+<details class="rule-artifact card mb-3" id="{{ art }}" open>
   <summary class="card-body py-2 px-3 text-start">
     <span class="fw-semibold">{{ info.label }}</span>
     <span class="text-muted small ms-2">{{ info.rules | size }} rules</span>
   </summary>
-  <div class="card-body pt-0" style="max-height: 480px; overflow-y: auto;">
-    <ul class="list-unstyled mb-0">
-      {% for r in info.rules %}
-      <li class="border-top py-2">
-        <div class="d-flex justify-content-between align-items-start gap-2">
-          <a href="/spec/rules/{{ art }}/{{ r.slug }}/" class="fw-semibold">{{ r.name }}</a>
-          <span class="badge bg-light text-dark border flex-shrink-0">{{ r.severity }}</span>
-        </div>
-        <div class="text-muted small font-monospace">{{ r.slug }}</div>
-        {% if r.description %}<div class="small mt-1">{{ r.description }}</div>{% endif %}
-        <div class="mt-1">
-          {% for e in r.experience %}<span class="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle me-1">experience: {{ e }}</span>{% endfor %}
-          {% for s in r.spec %}<span class="badge rounded-pill bg-primary-subtle text-primary-emphasis border border-primary-subtle me-1">spec: {{ s }}</span>{% endfor %}
-          {% for t in r.topic %}<span class="badge rounded-pill bg-info-subtle text-info-emphasis border border-info-subtle me-1">topic: {{ t }}</span>{% endfor %}
-          {% for o in r.owasp %}<span class="badge rounded-pill bg-danger-subtle text-danger-emphasis border border-danger-subtle me-1">owasp: {{ o }}</span>{% endfor %}
-        </div>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
+  <ul class="list-unstyled mb-0 border-top">
+    {% for r in info.rules %}
+    <li class="border-bottom px-3 py-2">
+      <div class="d-flex flex-wrap align-items-baseline gap-2">
+        <a href="/spec/rules/{{ art }}/{{ r.slug }}/" class="fw-semibold">{{ r.name }}</a>
+        <span class="badge bg-light text-dark border">{{ r.severity }}</span>
+        {% for e in r.experience %}<span class="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle">experience: {{ e }}</span>{% endfor %}
+        {% for s in r.spec %}<span class="badge rounded-pill bg-primary-subtle text-primary-emphasis border border-primary-subtle">spec: {{ s }}</span>{% endfor %}
+        {% for t in r.topic %}<span class="badge rounded-pill bg-info-subtle text-info-emphasis border border-info-subtle">topic: {{ t }}</span>{% endfor %}
+        {% for o in r.owasp %}<span class="badge rounded-pill bg-danger-subtle text-danger-emphasis border border-danger-subtle">owasp: {{ o }}</span>{% endfor %}
+      </div>
+      {% if r.description %}<div class="small text-muted">{{ r.description }}</div>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
 </details>
   {% endif %}
 {% endfor %}
