@@ -26,7 +26,7 @@ async function syncRoadmap() {
     'layout: default\n' +
     'nav: roadmap\n' +
     'title: Roadmap\n' +
-    'description: The Spotlight Rules roadmap across the CLI, the specification, and the VS Code extension.\n' +
+    'description: The Spotlight Rules roadmap across the suite — engine, spec, catalog, apps, and CI.\n' +
     '---\n\n' +
     '# Roadmap\n\n' +
     `<p class="text-muted small">Synced automatically from the canonical <a href="${ROADMAP_SRC_URL}">ROADMAP.md</a> in spotlight-cli. Edit it there.</p>\n\n` +
