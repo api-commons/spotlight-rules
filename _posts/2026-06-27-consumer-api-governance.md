@@ -2,7 +2,6 @@
 layout: post
 title: "Consumer API Governance, and Where Spotlight Is Headed"
 date: 2026-06-27
-author: API Commons
 description: API governance has always run design-time and producer-side. Agents and copilots are forcing a second half — governing the APIs and context we consume. Here is how Spotlight's rules, discovery, and validation extend to consumer API governance.
 summary: API governance has always run design-time and producer-side. Agents and copilots are forcing a second half — governing the APIs and context we consume, by rule. Here's how Spotlight's rules, discovery, and validation extend to consumer API governance.
 author: API Commons
