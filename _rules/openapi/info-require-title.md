@@ -28,4 +28,32 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   unchanged, and keep the document valid OpenAPI. Return only the complete
   corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  info-require-title:
+    title: Info Require Title
+    reference: https://spotlight-rules.com/spec/rules/openapi/info-require-title/
+    description: Having a intuitive and helpful title for your API using the OpenAPI
+      info title is the first impression you will make on the consumers of your
+      API.
+    message: Info MUST Have Title
+    severity: info
+    given: $.info
+    then:
+      field: title
+      function: truthy
+    tags:
+      - format:openapi
+      - spec:info
+      - experience:documentation
+      - experience:discoverability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'info-require-title' (Info Require Title). Requirement:
+      Having a intuitive and helpful title for your API using the OpenAPI info
+      title is the first impression you will make on the consumers of your API. To
+      fix: Ensure `title` is present and non-empty at each matching location. This
+      rule is evaluated at the JSONPath `$.info` — inspect every location it
+      matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid OpenAPI. Return only
+      the complete corrected document, with no commentary."
 ---

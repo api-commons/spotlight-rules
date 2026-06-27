@@ -27,4 +27,36 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   key order, comments, and formatting unchanged, and keep the document valid
   OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  security-oauth-endpoints-require-https:
+    title: Security OAuth Endpoints Require HTTPS
+    reference: https://spotlight-rules.com/spec/rules/openapi/security-oauth-endpoints-require-https/
+    description: OAuth2 endpoints must use `https://`.
+    message: OAuth endpoints must use https://
+    severity: info
+    given:
+      - $.[securitySchemes][?(@.type=="oauth2")][*].[?(@property.match(/url$/i))]
+    then:
+      - field: value
+        function: pattern
+        functionOptions:
+          match: ^https://
+    formats:
+      - oas3
+    tags:
+      - owasp:api8
+      - format:openapi
+      - spec:security
+      - experience:security
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'security-oauth-endpoints-require-https' (Security OAuth
+      Endpoints Require HTTPS). Requirement: OAuth2 endpoints must use `https://`.
+      To fix: Ensure `value` matches the regular expression `^https://`; rewrite
+      any value that does not. This rule is evaluated at the JSONPath
+      `$.[securitySchemes][?(@.type==\"oauth2\")][*].[?(@property.match(/url$/i))\
+      ]` — inspect every location it matches and correct only what violates the
+      rule. Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid OpenAPI. Return only the complete corrected document, with no
+      commentary."
 ---

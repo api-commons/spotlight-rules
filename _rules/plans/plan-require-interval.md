@@ -26,4 +26,29 @@ prompt: "You are editing a Plans document to satisfy the Spotlight API
   unchanged, and keep the document valid Plans. Return only the complete
   corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  plan-require-interval:
+    title: Plan Require Interval
+    reference: https://spotlight-rules.com/spec/rules/plans/plan-require-interval/
+    description: Each plan should declare a billing interval (e.g. month, year).
+    message: Plan should declare a billing interval.
+    given: $.plans[*]
+    severity: info
+    then:
+      field: interval
+      function: truthy
+    tags:
+      - format:plans
+      - spec:plans
+      - experience:consistency
+      - experience:usability
+    prompt: "You are editing a Plans document to satisfy the Spotlight API
+      governance rule 'plan-require-interval' (Plan Require Interval).
+      Requirement: Each plan should declare a billing interval (e.g. month, year).
+      To fix: Ensure `interval` is present and non-empty at each matching
+      location. This rule is evaluated at the JSONPath `$.plans[*]` — inspect
+      every location it matches and correct only what violates the rule. Make the
+      smallest change that satisfies the rule, leave all unrelated content, key
+      order, comments, and formatting unchanged, and keep the document valid
+      Plans. Return only the complete corrected document, with no commentary."
 ---

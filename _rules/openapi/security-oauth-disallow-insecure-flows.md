@@ -44,4 +44,52 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid OpenAPI. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  security-oauth-disallow-insecure-flows:
+    title: Security OAuth Disallow Insecure Flows
+    reference: https://spotlight-rules.com/spec/rules/openapi/security-oauth-disallow-insecure-flows/
+    description: The OAuth2 authorization framework defines various [grant
+      types](https://tools.ietf.org/html/rfc6749#section-1.3), most notably the
+      [AuthorizationCode](https://tools.ietf.org/html/rfc6749#section-1.3.1) and
+      the [Client Credentials](https://tools.ietf.org/html/rfc6749#section-1.3.4).
+      Some grant types are now considered insecure and MUST not be used, including
+      `implicit` and `password`. The new
+      [OAuth2.1](https://tools.ietf.org/html/draft-ietf-oauth-v2-1-01) still in
+      draft, removes them and suggests to replace the `implicit` with
+      `authorizationCode` + PKCE defined in RFC7636.
+    message: 'Do not use oauth2 insecure flow: "{{property}}".'
+    severity: info
+    given:
+      - $.[?(@.type=="oauth2")].flows
+    then:
+      - field: implicit
+        function: falsy
+      - field: password
+        function: falsy
+    formats:
+      - oas3
+    tags:
+      - format:openapi
+      - spec:security
+      - experience:security
+      - owasp:api2
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'security-oauth-disallow-insecure-flows' (Security OAuth
+      Disallow Insecure Flows). Requirement: The OAuth2 authorization framework
+      defines various [grant
+      types](https://tools.ietf.org/html/rfc6749#section-1.3), most notably the
+      [AuthorizationCode](https://tools.ietf.org/html/rfc6749#section-1.3.1) and
+      the [Client Credentials](https://tools.ietf.org/html/rfc6749#section-1.3.4).
+      Some grant types are now considered insecure and MUST not be used, including
+      `implicit` and `password`. The new
+      [OAuth2.1](https://tools.ietf.org/html/draft-ietf-oauth-v2-1-01) still in
+      draft, removes them and suggests to replace the `implicit` with
+      `authorizationCode` + PKCE defined in RFC7636. To fix: Ensure `implicit` is
+      absent or empty (falsy) at each matching location. Also: Ensure `password`
+      is absent or empty (falsy) at each matching location. This rule is evaluated
+      at the JSONPath `$.[?(@.type==\"oauth2\")].flows` — inspect every location
+      it matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid OpenAPI. Return only
+      the complete corrected document, with no commentary."
 ---

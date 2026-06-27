@@ -27,4 +27,32 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   comments, and formatting unchanged, and keep the document valid OpenAPI.
   Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  schema-property-constant-case:
+    title: Schema Property Constant Case
+    reference: https://spotlight-rules.com/spec/rules/openapi/schema-property-constant-case/
+    description: Schema properties MUST follow CONSTANT_CASE (screaming snake_case).
+    message: "{{property}} schema property is not CONSTANT_CASE: {{error}}"
+    severity: info
+    given: $.definitions..properties[*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: ^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$
+    tags:
+      - format:openapi
+      - spec:schemas
+      - experience:naming
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'schema-property-constant-case' (Schema Property Constant
+      Case). Requirement: Schema properties MUST follow CONSTANT_CASE (screaming
+      snake_case). To fix: Ensure the targeted value matches the regular
+      expression `^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$`; rewrite any value that does not.
+      This rule is evaluated at the JSONPath `$.definitions..properties[*]~` —
+      inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid OpenAPI. Return only the complete corrected document, with no
+      commentary."
 ---

@@ -26,4 +26,33 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   comments, and formatting unchanged, and keep the document valid OpenAPI.
   Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  path-no-trailing-slash:
+    title: Path No Trailing Slash
+    reference: https://spotlight-rules.com/spec/rules/openapi/path-no-trailing-slash/
+    description: Path must not end with a slash.
+    message: Path must not end with a slash.
+    severity: info
+    given: $.paths
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: .+\/$
+    formats:
+      - oas3
+      - oas3_1
+    tags:
+      - format:openapi
+      - spec:paths
+      - experience:naming
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'path-no-trailing-slash' (Path No Trailing Slash).
+      Requirement: Path must not end with a slash. To fix: Ensure the targeted
+      value does NOT match the regular expression `.+\\/$`; rename or rewrite any
+      value that does. This rule is evaluated at the JSONPath `$.paths` — inspect
+      every location it matches and correct only what violates the rule. Make the
+      smallest change that satisfies the rule, leave all unrelated content, key
+      order, comments, and formatting unchanged, and keep the document valid
+      OpenAPI. Return only the complete corrected document, with no commentary."
 ---

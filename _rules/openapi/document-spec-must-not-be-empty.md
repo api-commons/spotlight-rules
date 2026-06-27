@@ -22,4 +22,24 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid OpenAPI. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  document-spec-must-not-be-empty:
+    title: Document Spec Must Not Be Empty
+    reference: https://spotlight-rules.com/spec/rules/openapi/document-spec-must-not-be-empty/
+    description: Spec should not be empty.
+    message: "{{error}}"
+    severity: info
+    given: $
+    then:
+      function: trimble:is-valid-spec
+    tags:
+      - format:openapi
+      - spec:document
+      - experience:governance
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'document-spec-must-not-be-empty' (Document Spec Must Not Be
+      Empty). Requirement: Spec should not be empty. Make the smallest change that
+      satisfies the rule, leave all unrelated content, key order, comments, and
+      formatting unchanged, and keep the document valid OpenAPI. Return only the
+      complete corrected document, with no commentary."
 ---

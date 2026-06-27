@@ -28,4 +28,33 @@ prompt: "You are editing an Arazzo document to satisfy the Spotlight API
   and keep the document valid Arazzo. Return only the complete corrected
   document, with no commentary."
 builtin: true
+ruleyaml: >
+  arazzo-step-stepId:
+    title: Arazzo Step StepId
+    reference: https://spotlight-rules.com/spec/rules/arazzo/arazzo-step-stepId/
+    description: Step "stepId" should follow the pattern "^[A-Za-z0-9_\-]+$".
+    message: Step "stepId" should follow the pattern "^[A-Za-z0-9_\-]+$".
+    severity: info
+    given: $.workflows[*].steps[*]
+    then:
+      field: stepId
+      function: pattern
+      functionOptions:
+        match: ^[A-Za-z0-9_\-]+$
+    tags:
+      - format:arazzo
+      - spec:workflows
+      - spec:steps
+      - experience:naming
+      - experience:consistency
+    prompt: "You are editing an Arazzo document to satisfy the Spotlight API
+      governance rule 'arazzo-step-stepId' (Arazzo Step StepId). Requirement: Step
+      \"stepId\" should follow the pattern \"^[A-Za-z0-9_\\-]+$\". To fix: Ensure
+      `stepId` matches the regular expression `^[A-Za-z0-9_\\-]+$`; rewrite any
+      value that does not. This rule is evaluated at the JSONPath
+      `$.workflows[*].steps[*]` — inspect every location it matches and correct
+      only what violates the rule. Make the smallest change that satisfies the
+      rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid Arazzo. Return only the complete
+      corrected document, with no commentary."
 ---

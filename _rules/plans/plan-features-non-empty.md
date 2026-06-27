@@ -25,4 +25,31 @@ prompt: "You are editing a Plans document to satisfy the Spotlight API
   comments, and formatting unchanged, and keep the document valid Plans. Return
   only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  plan-features-non-empty:
+    title: Plan Features Non Empty
+    reference: https://spotlight-rules.com/spec/rules/plans/plan-features-non-empty/
+    description: If a plan lists features, the list should not be empty.
+    message: Plan features should not be empty.
+    given: $.plans[*].features
+    severity: info
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          minItems: 1
+    tags:
+      - format:plans
+      - spec:plans
+      - experience:documentation
+    prompt: "You are editing a Plans document to satisfy the Spotlight API
+      governance rule 'plan-features-non-empty' (Plan Features Non Empty).
+      Requirement: If a plan lists features, the list should not be empty. To fix:
+      Adjust the targeted value so it conforms to the schema this rule requires.
+      This rule is evaluated at the JSONPath `$.plans[*].features` — inspect every
+      location it matches and correct only what violates the rule. Make the
+      smallest change that satisfies the rule, leave all unrelated content, key
+      order, comments, and formatting unchanged, and keep the document valid
+      Plans. Return only the complete corrected document, with no commentary."
 ---

@@ -30,4 +30,33 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid OpenAPI. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  response-202-location-header:
+    title: Response 202 Location Header
+    reference: https://spotlight-rules.com/spec/rules/openapi/response-202-location-header/
+    description: 202 Accepted responses should document a Location header pointing
+      at the status or result resource clients can poll for the long-running
+      operation.
+    message: 202 Accepted responses should document a Location header.
+    given: $.paths[*][*].responses['202'].headers
+    severity: info
+    then:
+      field: Location
+      function: truthy
+    tags:
+      - format:openapi
+      - spec:responses
+      - experience:reliability
+      - experience:usability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'response-202-location-header' (Response 202 Location
+      Header). Requirement: 202 Accepted responses should document a Location
+      header pointing at the status or result resource clients can poll for the
+      long-running operation. To fix: Ensure `Location` is present and non-empty
+      at each matching location. This rule is evaluated at the JSONPath
+      `$.paths[*][*].responses['202'].headers` — inspect every location it matches
+      and correct only what violates the rule. Make the smallest change that
+      satisfies the rule, leave all unrelated content, key order, comments, and
+      formatting unchanged, and keep the document valid OpenAPI. Return only the
+      complete corrected document, with no commentary."
 ---

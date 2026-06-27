@@ -25,4 +25,28 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   order, comments, and formatting unchanged, and keep the document valid
   OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  schema-array-property-typed-items:
+    title: Schema Array Property Typed Items
+    reference: https://spotlight-rules.com/spec/rules/openapi/schema-array-property-typed-items/
+    description: Array properties must have an items attribute with a type.
+    message: "{{error}}"
+    severity: info
+    given: $..*.properties[*]
+    then:
+      function: digitalocean:ensureAllArraysHaveItemTypes
+    tags:
+      - format:openapi
+      - spec:schemas
+      - experience:data-modeling
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'schema-array-property-typed-items' (Schema Array Property
+      Typed Items). Requirement: Array properties must have an items attribute
+      with a type. This rule is evaluated at the JSONPath `$..*.properties[*]` —
+      inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid OpenAPI. Return only the complete corrected document, with no
+      commentary."
 ---

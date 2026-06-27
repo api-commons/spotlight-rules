@@ -28,4 +28,35 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   key order, comments, and formatting unchanged, and keep the document valid
   OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  tag-no-pascal-case:
+    title: Tag No Pascal Case
+    reference: https://spotlight-rules.com/spec/rules/openapi/tag-no-pascal-case/
+    description: Tag names cannot use Pascal Case. Please rename {{value}}.
+    message: Tag names cannot use Pascal Case. Please rename {{value}}.
+    severity: info
+    given:
+      - $.tags[*].name
+      - $.paths[*][*].tags[*]
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: /[A-Z][a-z]+[A-Z][a-z]+$/g
+    tags:
+      - format:openapi
+      - spec:paths
+      - spec:tags
+      - experience:naming
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'tag-no-pascal-case' (Tag No Pascal Case). Requirement: Tag
+      names cannot use Pascal Case. Please rename {{value}}. To fix: Ensure the
+      targeted value does NOT match the regular expression
+      `/[A-Z][a-z]+[A-Z][a-z]+$/g`; rename or rewrite any value that does. This
+      rule is evaluated at the JSONPath `$.tags[*].name | $.paths[*][*].tags[*]` —
+      inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid OpenAPI. Return only the complete corrected document, with no
+      commentary."
 ---

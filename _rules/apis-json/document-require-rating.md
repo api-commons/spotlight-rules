@@ -25,4 +25,28 @@ prompt: "You are editing an APIs.json document to satisfy the Spotlight API
   document valid APIs.json. Return only the complete corrected document, with no
   commentary."
 builtin: false
+ruleyaml: >
+  document-require-rating:
+    title: Document Require Rating
+    reference: https://spotlight-rules.com/spec/rules/apis-json/document-require-rating/
+    description: apis-json document should declare a `rating` property.
+    message: Missing `rating`.
+    given: $
+    severity: info
+    then:
+      field: rating
+      function: truthy
+    tags:
+      - format:apis-json
+      - spec:document
+      - experience:governance
+      - experience:discoverability
+    prompt: "You are editing an APIs.json document to satisfy the Spotlight API
+      governance rule 'document-require-rating' (Document Require Rating).
+      Requirement: apis-json document should declare a `rating` property. To fix:
+      Ensure `rating` is present and non-empty at each matching location.
+      Guidance: Missing `rating`. Make the smallest change that satisfies the
+      rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid APIs.json. Return only the complete
+      corrected document, with no commentary."
 ---

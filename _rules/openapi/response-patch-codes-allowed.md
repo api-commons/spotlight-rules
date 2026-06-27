@@ -29,4 +29,34 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   and keep the document valid OpenAPI. Return only the complete corrected
   document, with no commentary."
 builtin: false
+ruleyaml: >
+  response-patch-codes-allowed:
+    title: Response Patch Codes Allowed
+    reference: https://spotlight-rules.com/spec/rules/openapi/response-patch-codes-allowed/
+    description: PATCH operations should not return 201 status code.
+    message: PATCH operations should not return 201 status code.
+    severity: info
+    given: $.paths[*].patch.responses
+    then:
+      field: "@key"
+      function: pattern
+      functionOptions:
+        notMatch: ^201$
+    tags:
+      - format:openapi
+      - spec:paths
+      - spec:operations
+      - spec:responses
+      - experience:error-handling
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'response-patch-codes-allowed' (Response Patch Codes
+      Allowed). Requirement: PATCH operations should not return 201 status code.
+      To fix: Ensure `@key` does NOT match the regular expression `^201$`; rename
+      or rewrite any value that does. This rule is evaluated at the JSONPath
+      `$.paths[*].patch.responses` — inspect every location it matches and correct
+      only what violates the rule. Make the smallest change that satisfies the
+      rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid OpenAPI. Return only the complete
+      corrected document, with no commentary."
 ---

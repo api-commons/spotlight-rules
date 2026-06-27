@@ -28,4 +28,40 @@ prompt: "You are editing an Arazzo document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid Arazzo. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  workflow-arazzo-step-require-operation:
+    title: Workflow Arazzo Step Require Operation
+    reference: https://spotlight-rules.com/spec/rules/arazzo/workflow-arazzo-step-require-operation/
+    description: Each step should reference an operation via operationId,
+      operationPath, or a nested workflowId.
+    message: Step should reference an operationId, operationPath, or workflowId.
+    given: $.workflows[*].steps[*]
+    severity: info
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          anyOf:
+            - required:
+                - operationId
+            - required:
+                - operationPath
+            - required:
+                - workflowId
+    tags:
+      - format:arazzo
+      - spec:workflows
+      - experience:reliability
+      - experience:consistency
+    prompt: "You are editing an Arazzo document to satisfy the Spotlight API
+      governance rule 'workflow-arazzo-step-require-operation' (Workflow Arazzo
+      Step Require Operation). Requirement: Each step should reference an
+      operation via operationId, operationPath, or a nested workflowId. To fix:
+      Adjust the targeted value so it conforms to the schema this rule requires.
+      This rule is evaluated at the JSONPath `$.workflows[*].steps[*]` — inspect
+      every location it matches and correct only what violates the rule. Make the
+      smallest change that satisfies the rule, leave all unrelated content, key
+      order, comments, and formatting unchanged, and keep the document valid
+      Arazzo. Return only the complete corrected document, with no commentary."
 ---

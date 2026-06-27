@@ -26,4 +26,28 @@ prompt: "You are editing an Arazzo document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid Arazzo. Return only the
   complete corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  arazzo-workflow-output-validation:
+    title: Arazzo Workflow Output Validation
+    reference: https://spotlight-rules.com/spec/rules/arazzo/arazzo-workflow-output-validation/
+    description: Every workflow output must have unique name and its value must be a
+      valid runtime expression.
+    message: "{{error}}"
+    severity: info
+    given: $
+    then:
+      function: arazzoWorkflowOutputNamesValidation
+    tags:
+      - format:arazzo
+      - spec:document
+      - experience:data-modeling
+      - experience:reliability
+      - experience:consistency
+    prompt: "You are editing an Arazzo document to satisfy the Spotlight API
+      governance rule 'arazzo-workflow-output-validation' (Arazzo Workflow Output
+      Validation). Requirement: Every workflow output must have unique name and
+      its value must be a valid runtime expression. Make the smallest change that
+      satisfies the rule, leave all unrelated content, key order, comments, and
+      formatting unchanged, and keep the document valid Arazzo. Return only the
+      complete corrected document, with no commentary."
 ---

@@ -24,4 +24,32 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   unchanged, and keep the document valid OpenAPI. Return only the complete
   corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  openapi-tags:
+    title: Openapi Tags
+    reference: https://spotlight-rules.com/spec/rules/openapi/openapi-tags/
+    description: OpenAPI object must have non-empty "tags" array.
+    message: OpenAPI object must have non-empty "tags" array.
+    severity: info
+    given: $
+    then:
+      field: tags
+      function: schema
+      functionOptions:
+        dialect: draft7
+        schema:
+          type: array
+          minItems: 1
+    tags:
+      - format:openapi
+      - spec:document
+      - experience:discoverability
+      - experience:documentation
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'openapi-tags' (Openapi Tags). Requirement: OpenAPI object
+      must have non-empty \"tags\" array. To fix: Adjust `tags` so it conforms to
+      the schema this rule requires. Make the smallest change that satisfies the
+      rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid OpenAPI. Return only the complete
+      corrected document, with no commentary."
 ---

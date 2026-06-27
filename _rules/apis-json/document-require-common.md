@@ -25,4 +25,28 @@ prompt: "You are editing an APIs.json document to satisfy the Spotlight API
   document valid APIs.json. Return only the complete corrected document, with no
   commentary."
 builtin: false
+ruleyaml: >
+  document-require-common:
+    title: Document Require Common
+    reference: https://spotlight-rules.com/spec/rules/apis-json/document-require-common/
+    description: apis-json document should declare a `common` property.
+    message: Missing `common`.
+    given: $
+    severity: info
+    then:
+      field: common
+      function: truthy
+    tags:
+      - format:apis-json
+      - spec:document
+      - experience:governance
+      - experience:discoverability
+    prompt: "You are editing an APIs.json document to satisfy the Spotlight API
+      governance rule 'document-require-common' (Document Require Common).
+      Requirement: apis-json document should declare a `common` property. To fix:
+      Ensure `common` is present and non-empty at each matching location.
+      Guidance: Missing `common`. Make the smallest change that satisfies the
+      rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid APIs.json. Return only the complete
+      corrected document, with no commentary."
 ---

@@ -25,4 +25,27 @@ prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
   document valid AsyncAPI. Return only the complete corrected document, with no
   commentary."
 builtin: true
+ruleyaml: >
+  asyncapi-message-messageId-uniqueness:
+    title: Asyncapi Message MessageId Uniqueness
+    reference: https://spotlight-rules.com/spec/rules/asyncapi/asyncapi-message-messageId-uniqueness/
+    description: '"messageId" must be unique across all the messages.'
+    message: '"messageId" must be unique across all the messages.'
+    severity: info
+    given: $
+    then:
+      function: asyncApi2MessageIdUniqueness
+    tags:
+      - format:asyncapi
+      - spec:document
+      - experience:consistency
+      - experience:naming
+      - experience:reliability
+    prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
+      governance rule 'asyncapi-message-messageId-uniqueness' (Asyncapi Message
+      MessageId Uniqueness). Requirement: \"messageId\" must be unique across all
+      the messages. Make the smallest change that satisfies the rule, leave all
+      unrelated content, key order, comments, and formatting unchanged, and keep
+      the document valid AsyncAPI. Return only the complete corrected document,
+      with no commentary."
 ---

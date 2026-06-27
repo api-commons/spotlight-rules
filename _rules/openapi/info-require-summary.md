@@ -31,4 +31,36 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid OpenAPI. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  info-require-summary:
+    title: Info Require Summary
+    reference: https://spotlight-rules.com/spec/rules/openapi/info-require-summary/
+    description: "The `#/info/x-summary` can be used to specify a brief, one-liner
+      description of your API: this is very useful for catalog purposes (eg. this
+      can be shown as your API subtitle in catalogs and developer portals). In
+      OAS3.1 you can use the standard `#/info/summary` field."
+    message: "API MUST have an one-liner #/info/x-summary field containing a brief
+      description."
+    severity: info
+    given: $
+    then:
+      field: info.x-summary
+      function: truthy
+    formats:
+      - oas3
+    tags:
+      - format:openapi
+      - spec:document
+      - experience:documentation
+      - experience:discoverability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'info-require-summary' (Info Require Summary). Requirement:
+      The `#/info/x-summary` can be used to specify a brief, one-liner description
+      of your API: this is very useful for catalog purposes (eg. this can be shown
+      as your API subtitle in catalogs and developer portals). In OAS3.1 you can
+      use the standard `#/info/summary` field. To fix: Ensure `info.x-summary` is
+      present and non-empty at each matching location. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid OpenAPI. Return only
+      the complete corrected document, with no commentary."
 ---

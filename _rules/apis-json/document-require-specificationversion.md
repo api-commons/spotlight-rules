@@ -26,4 +26,29 @@ prompt: "You are editing an APIs.json document to satisfy the Spotlight API
   and keep the document valid APIs.json. Return only the complete corrected
   document, with no commentary."
 builtin: false
+ruleyaml: >
+  document-require-specificationversion:
+    title: Document Require Specificationversion
+    reference: https://spotlight-rules.com/spec/rules/apis-json/document-require-specificationversion/
+    description: apis-json document should declare a `specificationVersion` property.
+    message: Missing `specificationVersion`.
+    given: $
+    severity: info
+    then:
+      field: specificationVersion
+      function: truthy
+    tags:
+      - format:apis-json
+      - spec:document
+      - experience:governance
+      - experience:discoverability
+    prompt: "You are editing an APIs.json document to satisfy the Spotlight API
+      governance rule 'document-require-specificationversion' (Document Require
+      Specificationversion). Requirement: apis-json document should declare a
+      `specificationVersion` property. To fix: Ensure `specificationVersion` is
+      present and non-empty at each matching location. Guidance: Missing
+      `specificationVersion`. Make the smallest change that satisfies the rule,
+      leave all unrelated content, key order, comments, and formatting unchanged,
+      and keep the document valid APIs.json. Return only the complete corrected
+      document, with no commentary."
 ---

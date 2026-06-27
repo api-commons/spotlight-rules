@@ -25,4 +25,28 @@ prompt: "You are editing an Arazzo document to satisfy the Spotlight API
   key order, comments, and formatting unchanged, and keep the document valid
   Arazzo. Return only the complete corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  arazzo-step-success-actions-validation:
+    title: Arazzo Step Success Actions Validation
+    reference: https://spotlight-rules.com/spec/rules/arazzo/arazzo-step-success-actions-validation/
+    description: Every success action must have a unique "name", and the fields
+      "workflowId" and "stepId" are mutually exclusive.
+    message: "{{error}}"
+    severity: info
+    given: $
+    then:
+      function: arazzoStepSuccessActionsValidation
+    tags:
+      - format:arazzo
+      - spec:document
+      - experience:reliability
+      - experience:consistency
+    prompt: "You are editing an Arazzo document to satisfy the Spotlight API
+      governance rule 'arazzo-step-success-actions-validation' (Arazzo Step
+      Success Actions Validation). Requirement: Every success action must have a
+      unique \"name\", and the fields \"workflowId\" and \"stepId\" are mutually
+      exclusive. Make the smallest change that satisfies the rule, leave all
+      unrelated content, key order, comments, and formatting unchanged, and keep
+      the document valid Arazzo. Return only the complete corrected document, with
+      no commentary."
 ---

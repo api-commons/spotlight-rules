@@ -35,4 +35,42 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   document valid OpenAPI. Return only the complete corrected document, with no
   commentary."
 builtin: true
+ruleyaml: >
+  oas3-valid-media-example:
+    title: OAS3 Valid Media Example
+    reference: https://spotlight-rules.com/spec/rules/openapi/oas3-valid-media-example/
+    description: Examples must be valid against their defined schema.
+    message: "{{error}}"
+    severity: info
+    given:
+      - $..content..[?(@ && @.schema && (@.example !== void 0 || @.examples))]
+      - $..headers..[?(@ && @.schema && (@.example !== void 0 || @.examples))]
+      - $..parameters..[?(@ && @.schema && (@.example !== void 0 || @.examples))]
+    then:
+      function: oasExample
+      functionOptions:
+        schemaField: schema
+        oasVersion: 3
+        type: media
+    tags:
+      - format:openapi
+      - spec:parameters
+      - spec:headers
+      - spec:media-types
+      - spec:schemas
+      - spec:examples
+      - experience:data-modeling
+      - experience:documentation
+      - experience:reliability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'oas3-valid-media-example' (OAS3 Valid Media Example).
+      Requirement: Examples must be valid against their defined schema. This rule
+      is evaluated at the JSONPath `$..content..[?(@ && @.schema && (@.example !==
+      void 0 || @.examples))] | $..headers..[?(@ && @.schema && (@.example !==
+      void 0 || @.examples))] | $..parameters..[?(@ && @.schema && (@.example !==
+      void 0 || @.examples))]` — inspect every location it matches and correct
+      only what violates the rule. Make the smallest change that satisfies the
+      rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid OpenAPI. Return only the complete
+      corrected document, with no commentary."
 ---

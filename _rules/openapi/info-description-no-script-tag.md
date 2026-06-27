@@ -30,4 +30,36 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   order, comments, and formatting unchanged, and keep the document valid
   OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  info-description-no-script-tag:
+    title: Info Description No Script Tag
+    reference: https://spotlight-rules.com/spec/rules/openapi/info-description-no-script-tag/
+    description: Script tags MUST not be included in the description of an API,
+      keeping descriptions to just the text that is needed, and relying on the
+      rest of the OpenAPI to describe what is possible.
+    message: Info Description MUST NOT Have Script Tag
+    severity: info
+    given: $.info
+    then:
+      field: description
+      function: pattern
+      functionOptions:
+        notMatch: ^\b(<script)\b
+    tags:
+      - format:openapi
+      - spec:info
+      - experience:security
+      - experience:documentation
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'info-description-no-script-tag' (Info Description No Script
+      Tag). Requirement: Script tags MUST not be included in the description of an
+      API, keeping descriptions to just the text that is needed, and relying on
+      the rest of the OpenAPI to describe what is possible. To fix: Ensure
+      `description` does NOT match the regular expression `^\\b(<script)\\b`;
+      rename or rewrite any value that does. This rule is evaluated at the
+      JSONPath `$.info` — inspect every location it matches and correct only what
+      violates the rule. Make the smallest change that satisfies the rule, leave
+      all unrelated content, key order, comments, and formatting unchanged, and
+      keep the document valid OpenAPI. Return only the complete corrected
+      document, with no commentary."
 ---

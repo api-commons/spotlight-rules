@@ -28,4 +28,32 @@ prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
   and keep the document valid AsyncAPI. Return only the complete corrected
   document, with no commentary."
 builtin: true
+ruleyaml: >
+  asyncapi-unused-components-schema:
+    title: Asyncapi Unused Components Schema
+    reference: https://spotlight-rules.com/spec/rules/asyncapi/asyncapi-unused-components-schema/
+    description: Potentially unused components schema has been detected.
+    message: Potentially unused components schema has been detected.
+    severity: info
+    given: $.components.schemas
+    then:
+      function: unreferencedReusableObject
+      functionOptions:
+        reusableObjectsLocation: "#/components/schemas"
+    tags:
+      - format:asyncapi
+      - spec:components
+      - spec:schemas
+      - experience:consistency
+      - experience:data-modeling
+    prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
+      governance rule 'asyncapi-unused-components-schema' (Asyncapi Unused
+      Components Schema). Requirement: Potentially unused components schema has
+      been detected. To fix: Remove the unreferenced reusable object, or reference
+      it where it is needed. This rule is evaluated at the JSONPath
+      `$.components.schemas` — inspect every location it matches and correct only
+      what violates the rule. Make the smallest change that satisfies the rule,
+      leave all unrelated content, key order, comments, and formatting unchanged,
+      and keep the document valid AsyncAPI. Return only the complete corrected
+      document, with no commentary."
 ---

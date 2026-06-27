@@ -26,4 +26,29 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   and keep the document valid OpenAPI. Return only the complete corrected
   document, with no commentary."
 builtin: true
+ruleyaml: >
+  oas3_1-callbacks-in-webhook:
+    title: OAS3.1 Callbacks In Webhook
+    reference: https://spotlight-rules.com/spec/rules/openapi/oas3_1-callbacks-in-webhook/
+    description: OAS3.1 Callbacks In Webhook.
+    message: Callbacks should not be defined in a webhook.
+    severity: info
+    given:
+      - $.webhooks[*][*].callbacks
+    then:
+      function: undefined
+    tags:
+      - format:openapi
+      - spec:document
+      - experience:reliability
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'oas3_1-callbacks-in-webhook' (OAS3.1 Callbacks In Webhook).
+      Requirement: OAS3.1 Callbacks In Webhook. To fix: Remove the targeted value
+      from each matching location. This rule is evaluated at the JSONPath
+      `$.webhooks[*][*].callbacks` — inspect every location it matches and correct
+      only what violates the rule. Make the smallest change that satisfies the
+      rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid OpenAPI. Return only the complete
+      corrected document, with no commentary."
 ---

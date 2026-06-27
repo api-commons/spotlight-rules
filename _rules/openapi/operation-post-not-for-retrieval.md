@@ -28,4 +28,37 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   order, comments, and formatting unchanged, and keep the document valid
   OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  operation-post-not-for-retrieval:
+    title: Operation Post Not For Retrieval
+    reference: https://spotlight-rules.com/spec/rules/openapi/operation-post-not-for-retrieval/
+    description: POST requests SHOULD NOT be used for retrieving information. Use GET instead.
+    message: POST requests SHOULD NOT be used for retrieving information.
+    severity: info
+    given: $.paths[*].post
+    then:
+      field: summary
+      function: pattern
+      functionOptions:
+        notMatch: (retrieve|fetch|get|read)
+      message: "{{description}}: {{error}}"
+    formats:
+      - oas3
+    tags:
+      - format:openapi
+      - spec:paths
+      - spec:operations
+      - experience:consistency
+      - experience:usability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'operation-post-not-for-retrieval' (Operation Post Not For
+      Retrieval). Requirement: POST requests SHOULD NOT be used for retrieving
+      information. Use GET instead. To fix: Ensure `summary` does NOT match the
+      regular expression `(retrieve|fetch|get|read)`; rename or rewrite any value
+      that does. This rule is evaluated at the JSONPath `$.paths[*].post` —
+      inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid OpenAPI. Return only the complete corrected document, with no
+      commentary."
 ---

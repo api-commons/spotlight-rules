@@ -28,4 +28,34 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   order, comments, and formatting unchanged, and keep the document valid
   OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  schema-name-max-length:
+    title: Schema Name Max Length
+    reference: https://spotlight-rules.com/spec/rules/openapi/schema-name-max-length/
+    description: Schema should have a length limit applied keeping the names of
+      schema consistent across APIs.
+    message: Schema Names MUST Be Less Than 25 Characters
+    severity: info
+    given: $.components.schemas
+    then:
+      field: "@key"
+      function: length
+      functionOptions:
+        max: 25
+    tags:
+      - format:openapi
+      - spec:schemas
+      - spec:components
+      - experience:naming
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'schema-name-max-length' (Schema Name Max Length).
+      Requirement: Schema should have a length limit applied keeping the names of
+      schema consistent across APIs. To fix: Ensure the length of `@key` is at
+      most 25. This rule is evaluated at the JSONPath `$.components.schemas` —
+      inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid OpenAPI. Return only the complete corrected document, with no
+      commentary."
 ---

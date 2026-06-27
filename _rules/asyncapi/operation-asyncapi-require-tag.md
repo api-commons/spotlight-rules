@@ -26,4 +26,29 @@ prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid AsyncAPI. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  operation-asyncapi-require-tag:
+    title: Operation Asyncapi Require Tag
+    reference: https://spotlight-rules.com/spec/rules/asyncapi/operation-asyncapi-require-tag/
+    description: Operations should declare tags for grouping.
+    message: Operation should declare tags.
+    given: $.operations[*]
+    severity: info
+    then:
+      field: tags
+      function: truthy
+    tags:
+      - format:asyncapi
+      - spec:operations
+      - experience:documentation
+      - experience:discoverability
+    prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
+      governance rule 'operation-asyncapi-require-tag' (Operation Asyncapi Require
+      Tag). Requirement: Operations should declare tags for grouping. To fix:
+      Ensure `tags` is present and non-empty at each matching location. This rule
+      is evaluated at the JSONPath `$.operations[*]` — inspect every location it
+      matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid AsyncAPI. Return only
+      the complete corrected document, with no commentary."
 ---

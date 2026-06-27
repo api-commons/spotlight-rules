@@ -28,4 +28,33 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid OpenAPI. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  request-get-no-body:
+    title: Request Get No Body
+    reference: https://spotlight-rules.com/spec/rules/openapi/request-get-no-body/
+    description: GET requests MUST NOT have a request body.
+    message: GET requests MUST NOT have a request body.
+    severity: info
+    given: $.paths[*].get.requestBody
+    then:
+      function: falsy
+      message: "{{description}}: {{error}}"
+    formats:
+      - oas3
+    tags:
+      - format:openapi
+      - spec:paths
+      - spec:operations
+      - spec:request-body
+      - experience:consistency
+      - experience:usability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'request-get-no-body' (Request Get No Body). Requirement:
+      GET requests MUST NOT have a request body. To fix: Ensure the targeted value
+      is absent or empty (falsy) at each matching location. This rule is evaluated
+      at the JSONPath `$.paths[*].get.requestBody` — inspect every location it
+      matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid OpenAPI. Return only
+      the complete corrected document, with no commentary."
 ---

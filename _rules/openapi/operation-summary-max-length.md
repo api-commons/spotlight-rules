@@ -29,4 +29,34 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   unchanged, and keep the document valid OpenAPI. Return only the complete
   corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  operation-summary-max-length:
+    title: Operation Summary Max Length
+    reference: https://spotlight-rules.com/spec/rules/openapi/operation-summary-max-length/
+    severity: info
+    description: Apply length constraints to the operation summary helps keep them
+      consistent for publishing in documentation.
+    message: Operation Summary MUST Be Less Than 50 Characters
+    given: $.paths.*[get,post,patch,put,delete]
+    then:
+      - field: summary
+        function: length
+        functionOptions:
+          max: 50
+    tags:
+      - format:openapi
+      - spec:paths
+      - spec:operations
+      - experience:documentation
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'operation-summary-max-length' (Operation Summary Max
+      Length). Requirement: Apply length constraints to the operation summary
+      helps keep them consistent for publishing in documentation. To fix: Ensure
+      the length of `summary` is at most 50. This rule is evaluated at the
+      JSONPath `$.paths.*[get,post,patch,put,delete]` — inspect every location it
+      matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid OpenAPI. Return only
+      the complete corrected document, with no commentary."
 ---

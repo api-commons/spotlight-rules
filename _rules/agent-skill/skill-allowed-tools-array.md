@@ -28,4 +28,35 @@ prompt: "You are editing an Agent Skill document to satisfy the Spotlight API
   comments, and formatting unchanged, and keep the document valid Agent Skill.
   Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  skill-allowed-tools-array:
+    title: Skill Allowed Tools Array
+    reference: https://spotlight-rules.com/spec/rules/agent-skill/skill-allowed-tools-array/
+    description: If a skill declares allowed-tools, it must be an array of tool
+      names so its capability surface is explicit and auditable.
+    message: allowed-tools must be an array of tool names.
+    severity: info
+    given: $.frontmatter['allowed-tools']
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          items:
+            type: string
+    tags:
+      - format:agent-skill
+      - spec:frontmatter
+      - experience:security
+      - experience:governance
+    prompt: "You are editing an Agent Skill document to satisfy the Spotlight API
+      governance rule 'skill-allowed-tools-array' (Skill Allowed Tools Array).
+      Requirement: If a skill declares allowed-tools, it must be an array of tool
+      names so its capability surface is explicit and auditable. To fix: Adjust
+      the targeted value so it conforms to the schema this rule requires. This
+      rule is evaluated at the JSONPath `$.frontmatter['allowed-tools']` — inspect
+      every location it matches and correct only what violates the rule. Make the
+      smallest change that satisfies the rule, leave all unrelated content, key
+      order, comments, and formatting unchanged, and keep the document valid Agent
+      Skill. Return only the complete corrected document, with no commentary."
 ---

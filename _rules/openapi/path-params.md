@@ -24,4 +24,27 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   key order, comments, and formatting unchanged, and keep the document valid
   OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  path-params:
+    title: Path Params
+    reference: https://spotlight-rules.com/spec/rules/openapi/path-params/
+    description: Path parameters must be defined and valid.
+    message: "{{error}}"
+    severity: info
+    given: $.paths
+    then:
+      function: oasPathParam
+    tags:
+      - format:openapi
+      - spec:paths
+      - experience:reliability
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'path-params' (Path Params). Requirement: Path parameters
+      must be defined and valid. This rule is evaluated at the JSONPath `$.paths`
+      — inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid OpenAPI. Return only the complete corrected document, with no
+      commentary."
 ---

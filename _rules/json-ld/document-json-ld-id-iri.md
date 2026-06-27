@@ -27,4 +27,31 @@ prompt: "You are editing a JSON-LD document to satisfy the Spotlight API
   unchanged, and keep the document valid JSON-LD. Return only the complete
   corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  document-json-ld-id-iri:
+    title: Document JSON LD ID IRI
+    reference: https://spotlight-rules.com/spec/rules/json-ld/document-json-ld-id-iri/
+    description: "@id should be an IRI (https://, urn:, did:) or a blank-node identifier."
+    message: "@id should be an IRI."
+    given: $['@id']
+    severity: info
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https?://|^urn:|^did:|^_:"
+    tags:
+      - format:json-ld
+      - spec:document
+      - experience:consistency
+      - experience:discoverability
+    prompt: "You are editing a JSON-LD document to satisfy the Spotlight API
+      governance rule 'document-json-ld-id-iri' (Document JSON LD ID IRI).
+      Requirement: @id should be an IRI (https://, urn:, did:) or a blank-node
+      identifier. To fix: Ensure the targeted value matches the regular expression
+      `^https?://|^urn:|^did:|^_:`; rewrite any value that does not. This rule is
+      evaluated at the JSONPath `$.@id` — inspect every location it matches and
+      correct only what violates the rule. Make the smallest change that satisfies
+      the rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid JSON-LD. Return only the complete
+      corrected document, with no commentary."
 ---

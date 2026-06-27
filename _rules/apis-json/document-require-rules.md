@@ -25,4 +25,28 @@ prompt: "You are editing an APIs.json document to satisfy the Spotlight API
   document valid APIs.json. Return only the complete corrected document, with no
   commentary."
 builtin: false
+ruleyaml: >
+  document-require-rules:
+    title: Document Require Rules
+    reference: https://spotlight-rules.com/spec/rules/apis-json/document-require-rules/
+    description: apis-json document should declare a `rules` property.
+    message: Missing `rules`.
+    given: $
+    severity: info
+    then:
+      field: rules
+      function: truthy
+    tags:
+      - format:apis-json
+      - spec:document
+      - experience:governance
+      - experience:discoverability
+    prompt: "You are editing an APIs.json document to satisfy the Spotlight API
+      governance rule 'document-require-rules' (Document Require Rules).
+      Requirement: apis-json document should declare a `rules` property. To fix:
+      Ensure `rules` is present and non-empty at each matching location. Guidance:
+      Missing `rules`. Make the smallest change that satisfies the rule, leave all
+      unrelated content, key order, comments, and formatting unchanged, and keep
+      the document valid APIs.json. Return only the complete corrected document,
+      with no commentary."
 ---

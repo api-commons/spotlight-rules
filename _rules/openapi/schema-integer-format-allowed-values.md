@@ -29,4 +29,39 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   key order, comments, and formatting unchanged, and keep the document valid
   OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  schema-integer-format-allowed-values:
+    title: Schema Integer Format Allowed Values
+    reference: https://spotlight-rules.com/spec/rules/openapi/schema-integer-format-allowed-values/
+    description: To improve interoperability, integer and number formats are
+      constrained to a shared subset. See recommendation RAC_REST_FORMAT_004.
+    message: Type format is "{{value}}", expected one of [int32, int64]. {{path}}
+    severity: info
+    given: |
+      $.[?(@.type=="integer")]
+    then:
+      field: format
+      function: enumeration
+      functionOptions:
+        values:
+          - int32
+          - int64
+    formats:
+      - oas3
+    tags:
+      - format:openapi
+      - spec:document
+      - experience:data-modeling
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'schema-integer-format-allowed-values' (Schema Integer
+      Format Allowed Values). Requirement: To improve interoperability, integer
+      and number formats are constrained to a shared subset. See recommendation
+      RAC_REST_FORMAT_004. To fix: Set `format` to one of the allowed values:
+      int32, int64. This rule is evaluated at the JSONPath
+      `$.[?(@.type==\"integer\")] ` — inspect every location it matches and
+      correct only what violates the rule. Make the smallest change that satisfies
+      the rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid OpenAPI. Return only the complete
+      corrected document, with no commentary."
 ---

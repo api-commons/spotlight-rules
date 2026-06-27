@@ -28,4 +28,31 @@ prompt: "You are editing an Arazzo document to satisfy the Spotlight API
   and keep the document valid Arazzo. Return only the complete corrected
   document, with no commentary."
 builtin: true
+ruleyaml: >
+  arazzo-step-operationPath:
+    title: Arazzo Step OperationPath
+    reference: https://spotlight-rules.com/spec/rules/arazzo/arazzo-step-operationPath/
+    description: It is recommended to use "operationId" rather than "operationPath".
+    message: It is recommended to use "operationId" rather than "operationPath".
+    severity: info
+    given: $.workflows[*].steps[*]
+    then:
+      field: operationPath
+      function: falsy
+    tags:
+      - format:arazzo
+      - spec:workflows
+      - spec:steps
+      - experience:consistency
+      - experience:usability
+    prompt: "You are editing an Arazzo document to satisfy the Spotlight API
+      governance rule 'arazzo-step-operationPath' (Arazzo Step OperationPath).
+      Requirement: It is recommended to use \"operationId\" rather than
+      \"operationPath\". To fix: Ensure `operationPath` is absent or empty (falsy)
+      at each matching location. This rule is evaluated at the JSONPath
+      `$.workflows[*].steps[*]` — inspect every location it matches and correct
+      only what violates the rule. Make the smallest change that satisfies the
+      rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid Arazzo. Return only the complete
+      corrected document, with no commentary."
 ---

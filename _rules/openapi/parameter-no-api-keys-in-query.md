@@ -31,4 +31,35 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid OpenAPI. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  parameter-no-api-keys-in-query:
+    title: Parameter No API Keys In Query
+    reference: https://spotlight-rules.com/spec/rules/openapi/parameter-no-api-keys-in-query/
+    description: Query parameters MUST not contain sensitive information, like API
+      tokens or keys.
+    message: Query parameters MUST not contain sensitive information, like API
+      tokens or keys.
+    severity: info
+    given: $.paths.*.*.parameters[?(@.in=='query')].name
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: apiKey|token
+    tags:
+      - format:openapi
+      - spec:paths
+      - spec:parameters
+      - experience:security
+      - experience:governance
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'parameter-no-api-keys-in-query' (Parameter No API Keys In
+      Query). Requirement: Query parameters MUST not contain sensitive
+      information, like API tokens or keys. To fix: Ensure the targeted value does
+      NOT match the regular expression `apiKey|token`; rename or rewrite any value
+      that does. This rule is evaluated at the JSONPath
+      `$.paths.*.*.parameters[?(@.in=='query')].name` — inspect every location it
+      matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid OpenAPI. Return only
+      the complete corrected document, with no commentary."
 ---

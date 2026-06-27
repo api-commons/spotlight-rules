@@ -31,4 +31,39 @@ prompt: "You are editing an APIs.json document to satisfy the Spotlight API
   unchanged, and keep the document valid APIs.json. Return only the complete
   corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  schema-include-governance-policies:
+    title: Schema Include Governance Policies
+    reference: https://spotlight-rules.com/spec/rules/apis-json/schema-include-governance-policies/
+    description: This property ensures there is a governance policies reference as
+      part of an API contract, usually a common property pointing to a centralized
+      set of policies that get applied.
+    message: Has API Governance Policies
+    severity: info
+    given:
+      - $.apis.*.properties.*
+      - $.common.*
+    then:
+      - field: type
+        function: pattern
+        functionOptions:
+          notMatch: \b(api-policies|Policies)\b
+    tags:
+      - format:apis-json
+      - spec:apis
+      - spec:properties
+      - experience:governance
+    prompt: "You are editing an APIs.json document to satisfy the Spotlight API
+      governance rule 'schema-include-governance-policies' (Schema Include
+      Governance Policies). Requirement: This property ensures there is a
+      governance policies reference as part of an API contract, usually a common
+      property pointing to a centralized set of policies that get applied. To fix:
+      Ensure `type` does NOT match the regular expression
+      `\\b(api-policies|Policies)\\b`; rename or rewrite any value that does. This
+      rule is evaluated at the JSONPath `$.apis.*.properties.* | $.common.*` —
+      inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid APIs.json. Return only the complete corrected document, with
+      no commentary."
 ---

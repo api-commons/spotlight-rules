@@ -27,4 +27,30 @@ prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
   unchanged, and keep the document valid AsyncAPI. Return only the complete
   corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  component-asyncapi-message-require-contenttype:
+    title: Component Asyncapi Message Require Contenttype
+    reference: https://spotlight-rules.com/spec/rules/asyncapi/component-asyncapi-message-require-contenttype/
+    description: Messages should declare a contentType (e.g. application/json).
+    message: Message should declare a contentType.
+    given: $.components.messages[*]
+    severity: info
+    then:
+      field: contentType
+      function: truthy
+    tags:
+      - format:asyncapi
+      - spec:components
+      - experience:consistency
+      - experience:data-modeling
+    prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
+      governance rule 'component-asyncapi-message-require-contenttype' (Component
+      Asyncapi Message Require Contenttype). Requirement: Messages should declare
+      a contentType (e.g. application/json). To fix: Ensure `contentType` is
+      present and non-empty at each matching location. This rule is evaluated at
+      the JSONPath `$.components.messages[*]` — inspect every location it matches
+      and correct only what violates the rule. Make the smallest change that
+      satisfies the rule, leave all unrelated content, key order, comments, and
+      formatting unchanged, and keep the document valid AsyncAPI. Return only the
+      complete corrected document, with no commentary."
 ---

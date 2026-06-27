@@ -27,4 +27,32 @@ prompt: "You are editing a JSON Structure document to satisfy the Spotlight API
   unchanged, and keep the document valid JSON Structure. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  document-json-structure-id-uri:
+    title: Document JSON Structure ID URI
+    reference: https://spotlight-rules.com/spec/rules/json-structure/document-json-structure-id-uri/
+    description: $id should be a stable absolute URI (https:// or urn:) identifying
+      the schema.
+    message: $id should be an absolute URI.
+    given: $.$id
+    severity: info
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https?://|^urn:"
+    tags:
+      - format:json-structure
+      - spec:document
+      - experience:consistency
+      - experience:discoverability
+    prompt: "You are editing a JSON Structure document to satisfy the Spotlight API
+      governance rule 'document-json-structure-id-uri' (Document JSON Structure ID
+      URI). Requirement: $id should be a stable absolute URI (https:// or urn:)
+      identifying the schema. To fix: Ensure the targeted value matches the
+      regular expression `^https?://|^urn:`; rewrite any value that does not. This
+      rule is evaluated at the JSONPath `$.$id` — inspect every location it
+      matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid JSON Structure. Return
+      only the complete corrected document, with no commentary."
 ---

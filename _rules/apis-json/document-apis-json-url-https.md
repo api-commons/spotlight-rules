@@ -26,4 +26,31 @@ prompt: "You are editing an APIs.json document to satisfy the Spotlight API
   comments, and formatting unchanged, and keep the document valid APIs.json.
   Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  document-apis-json-url-https:
+    title: Document APIs JSON URL HTTPS
+    reference: https://spotlight-rules.com/spec/rules/apis-json/document-apis-json-url-https/
+    description: The APIs.json url should be an https URL.
+    message: APIs.json url should use https.
+    given: $.url
+    severity: info
+    then:
+      function: pattern
+      functionOptions:
+        match: ^https://
+    tags:
+      - format:apis-json
+      - spec:document
+      - experience:security
+      - experience:discoverability
+    prompt: "You are editing an APIs.json document to satisfy the Spotlight API
+      governance rule 'document-apis-json-url-https' (Document APIs JSON URL
+      HTTPS). Requirement: The APIs.json url should be an https URL. To fix:
+      Ensure the targeted value matches the regular expression `^https://`;
+      rewrite any value that does not. This rule is evaluated at the JSONPath
+      `$.url` — inspect every location it matches and correct only what violates
+      the rule. Make the smallest change that satisfies the rule, leave all
+      unrelated content, key order, comments, and formatting unchanged, and keep
+      the document valid APIs.json. Return only the complete corrected document,
+      with no commentary."
 ---

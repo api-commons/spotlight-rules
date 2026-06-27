@@ -37,4 +37,43 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   key order, comments, and formatting unchanged, and keep the document valid
   OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  response-throttled-require-retry-after:
+    title: Response Throttled Require Retry After
+    reference: https://spotlight-rules.com/spec/rules/openapi/response-throttled-require-retry-after/
+    description: "When a client is either: * throttled out with a 429 status code; *
+      warned about a temporary server issue with a 503 status code; the server
+      should explicitly communicate how long to wait before issuing further
+      requests using the Retry-After header. Retry-After is defined in RFC7231."
+    message: "Missing ratelimit header: {{property}} in {{path}}"
+    severity: info
+    given: $.[responses][?(@property == "429" || @property == "503"  )][headers]
+    then:
+      field: Retry-After
+      function: truthy
+    formats:
+      - oas3
+    tags:
+      - format:openapi
+      - spec:responses
+      - spec:headers
+      - topic:rate-limiting
+      - experience:reliability
+      - experience:error-handling
+      - experience:performance
+      - owasp:api4
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'response-throttled-require-retry-after' (Response Throttled
+      Require Retry After). Requirement: When a client is either: * throttled out
+      with a 429 status code; * warned about a temporary server issue with a 503
+      status code; the server should explicitly communicate how long to wait
+      before issuing further requests using the Retry-After header. Retry-After is
+      defined in RFC7231. To fix: Ensure `Retry-After` is present and non-empty at
+      each matching location. This rule is evaluated at the JSONPath
+      `$.[responses][?(@property == \"429\" || @property == \"503\" )][headers]` —
+      inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid OpenAPI. Return only the complete corrected document, with no
+      commentary."
 ---

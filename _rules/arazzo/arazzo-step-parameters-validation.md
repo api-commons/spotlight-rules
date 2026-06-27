@@ -23,4 +23,26 @@ prompt: "You are editing an Arazzo document to satisfy the Spotlight API
   key order, comments, and formatting unchanged, and keep the document valid
   Arazzo. Return only the complete corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  arazzo-step-parameters-validation:
+    title: Arazzo Step Parameters Validation
+    reference: https://spotlight-rules.com/spec/rules/arazzo/arazzo-step-parameters-validation/
+    description: Step parameters and workflow parameters must valid.
+    message: "{{error}}"
+    severity: info
+    given: $
+    then:
+      function: arazzoStepParametersValidation
+    tags:
+      - format:arazzo
+      - spec:document
+      - experience:reliability
+      - experience:data-modeling
+    prompt: "You are editing an Arazzo document to satisfy the Spotlight API
+      governance rule 'arazzo-step-parameters-validation' (Arazzo Step Parameters
+      Validation). Requirement: Step parameters and workflow parameters must
+      valid. Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid Arazzo. Return only the complete corrected document, with no
+      commentary."
 ---

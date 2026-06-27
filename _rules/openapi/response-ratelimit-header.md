@@ -33,4 +33,36 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   unchanged, and keep the document valid OpenAPI. Return only the complete
   corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  response-ratelimit-header:
+    title: Response Ratelimit Header
+    reference: https://spotlight-rules.com/spec/rules/openapi/response-ratelimit-header/
+    description: Responses should define the structured RateLimit header (current
+      IETF draft) conveying quota, remaining, and reset in one field — the modern
+      successor to the RateLimit-Limit/Remaining/Reset triplet.
+    message: Responses should define a `RateLimit` header.
+    given: $..responses.*
+    severity: info
+    then:
+      field: headers.RateLimit
+      function: truthy
+    tags:
+      - format:openapi
+      - spec:responses
+      - topic:rate-limiting
+      - experience:reliability
+      - experience:usability
+      - experience:performance
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'response-ratelimit-header' (Response Ratelimit Header).
+      Requirement: Responses should define the structured RateLimit header
+      (current IETF draft) conveying quota, remaining, and reset in one field —
+      the modern successor to the RateLimit-Limit/Remaining/Reset triplet. To fix:
+      Ensure `headers.RateLimit` is present and non-empty at each matching
+      location. Guidance: Responses should define a `RateLimit` header. This rule
+      is evaluated at the JSONPath `$..responses.*` — inspect every location it
+      matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid OpenAPI. Return only
+      the complete corrected document, with no commentary."
 ---

@@ -25,4 +25,27 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   document valid OpenAPI. Return only the complete corrected document, with no
   commentary."
 builtin: false
+ruleyaml: >
+  path-no-http-verbs:
+    title: Path No HTTP Verbs
+    reference: https://spotlight-rules.com/spec/rules/openapi/path-no-http-verbs/
+    severity: info
+    description: HTTP verbs should be not be in URL paths.
+    message: "{{property}} has HTTP verb in path: {{error}}"
+    given: $.paths[*]~
+    then:
+      function: trimble:no-http-verbs-in-path
+    tags:
+      - format:openapi
+      - spec:paths
+      - experience:naming
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'path-no-http-verbs' (Path No HTTP Verbs). Requirement: HTTP
+      verbs should be not be in URL paths. This rule is evaluated at the JSONPath
+      `$.paths` — inspect every location it matches and correct only what violates
+      the rule. Make the smallest change that satisfies the rule, leave all
+      unrelated content, key order, comments, and formatting unchanged, and keep
+      the document valid OpenAPI. Return only the complete corrected document,
+      with no commentary."
 ---

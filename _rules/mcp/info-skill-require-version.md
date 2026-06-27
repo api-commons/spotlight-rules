@@ -24,4 +24,27 @@ prompt: "You are editing a MCP document to satisfy the Spotlight API governance
   unchanged, and keep the document valid MCP. Return only the complete corrected
   document, with no commentary."
 builtin: false
+ruleyaml: >
+  info-skill-require-version:
+    title: Info Require Version
+    reference: https://spotlight-rules.com/spec/rules/mcp/info-skill-require-version/
+    description: The `version` property should be present.
+    message: version should be present
+    severity: info
+    given: $
+    then:
+      field: version
+      function: truthy
+    tags:
+      - format:mcp
+      - spec:servers
+      - experience:versioning
+      - experience:data-modeling
+    prompt: "You are editing a MCP document to satisfy the Spotlight API governance
+      rule 'info-skill-require-version' (Info Require Version). Requirement: The
+      `version` property should be present. To fix: Ensure `version` is present
+      and non-empty at each matching location. Make the smallest change that
+      satisfies the rule, leave all unrelated content, key order, comments, and
+      formatting unchanged, and keep the document valid MCP. Return only the
+      complete corrected document, with no commentary."
 ---

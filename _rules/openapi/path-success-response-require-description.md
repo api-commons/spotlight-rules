@@ -25,4 +25,27 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   document valid OpenAPI. Return only the complete corrected document, with no
   commentary."
 builtin: false
+ruleyaml: >
+  path-success-response-require-description:
+    title: Path Success Response Require Description
+    reference: https://spotlight-rules.com/spec/rules/openapi/path-success-response-require-description/
+    description: Check if the response description is appropriate for all requests.
+    message: "{{error}}"
+    severity: info
+    given: $.paths.*
+    then:
+      function: trimble:check-description-for-all-success-responses
+    tags:
+      - format:openapi
+      - spec:paths
+      - experience:documentation
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'path-success-response-require-description' (Path Success
+      Response Require Description). Requirement: Check if the response
+      description is appropriate for all requests. This rule is evaluated at the
+      JSONPath `$.paths.*.` — inspect every location it matches and correct only
+      what violates the rule. Make the smallest change that satisfies the rule,
+      leave all unrelated content, key order, comments, and formatting unchanged,
+      and keep the document valid OpenAPI. Return only the complete corrected
+      document, with no commentary."
 ---

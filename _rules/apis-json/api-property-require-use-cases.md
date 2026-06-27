@@ -31,4 +31,39 @@ prompt: "You are editing an APIs.json document to satisfy the Spotlight API
   key order, comments, and formatting unchanged, and keep the document valid
   APIs.json. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  api-property-require-use-cases:
+    title: API Property Require Use Cases
+    reference: https://spotlight-rules.com/spec/rules/apis-json/api-property-require-use-cases/
+    description: This property ensures there is a reference to the use cases for an
+      API, helping align an API with the who, what, how, and why of putting an API
+      to work.
+    message: Has Use Cases
+    severity: info
+    given:
+      - $.apis.*.properties.*
+      - $.common.*
+    then:
+      - field: type
+        function: pattern
+        functionOptions:
+          notMatch: \b(UseCases)\b
+    tags:
+      - format:apis-json
+      - spec:apis
+      - spec:properties
+      - experience:documentation
+      - experience:discoverability
+    prompt: "You are editing an APIs.json document to satisfy the Spotlight API
+      governance rule 'api-property-require-use-cases' (API Property Require Use
+      Cases). Requirement: This property ensures there is a reference to the use
+      cases for an API, helping align an API with the who, what, how, and why of
+      putting an API to work. To fix: Ensure `type` does NOT match the regular
+      expression `\\b(UseCases)\\b`; rename or rewrite any value that does. This
+      rule is evaluated at the JSONPath `$.apis.*.properties.* | $.common.*` —
+      inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid APIs.json. Return only the complete corrected document, with
+      no commentary."
 ---

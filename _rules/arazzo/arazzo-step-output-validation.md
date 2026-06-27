@@ -26,4 +26,28 @@ prompt: "You are editing an Arazzo document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid Arazzo. Return only the
   complete corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  arazzo-step-output-validation:
+    title: Arazzo Step Output Validation
+    reference: https://spotlight-rules.com/spec/rules/arazzo/arazzo-step-output-validation/
+    description: Every step output must have unique name and its value must be a
+      valid runtime expression.
+    message: "{{error}}"
+    severity: info
+    given: $
+    then:
+      function: arazzoStepOutputNamesValidation
+    tags:
+      - format:arazzo
+      - spec:document
+      - experience:data-modeling
+      - experience:reliability
+      - experience:consistency
+    prompt: "You are editing an Arazzo document to satisfy the Spotlight API
+      governance rule 'arazzo-step-output-validation' (Arazzo Step Output
+      Validation). Requirement: Every step output must have unique name and its
+      value must be a valid runtime expression. Make the smallest change that
+      satisfies the rule, leave all unrelated content, key order, comments, and
+      formatting unchanged, and keep the document valid Arazzo. Return only the
+      complete corrected document, with no commentary."
 ---

@@ -29,4 +29,33 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   key order, comments, and formatting unchanged, and keep the document valid
   OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  operation-require-identifier:
+    title: Operation Require Identifier
+    reference: https://spotlight-rules.com/spec/rules/openapi/operation-require-identifier/
+    description: Operation identifiers provide a unique way to identify each
+      individual API, which then used for SDK generation and other automation.
+    message: Operation MUST Have Identifier
+    severity: info
+    given: $.paths.*[get,post,patch,put,delete]
+    then:
+      - field: operationId
+        function: truthy
+    tags:
+      - format:openapi
+      - spec:paths
+      - spec:operations
+      - experience:consistency
+      - experience:usability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'operation-require-identifier' (Operation Require
+      Identifier). Requirement: Operation identifiers provide a unique way to
+      identify each individual API, which then used for SDK generation and other
+      automation. To fix: Ensure `operationId` is present and non-empty at each
+      matching location. This rule is evaluated at the JSONPath
+      `$.paths.*[get,post,patch,put,delete]` — inspect every location it matches
+      and correct only what violates the rule. Make the smallest change that
+      satisfies the rule, leave all unrelated content, key order, comments, and
+      formatting unchanged, and keep the document valid OpenAPI. Return only the
+      complete corrected document, with no commentary."
 ---

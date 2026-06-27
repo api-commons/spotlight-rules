@@ -27,4 +27,32 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   comments, and formatting unchanged, and keep the document valid OpenAPI.
   Return only the complete corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  operation-operationId-valid-in-url:
+    title: Operation OperationId Valid In URL
+    reference: https://spotlight-rules.com/spec/rules/openapi/operation-operationId-valid-in-url/
+    description: Operation OperationId Valid In URL.
+    message: operationId must not characters that are invalid when used in URL.
+    severity: info
+    given: "#OperationObject"
+    then:
+      field: operationId
+      function: pattern
+      functionOptions:
+        match: ^[A-Za-z0-9-._~:/?#\[\]@!\$&'()*+,;=]*$
+    tags:
+      - format:openapi
+      - spec:document
+      - experience:naming
+      - experience:usability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'operation-operationId-valid-in-url' (Operation OperationId
+      Valid In URL). Requirement: Operation OperationId Valid In URL. To fix:
+      Ensure `operationId` matches the regular expression
+      `^[A-Za-z0-9-._~:/?#\\[\\]@!\\$&'()*+,;=]*$`; rewrite any value that does
+      not. This rule is evaluated at the JSONPath `#OperationObject` — inspect
+      every location it matches and correct only what violates the rule. Make the
+      smallest change that satisfies the rule, leave all unrelated content, key
+      order, comments, and formatting unchanged, and keep the document valid
+      OpenAPI. Return only the complete corrected document, with no commentary."
 ---

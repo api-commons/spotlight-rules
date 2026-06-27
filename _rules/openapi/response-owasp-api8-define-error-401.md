@@ -29,4 +29,32 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid OpenAPI. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  response-owasp-api8-define-error-401:
+    title: Response OWASP API8 Define Error 401
+    reference: https://spotlight-rules.com/spec/rules/openapi/response-owasp-api8-define-error-401/
+    description: Operations should define a 401 Unauthorized response (OWASP API8 —
+      security misconfiguration; document auth failures).
+    message: Operation should define a 401 Unauthorized response.
+    given: $.paths[*][get,post,put,patch,delete].responses
+    severity: info
+    then:
+      field: "401"
+      function: truthy
+    tags:
+      - format:openapi
+      - spec:responses
+      - experience:security
+      - owasp:api8
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'response-owasp-api8-define-error-401' (Response OWASP API8
+      Define Error 401). Requirement: Operations should define a 401 Unauthorized
+      response (OWASP API8 — security misconfiguration; document auth failures).
+      To fix: Ensure `401` is present and non-empty at each matching location.
+      This rule is evaluated at the JSONPath
+      `$.paths[*][get,post,put,patch,delete].responses` — inspect every location
+      it matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid OpenAPI. Return only
+      the complete corrected document, with no commentary."
 ---

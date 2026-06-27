@@ -26,4 +26,31 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   document valid OpenAPI. Return only the complete corrected document, with no
   commentary."
 builtin: true
+ruleyaml: >
+  operation-singular-tag:
+    title: Operation Singular Tag
+    reference: https://spotlight-rules.com/spec/rules/openapi/operation-singular-tag/
+    description: Operation must not have more than a single tag.
+    message: Operation must not have more than a single tag.
+    severity: info
+    given: "#OperationObject"
+    then:
+      field: tags
+      function: length
+      functionOptions:
+        max: 1
+    tags:
+      - format:openapi
+      - spec:document
+      - experience:consistency
+      - experience:discoverability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'operation-singular-tag' (Operation Singular Tag).
+      Requirement: Operation must not have more than a single tag. To fix: Ensure
+      the length of `tags` is at most 1. This rule is evaluated at the JSONPath
+      `#OperationObject` — inspect every location it matches and correct only what
+      violates the rule. Make the smallest change that satisfies the rule, leave
+      all unrelated content, key order, comments, and formatting unchanged, and
+      keep the document valid OpenAPI. Return only the complete corrected
+      document, with no commentary."
 ---

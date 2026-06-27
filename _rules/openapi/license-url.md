@@ -24,4 +24,27 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   and keep the document valid OpenAPI. Return only the complete corrected
   document, with no commentary."
 builtin: true
+ruleyaml: >
+  license-url:
+    title: License URL
+    reference: https://spotlight-rules.com/spec/rules/openapi/license-url/
+    description: License object must include "url".
+    message: License object must include "url".
+    severity: info
+    given: $
+    then:
+      field: info.license.url
+      function: truthy
+    tags:
+      - format:openapi
+      - spec:document
+      - experience:documentation
+      - experience:governance
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'license-url' (License URL). Requirement: License object
+      must include \"url\". To fix: Ensure `info.license.url` is present and
+      non-empty at each matching location. Make the smallest change that satisfies
+      the rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid OpenAPI. Return only the complete
+      corrected document, with no commentary."
 ---

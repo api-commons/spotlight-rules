@@ -28,4 +28,31 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   and keep the document valid OpenAPI. Return only the complete corrected
   document, with no commentary."
 builtin: false
+ruleyaml: >
+  document-require-server-defined:
+    title: Document Require Server Defined
+    reference: https://spotlight-rules.com/spec/rules/openapi/document-require-server-defined/
+    description: Every OpenAPI should define at least one server URL. Analysis shows
+      97.2% of APIs define servers, providing consumers with the base URL needed
+      to make requests.
+    message: Servers MUST Be Defined
+    severity: info
+    given: $
+    then:
+      field: servers
+      function: truthy
+    tags:
+      - format:openapi
+      - spec:document
+      - experience:usability
+      - experience:discoverability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'document-require-server-defined' (Document Require Server
+      Defined). Requirement: Every OpenAPI should define at least one server URL.
+      Analysis shows 97.2% of APIs define servers, providing consumers with the
+      base URL needed to make requests. To fix: Ensure `servers` is present and
+      non-empty at each matching location. Make the smallest change that satisfies
+      the rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid OpenAPI. Return only the complete
+      corrected document, with no commentary."
 ---

@@ -35,4 +35,39 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   comments, and formatting unchanged, and keep the document valid OpenAPI.
   Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  operation-define-429-response:
+    title: Operation Define 429 Response
+    reference: https://spotlight-rules.com/spec/rules/openapi/operation-define-429-response/
+    description: APIs should define a 429 Too Many Requests response to document
+      rate limiting behavior. Analysis shows 429 appears in 671 operations,
+      confirming rate limiting is a common API pattern.
+    message: Operations MUST Have 429 Response
+    severity: info
+    given: $.paths.*[get,post,put,patch,delete].responses
+    then:
+      field: "429"
+      function: truthy
+    tags:
+      - format:openapi
+      - spec:paths
+      - spec:operations
+      - spec:responses
+      - topic:rate-limiting
+      - experience:error-handling
+      - experience:reliability
+      - experience:performance
+      - owasp:api4
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'operation-define-429-response' (Operation Define 429
+      Response). Requirement: APIs should define a 429 Too Many Requests response
+      to document rate limiting behavior. Analysis shows 429 appears in 671
+      operations, confirming rate limiting is a common API pattern. To fix: Ensure
+      `429` is present and non-empty at each matching location. This rule is
+      evaluated at the JSONPath `$.paths.*[get,post,put,patch,delete].responses` —
+      inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid OpenAPI. Return only the complete corrected document, with no
+      commentary."
 ---

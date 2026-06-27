@@ -28,4 +28,32 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   and keep the document valid OpenAPI. Return only the complete corrected
   document, with no commentary."
 builtin: false
+ruleyaml: >
+  response-names-pascal-case:
+    title: Response Names Pascal Case
+    reference: https://spotlight-rules.com/spec/rules/openapi/response-names-pascal-case/
+    description: Response names SHOULD be written in PascalCase.
+    message: "{{property}} is not PascalCase: {{error}}"
+    severity: info
+    given: $.components.responses.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: ^[A-Z][a-zA-Z0-9]*$
+    tags:
+      - format:openapi
+      - spec:responses
+      - spec:components
+      - experience:naming
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'response-names-pascal-case' (Response Names Pascal Case).
+      Requirement: Response names SHOULD be written in PascalCase. To fix: Ensure
+      the targeted value matches the regular expression `^[A-Z][a-zA-Z0-9]*$`;
+      rewrite any value that does not. This rule is evaluated at the JSONPath
+      `$.components.responses.*~` — inspect every location it matches and correct
+      only what violates the rule. Make the smallest change that satisfies the
+      rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid OpenAPI. Return only the complete
+      corrected document, with no commentary."
 ---

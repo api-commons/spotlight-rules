@@ -26,4 +26,30 @@ prompt: "You are editing an Agent Skill document to satisfy the Spotlight API
   key order, comments, and formatting unchanged, and keep the document valid
   Agent Skill. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  skill-require-version:
+    title: Skill Require Version
+    reference: https://spotlight-rules.com/spec/rules/agent-skill/skill-require-version/
+    description: agent-skill document should declare a `version` property.
+    message: Missing `version`.
+    given: $.frontmatter
+    severity: info
+    then:
+      field: version
+      function: truthy
+    tags:
+      - format:agent-skill
+      - spec:document
+      - experience:governance
+      - experience:discoverability
+    prompt: "You are editing an Agent Skill document to satisfy the Spotlight API
+      governance rule 'skill-require-version' (Require Version). Requirement:
+      agent-skill document should declare a `version` property. To fix: Ensure
+      `version` is present and non-empty at each matching location. Guidance:
+      Missing `version`. This rule is evaluated at the JSONPath `$.frontmatter` —
+      inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid Agent Skill. Return only the complete corrected document,
+      with no commentary."
 ---

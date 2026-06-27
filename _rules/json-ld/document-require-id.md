@@ -24,4 +24,27 @@ prompt: "You are editing a JSON-LD document to satisfy the Spotlight API
   unchanged, and keep the document valid JSON-LD. Return only the complete
   corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  document-require-id:
+    title: Document Require ID
+    reference: https://spotlight-rules.com/spec/rules/json-ld/document-require-id/
+    description: The `@id` property should be present.
+    message: "@id should be present"
+    severity: info
+    given: $
+    then:
+      field: "@id"
+      function: truthy
+    tags:
+      - format:json-ld
+      - spec:document
+      - experience:data-modeling
+      - experience:discoverability
+    prompt: "You are editing a JSON-LD document to satisfy the Spotlight API
+      governance rule 'document-require-id' (Document Require ID). Requirement:
+      The `@id` property should be present. To fix: Ensure `@id` is present and
+      non-empty at each matching location. Make the smallest change that satisfies
+      the rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid JSON-LD. Return only the complete
+      corrected document, with no commentary."
 ---

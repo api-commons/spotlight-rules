@@ -33,4 +33,37 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid OpenAPI. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  operation-tag-title-case:
+    title: Operation Tag Title Case
+    reference: https://spotlight-rules.com/spec/rules/openapi/operation-tag-title-case/
+    description: Having the first letter of each word applied as a tag to API
+      operations helps keep a consistent layout when published via search,
+      documentation, and other ways APIs are made available.
+    message: Operation Tag Names MUST Have First Letter in Each Word Capitalized
+    severity: info
+    given: $.paths.*[get,post,patch,put,delete].tags.*
+    then:
+      function: pattern
+      functionOptions:
+        match: "[A-Z]\\w*"
+    tags:
+      - format:openapi
+      - spec:paths
+      - spec:operations
+      - spec:tags
+      - experience:naming
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'operation-tag-title-case' (Operation Tag Title Case).
+      Requirement: Having the first letter of each word applied as a tag to API
+      operations helps keep a consistent layout when published via search,
+      documentation, and other ways APIs are made available. To fix: Ensure the
+      targeted value matches the regular expression `[A-Z]\\w*`; rewrite any value
+      that does not. This rule is evaluated at the JSONPath
+      `$.paths.*[get,post,patch,put,delete].tags.*` — inspect every location it
+      matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid OpenAPI. Return only
+      the complete corrected document, with no commentary."
 ---

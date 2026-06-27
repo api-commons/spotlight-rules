@@ -23,4 +23,25 @@ prompt: "You are editing an Arazzo document to satisfy the Spotlight API
   order, comments, and formatting unchanged, and keep the document valid Arazzo.
   Return only the complete corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  arazzo-document-schema:
+    title: Arazzo Document Schema
+    reference: https://spotlight-rules.com/spec/rules/arazzo/arazzo-document-schema/
+    description: Arazzo Document must be valid against the Arazzo schema.
+    message: "{{error}}"
+    severity: info
+    given: $
+    then:
+      function: arazzoDocumentSchema
+    tags:
+      - format:arazzo
+      - spec:document
+      - experience:data-modeling
+      - experience:reliability
+    prompt: "You are editing an Arazzo document to satisfy the Spotlight API
+      governance rule 'arazzo-document-schema' (Arazzo Document Schema).
+      Requirement: Arazzo Document must be valid against the Arazzo schema. Make
+      the smallest change that satisfies the rule, leave all unrelated content,
+      key order, comments, and formatting unchanged, and keep the document valid
+      Arazzo. Return only the complete corrected document, with no commentary."
 ---

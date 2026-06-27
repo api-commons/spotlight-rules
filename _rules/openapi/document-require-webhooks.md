@@ -25,4 +25,28 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   unchanged, and keep the document valid OpenAPI. Return only the complete
   corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  document-require-webhooks:
+    title: Document Require Webhooks
+    reference: https://spotlight-rules.com/spec/rules/openapi/document-require-webhooks/
+    description: openapi document should declare a `webhooks` property.
+    message: Missing `webhooks`.
+    given: $
+    severity: info
+    then:
+      field: webhooks
+      function: truthy
+    tags:
+      - format:openapi
+      - spec:document
+      - experience:governance
+      - experience:discoverability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'document-require-webhooks' (Document Require Webhooks).
+      Requirement: openapi document should declare a `webhooks` property. To fix:
+      Ensure `webhooks` is present and non-empty at each matching location.
+      Guidance: Missing `webhooks`. Make the smallest change that satisfies the
+      rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid OpenAPI. Return only the complete
+      corrected document, with no commentary."
 ---

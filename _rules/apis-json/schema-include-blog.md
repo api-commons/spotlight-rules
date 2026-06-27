@@ -33,4 +33,40 @@ prompt: "You are editing an APIs.json document to satisfy the Spotlight API
   comments, and formatting unchanged, and keep the document valid APIs.json.
   Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  schema-include-blog:
+    title: Schema Include Blog
+    reference: https://spotlight-rules.com/spec/rules/apis-json/schema-include-blog/
+    description: This property ensures that an API has a reference to a blog where
+      anyone can find updates and other stories that will help keep API consumers
+      and other stakeholders up to speed on what is happening with an API, and the
+      larger operations.
+    message: Has a Blog
+    severity: info
+    given:
+      - $.apis.*.properties.*
+      - $.common.*
+    then:
+      - field: type
+        function: pattern
+        functionOptions:
+          notMatch: \b(blog|Blogs)\b
+    tags:
+      - format:apis-json
+      - spec:apis
+      - spec:properties
+      - experience:documentation
+      - experience:discoverability
+    prompt: "You are editing an APIs.json document to satisfy the Spotlight API
+      governance rule 'schema-include-blog' (Schema Include Blog). Requirement:
+      This property ensures that an API has a reference to a blog where anyone can
+      find updates and other stories that will help keep API consumers and other
+      stakeholders up to speed on what is happening with an API, and the larger
+      operations. To fix: Ensure `type` does NOT match the regular expression
+      `\\b(blog|Blogs)\\b`; rename or rewrite any value that does. This rule is
+      evaluated at the JSONPath `$.apis.*.properties.* | $.common.*` — inspect
+      every location it matches and correct only what violates the rule. Make the
+      smallest change that satisfies the rule, leave all unrelated content, key
+      order, comments, and formatting unchanged, and keep the document valid
+      APIs.json. Return only the complete corrected document, with no commentary."
 ---

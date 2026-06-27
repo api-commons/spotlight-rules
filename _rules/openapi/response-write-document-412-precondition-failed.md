@@ -30,4 +30,34 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   order, comments, and formatting unchanged, and keep the document valid
   OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  response-write-document-412-precondition-failed:
+    title: Response Write Document 412 Precondition Failed
+    reference: https://spotlight-rules.com/spec/rules/openapi/response-write-document-412-precondition-failed/
+    description: Write operations should document a 412 Precondition Failed response
+      for failed conditional (If-Match) writes.
+    message: Operation should document a `412` response.
+    given: $.paths[*][put,patch,delete].responses
+    severity: info
+    then:
+      field: "412"
+      function: truthy
+    tags:
+      - format:openapi
+      - spec:responses
+      - topic:conditional-requests
+      - experience:reliability
+      - experience:usability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'response-write-document-412-precondition-failed' (Response
+      Write Document 412 Precondition Failed). Requirement: Write operations
+      should document a 412 Precondition Failed response for failed conditional
+      (If-Match) writes. To fix: Ensure `412` is present and non-empty at each
+      matching location. Guidance: Operation should document a `412` response.
+      This rule is evaluated at the JSONPath
+      `$.paths[*][put,patch,delete].responses` — inspect every location it matches
+      and correct only what violates the rule. Make the smallest change that
+      satisfies the rule, leave all unrelated content, key order, comments, and
+      formatting unchanged, and keep the document valid OpenAPI. Return only the
+      complete corrected document, with no commentary."
 ---

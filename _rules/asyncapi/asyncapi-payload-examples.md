@@ -35,4 +35,40 @@ prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
   comments, and formatting unchanged, and keep the document valid AsyncAPI.
   Return only the complete corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  asyncapi-payload-examples:
+    title: Asyncapi Payload Examples
+    reference: https://spotlight-rules.com/spec/rules/asyncapi/asyncapi-payload-examples/
+    description: Examples must be valid against their defined schema.
+    message: "{{error}}"
+    severity: info
+    given:
+      - $.components.messageTraits[?(@.schemaFormat === void 0)].payload.examples^
+      - $.components.messages[?(@.schemaFormat === void 0)].payload.examples^
+      - $.channels[*][publish,subscribe][?(@property === 'message' &&
+        @.schemaFormat === void 0)].payload.examples^
+    then:
+      function: asyncApiSchemaValidation
+      functionOptions:
+        type: examples
+    tags:
+      - format:asyncapi
+      - spec:channels
+      - spec:messages
+      - spec:components
+      - spec:schemas
+      - experience:data-modeling
+      - experience:documentation
+      - experience:reliability
+    prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
+      governance rule 'asyncapi-payload-examples' (Asyncapi Payload Examples).
+      Requirement: Examples must be valid against their defined schema. This rule
+      is evaluated at the JSONPath `$.components.messageTraits[?(@.schemaFormat
+      === void 0)].payload.examples^ | $.components.messages[?(@.schemaFormat ===
+      void 0)].payload.examples^ | $.channels[*][publish,subscribe][?(@property
+      === 'message' && @.schemaFormat === void 0)].payload.examples^` — inspect
+      every location it matches and correct only what violates the rule. Make the
+      smallest change that satisfies the rule, leave all unrelated content, key
+      order, comments, and formatting unchanged, and keep the document valid
+      AsyncAPI. Return only the complete corrected document, with no commentary."
 ---

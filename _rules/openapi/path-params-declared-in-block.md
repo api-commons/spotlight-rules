@@ -25,4 +25,27 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid OpenAPI. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  path-params-declared-in-block:
+    title: Path Params Declared In Block
+    reference: https://spotlight-rules.com/spec/rules/openapi/path-params-declared-in-block/
+    description: Check for the path parameter in the parameter block.
+    message: "{{error}}"
+    severity: info
+    given: $.paths
+    then:
+      function: trimble:check-for-path-parameter
+    tags:
+      - format:openapi
+      - spec:paths
+      - experience:consistency
+      - experience:documentation
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'path-params-declared-in-block' (Path Params Declared In
+      Block). Requirement: Check for the path parameter in the parameter block.
+      This rule is evaluated at the JSONPath `$.paths.` — inspect every location
+      it matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid OpenAPI. Return only
+      the complete corrected document, with no commentary."
 ---

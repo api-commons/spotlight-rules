@@ -30,4 +30,34 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid OpenAPI. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  response-no-sensitive-data-in-header:
+    title: Response No Sensitive Data In Header
+    reference: https://spotlight-rules.com/spec/rules/openapi/response-no-sensitive-data-in-header/
+    description: Headers MUST NOT contain sensitive data.
+    message: Headers MUST NOT contain sensitive data.
+    severity: info
+    given: $.paths[*][*].responses[*].headers.*~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: ^(SPS-Token|SPS-Password|SPS-Identity|Password)$
+    tags:
+      - format:openapi
+      - spec:paths
+      - spec:responses
+      - spec:headers
+      - experience:security
+      - experience:governance
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'response-no-sensitive-data-in-header' (Response No
+      Sensitive Data In Header). Requirement: Headers MUST NOT contain sensitive
+      data. To fix: Ensure the targeted value does NOT match the regular
+      expression `^(SPS-Token|SPS-Password|SPS-Identity|Password)$`; rename or
+      rewrite any value that does. This rule is evaluated at the JSONPath
+      `$.paths[*][*].responses[*].headers.*~` — inspect every location it matches
+      and correct only what violates the rule. Make the smallest change that
+      satisfies the rule, leave all unrelated content, key order, comments, and
+      formatting unchanged, and keep the document valid OpenAPI. Return only the
+      complete corrected document, with no commentary."
 ---

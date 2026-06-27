@@ -26,4 +26,30 @@ prompt: "You are editing an APIs.json document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid APIs.json. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  maintainer-email-format:
+    title: Maintainer Email Format
+    reference: https://spotlight-rules.com/spec/rules/apis-json/maintainer-email-format/
+    description: A maintainer email should be a valid email address.
+    message: Maintainer email should be a valid email.
+    given: $.maintainers[*].email
+    severity: info
+    then:
+      function: pattern
+      functionOptions:
+        match: ^[^@\s]+@[^@\s]+\.[^@\s]+$
+    tags:
+      - format:apis-json
+      - spec:maintainers
+      - experience:consistency
+    prompt: "You are editing an APIs.json document to satisfy the Spotlight API
+      governance rule 'maintainer-email-format' (Maintainer Email Format).
+      Requirement: A maintainer email should be a valid email address. To fix:
+      Ensure the targeted value matches the regular expression
+      `^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$`; rewrite any value that does not. This rule
+      is evaluated at the JSONPath `$.maintainers[*].email` — inspect every
+      location it matches and correct only what violates the rule. Make the
+      smallest change that satisfies the rule, leave all unrelated content, key
+      order, comments, and formatting unchanged, and keep the document valid
+      APIs.json. Return only the complete corrected document, with no commentary."
 ---

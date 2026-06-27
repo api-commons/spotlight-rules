@@ -24,4 +24,27 @@ prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
   unchanged, and keep the document valid AsyncAPI. Return only the complete
   corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  asyncapi-tags:
+    title: Asyncapi Tags
+    reference: https://spotlight-rules.com/spec/rules/asyncapi/asyncapi-tags/
+    description: AsyncAPI object must have non-empty "tags" array.
+    message: AsyncAPI object must have non-empty "tags" array.
+    severity: info
+    given: $
+    then:
+      field: tags
+      function: truthy
+    tags:
+      - format:asyncapi
+      - spec:document
+      - experience:discoverability
+      - experience:documentation
+    prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
+      governance rule 'asyncapi-tags' (Asyncapi Tags). Requirement: AsyncAPI
+      object must have non-empty \"tags\" array. To fix: Ensure `tags` is present
+      and non-empty at each matching location. Make the smallest change that
+      satisfies the rule, leave all unrelated content, key order, comments, and
+      formatting unchanged, and keep the document valid AsyncAPI. Return only the
+      complete corrected document, with no commentary."
 ---

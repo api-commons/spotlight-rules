@@ -26,4 +26,29 @@ prompt: "You are editing a Plans document to satisfy the Spotlight API
   unchanged, and keep the document valid Plans. Return only the complete
   corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  plan-require-features:
+    title: Plan Require Features
+    reference: https://spotlight-rules.com/spec/rules/plans/plan-require-features/
+    description: The `features` property of each plan should be present.
+    message: features should be present
+    severity: info
+    given: $.plans[*]
+    then:
+      field: features
+      function: truthy
+    tags:
+      - format:plans
+      - spec:plans
+      - experience:usability
+      - experience:documentation
+    prompt: "You are editing a Plans document to satisfy the Spotlight API
+      governance rule 'plan-require-features' (Plan Require Features).
+      Requirement: The `features` property of each plan should be present. To fix:
+      Ensure `features` is present and non-empty at each matching location. This
+      rule is evaluated at the JSONPath `$.plans[*]` — inspect every location it
+      matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid Plans. Return only the
+      complete corrected document, with no commentary."
 ---

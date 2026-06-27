@@ -27,4 +27,30 @@ prompt: "You are editing an Agent Skill document to satisfy the Spotlight API
   and keep the document valid Agent Skill. Return only the complete corrected
   document, with no commentary."
 builtin: false
+ruleyaml: >
+  skill-require-allowed-tools:
+    title: Skill Require Allowed Tools
+    reference: https://spotlight-rules.com/spec/rules/agent-skill/skill-require-allowed-tools/
+    description: agent-skill document should declare a `allowed-tools` property.
+    message: Missing `allowed-tools`.
+    given: $.frontmatter
+    severity: info
+    then:
+      field: allowed-tools
+      function: truthy
+    tags:
+      - format:agent-skill
+      - spec:document
+      - experience:governance
+      - experience:discoverability
+    prompt: "You are editing an Agent Skill document to satisfy the Spotlight API
+      governance rule 'skill-require-allowed-tools' (Require Allowed Tools).
+      Requirement: agent-skill document should declare a `allowed-tools` property.
+      To fix: Ensure `allowed-tools` is present and non-empty at each matching
+      location. Guidance: Missing `allowed-tools`. This rule is evaluated at the
+      JSONPath `$.frontmatter` — inspect every location it matches and correct
+      only what violates the rule. Make the smallest change that satisfies the
+      rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid Agent Skill. Return only the complete
+      corrected document, with no commentary."
 ---

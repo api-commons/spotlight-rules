@@ -26,4 +26,28 @@ prompt: "You are editing an Arazzo document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid Arazzo. Return only the
   complete corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  arazzo-step-request-body-validation:
+    title: Arazzo Step Request Body Validation
+    reference: https://spotlight-rules.com/spec/rules/arazzo/arazzo-step-request-body-validation/
+    description: Every step request body must have a valid `contentType` and use of
+      runtime expressions.
+    message: Every step request body must have a valid `contentType` and use of
+      runtime expressions.
+    severity: info
+    given: $
+    then:
+      function: arazzoStepRequestBodyValidation
+    tags:
+      - format:arazzo
+      - spec:document
+      - experience:reliability
+      - experience:data-modeling
+    prompt: "You are editing an Arazzo document to satisfy the Spotlight API
+      governance rule 'arazzo-step-request-body-validation' (Arazzo Step Request
+      Body Validation). Requirement: Every step request body must have a valid
+      `contentType` and use of runtime expressions. Make the smallest change that
+      satisfies the rule, leave all unrelated content, key order, comments, and
+      formatting unchanged, and keep the document valid Arazzo. Return only the
+      complete corrected document, with no commentary."
 ---

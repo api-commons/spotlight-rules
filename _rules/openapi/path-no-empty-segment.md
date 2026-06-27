@@ -27,4 +27,31 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   document valid OpenAPI. Return only the complete corrected document, with no
   commentary."
 builtin: false
+ruleyaml: >
+  path-no-empty-segment:
+    title: Path No Empty Segment
+    reference: https://spotlight-rules.com/spec/rules/openapi/path-no-empty-segment/
+    description: A resource MUST use normalized paths without empty path segments.
+    message: A resource MUST use normalized paths without empty path segments.
+    severity: info
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: //
+    tags:
+      - format:openapi
+      - spec:paths
+      - experience:naming
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'path-no-empty-segment' (Path No Empty Segment).
+      Requirement: A resource MUST use normalized paths without empty path
+      segments. To fix: Ensure the targeted value does NOT match the regular
+      expression `//`; rename or rewrite any value that does. This rule is
+      evaluated at the JSONPath `$.paths.*~` — inspect every location it matches
+      and correct only what violates the rule. Make the smallest change that
+      satisfies the rule, leave all unrelated content, key order, comments, and
+      formatting unchanged, and keep the document valid OpenAPI. Return only the
+      complete corrected document, with no commentary."
 ---

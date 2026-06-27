@@ -28,4 +28,34 @@ prompt: "You are editing an Agent Skill document to satisfy the Spotlight API
   document valid Agent Skill. Return only the complete corrected document, with
   no commentary."
 builtin: false
+ruleyaml: >
+  skill-body-length:
+    title: Skill Body Length
+    reference: https://spotlight-rules.com/spec/rules/agent-skill/skill-body-length/
+    description: Skill bodies should stay focused — very long instructions degrade
+      agent performance. Keep the body under ~5000 words.
+    message: Skill body is very long (over ~5000 words).
+    severity: info
+    given: $.words
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: integer
+          maximum: 5000
+    tags:
+      - format:agent-skill
+      - spec:body
+      - experience:usability
+      - experience:reliability
+    prompt: "You are editing an Agent Skill document to satisfy the Spotlight API
+      governance rule 'skill-body-length' (Skill Body Length). Requirement: Skill
+      bodies should stay focused — very long instructions degrade agent
+      performance. Keep the body under ~5000 words. To fix: Adjust the targeted
+      value so it conforms to the schema this rule requires. This rule is
+      evaluated at the JSONPath `$.words` — inspect every location it matches and
+      correct only what violates the rule. Make the smallest change that satisfies
+      the rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid Agent Skill. Return only the complete
+      corrected document, with no commentary."
 ---

@@ -23,4 +23,25 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid OpenAPI. Return only the
   complete corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  operation-tag-defined:
+    title: Operation Tag Defined
+    reference: https://spotlight-rules.com/spec/rules/openapi/operation-tag-defined/
+    description: Operation tags must be defined in global tags.
+    message: Operation tags must be defined in global tags.
+    severity: info
+    given: $
+    then:
+      function: oasTagDefined
+    tags:
+      - format:openapi
+      - spec:document
+      - experience:discoverability
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'operation-tag-defined' (Operation Tag Defined).
+      Requirement: Operation tags must be defined in global tags. Make the
+      smallest change that satisfies the rule, leave all unrelated content, key
+      order, comments, and formatting unchanged, and keep the document valid
+      OpenAPI. Return only the complete corrected document, with no commentary."
 ---

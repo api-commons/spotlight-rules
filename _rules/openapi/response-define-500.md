@@ -27,4 +27,30 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid OpenAPI. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  response-define-500:
+    title: Response Define 500
+    reference: https://spotlight-rules.com/spec/rules/openapi/response-define-500/
+    description: Responses should contain common response - 500 (server error).
+    message: "{{description}}. Missing {{property}}"
+    severity: info
+    given: $.paths..responses
+    then:
+      field: "500"
+      function: truthy
+    tags:
+      - format:openapi
+      - spec:paths
+      - spec:responses
+      - experience:error-handling
+      - experience:reliability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'response-define-500' (Response Define 500). Requirement:
+      Responses should contain common response - 500 (server error). To fix:
+      Ensure `500` is present and non-empty at each matching location. This rule
+      is evaluated at the JSONPath `$.paths..responses` — inspect every location
+      it matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid OpenAPI. Return only
+      the complete corrected document, with no commentary."
 ---

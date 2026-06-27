@@ -25,4 +25,36 @@ prompt: "You are editing a Rate Limits document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid Rate Limits. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  limit-scope-known:
+    title: Limit Scope Known
+    reference: https://spotlight-rules.com/spec/rules/rate-limits/limit-scope-known/
+    description: A limit scope should be one of ip, user, api-key, client, or global.
+    message: Limit scope should be a known value.
+    given: $.limits[*].scope
+    severity: info
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: string
+          enum:
+            - ip
+            - user
+            - api-key
+            - client
+            - global
+    tags:
+      - format:rate-limits
+      - spec:limits
+      - experience:consistency
+    prompt: "You are editing a Rate Limits document to satisfy the Spotlight API
+      governance rule 'limit-scope-known' (Limit Scope Known). Requirement: A
+      limit scope should be one of ip, user, api-key, client, or global. To fix:
+      Adjust the targeted value so it conforms to the schema this rule requires.
+      This rule is evaluated at the JSONPath `$.limits[*].scope` — inspect every
+      location it matches and correct only what violates the rule. Make the
+      smallest change that satisfies the rule, leave all unrelated content, key
+      order, comments, and formatting unchanged, and keep the document valid Rate
+      Limits. Return only the complete corrected document, with no commentary."
 ---

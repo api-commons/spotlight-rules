@@ -26,4 +26,29 @@ prompt: "You are editing a Plans document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid Plans. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  plan-require-description:
+    title: Plan Require Description
+    reference: https://spotlight-rules.com/spec/rules/plans/plan-require-description/
+    description: The `description` property of each plan should be present.
+    message: description should be present
+    severity: info
+    given: $.plans[*]
+    then:
+      field: description
+      function: truthy
+    tags:
+      - format:plans
+      - spec:plans
+      - experience:documentation
+      - experience:usability
+    prompt: "You are editing a Plans document to satisfy the Spotlight API
+      governance rule 'plan-require-description' (Plan Require Description).
+      Requirement: The `description` property of each plan should be present. To
+      fix: Ensure `description` is present and non-empty at each matching
+      location. This rule is evaluated at the JSONPath `$.plans[*]` — inspect
+      every location it matches and correct only what violates the rule. Make the
+      smallest change that satisfies the rule, leave all unrelated content, key
+      order, comments, and formatting unchanged, and keep the document valid
+      Plans. Return only the complete corrected document, with no commentary."
 ---

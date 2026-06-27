@@ -31,4 +31,38 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   comments, and formatting unchanged, and keep the document valid OpenAPI.
   Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  parameter-description-max-length:
+    title: Parameter Description Max Length
+    reference: https://spotlight-rules.com/spec/rules/openapi/parameter-description-max-length/
+    severity: info
+    description: Limiting the length of parameters description forces us to be more
+      concise in how we describe each parameter, while keeping our documentation
+      and other ways descriptions show up in discovery and portals more
+      consistent.
+    message: Parameters Description MUST Be Less Than 500 Characters
+    given: $.components.parameters.*
+    then:
+      field: summary
+      function: length
+      functionOptions:
+        max: 500
+    tags:
+      - format:openapi
+      - spec:parameters
+      - spec:components
+      - experience:documentation
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'parameter-description-max-length' (Parameter Description
+      Max Length). Requirement: Limiting the length of parameters description
+      forces us to be more concise in how we describe each parameter, while
+      keeping our documentation and other ways descriptions show up in discovery
+      and portals more consistent. To fix: Ensure the length of `summary` is at
+      most 500. This rule is evaluated at the JSONPath `$.components.parameters.*`
+      — inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid OpenAPI. Return only the complete corrected document, with no
+      commentary."
 ---

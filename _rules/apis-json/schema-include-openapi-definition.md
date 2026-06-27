@@ -30,4 +30,38 @@ prompt: "You are editing an APIs.json document to satisfy the Spotlight API
   key order, comments, and formatting unchanged, and keep the document valid
   APIs.json. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  schema-include-openapi-definition:
+    title: Schema Include Openapi Definition
+    reference: https://spotlight-rules.com/spec/rules/apis-json/schema-include-openapi-definition/
+    description: This property ensures that there is an OpenAPI present for an API,
+      providing the technical contract that describes the surface area of an API.
+    message: Has An OpenAPI
+    severity: info
+    given:
+      - $.apis.*.properties.*
+      - $.common.*
+    then:
+      - field: type
+        function: pattern
+        functionOptions:
+          notMatch: \b(openapi|OpenAPI)\b
+    tags:
+      - format:apis-json
+      - spec:apis
+      - spec:properties
+      - experience:documentation
+      - experience:discoverability
+    prompt: "You are editing an APIs.json document to satisfy the Spotlight API
+      governance rule 'schema-include-openapi-definition' (Schema Include Openapi
+      Definition). Requirement: This property ensures that there is an OpenAPI
+      present for an API, providing the technical contract that describes the
+      surface area of an API. To fix: Ensure `type` does NOT match the regular
+      expression `\\b(openapi|OpenAPI)\\b`; rename or rewrite any value that does.
+      This rule is evaluated at the JSONPath `$.apis.*.properties.* | $.common.*`
+      — inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid APIs.json. Return only the complete corrected document, with
+      no commentary."
 ---

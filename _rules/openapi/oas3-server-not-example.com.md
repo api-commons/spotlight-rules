@@ -27,4 +27,31 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   document valid OpenAPI. Return only the complete corrected document, with no
   commentary."
 builtin: true
+ruleyaml: >
+  oas3-server-not-example.com:
+    title: OAS3 Server Not Example.com
+    reference: https://spotlight-rules.com/spec/rules/openapi/oas3-server-not-example.com/
+    description: Server URL must not point at example.com.
+    message: Server URL must not point at example.com.
+    severity: info
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: example\.com
+    tags:
+      - format:openapi
+      - spec:servers
+      - experience:reliability
+      - experience:usability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'oas3-server-not-example.com' (OAS3 Server Not Example.com).
+      Requirement: Server URL must not point at example.com. To fix: Ensure the
+      targeted value does NOT match the regular expression `example\\.com`; rename
+      or rewrite any value that does. This rule is evaluated at the JSONPath
+      `$.servers[*].url` — inspect every location it matches and correct only what
+      violates the rule. Make the smallest change that satisfies the rule, leave
+      all unrelated content, key order, comments, and formatting unchanged, and
+      keep the document valid OpenAPI. Return only the complete corrected
+      document, with no commentary."
 ---

@@ -30,4 +30,47 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   order, comments, and formatting unchanged, and keep the document valid
   OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  request-support-accept-encoding:
+    title: Request Support Accept Encoding
+    reference: https://spotlight-rules.com/spec/rules/openapi/request-support-accept-encoding/
+    description: Operations should accept an Accept-Encoding request header so
+      clients can negotiate a compressed (e.g. gzip) response.
+    message: Operation should accept an Accept-Encoding header.
+    given: $.paths[*][get,post,put,patch,delete]
+    severity: info
+    then:
+      field: parameters
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains:
+            type: object
+            required:
+              - name
+              - in
+            properties:
+              name:
+                const: Accept-Encoding
+              in:
+                const: header
+    tags:
+      - format:openapi
+      - spec:parameters
+      - topic:content-negotiation
+      - experience:usability
+      - experience:reliability
+      - experience:performance
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'request-support-accept-encoding' (Request Support Accept
+      Encoding). Requirement: Operations should accept an Accept-Encoding request
+      header so clients can negotiate a compressed (e.g. gzip) response. To fix:
+      Adjust `parameters` so it conforms to the schema this rule requires. This
+      rule is evaluated at the JSONPath `$.paths[*][get,post,put,patch,delete]` —
+      inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid OpenAPI. Return only the complete corrected document, with no
+      commentary."
 ---

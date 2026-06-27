@@ -37,4 +37,48 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid OpenAPI. Return only the
   complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  response-collection-support-paging:
+    title: Response Collection Support Paging
+    reference: https://spotlight-rules.com/spec/rules/openapi/response-collection-support-paging/
+    description: Response bodies from collection endpoints SHOULD offer paging capability.
+    message: Response bodies from collection endpoints SHOULD offer paging capability.
+    severity: info
+    given: $.paths[?(!@property.match(/.*\/\{[^}]+\}.*$/))].get.responses['200'].content.application/json.schema.properties
+    then:
+      - field: paging
+        function: truthy
+      - field: paging
+        function: pattern
+        functionOptions:
+          match: object
+      - field: paging.type
+        function: pattern
+        functionOptions:
+          match: object
+    tags:
+      - format:openapi
+      - spec:paths
+      - spec:operations
+      - spec:responses
+      - spec:media-types
+      - spec:schemas
+      - topic:pagination
+      - experience:pagination
+      - experience:usability
+      - experience:performance
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'response-collection-support-paging' (Response Collection
+      Support Paging). Requirement: Response bodies from collection endpoints
+      SHOULD offer paging capability. To fix: Ensure `paging` is present and
+      non-empty at each matching location. Also: Ensure `paging` matches the
+      regular expression `object`; rewrite any value that does not. Also: Ensure
+      `paging.type` matches the regular expression `object`; rewrite any value
+      that does not. This rule is evaluated at the JSONPath
+      `$.paths[?(!@property.match(/.*\\/\\{[^}]+\\}.*$/))].get.responses['200'].c\
+      ontent.application/json.schema.properties` — inspect every location it
+      matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid OpenAPI. Return only
+      the complete corrected document, with no commentary."
 ---

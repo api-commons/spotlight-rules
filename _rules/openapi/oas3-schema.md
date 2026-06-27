@@ -23,4 +23,25 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   and keep the document valid OpenAPI. Return only the complete corrected
   document, with no commentary."
 builtin: true
+ruleyaml: >
+  oas3-schema:
+    title: OAS3 Schema
+    reference: https://spotlight-rules.com/spec/rules/openapi/oas3-schema/
+    description: Validate structure of OpenAPI v3 specification.
+    message: "{{error}}."
+    severity: info
+    given: $
+    then:
+      function: oasDocumentSchema
+    tags:
+      - format:openapi
+      - spec:document
+      - experience:data-modeling
+      - experience:reliability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'oas3-schema' (OAS3 Schema). Requirement: Validate structure
+      of OpenAPI v3 specification. Make the smallest change that satisfies the
+      rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid OpenAPI. Return only the complete
+      corrected document, with no commentary."
 ---

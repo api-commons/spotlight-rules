@@ -25,4 +25,32 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   unchanged, and keep the document valid OpenAPI. Return only the complete
   corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  info-require-terms-of-service:
+    title: Info Require Terms Of Service
+    reference: https://spotlight-rules.com/spec/rules/openapi/info-require-terms-of-service/
+    description: API MUST reference the URL of the Terms of Service in
+      `#/info/termsOfService`.
+    message: "API MUST reference the URL of the Terms of Service  in
+      #/info/termsOfService."
+    severity: info
+    given: $
+    then:
+      field: info.termsOfService
+      function: truthy
+    formats:
+      - oas3
+    tags:
+      - format:openapi
+      - spec:document
+      - experience:documentation
+      - experience:governance
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'info-require-terms-of-service' (Info Require Terms Of
+      Service). Requirement: API MUST reference the URL of the Terms of Service in
+      `#/info/termsOfService`. To fix: Ensure `info.termsOfService` is present and
+      non-empty at each matching location. Make the smallest change that satisfies
+      the rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid OpenAPI. Return only the complete
+      corrected document, with no commentary."
 ---

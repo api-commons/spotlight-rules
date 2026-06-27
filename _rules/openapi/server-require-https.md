@@ -26,4 +26,33 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   key order, comments, and formatting unchanged, and keep the document valid
   OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  server-require-https:
+    title: Server Require HTTPS
+    reference: https://spotlight-rules.com/spec/rules/openapi/server-require-https/
+    description: ALL requests MUST go through `https` protocol only.
+    message: Servers MUST be https and no other protocol is allowed.
+    severity: info
+    given: $.servers..url
+    then:
+      function: pattern
+      functionOptions:
+        match: /^https:/
+    formats:
+      - oas3
+    tags:
+      - owasp:api8
+      - format:openapi
+      - spec:servers
+      - experience:security
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'server-require-https' (Server Require HTTPS). Requirement:
+      ALL requests MUST go through `https` protocol only. To fix: Ensure the
+      targeted value matches the regular expression `/^https:/`; rewrite any value
+      that does not. This rule is evaluated at the JSONPath `$.servers..url` —
+      inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid OpenAPI. Return only the complete corrected document, with no
+      commentary."
 ---

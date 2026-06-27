@@ -28,4 +28,32 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid OpenAPI. Return only the
   complete corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  oas3-operation-security-defined:
+    title: OAS3 Operation Security Defined
+    reference: https://spotlight-rules.com/spec/rules/openapi/oas3-operation-security-defined/
+    description: Operation "security" values must match a scheme defined in the
+      "components.securitySchemes" object.
+    message: "{{error}}"
+    severity: info
+    given: "#SecurityRequirementObject"
+    then:
+      function: oasSecurityDefined
+      functionOptions:
+        oasVersion: 3
+    tags:
+      - owasp:api5
+      - format:openapi
+      - spec:security
+      - experience:security
+      - experience:reliability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'oas3-operation-security-defined' (OAS3 Operation Security
+      Defined). Requirement: Operation \"security\" values must match a scheme
+      defined in the \"components.securitySchemes\" object. This rule is evaluated
+      at the JSONPath `#SecurityRequirementObject` — inspect every location it
+      matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid OpenAPI. Return only
+      the complete corrected document, with no commentary."
 ---

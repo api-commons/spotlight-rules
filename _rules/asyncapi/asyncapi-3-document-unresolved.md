@@ -25,4 +25,29 @@ prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
   unchanged, and keep the document valid AsyncAPI. Return only the complete
   corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  asyncapi-3-document-unresolved:
+    title: Asyncapi 3 Document Unresolved
+    reference: https://spotlight-rules.com/spec/rules/asyncapi/asyncapi-3-document-unresolved/
+    description: Checking if the AsyncAPI v3 document has valid structure before
+      resolving references.
+    message: "{{error}}"
+    severity: info
+    given: $
+    then:
+      function: ""
+      functionOptions:
+        resolved: false
+    tags:
+      - format:asyncapi
+      - spec:document
+      - experience:data-modeling
+      - experience:reliability
+    prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
+      governance rule 'asyncapi-3-document-unresolved' (Asyncapi 3 Document
+      Unresolved). Requirement: Checking if the AsyncAPI v3 document has valid
+      structure before resolving references. Make the smallest change that
+      satisfies the rule, leave all unrelated content, key order, comments, and
+      formatting unchanged, and keep the document valid AsyncAPI. Return only the
+      complete corrected document, with no commentary."
 ---

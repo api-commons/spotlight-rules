@@ -32,4 +32,37 @@ prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
   formatting unchanged, and keep the document valid AsyncAPI. Return only the
   complete corrected document, with no commentary."
 builtin: true
+ruleyaml: >
+  asyncapi-schema-examples:
+    title: Asyncapi Schema Examples
+    reference: https://spotlight-rules.com/spec/rules/asyncapi/asyncapi-schema-examples/
+    description: Examples must be valid against their defined schema.
+    message: "{{error}}"
+    severity: info
+    given:
+      - $.components.schemas.*.examples^
+      - $.components.parameters.*.schema.examples^
+      - $.channels.*.parameters.*.schema.examples^
+    then:
+      function: asyncApiSchemaValidation
+      functionOptions:
+        type: examples
+    tags:
+      - format:asyncapi
+      - spec:channels
+      - spec:components
+      - spec:schemas
+      - experience:data-modeling
+      - experience:documentation
+      - experience:reliability
+    prompt: "You are editing an AsyncAPI document to satisfy the Spotlight API
+      governance rule 'asyncapi-schema-examples' (Asyncapi Schema Examples).
+      Requirement: Examples must be valid against their defined schema. This rule
+      is evaluated at the JSONPath `$.components.schemas.*.examples^ |
+      $.components.parameters.*.schema.examples^ |
+      $.channels.*.parameters.*.schema.examples^` — inspect every location it
+      matches and correct only what violates the rule. Make the smallest change
+      that satisfies the rule, leave all unrelated content, key order, comments,
+      and formatting unchanged, and keep the document valid AsyncAPI. Return only
+      the complete corrected document, with no commentary."
 ---

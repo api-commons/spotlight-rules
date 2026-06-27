@@ -32,4 +32,35 @@ prompt: "You are editing an APIs.json document to satisfy the Spotlight API
   and keep the document valid APIs.json. Return only the complete corrected
   document, with no commentary."
 builtin: false
+ruleyaml: >
+  api-include-contact:
+    title: API Include Contact
+    reference: https://spotlight-rules.com/spec/rules/apis-json/api-include-contact/
+    description: The contact object in an APIs.json file allows for associating a
+      vCard that represents an individual or organizational entity. It includes
+      common contact information such as a name, email, or other references,
+      offering a standardized method for providing support for an API.
+    message: API COULD have a contact.
+    severity: info
+    given: $.apis.*
+    then:
+      field: contact
+      function: truthy
+    tags:
+      - format:apis-json
+      - spec:apis
+      - experience:discoverability
+      - experience:documentation
+    prompt: "You are editing an APIs.json document to satisfy the Spotlight API
+      governance rule 'api-include-contact' (API Include Contact). Requirement:
+      The contact object in an APIs.json file allows for associating a vCard that
+      represents an individual or organizational entity. It includes common
+      contact information such as a name, email, or other references, offering a
+      standardized method for providing support for an API. To fix: Ensure
+      `contact` is present and non-empty at each matching location. This rule is
+      evaluated at the JSONPath `$.apis.*` — inspect every location it matches and
+      correct only what violates the rule. Make the smallest change that satisfies
+      the rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid APIs.json. Return only the complete
+      corrected document, with no commentary."
 ---

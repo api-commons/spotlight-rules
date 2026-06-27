@@ -34,4 +34,37 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   comments, and formatting unchanged, and keep the document valid OpenAPI.
   Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  response-must-use-json-content-type:
+    title: Response Must Use JSON Content Type
+    reference: https://spotlight-rules.com/spec/rules/openapi/response-must-use-json-content-type/
+    description: API responses should use application/json as the primary content
+      type. Analysis of 773 specs shows application/json is used by 92% of APIs,
+      making it the universal standard for modern REST APIs.
+    message: Response MUST Use application/json Content Type
+    severity: info
+    given: $.paths.*[get,post,put,patch,delete].responses[*].content
+    then:
+      field: application/json
+      function: truthy
+    tags:
+      - format:openapi
+      - spec:paths
+      - spec:operations
+      - spec:responses
+      - spec:media-types
+      - experience:consistency
+      - experience:usability
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'response-must-use-json-content-type' (Response Must Use
+      JSON Content Type). Requirement: API responses should use application/json
+      as the primary content type. Analysis of 773 specs shows application/json is
+      used by 92% of APIs, making it the universal standard for modern REST APIs.
+      To fix: Ensure `application/json` is present and non-empty at each matching
+      location. This rule is evaluated at the JSONPath
+      `$.paths.*[get,post,put,patch,delete].responses[*].content` — inspect every
+      location it matches and correct only what violates the rule. Make the
+      smallest change that satisfies the rule, leave all unrelated content, key
+      order, comments, and formatting unchanged, and keep the document valid
+      OpenAPI. Return only the complete corrected document, with no commentary."
 ---

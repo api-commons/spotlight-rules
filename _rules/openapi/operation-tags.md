@@ -26,4 +26,34 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   document valid OpenAPI. Return only the complete corrected document, with no
   commentary."
 builtin: true
+ruleyaml: >
+  operation-tags:
+    title: Operation Tags
+    reference: https://spotlight-rules.com/spec/rules/openapi/operation-tags/
+    description: Operation must have non-empty "tags" array.
+    message: Operation must have non-empty "tags" array.
+    severity: info
+    given: "#OperationObject"
+    then:
+      field: tags
+      function: schema
+      functionOptions:
+        dialect: draft7
+        schema:
+          type: array
+          minItems: 1
+    tags:
+      - format:openapi
+      - spec:document
+      - experience:discoverability
+      - experience:documentation
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'operation-tags' (Operation Tags). Requirement: Operation
+      must have non-empty \"tags\" array. To fix: Adjust `tags` so it conforms to
+      the schema this rule requires. This rule is evaluated at the JSONPath
+      `#OperationObject` — inspect every location it matches and correct only what
+      violates the rule. Make the smallest change that satisfies the rule, leave
+      all unrelated content, key order, comments, and formatting unchanged, and
+      keep the document valid OpenAPI. Return only the complete corrected
+      document, with no commentary."
 ---

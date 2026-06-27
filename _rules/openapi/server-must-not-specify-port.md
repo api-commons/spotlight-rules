@@ -30,4 +30,37 @@ prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
   key order, comments, and formatting unchanged, and keep the document valid
   OpenAPI. Return only the complete corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  server-must-not-specify-port:
+    title: Server Must Not Specify Port
+    reference: https://spotlight-rules.com/spec/rules/openapi/server-must-not-specify-port/
+    description: Port MUST NOT be specified or required to use the API, except for
+      'localhost' testing in a spec.
+    message: Port MUST NOT be specified or required to use the API, except for
+      'localhost' testing in a spec.
+    severity: info
+    given: $.servers..url
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: (?!https?://localhost)(https?://.*):(\d*)\/?(.*)
+    formats:
+      - oas3
+    tags:
+      - format:openapi
+      - spec:servers
+      - experience:usability
+      - experience:consistency
+    prompt: "You are editing an OpenAPI document to satisfy the Spotlight API
+      governance rule 'server-must-not-specify-port' (Server Must Not Specify
+      Port). Requirement: Port MUST NOT be specified or required to use the API,
+      except for 'localhost' testing in a spec. To fix: Ensure the targeted value
+      does NOT match the regular expression
+      `(?!https?://localhost)(https?://.*):(\\d*)\\/?(.*)`; rename or rewrite any
+      value that does. This rule is evaluated at the JSONPath `$.servers..url` —
+      inspect every location it matches and correct only what violates the rule.
+      Make the smallest change that satisfies the rule, leave all unrelated
+      content, key order, comments, and formatting unchanged, and keep the
+      document valid OpenAPI. Return only the complete corrected document, with no
+      commentary."
 ---

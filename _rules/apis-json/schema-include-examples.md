@@ -32,4 +32,39 @@ prompt: "You are editing an APIs.json document to satisfy the Spotlight API
   unchanged, and keep the document valid APIs.json. Return only the complete
   corrected document, with no commentary."
 builtin: false
+ruleyaml: >
+  schema-include-examples:
+    title: Schema Include Examples
+    reference: https://spotlight-rules.com/spec/rules/apis-json/schema-include-examples/
+    description: This property ensures that an API has a reference to a examples for
+      individual APIs or as part of common properties, providing examples and
+      synthentic data that can be used for APIs.
+    message: Has a Blog
+    severity: info
+    given:
+      - $.apis.*.properties.*
+      - $.common.*
+    then:
+      - field: type
+        function: pattern
+        functionOptions:
+          notMatch: \b(examples|Examples)\b
+    tags:
+      - format:apis-json
+      - spec:apis
+      - spec:properties
+      - experience:documentation
+      - experience:usability
+    prompt: "You are editing an APIs.json document to satisfy the Spotlight API
+      governance rule 'schema-include-examples' (Schema Include Examples).
+      Requirement: This property ensures that an API has a reference to a examples
+      for individual APIs or as part of common properties, providing examples and
+      synthentic data that can be used for APIs. To fix: Ensure `type` does NOT
+      match the regular expression `\\b(examples|Examples)\\b`; rename or rewrite
+      any value that does. This rule is evaluated at the JSONPath
+      `$.apis.*.properties.* | $.common.*` — inspect every location it matches and
+      correct only what violates the rule. Make the smallest change that satisfies
+      the rule, leave all unrelated content, key order, comments, and formatting
+      unchanged, and keep the document valid APIs.json. Return only the complete
+      corrected document, with no commentary."
 ---

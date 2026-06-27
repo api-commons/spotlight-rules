@@ -27,6 +27,13 @@ layout: default
 
 <div class="content">{{ page.description | markdownify }}</div>
 
+{% if page.ruleyaml %}
+<h2 class="h5 mt-4">Rule definition</h2>
+<p class="text-muted small mb-2">The full Spotlight rule — drop it into a ruleset (<code>.spotlight.yaml</code> / <code>.spectral.yaml</code>) and run it with any Spotlight tool.</p>
+<pre class="p-3 bg-body-tertiary border rounded" style="white-space:pre-wrap"><code id="ruleyaml" class="language-yaml">{{ page.ruleyaml | escape }}</code></pre>
+<button class="btn btn-sm btn-outline-secondary mb-2" onclick="navigator.clipboard.writeText(document.getElementById('ruleyaml').innerText);this.textContent='Copied';setTimeout(()=>this.textContent='Copy YAML',1500);">Copy YAML</button>
+{% endif %}
+
 {% if page.prompt %}
 <details class="mt-4 border rounded p-3 bg-body-tertiary">
   <summary class="fw-semibold">AI fix prompt <span class="text-muted small fw-normal">— send this to Claude, Gemini, or ChatGPT with your artifact to auto-fix this rule</span></summary>
