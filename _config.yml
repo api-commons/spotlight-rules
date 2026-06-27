@@ -28,6 +28,14 @@ exclude:
 
 permalink: pretty
 
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      permalink: /blog/:title/
+
 collections:
   rules:
     output: true
