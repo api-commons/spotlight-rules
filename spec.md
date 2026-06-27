@@ -85,14 +85,15 @@ permalink: /spec/
 
 <hr class="my-4">
 
-<h2 class="mb-2">Explore the rules</h2>
-<p class="text-muted">Every rule Spotlight applies, grouped by artifact and listed alphabetically. Expand an artifact to scroll its rules; open any rule for its full detail and where it applies.</p>
-
 {% assign order = "openapi,apis-json,asyncapi,arazzo,json-schema,json-structure,json-ld,mcp,plans,rate-limits,finops,agent-skill" | split: "," %}
+{% assign total = 0 %}{% for art in order %}{% assign info = site.data.rule_index[art] %}{% if info %}{% assign total = total | plus: info.rules.size %}{% endif %}{% endfor %}
+<h2 class="mb-2">Explore the rules</h2>
+<p class="text-muted">All <strong>{{ total }} rules</strong> Spotlight applies, grouped by artifact and listed alphabetically — every section is expanded below. Click a section header to collapse it, or open any rule for its full detail and where it applies.</p>
+
 {% for art in order %}
   {% assign info = site.data.rule_index[art] %}
   {% if info %}
-<details class="rule-artifact card mb-2" id="{{ art }}">
+<details class="rule-artifact card mb-2" id="{{ art }}" open>
   <summary class="card-body py-2 px-3 text-start">
     <span class="fw-semibold">{{ info.label }}</span>
     <span class="text-muted small ms-2">{{ info.rules | size }} rules</span>
