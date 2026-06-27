@@ -35,6 +35,15 @@ one-time launch record. Each repository also keeps its own changelog
 
 ## Project history
 
+### 2026-06-26 — Spotlight CLI 1.1.0
+
+- **spotlight-cli 1.1.0** — republished all 11 `@spotlight-rules/*` packages to
+  npm. `spotlight:skill` now carries **18 rules** — the 6 added align the executable
+  ruleset with the agent-skill catalog (require allowed-tools / metadata / version,
+  single-line description, metadata object, name max-length). A distributable
+  **rule catalog pack** (per-format rulesets + bundled functions) now lets the CLI,
+  api, mcp, and pipeline lint with the same rules as the validator.
+
 ### 2026-06-26 — Curated rule catalog + the validator as a workbench
 
 - **One curated catalog of 733 rules across 12 artifact types** now drives both the
