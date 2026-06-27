@@ -88,19 +88,29 @@ permalink: /spec/
 {% assign order = "openapi,apis-json,asyncapi,arazzo,json-schema,json-structure,json-ld,mcp,plans,rate-limits,finops,agent-skill" | split: "," %}
 {% assign total = 0 %}{% for art in order %}{% assign info = site.data.rule_index[art] %}{% if info %}{% assign total = total | plus: info.rules.size %}{% endif %}{% endfor %}
 <h2 class="mb-2">Explore the rules</h2>
-<p class="text-muted">All <strong>{{ total }} rules</strong> Spotlight applies, grouped by artifact and listed alphabetically. Jump to an artifact below, or open any rule for its full detail.</p>
+<p class="text-muted">All <strong>{{ total }} rules</strong> Spotlight applies, across <strong>{{ order.size }} artifact types</strong>. Pick an artifact below to jump to its group and expand it, click any group heading to <strong>Show rules</strong>, or open any rule for its full detail.</p>
 
-<div class="d-flex flex-wrap gap-2 mb-4">
+<div id="rule-nav" class="d-flex flex-wrap gap-2 mb-4">
   {% for art in order %}{% assign info = site.data.rule_index[art] %}{% if info %}<a href="#{{ art }}" class="btn btn-sm btn-outline-secondary">{{ info.label }} <span class="badge bg-secondary ms-1">{{ info.rules | size }}</span></a>{% endif %}{% endfor %}
 </div>
+
+<style>
+.rule-artifact > summary { cursor: pointer; list-style: none; }
+.rule-artifact > summary::-webkit-details-marker { display: none; }
+.rule-artifact > summary:hover { background: var(--bs-tertiary-bg, #f8f9fa); }
+.rule-artifact > summary .when-open { display: none; }
+.rule-artifact[open] > summary .when-open { display: inline; }
+.rule-artifact[open] > summary .when-closed { display: none; }
+</style>
 
 {% for art in order %}
   {% assign info = site.data.rule_index[art] %}
   {% if info %}
-<details class="rule-artifact card mb-3" id="{{ art }}" open>
-  <summary class="card-body py-2 px-3 text-start">
+<details class="rule-artifact card mb-2" id="{{ art }}">
+  <summary class="card-body py-2 px-3 d-flex align-items-center gap-2">
     <span class="fw-semibold">{{ info.label }}</span>
-    <span class="text-muted small ms-2">{{ info.rules | size }} rules</span>
+    <span class="badge bg-secondary">{{ info.rules | size }}</span>
+    <span class="text-primary small ms-auto"><span class="when-closed">Show rules ▾</span><span class="when-open">Hide ▴</span></span>
   </summary>
   <ul class="list-unstyled mb-0 border-top">
     {% for r in info.rules %}
@@ -120,3 +130,16 @@ permalink: /spec/
 </details>
   {% endif %}
 {% endfor %}
+
+<script>
+(function () {
+  function reveal(id) {
+    var el = document.getElementById(id);
+    if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  }
+  document.querySelectorAll('#rule-nav a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () { reveal(this.getAttribute('href').slice(1)); });
+  });
+  if (location.hash) reveal(location.hash.slice(1));
+})();
+</script>
