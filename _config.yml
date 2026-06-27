@@ -32,3 +32,6 @@ collections:
   rules:
     output: true
     permalink: /spec/rules/:path/
+  artifacts:
+    output: true
+    permalink: /spec/rules/:path/

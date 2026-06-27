@@ -8,7 +8,7 @@ layout: default
 
 <nav class="small text-muted mb-2">
   <a href="/spec/">Spotlight Spec</a> ›
-  <a href="/spec/#{{ page.artifact }}">{{ page.artifact_label }}</a> ›
+  <a href="/spec/rules/{{ page.artifact }}/">{{ page.artifact_label }}</a> ›
   {{ page.title }}
 </nav>
 
@@ -53,7 +53,7 @@ layout: default
   <div class="text-start" style="max-width:45%">
     {% if pos > 0 %}{% assign prev = list[pp] %}<a href="/spec/rules/{{ page.artifact }}/{{ prev.slug }}/">← {{ prev.name }}</a>{% endif %}
   </div>
-  <a href="/spec/#{{ page.artifact }}" class="text-muted small">all {{ page.artifact_label }} rules</a>
+  <a href="/spec/rules/{{ page.artifact }}/" class="text-muted small">all {{ page.artifact_label }} rules</a>
   <div class="text-end" style="max-width:45%">
     {% if np < list.size %}{% assign nxt = list[np] %}<a href="/spec/rules/{{ page.artifact }}/{{ nxt.slug }}/">{{ nxt.name }} →</a>{% endif %}
   </div>

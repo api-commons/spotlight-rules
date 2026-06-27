@@ -88,58 +88,21 @@ permalink: /spec/
 {% assign order = "openapi,apis-json,asyncapi,arazzo,json-schema,json-structure,json-ld,mcp,plans,rate-limits,finops,agent-skill" | split: "," %}
 {% assign total = 0 %}{% for art in order %}{% assign info = site.data.rule_index[art] %}{% if info %}{% assign total = total | plus: info.rules.size %}{% endif %}{% endfor %}
 <h2 class="mb-2">Explore the rules</h2>
-<p class="text-muted">All <strong>{{ total }} rules</strong> Spotlight applies, across <strong>{{ order.size }} artifact types</strong>. Pick an artifact below to jump to its group and expand it, click any group heading to <strong>Show rules</strong>, or open any rule for its full detail.</p>
+<p class="text-muted">All <strong>{{ total }} rules</strong> Spotlight applies, across <strong>{{ order.size }} artifact types</strong>. Pick an artifact to browse and filter its rules, then open any rule for its full detail and AI fix prompt.</p>
 
-<div id="rule-nav" class="d-flex flex-wrap gap-2 mb-4">
-  {% for art in order %}{% assign info = site.data.rule_index[art] %}{% if info %}<a href="#{{ art }}" class="btn btn-sm btn-outline-secondary">{{ info.label }} <span class="badge bg-secondary ms-1">{{ info.rules | size }}</span></a>{% endif %}{% endfor %}
-</div>
-
-<style>
-.rule-artifact > summary { cursor: pointer; list-style: none; }
-.rule-artifact > summary::-webkit-details-marker { display: none; }
-.rule-artifact > summary:hover { background: var(--bs-tertiary-bg, #f8f9fa); }
-.rule-artifact > summary .when-open { display: none; }
-.rule-artifact[open] > summary .when-open { display: inline; }
-.rule-artifact[open] > summary .when-closed { display: none; }
-</style>
-
-{% for art in order %}
-  {% assign info = site.data.rule_index[art] %}
-  {% if info %}
-<details class="rule-artifact card mb-2" id="{{ art }}">
-  <summary class="card-body py-2 px-3 d-flex align-items-center gap-2">
-    <span class="fw-semibold">{{ info.label }}</span>
-    <span class="badge bg-secondary">{{ info.rules | size }}</span>
-    <span class="text-primary small ms-auto"><span class="when-closed">Show rules ▾</span><span class="when-open">Hide ▴</span></span>
-  </summary>
-  <ul class="list-unstyled mb-0 border-top">
-    {% for r in info.rules %}
-    <li class="border-bottom px-3 py-2">
-      <div class="d-flex flex-wrap align-items-baseline gap-2">
-        <a href="/spec/rules/{{ art }}/{{ r.slug }}/" class="fw-semibold">{{ r.name }}</a>
-        <span class="badge bg-light text-dark border">{{ r.severity }}</span>
-        {% for e in r.experience %}<span class="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle">experience: {{ e }}</span>{% endfor %}
-        {% for s in r.spec %}<span class="badge rounded-pill bg-primary-subtle text-primary-emphasis border border-primary-subtle">spec: {{ s }}</span>{% endfor %}
-        {% for t in r.topic %}<span class="badge rounded-pill bg-info-subtle text-info-emphasis border border-info-subtle">topic: {{ t }}</span>{% endfor %}
-        {% for o in r.owasp %}<span class="badge rounded-pill bg-danger-subtle text-danger-emphasis border border-danger-subtle">owasp: {{ o }}</span>{% endfor %}
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 mb-2">
+{% for art in order %}{% assign info = site.data.rule_index[art] %}{% if info %}
+  <div class="col">
+    <a href="/spec/rules/{{ art }}/" class="card h-100 text-decoration-none text-reset shadow-sm">
+      <div class="card-body d-flex flex-column">
+        <div class="d-flex justify-content-between align-items-start gap-2 mb-1">
+          <h3 class="h5 mb-0">{{ info.label }}</h3>
+          <span class="badge bg-secondary">{{ info.rules | size }}</span>
+        </div>
+        {% if info.description %}<p class="small text-muted mb-3">{{ info.description }}</p>{% endif %}
+        <span class="small text-primary mt-auto">View {{ info.rules | size }} rules →</span>
       </div>
-      {% if r.description %}<div class="small text-muted">{{ r.description }}</div>{% endif %}
-    </li>
-    {% endfor %}
-  </ul>
-</details>
-  {% endif %}
-{% endfor %}
-
-<script>
-(function () {
-  function reveal(id) {
-    var el = document.getElementById(id);
-    if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-  }
-  document.querySelectorAll('#rule-nav a[href^="#"]').forEach(function (a) {
-    a.addEventListener('click', function () { reveal(this.getAttribute('href').slice(1)); });
-  });
-  if (location.hash) reveal(location.hash.slice(1));
-})();
-</script>
+    </a>
+  </div>
+{% endif %}{% endfor %}
+</div>

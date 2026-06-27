@@ -1,6 +1,7 @@
 {
  "openapi": {
   "label": "OpenAPI",
+  "description": "REST API descriptions — paths, operations, schemas, and security.",
   "rules": [
    {
     "slug": "array-items",
@@ -6898,6 +6899,7 @@
  },
  "apis-json": {
   "label": "APIs.json",
+  "description": "API discovery metadata — providers, APIs, and their artifacts.",
   "rules": [
    {
     "slug": "api-baseurl-https",
@@ -8553,6 +8555,7 @@
  },
  "asyncapi": {
   "label": "AsyncAPI",
+  "description": "Event-driven API descriptions — channels, messages, and operations.",
   "rules": [
    {
     "slug": "asyncapi-3-channel-no-empty-parameter",
@@ -9714,6 +9717,7 @@
  },
  "arazzo": {
   "label": "Arazzo",
+  "description": "API workflow descriptions — multi-step calls across operations.",
   "rules": [
    {
     "slug": "arazzo-document-schema",
@@ -10211,6 +10215,7 @@
  },
  "json-schema": {
   "label": "JSON Schema",
+  "description": "JSON Schema documents — types, constraints, and validation.",
   "rules": [
    {
     "slug": "document-require-description",
@@ -10351,6 +10356,7 @@
  },
  "json-structure": {
   "label": "JSON Structure",
+  "description": "JSON Structure documents — data shapes and modeling.",
   "rules": [
    {
     "slug": "document-json-structure-id-uri",
@@ -10533,6 +10539,7 @@
  },
  "json-ld": {
   "label": "JSON-LD",
+  "description": "Linked-data JSON — context, identifiers, and vocabularies.",
   "rules": [
    {
     "slug": "document-json-ld-id-iri",
@@ -10627,6 +10634,7 @@
  },
  "mcp": {
   "label": "MCP",
+  "description": "Model Context Protocol servers — tools, resources, and prompts.",
   "rules": [
    {
     "slug": "capability-mcp-capabilities-not-empty",
@@ -10840,6 +10848,7 @@
  },
  "plans": {
   "label": "Plans",
+  "description": "API product plans — tiers, limits, and pricing.",
   "rules": [
    {
     "slug": "document-require-currency",
@@ -11038,6 +11047,7 @@
  },
  "rate-limits": {
   "label": "Rate Limits",
+  "description": "Rate-limit descriptions — quotas, windows, and policies.",
   "rules": [
    {
     "slug": "document-require-description",
@@ -11192,6 +11202,7 @@
  },
  "finops": {
   "label": "FinOps",
+  "description": "FinOps artifacts — cost, usage, and billing governance.",
   "rules": [
    {
     "slug": "cost-finops-monthly-non-negative",
@@ -11360,6 +11371,7 @@
  },
  "agent-skill": {
   "label": "Agent Skill",
+  "description": "Agent skills — SKILL.md metadata and tooling.",
   "rules": [
    {
     "slug": "skill-allowed-tools-array",
