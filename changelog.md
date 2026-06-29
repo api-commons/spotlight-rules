@@ -35,6 +35,15 @@ one-time launch record. Each repository also keeps its own changelog
 
 ## Project history
 
+### 2026-06-29 — Editor schema completion for rulesets (extension v1.1.0)
+
+- **spotlight-vscode 1.1.0** ([Marketplace](https://marketplace.visualstudio.com/items?itemName=spotlightrules.spotlight)
+  · [Open VSX](https://open-vsx.org/extension/spotlightrules/spotlight)) associates
+  the [spotlight-spec](https://github.com/api-commons/spotlight-spec) ruleset JSON
+  Schema with `.spotlight.json` / `spotlight-ruleset.json` files — so authoring a
+  ruleset gets completion, hovers, and validation in-editor, on top of the linting
+  the extension already does. YAML rulesets get the same via the SchemaStore listing.
+
 ### 2026-06-29 — Spotlight Rules in your editor (Marketplace + Open VSX)
 
 - **spotlight-vscode** is now published as **Spotlight Rules**
