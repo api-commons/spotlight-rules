@@ -35,6 +35,14 @@ one-time launch record. Each repository also keeps its own changelog
 
 ## Project history
 
+### 2026-06-29 — Spotlight Rules on the VS Code Marketplace
+
+- **spotlight-vscode** is now published to the
+  [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=spotlightrules.spotlight)
+  as **Spotlight Rules** (`spotlightrules.spotlight`). Lint OpenAPI, AsyncAPI,
+  Arazzo, JSON Schema, and APIs.json against Spotlight rulesets right in the
+  editor — lint-on-save / lint-as-you-type, with the embedded Spotlight engine.
+
 ### 2026-06-29 — Ruleset schema on SchemaStore
 
 - The [spotlight-spec](https://github.com/api-commons/spotlight-spec) ruleset JSON
