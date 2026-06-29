@@ -35,6 +35,19 @@ one-time launch record. Each repository also keeps its own changelog
 
 ## Project history
 
+### 2026-06-29 — Ruleset schema on SchemaStore
+
+- The [spotlight-spec](https://github.com/api-commons/spotlight-spec) ruleset JSON
+  Schema is now listed on [SchemaStore](https://www.schemastore.org/) ([catalog
+  PR](https://github.com/SchemaStore/schemastore/pull/5869)). Editors that use
+  SchemaStore (VS Code, JetBrains, …) now apply Spotlight autocomplete and
+  validation automatically to `*.spotlight.{json,yaml,yml}` and
+  `spotlight-ruleset.{json,yaml,yml}` files — no per-file `$schema` needed.
+- Ahead of listing, the schema was **fully documented**: a generated enrichment
+  pass adds a `description` to every property and `$def`, a `title` to each
+  definition, per-function `functionOptions` descriptions, and worked top-level
+  `examples` — all annotations, with no change to what validates.
+
 ### 2026-06-26 — Spotlight CLI 1.1.0
 
 - **spotlight-cli 1.1.0** — republished all 11 `@spotlight-rules/*` packages to
