@@ -35,11 +35,13 @@ one-time launch record. Each repository also keeps its own changelog
 
 ## Project history
 
-### 2026-06-29 — Spotlight Rules on the VS Code Marketplace
+### 2026-06-29 — Spotlight Rules in your editor (Marketplace + Open VSX)
 
-- **spotlight-vscode** is now published to the
+- **spotlight-vscode** is now published as **Spotlight Rules**
+  (`spotlightrules.spotlight`) to both the
   [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=spotlightrules.spotlight)
-  as **Spotlight Rules** (`spotlightrules.spotlight`). Lint OpenAPI, AsyncAPI,
+  and [Open VSX](https://open-vsx.org/extension/spotlightrules/spotlight) — so it
+  installs in VS Code, VSCodium, Cursor, and Windsurf. Lint OpenAPI, AsyncAPI,
   Arazzo, JSON Schema, and APIs.json against Spotlight rulesets right in the
   editor — lint-on-save / lint-as-you-type, with the embedded Spotlight engine.
 
