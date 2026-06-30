@@ -22,14 +22,14 @@ layout: default
      class="list-group-item list-group-item-action rule-row"
      data-text="{{ r.name | downcase }} {{ r.slug }} {{ r.experience | join: ' ' }} {{ r.spec | join: ' ' }} {{ r.topic | join: ' ' }} {{ r.owasp | join: ' ' }} {{ r.description | strip_newlines | downcase | escape }}">
     <div class="d-flex flex-wrap align-items-baseline gap-2">
-      <span class="fw-semibold">{{ r.name }}</span>
+      <span class="fw-semibold">{{ r.name | escape }}</span>
       <span class="badge bg-light text-dark border">{{ r.severity }}</span>
       {% for e in r.experience %}<span class="badge rounded-pill bg-success-subtle text-success-emphasis border border-success-subtle">experience: {{ e }}</span>{% endfor %}
       {% for s in r.spec %}<span class="badge rounded-pill bg-primary-subtle text-primary-emphasis border border-primary-subtle">spec: {{ s }}</span>{% endfor %}
       {% for t in r.topic %}<span class="badge rounded-pill bg-info-subtle text-info-emphasis border border-info-subtle">topic: {{ t }}</span>{% endfor %}
       {% for o in r.owasp %}<span class="badge rounded-pill bg-danger-subtle text-danger-emphasis border border-danger-subtle">owasp: {{ o }}</span>{% endfor %}
     </div>
-    {% if r.description %}<div class="small text-muted mt-1">{{ r.description }}</div>{% endif %}
+    {% if r.description %}<div class="small text-muted mt-1">{{ r.description | escape }}</div>{% endif %}
   </a>
   {% endfor %}
 </div>
