@@ -39,7 +39,7 @@ description: Spotlight is open and free to run yourself. When you want experts i
 
   <div class="col"><div class="card h-100"><div class="card-body">
     <h2 class="h5">Discovery &amp; inventory</h2>
-    <p class="text-muted small">Map the APIs you produce and the ones you depend on into a governed, searchable inventory with provenance, using <a href="https://discover.apicommons.org">API Discovery</a> and APIs.json.</p>
+    <p class="text-muted small">Map the APIs you produce and the ones you depend on into a governed, searchable inventory with provenance, using <a href="https://discovery.apicommons.org">API Discovery</a> and APIs.json.</p>
     <a href="mailto:info@apievangelist.com?subject=API%20discovery%20%26%20inventory%20engagement">Map my APIs →</a>
   </div></div></div>
 

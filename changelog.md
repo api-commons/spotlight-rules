@@ -39,7 +39,7 @@ one-time launch record. Each repository also keeps its own changelog
 
 - **spotlight-discovery** left the suite — it is now **API Discovery**, an
   [API Commons](https://apicommons.org) tool at
-  [discover.apicommons.org](https://discover.apicommons.org)
+  [discovery.apicommons.org](https://discovery.apicommons.org)
   ([api-commons/api-discovery](https://github.com/api-commons/api-discovery)).
 
 ### 2026-06-29 — Editor schema completion for rulesets (extension v1.1.0)

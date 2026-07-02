@@ -45,7 +45,7 @@ just the JSON you hand-wrote in 2019.
 **Second, the other side of the arrow.** The same rules that *shape* an API you
 produce can *evaluate* an API you consume. A rule that says "every collection
 endpoint must paginate" is a design check when you author the API and an **intake
-check** when you onboard a third-party dependency. [API Discovery](https://discover.apicommons.org) finds
+check** when you onboard a third-party dependency. [API Discovery](https://discovery.apicommons.org) finds
 the artifacts — across APIs.io, GitHub, GitLab, and Bitbucket — and the
 [validator](/validator/) governs them. Point them at something you don't control
 and you learn, by rule, whether it meets your bar before you wire an agent to it.
@@ -96,4 +96,4 @@ which agents reach for our resources. Governing **consumption** — shaping the
 context we hand to AI, deterministically, by rule — is how we keep up. That is the
 work Spotlight is turning to next.
 
-[Try the validator](https://validator.spotlight-rules.com) · [browse the rules](/spec/) · [explore API Discovery](https://discover.apicommons.org)
+[Try the validator](https://validator.spotlight-rules.com) · [browse the rules](/spec/) · [explore API Discovery](https://discovery.apicommons.org)
