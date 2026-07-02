@@ -41,13 +41,6 @@ description: Pick the Spotlight Rules surface that fits how you work — CLI, ed
   </div>
   <div class="col-md-6">
     <div class="card h-100"><div class="card-body">
-      <h5 class="card-title">Find &amp; manage artifacts</h5>
-      <p class="card-text">Search APIs.io and GitHub/GitLab/Bitbucket for API artifacts, keep provenance, and save locally or commit/PR to git.</p>
-      <a href="/discovery/" class="fw-semibold">spotlight-discovery →</a> &nbsp; <a href="https://discovery.spotlight-rules.com">open ↗</a>
-    </div></div>
-  </div>
-  <div class="col-md-6">
-    <div class="card h-100"><div class="card-body">
       <h5 class="card-title">Author rules</h5>
       <p class="card-text">The ruleset format is a standalone, versioned JSON Schema (2020-12). Browse every rule, or write your own.</p>
       <a href="/spec/" class="fw-semibold">spotlight-spec &amp; the rule catalog →</a>
@@ -64,7 +57,6 @@ description: Pick the Spotlight Rules surface that fits how you work — CLI, ed
     <tr><td><strong>spotlight-spec</strong></td><td>The standalone ruleset format + JSON Schema, and the rule catalog.</td><td><a href="/spec/">details</a></td></tr>
     <tr><td><strong>spotlight-vscode</strong></td><td>Lint-on-save / lint-on-type in VS Code.</td><td><a href="/vscode/">details</a></td></tr>
     <tr><td><strong>spotlight-validator</strong></td><td>Browser governance workbench — lint, filter, AI-fix, utilities.</td><td><a href="/validator/">details</a></td></tr>
-    <tr><td><strong>spotlight-discovery</strong></td><td>Browser artifact registry — search, provenance, save / commit / PR.</td><td><a href="/discovery/">details</a></td></tr>
     <tr><td><strong>spotlight-api</strong></td><td>OpenAPI-first HTTP service over the engine.</td><td><a href="/api/">details</a></td></tr>
     <tr><td><strong>spotlight-mcp</strong></td><td>MCP server exposing linting to AI clients.</td><td><a href="/mcp/">details</a></td></tr>
     <tr><td><strong>spotlight-pipeline</strong></td><td>Governance-gate CI for GitHub / GitLab / Bitbucket / Azure / AWS.</td><td><a href="/pipeline/">details</a></td></tr>

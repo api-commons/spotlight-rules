@@ -7,7 +7,7 @@ description: Spotlight is open and free to run yourself. When you want experts i
 
 <div class="hero">
   <h1>Work with API Evangelist</h1>
-  <p class="text-muted" style="max-width:760px;">Spotlight — the rules, the <a href="https://validator.spotlight-rules.com">validator</a>, and <a href="https://discovery.spotlight-rules.com">discovery</a> — is open and free to run yourself, including in a fork on your own machine. When you want experts in the loop, <strong><a href="https://apievangelist.com">API Evangelist</a></strong> offers the governance services around it. The fastest way to start is a single email.</p>
+  <p class="text-muted" style="max-width:760px;">Spotlight — the rules and the <a href="https://validator.spotlight-rules.com">validator</a> — is open and free to run yourself, including in a fork on your own machine. When you want experts in the loop, <strong><a href="https://apievangelist.com">API Evangelist</a></strong> offers the governance services around it. The fastest way to start is a single email.</p>
   <p><a class="btn btn-primary btn-lg" href="mailto:info@apievangelist.com?subject=API%20governance%20engagement">Email info@apievangelist.com</a></p>
 </div>
 
@@ -39,7 +39,7 @@ description: Spotlight is open and free to run yourself. When you want experts i
 
   <div class="col"><div class="card h-100"><div class="card-body">
     <h2 class="h5">Discovery &amp; inventory</h2>
-    <p class="text-muted small">Map the APIs you produce and the ones you depend on into a governed, searchable inventory with provenance, using <a href="https://discovery.spotlight-rules.com">Spotlight Discovery</a> and APIs.json.</p>
+    <p class="text-muted small">Map the APIs you produce and the ones you depend on into a governed, searchable inventory with provenance, using <a href="https://discover.apicommons.org">API Discovery</a> and APIs.json.</p>
     <a href="mailto:info@apievangelist.com?subject=API%20discovery%20%26%20inventory%20engagement">Map my APIs →</a>
   </div></div></div>
 

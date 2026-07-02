@@ -35,6 +35,13 @@ one-time launch record. Each repository also keeps its own changelog
 
 ## Project history
 
+### 2026-07-02 — Discovery rehomed to API Commons
+
+- **spotlight-discovery** left the suite — it is now **API Discovery**, an
+  [API Commons](https://apicommons.org) tool at
+  [discover.apicommons.org](https://discover.apicommons.org)
+  ([api-commons/api-discovery](https://github.com/api-commons/api-discovery)).
+
 ### 2026-06-29 — Editor schema completion for rulesets (extension v1.1.0)
 
 - **spotlight-vscode 1.1.0** ([Marketplace](https://marketplace.visualstudio.com/items?itemName=spotlightrules.spotlight)
@@ -97,14 +104,12 @@ one-time launch record. Each repository also keeps its own changelog
   documented in [spotlight-spec](/spec/#schema): **`title`**, **`reference`**, and
   **`prompt`** (joining `tags`). Bumped the ruleset JSON Schema to **2020-12**.
 
-### 2026-06-25 — The governance suite (api · mcp · discovery · pipeline)
+### 2026-06-25 — The governance suite (api · mcp · pipeline)
 
 - **spotlight-api** — an OpenAPI-first HTTP service over the engine (`POST /lint`,
   list rulesets, validate a ruleset, list formats).
 - **spotlight-mcp** — a Model Context Protocol server exposing lint + rulesets to
   any AI client.
-- **spotlight-discovery** — a browser artifact registry: search APIs.io +
-  GitHub/GitLab/Bitbucket, keep provenance, save locally or commit/PR to git.
 - **spotlight-pipeline** — governance-gate CI: a composite GitHub Action plus
   templates for GitLab, Bitbucket, Azure, and AWS.
 - **Agent skills** became a first-class artifact (`spotlight:skill` lints

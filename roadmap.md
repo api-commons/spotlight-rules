@@ -22,7 +22,6 @@ context you **consume** — see [Consumer API governance](#consumer-api-governan
 - **spotlight-spec** — the ruleset format + JSON Schema, and the rule catalog.
 - **spotlight-vscode** — lint while you edit, in VS Code.
 - **spotlight-validator** — browser governance workbench.
-- **spotlight-discovery** — browser artifact registry.
 - **spotlight-api** — HTTP service over the engine.
 - **spotlight-mcp** — MCP server for AI clients.
 - **spotlight-pipeline** — governance-gate CI.
