@@ -16,6 +16,18 @@ bundle install
 bundle exec jekyll serve
 ```
 
----
+## Part of Spotlight Rules & API Commons
 
-Part of [Spotlight Rules](https://spotlight-rules.com) — a project of [API Evangelist](https://apievangelist.com), maintained openly under [API Commons](https://apicommons.org).
+Spotlight Rules is the openly-governed build of the Spectral API linter — **[spotlight-rules.com](https://spotlight-rules.com)** — maintained under **[API Commons](https://apicommons.org)**.
+
+**The Spotlight suite**
+- [spotlight-cli](https://github.com/api-commons/spotlight-cli) — the linter CLI + engine
+- [spotlight-spec](https://github.com/api-commons/spotlight-spec) — the ruleset format specification + JSON Schema
+- [spotlight-validator](https://github.com/api-commons/spotlight-validator) — browser playground (validator.spotlight-rules.com)
+- [spotlight-vscode](https://github.com/api-commons/spotlight-vscode) — the VS Code extension
+- [spotlight-api](https://github.com/api-commons/spotlight-api) — HTTP API
+- [spotlight-mcp](https://github.com/api-commons/spotlight-mcp) — MCP server
+- [spotlight-pipeline](https://github.com/api-commons/spotlight-pipeline) — CI/CD templates
+- [spotlight-rules](https://github.com/api-commons/spotlight-rules) — the website (this repo)
+
+Explore the full governance tooling at **[apicommons.org/tools](https://apicommons.org/tools/)**.
