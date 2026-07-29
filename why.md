@@ -16,7 +16,8 @@ permalink: /why/
 
 Spectral's ruleset format became the de-facto way organizations express machine-readable API
 governance rules. National governments have written their mandatory API design rules as Spectral
-rulesets. Large enterprises embed the engine inside their own internal validation platforms,
+rulesets — the Dutch government's [REST API Design Rules]({{ site.nl_adr }}) are a mandatory
+standard on the Netherlands' comply-or-explain list, with the linter named in the normative text. Large enterprises embed the engine inside their own internal validation platforms,
 behind a facade their developers never see. Small startups wire it into CI on their first week.
 Dozens of published rulesets, wrappers, adapters, editor plugins, and pipeline integrations
 depend on it.
@@ -78,7 +79,8 @@ their versions or stop using the package until it was resolved.
 release had actually fixed the problem — was never answered by a maintainer.
 
 That is the moment this stopped being a philosophical concern. An unanswered security question,
-open for weeks, in a dependency chain that multiple national governments sit on top of.
+open for weeks, in a dependency chain that [multiple]({{ site.nl_adr }}) national governments sit on
+top of.
 
 ### 5. Telemetry
 

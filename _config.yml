@@ -36,6 +36,7 @@ acquisition: https://smartbear.com/news/news-releases/smartbear-to-acquire-stopl
 telemetry_post: https://apievangelist.com/2026/07/02/if-youre-using-spectral-it-is-now-gathering-data-opt-out/
 donate_post: https://apievangelist.com/2025/01/31/please-put-spectral-into-the-openapi-initiative-smartbear/
 vacuum: https://github.com/daveshanley/vacuum
+nl_adr: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.1/
 
 exclude:
   - Gemfile

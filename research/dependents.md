@@ -14,10 +14,14 @@ Assembled from the npm registry, GitHub repository search, and the upstream proj
 community index of rulesets in the wild — which was itself last updated in **February 2025**, is
 eighteen months stale, and undercounts substantially.
 
-> **Names are deliberately absent.** Publishing a ruleset is evidence of *dependence*, not of
-> endorsement, and nobody should be volunteered into a public position on a fork they have not
-> been asked about. Organizations who want to identify themselves are welcome to do so in
-> [the discussion]({{ site.discussion }}), on their own terms.
+> **Names are mostly absent, on purpose.** Publishing a ruleset is evidence of *dependence*, not of
+> endorsement, and nobody should be volunteered into a public position on a fork they have not been
+> asked about. The exceptions are a published standard that speaks for itself, and any organization
+> that has explicitly agreed to be named. Anything learned in a private conversation stays
+> unattributed. Organizations who want to identify themselves are welcome to do so in
+> [the discussion]({{ site.discussion }}), on their own terms — or privately by
+> <!--email_off-->[email](mailto:{{ site.email }}?subject=Spectral%20fork)<!--email_on--> if a public
+> post is not something your organization can do.
 
 ---
 
@@ -29,9 +33,11 @@ At least **five public-sector bodies** are publicly on the record using this for
 **three national governments**, a national defence agency, and a major nonprofit foundation.
 
 In at least one case, the format is not merely used — **the country's mandatory API design rules,
-the ones on its official standards list, are written as rulesets in this format.** Compliance with
-a national standard is expressed in a file format that has no specification and a linter with 241
-open issues.
+the ones on its official standards list, are written as rulesets in this format.** The clearest
+published example is the Dutch government's [REST API Design Rules]({{ site.nl_adr }}), a mandatory
+standard on the Netherlands' comply-or-explain list, which names the linter in its normative text.
+Compliance with a national standard is expressed in a file format that has no specification, run by
+a linter with 241 open issues.
 
 That is the sharpest version of the problem this fork exists to fix, and it is why the public
 sector is the most important constituency here rather than the most obscure one.

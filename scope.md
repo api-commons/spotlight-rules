@@ -110,8 +110,9 @@ abstracted it behind their own facades, or reimplemented it. A specification is 
 from parallel private effort into a shared ecosystem.
 
 **A European opportunity.** Some of the most advanced adoption is in European public-sector API
-programs, where design rules are mandated and machine-readable, and where the same conversations
-are happening across several countries at once. There is a real chance to make the format —
+programs, where design rules are mandated and machine-readable — the Dutch government's
+[REST API Design Rules]({{ site.nl_adr }}) are the clearest published example — and where the same
+conversations are happening across several countries at once. There is a real chance to make the format —
 and the style guides written in it — something that travels across borders.
 
 ---
