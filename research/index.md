@@ -22,7 +22,9 @@ open.
 > organizations who want to identify themselves are welcome to do so in
 > [the discussion]({{ site.discussion }}) — on their own terms, in their own words.
 >
-> What remains is the evidence, stated in categories rather than names.
+> What remains is the evidence, stated in categories rather than names. If you would rather be
+> counted privately than post in public, [email {{ site.email }}](mailto:{{ site.email }}?subject=Spectral%20fork)
+> — it counts the same, and nothing is attributed without your say-so.
 
 ---
 
@@ -94,5 +96,6 @@ private conversation, it is either omitted or stated generically enough that no 
   <div class="card-body text-center py-4">
     <p class="mb-3">Found an error, or have data that contradicts this? That is genuinely useful.</p>
     <a class="btn btn-primary" href="{{ site.discussion }}">Say so in the discussion →</a>
+    <a class="btn btn-outline-secondary ms-2" href="mailto:{{ site.email }}?subject=Spectral%20fork">Or email privately →</a>
   </div>
 </div>

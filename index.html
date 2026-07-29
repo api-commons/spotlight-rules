@@ -11,9 +11,13 @@ description: >-
   <h1 class="fw-bold mb-3">Spectral</h1>
   <p class="lead text-muted col-lg-10 mx-auto">
     An intent to fork. A maintained build of the
-    <a href="https://github.com/stoplightio/spectral">Spectral</a> linter — and the ruleset
-    format lifted out of it and specified on its own, so your governance rules stop depending on
-    the health of a single tool.
+    <a href="{{ site.up_repo }}">Spectral</a> linter — and the ruleset format lifted out of it and
+    specified on its own, so your governance rules stop depending on the health of a single tool.
+  </p>
+  <p class="text-muted small col-lg-8 mx-auto">
+    Codenamed <strong>Spotlight</strong> — the working name this site is still hosted under. Both
+    repositories deliberately keep the upstream name for now so the lineage stays obvious.
+    <a href="/involved/#what-is-still-open">Naming is an open question.</a>
   </p>
   <p class="mt-4">
     <a class="btn btn-primary" href="{{ site.discussion }}">Join the discussion</a>
@@ -71,11 +75,11 @@ description: >-
 </p>
 
 <ul>
-  <li><strong>Acquisition.</strong> Stoplight was acquired by SmartBear, and investment in the project did not follow.</li>
+  <li><strong>Acquisition.</strong> Stoplight was <a href="{{ site.acquisition }}">acquired by SmartBear</a>, and investment in the project did not follow.</li>
   <li><strong>Abandonment, and it is measurable.</strong> Issue triage peaked in 2021 and fell away after — <span class="stat">157</span> issues closed that year, <span class="stat">12</span> in 2025, <span class="stat">10</span> so far in 2026.</li>
-  <li><strong>A backlog nobody is draining.</strong> <span class="stat">241</span> open issues and <span class="stat">39</span> open pull requests. The oldest community pull request has waited five years.</li>
-  <li><strong>A supply-chain incident.</strong> In July 2026 a compromised dependency reached Spectral through its rulesets package. The issue reporting it is still open, and the single follow-up question on it was never answered.</li>
-  <li><strong>Telemetry.</strong> On 2026-06-30, install-time analytics were added across the packages.</li>
+  <li><strong>A backlog nobody is draining.</strong> <a href="{{ site.up_issues }}"><span class="stat">241</span> open issues</a> and <a href="{{ site.up_pulls }}"><span class="stat">39</span> open pull requests</a>. The <a href="{{ site.up_repo }}/pull/1608">oldest community pull request</a> has waited five years.</li>
+  <li><strong>A supply-chain incident.</strong> In July 2026 a compromised dependency reached Spectral through its rulesets package. <a href="{{ site.up_repo }}/issues/2999">The issue reporting it</a> is still open, and the single follow-up question on it was never answered.</li>
+  <li><strong>Telemetry.</strong> On 2026-06-30, <a href="{{ site.up_repo }}/pull/2976">install-time analytics were added</a> across the packages — <a href="{{ site.telemetry_post }}">what it sends, and how to opt out</a>.</li>
   <li><strong>The format needs room to grow.</strong> People already lint far more than OpenAPI and AsyncAPI with it, and it has nowhere to go while coupled to one unmaintained CLI.</li>
 </ul>
 
@@ -95,24 +99,39 @@ description: >-
   </div>
   <div class="col-md-4">
     <h3 class="h6 text-uppercase text-muted">Not a competitor to vacuum</h3>
-    <p class="small">vacuum is a supported, valued implementation. A written specification with a
+    <p class="small"><a href="{{ site.vacuum }}">vacuum</a> is a supported, valued implementation. A written specification with a
     public conformance suite is exactly what lets several engines coexist honestly instead of
     drifting apart on undocumented behavior.</p>
   </div>
   <div class="col-md-4">
     <h3 class="h6 text-uppercase text-muted">Not a land grab</h3>
-    <p class="small">The invitation to donate Spectral to the OpenAPI Initiative — made publicly in
-    January 2025, never answered — still stands. That remains the best possible outcome.</p>
+    <p class="small">The invitation to donate Spectral to the OpenAPI Initiative — <a href="{{ site.donate_post }}">made publicly in
+    January 2025</a>, never answered — still stands. That remains the best possible outcome.</p>
   </div>
 </div>
 
 <h2>Where it goes next</h2>
 
 <p>
-  <strong>Multi-specification.</strong> OpenAPI, AsyncAPI, Arazzo, Overlays, JSON Schema, Swagger
-  2.0, GeoJSON, OData, GraphQL, A2A agent cards, MCP, JSON-LD, APIs.json, and Markdown.
-  <strong>Multi-engine.</strong> Spectral, vacuum, Open Policy Agent, Cedar — a documented format
-  is the interchange layer between them. <strong>JavaScript stays.</strong> Browser support is a
+  <strong>Multi-specification.</strong>
+  <a href="https://www.openapis.org/">OpenAPI</a>,
+  <a href="https://www.asyncapi.com/">AsyncAPI</a>,
+  <a href="https://spec.openapis.org/arazzo/latest.html">Arazzo</a>,
+  <a href="https://spec.openapis.org/overlay/latest.html">Overlays</a>,
+  <a href="https://json-schema.org/">JSON Schema</a>,
+  <a href="https://swagger.io/specification/v2/">Swagger 2.0</a>,
+  <a href="https://geojson.org/">GeoJSON</a>,
+  <a href="https://www.odata.org/">OData</a>,
+  <a href="https://graphql.org/">GraphQL</a>,
+  <a href="https://a2a-protocol.org/">A2A</a> agent cards,
+  <a href="https://modelcontextprotocol.io/">MCP</a>,
+  <a href="https://json-ld.org/">JSON-LD</a>,
+  <a href="https://apisjson.org/">APIs.json</a>, and
+  <a href="https://commonmark.org/">Markdown</a>.
+  <strong>Multi-engine.</strong> Spectral, <a href="{{ site.vacuum }}">vacuum</a>,
+  <a href="https://www.openpolicyagent.org/">Open Policy Agent</a>,
+  <a href="https://www.cedarpolicy.com/">Cedar</a> — a documented format is the interchange layer
+  between them. <strong>JavaScript stays.</strong> Browser support is a
   hard requirement, and a compiled binary cannot serve it.
   <a href="/scope/">The full scope →</a>
 </p>
@@ -136,5 +155,11 @@ description: >-
       keep moving. Knowing who is out there is what makes the case for a real, permanent home.
     </p>
     <a class="btn btn-primary" href="{{ site.discussion }}">Add your voice →</a>
+    <a class="btn btn-outline-secondary ms-2" href="mailto:{{ site.email }}?subject=Spectral%20fork">Or email privately</a>
+    <p class="text-muted small mt-3 mb-0">
+      Not everyone can say this in public. A private note to
+      <a href="mailto:{{ site.email }}?subject=Spectral%20fork">{{ site.email }}</a> counts just as
+      much, and nothing is shared without your say-so.
+    </p>
   </div>
 </div>

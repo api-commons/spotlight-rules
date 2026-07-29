@@ -26,6 +26,16 @@ discussion: https://github.com/orgs/api-commons/discussions/28
 repo_cli: https://github.com/api-commons/spectral-cli
 repo_rules: https://github.com/api-commons/spectral-rules
 repo_fork: https://github.com/api-commons/spectral
+email: info@apievangelist.com
+
+# upstream
+up_repo: https://github.com/stoplightio/spectral
+up_issues: https://github.com/stoplightio/spectral/issues
+up_pulls: https://github.com/stoplightio/spectral/pulls
+acquisition: https://smartbear.com/news/news-releases/smartbear-to-acquire-stoplight/
+telemetry_post: https://apievangelist.com/2026/07/02/if-youre-using-spectral-it-is-now-gathering-data-opt-out/
+donate_post: https://apievangelist.com/2025/01/31/please-put-spectral-into-the-openapi-initiative-smartbear/
+vacuum: https://github.com/daveshanley/vacuum
 
 exclude:
   - Gemfile

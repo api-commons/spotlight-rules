@@ -59,7 +59,8 @@ for validating rules themselves.
 
 ### Alternative engines
 
-**One.** A Go implementation, actively maintained, which aims to be a drop-in replacement.
+**One.** [A Go implementation]({{ site.vacuum }}), actively maintained, which aims to be a
+drop-in replacement.
 
 ---
 
@@ -109,4 +110,5 @@ it is the difference between a fork and a standard.
   <a class="btn btn-outline-primary" href="/research/maintenance/">← The maintenance record</a>
   <a class="btn btn-outline-primary ms-2" href="/research/plan/">The plan, and what is open →</a>
   <a class="btn btn-primary ms-2" href="{{ site.discussion }}">Be counted →</a>
+  <a class="btn btn-outline-secondary ms-2" href="mailto:{{ site.email }}?subject=Spectral%20fork">Privately →</a>
 </p>

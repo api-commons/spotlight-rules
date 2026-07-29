@@ -10,6 +10,10 @@ permalink: /scope/
 
 # Scope
 
+> **Codename: Spotlight.** The working name this site is hosted under, while both repositories
+> keep the upstream name so the lineage stays obvious. The eventual name is
+> [an open question](/involved/#what-is-still-open).
+
 Two commitments come first, because everything else depends on them.
 
 **The spec and the tool stay aligned.** They were fused, and that fusion is what failed. But
@@ -18,7 +22,7 @@ reference implementation and follows it. Wherever this eventually lives has to b
 both — which is the awkward part of the OpenAPI Initiative option, since its charter currently
 bars tooling.
 
-**vacuum is supported.** It is a valued implementation and this is not a competition. A written
+**[vacuum]({{ site.vacuum }}) is supported.** It is a valued implementation and this is not a competition. A written
 specification plus a public conformance suite is exactly what lets multiple engines coexist
 honestly, rather than diverging quietly on undocumented behavior and arguing about it later.
 
@@ -32,20 +36,20 @@ is the single biggest unlock.
 
 | | |
 |---|---|
-| **OpenAPI** | 3.x — the origin, and still the centre of gravity |
-| **Swagger 2.0** | **Restored.** Upstream started blocking it. Banks and long-lived estates still run it, and keeping the bar low is how adoption actually happens |
-| **AsyncAPI** | Event-driven descriptions |
-| **Arazzo** | Workflows |
-| **Overlays** | Modifications to descriptions |
-| **JSON Schema** | The substrate underneath most of the above |
-| **GeoJSON** | And its successors — geospatial teams are among the most demanding non-OpenAPI users |
-| **OData** | Including XML-based metadata documents |
-| **GraphQL** | Schemas |
-| **A2A agent cards** | Agent-to-agent descriptors |
-| **MCP** | Model Context Protocol servers and their descriptors |
-| **JSON-LD** | Linked data |
-| **APIs.json** | API discovery and indexing |
-| **Markdown** | Agent skills and guidance — part YAML frontmatter, part prose. The hardest of these, and the most requested |
+| **[OpenAPI](https://www.openapis.org/)** | 3.x — the origin, and still the centre of gravity |
+| **[Swagger 2.0](https://swagger.io/specification/v2/)** | **Restored.** Upstream started blocking it. Banks and long-lived estates still run it, and keeping the bar low is how adoption actually happens |
+| **[AsyncAPI](https://www.asyncapi.com/)** | Event-driven descriptions |
+| **[Arazzo](https://spec.openapis.org/arazzo/latest.html)** | Workflows |
+| **[Overlays](https://spec.openapis.org/overlay/latest.html)** | Modifications to descriptions |
+| **[JSON Schema](https://json-schema.org/)** | The substrate underneath most of the above |
+| **[GeoJSON](https://geojson.org/)** | And [its successors](https://github.com/opengeospatial/ogc-feat-geo-json) — geospatial teams are among the most demanding non-OpenAPI users |
+| **[OData](https://www.odata.org/)** | Including XML-based metadata documents |
+| **[GraphQL](https://graphql.org/)** | Schemas |
+| **[A2A](https://a2a-protocol.org/) agent cards** | Agent-to-agent descriptors |
+| **[MCP](https://modelcontextprotocol.io/)** | Model Context Protocol servers and their descriptors |
+| **[JSON-LD](https://json-ld.org/)** | Linked data |
+| **[APIs.json](https://apisjson.org/)** | API discovery and indexing |
+| **[Markdown](https://commonmark.org/)** | Agent skills and guidance — part YAML frontmatter, part prose. The hardest of these, and the most requested |
 
 Beyond this list sit the genuinely hard cases — validating RDF-shaped documents, for instance,
 where the document model itself is different. Those are not v1. But **keeping the rules format
@@ -57,18 +61,21 @@ from day one, not an afterthought.
 A specification with one implementation is just a tool with extra paperwork. The point of writing
 it down is that other people can implement it.
 
-- **Spectral** — the JavaScript reference implementation.
-- **vacuum** — the Go implementation. Supported, and better served by a written spec than by
-  nobody having one.
-- **Open Policy Agent** — some organizations already express governance policy in OPA and would
-  rather not run two policy languages.
-- **Cedar** — likewise.
+- **[Spectral]({{ site.repo_cli }})** — the JavaScript reference implementation.
+- **[vacuum]({{ site.vacuum }})** — the Go implementation. Supported, and better served by a
+  written spec than by nobody having one.
+- **[Open Policy Agent](https://www.openpolicyagent.org/)** — some organizations already express
+  governance policy in OPA and would rather not run two policy languages.
+- **[Cedar](https://www.cedarpolicy.com/)** — likewise.
+- **[Rego](https://www.openpolicyagent.org/docs/policy-language)** and other policy languages —
+  the same logic applies to anything that can consume a documented rules format.
 
 There is a distinction worth keeping straight here, because they get conflated constantly:
 
 - **Multi-format** is *what you lint*. Yes, aggressively — see above.
 - **Multi-policy-language** is *how you express the rule*. The specification stays one language.
-  A host tool is free to route to OPA, Cedar, or anything else; that is an integration question,
+  A host tool is free to route to [OPA](https://www.openpolicyagent.org/),
+  [Cedar](https://www.cedarpolicy.com/), or anything else; that is an integration question,
   not a format question.
 
 ## What is not negotiable

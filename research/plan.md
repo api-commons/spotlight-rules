@@ -88,8 +88,9 @@ express a rule) — the spec stays one language, and a host tool can route elsew
 
 ## Open
 
-**The name.** The upstream name is being kept for now so lineage stays obvious, and a rename is
-expected eventually — trademark considerations alone make that likely. A name is load-bearing: an
+**The name.** Both repositories keep the upstream name for now so lineage stays obvious, and the
+effort carries the working codename **Spotlight** — hence the domain this site sits on. A rename is
+expected eventually; trademark considerations alone make it likely. A name is load-bearing: an
 earlier generation of this exact situation produced a naming confusion the community is still
 untangling a decade later. This is a community question and it is open.
 
@@ -122,8 +123,7 @@ a charter should say.
 ## What would make all of this unnecessary
 
 The current owner donating Spectral to the OpenAPI Initiative. That invitation was made publicly
-in [January 2025](https://apievangelist.com/2025/01/31/please-put-spectral-into-the-openapi-initiative-smartbear/)
-and never answered. It still stands, and it remains the best outcome available to everyone.
+in [January 2025]({{ site.donate_post }}) and never answered. It still stands, and it remains the best outcome available to everyone.
 
 ---
 
