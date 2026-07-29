@@ -23,7 +23,7 @@ open.
 > [the discussion]({{ site.discussion }}) — on their own terms, in their own words.
 >
 > What remains is the evidence, stated in categories rather than names. If you would rather be
-> counted privately than post in public, <!--email_off-->[email {{ site.email }}](mailto:{{ site.email }}?subject=Spectral%20fork)<!--email_on-->
+> counted privately than post in public, <!--email_off-->[email me directly](mailto:{{ site.email }}?subject=Spectral%20fork)<!--email_on-->
 > — it counts the same, and nothing is attributed without your say-so.
 
 ---

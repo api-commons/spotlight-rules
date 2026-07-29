@@ -51,7 +51,8 @@ in its first month.
     <p class="text-muted small mb-0">
       Plenty of people cannot post something like this under their employer's name without a
       conversation first, and some organizations have policies that make it impossible. A private
-      note to <!--email_off--><a href="mailto:{{ site.email }}?subject=Spectral%20fork">{{ site.email }}</a><!--email_on--> is
+      note <!--email_off--><a href="mailto:{{ site.email }}?subject=Spectral%20fork">straight to my
+      inbox</a><!--email_on--> is
       just as useful — it will be counted, and <strong>nothing is attributed or shared without
       your explicit say-so</strong>.
     </p>
