@@ -1,13 +1,16 @@
-<p align="center"><a href="https://spotlight-rules.com"><img src="https://raw.githubusercontent.com/api-commons/spotlight-rules/main/spotlight-rules-logo.png" alt="Spotlight Rules" height="90"></a></p>
+# spotlight-rules
 
-# spotlight-rules.com
+Website for the **Spectral** fork effort under [API Commons](https://apicommons.org) —
+[spotlight-rules.com](https://spotlight-rules.com).
 
-The website for [Spotlight Rules](https://spotlight-rules.com) — an
-openly-governed build of the Spectral API linter under
-[API Commons](https://apicommons.org).
+Jekyll + Bootstrap, built and deployed by GitHub Pages.
 
-A small Jekyll site (Bootstrap, GitHub Pages). Pages: home (project cards),
-about, roadmap, changelog.
+- **The specification** — [api-commons/spectral-rules](https://github.com/api-commons/spectral-rules)
+- **The tool** — [api-commons/spectral-cli](https://github.com/api-commons/spectral-cli)
+- **Discussion** — [api-commons/discussions/28](https://github.com/orgs/api-commons/discussions/28)
+
+The domain is inherited from an earlier working name and is provisional; naming is an open
+question in the discussion.
 
 ## Local
 
@@ -15,7 +18,3 @@ about, roadmap, changelog.
 bundle install
 bundle exec jekyll serve
 ```
-
----
-
-Part of [Spotlight Rules](https://spotlight-rules.com) — a project of [API Evangelist](https://apievangelist.com), maintained openly under [API Commons](https://apicommons.org).

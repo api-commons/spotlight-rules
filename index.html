@@ -1,142 +1,140 @@
 ---
 layout: default
 nav: home
-title: Spotlight Rules
+title: Spectral
+description: >-
+  An intent to fork Spectral — a maintained CLI, and the ruleset format as a standalone
+  specification that stands on its own, apart from any one tool.
 ---
 
 <div class="hero text-center">
-  <h1 class="visually-hidden">Spotlight Rules</h1>
-  <img src="/assets/spotlight-rules-lockup.png" alt="Spotlight Rules" class="img-fluid mb-3" style="max-height: 140px;">
-  <p class="lead text-muted col-lg-9 mx-auto">
-    An openly-governed, progressive build of the
-    <a href="https://github.com/stoplightio/spectral">Spectral</a> API linter —
-    a maintained CLI, a standalone ruleset specification, a VS Code extension,
-    and a browser governance playground, under
-    <a href="https://apicommons.org">API Commons</a>.
+  <h1 class="fw-bold mb-3">Spectral</h1>
+  <p class="lead text-muted col-lg-10 mx-auto">
+    An intent to fork. A maintained build of the
+    <a href="https://github.com/stoplightio/spectral">Spectral</a> linter — and the ruleset
+    format lifted out of it and specified on its own, so your governance rules stop depending on
+    the health of a single tool.
+  </p>
+  <p class="mt-4">
+    <a class="btn btn-primary" href="{{ site.discussion }}">Join the discussion</a>
+    <a class="btn btn-outline-secondary ms-2" href="/why/">Why this is happening</a>
   </p>
 </div>
 
-<div class="row g-4 mt-2">
+<hr class="my-5">
 
-  <div class="col-md-6 col-lg-3">
+<div class="row g-4">
+  <div class="col-md-6">
     <div class="card shadow-sm">
       <div class="card-body d-flex flex-column">
-        <h5 class="card-title">spotlight-spec</h5>
-        <p class="text-muted small mb-2"><span class="badge bg-success">Specification</span></p>
+        <h5 class="card-title">spectral-rules</h5>
+        <p class="text-muted small mb-2"><span class="badge bg-success">The specification</span></p>
         <p class="card-text flex-grow-1">
-          A standalone specification of the ruleset format — rules and rulesets —
-          with a JSON Schema for validation, and an explorable catalog of every
-          rule by artifact.
+          The ruleset and rules format as a standalone, independently versioned specification with
+          a portable JSON Schema. <strong>This is the important half.</strong> Rules are the most
+          durable artifact an API program produces — they should outlive any linter that runs them.
         </p>
         <div class="d-flex gap-3">
-          <a href="/spec/" class="fw-semibold">Details →</a>
-          <a href="https://github.com/api-commons/spotlight-spec">GitHub</a>
+          <a href="{{ site.repo_rules }}" class="fw-semibold">GitHub →</a>
+          <a href="{{ site.repo_rules }}/issues">Issues</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-md-6 col-lg-3">
+  <div class="col-md-6">
     <div class="card shadow-sm">
       <div class="card-body d-flex flex-column">
-        <h5 class="card-title">spotlight-cli</h5>
-        <p class="text-muted small mb-2"><span class="badge bg-primary">CLI &amp; engine</span></p>
+        <h5 class="card-title">spectral-cli</h5>
+        <p class="text-muted small mb-2"><span class="badge bg-primary">The tool</span></p>
         <p class="card-text flex-grow-1">
-          The linter for JSON/YAML API descriptions — OpenAPI, AsyncAPI, and
-          Arazzo — with custom rulesets. A maintained fork of Spectral, published
-          to npm.
+          A maintained build of the linter at v6.16.2 — full history preserved, telemetry removed,
+          issues open. A copy rather than a GitHub fork, because forks cannot have their own
+          issues, and somewhere to report a problem is the entire point.
         </p>
         <div class="d-flex gap-3">
-          <a href="/cli/" class="fw-semibold">Details →</a>
-          <a href="https://github.com/api-commons/spotlight-cli">GitHub</a>
+          <a href="{{ site.repo_cli }}" class="fw-semibold">GitHub →</a>
+          <a href="{{ site.repo_cli }}/issues">Issues</a>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="col-md-6 col-lg-3">
-    <div class="card shadow-sm">
-      <div class="card-body d-flex flex-column">
-        <h5 class="card-title">spotlight-vscode</h5>
-        <p class="text-muted small mb-2"><span class="badge bg-info text-dark">Editor</span></p>
-        <p class="card-text flex-grow-1">
-          The VS Code extension — lint-on-save and lint-on-type for your API
-          descriptions, with custom ruleset support, right in your editor.
-        </p>
-        <div class="d-flex gap-3">
-          <a href="/vscode/" class="fw-semibold">Details →</a>
-          <a href="https://github.com/api-commons/spotlight-vscode">GitHub</a>
-        </div>
-      </div>
-    </div>
+<h2>Why</h2>
+
+<p class="lede">
+  Spectral rulesets are how a great many organizations express machine-readable API governance.
+  National governments have written their mandatory API design rules as Spectral rulesets. Large
+  enterprises run the engine behind their own internal validation platforms. Startups wire it into
+  CI on day one. The tool all of that rests on has stopped moving.
+</p>
+
+<ul>
+  <li><strong>Acquisition.</strong> Stoplight was acquired by SmartBear, and investment in the project did not follow.</li>
+  <li><strong>Abandonment, and it is measurable.</strong> Issue triage peaked in 2021 and fell away after — <span class="stat">157</span> issues closed that year, <span class="stat">12</span> in 2025, <span class="stat">10</span> so far in 2026.</li>
+  <li><strong>A backlog nobody is draining.</strong> <span class="stat">241</span> open issues and <span class="stat">39</span> open pull requests. The oldest community pull request has waited five years.</li>
+  <li><strong>A supply-chain incident.</strong> In July 2026 a compromised dependency reached Spectral through its rulesets package. The issue reporting it is still open, and the single follow-up question on it was never answered.</li>
+  <li><strong>Telemetry.</strong> On 2026-06-30, install-time analytics were added across the packages.</li>
+  <li><strong>The format needs room to grow.</strong> People already lint far more than OpenAPI and AsyncAPI with it, and it has nowhere to go while coupled to one unmaintained CLI.</li>
+</ul>
+
+<p>
+  Because the specification and the tool were never separated, an unmaintained tool means an
+  unmaintained format. <a href="/why/">The full case, with the data →</a>
+</p>
+
+<h2>What this is not</h2>
+
+<div class="row g-4 mt-1">
+  <div class="col-md-4">
+    <h3 class="h6 text-uppercase text-muted">Not a rewrite</h3>
+    <p class="small">It starts from the exact ruleset format and CLI behavior of v6.16.2. Existing
+    rulesets keep working. Divergence, when it comes, will be deliberate, versioned, and
+    documented — never silent.</p>
   </div>
-
-  <div class="col-md-6 col-lg-3">
-    <div class="card shadow-sm">
-      <div class="card-body d-flex flex-column">
-        <h5 class="card-title">spotlight-validator</h5>
-        <p class="text-muted small mb-2"><span class="badge bg-warning text-dark">Playground</span></p>
-        <p class="card-text flex-grow-1">
-          A browser governance playground — lint 11 artifact types against
-          best-of-breed rules, search APIs.io, and edit rules live. No backend.
-        </p>
-        <div class="d-flex gap-3">
-          <a href="/validator/" class="fw-semibold">Details →</a>
-          <a href="https://validator.spotlight-rules.com">Open</a>
-        </div>
-      </div>
-    </div>
+  <div class="col-md-4">
+    <h3 class="h6 text-uppercase text-muted">Not a competitor to vacuum</h3>
+    <p class="small">vacuum is a supported, valued implementation. A written specification with a
+    public conformance suite is exactly what lets several engines coexist honestly instead of
+    drifting apart on undocumented behavior.</p>
   </div>
-
-  <div class="col-md-6 col-lg-3">
-    <div class="card shadow-sm">
-      <div class="card-body d-flex flex-column">
-        <h5 class="card-title">spotlight-api</h5>
-        <p class="text-muted small mb-2"><span class="badge bg-dark">HTTP API</span></p>
-        <p class="card-text flex-grow-1">
-          Work with Spotlight over HTTP — lint artifacts, list rulesets, validate a
-          ruleset. OpenAPI-first, runs the cli engine.
-        </p>
-        <div class="d-flex gap-3">
-          <a href="/api/" class="fw-semibold">Details →</a>
-          <a href="https://github.com/api-commons/spotlight-api">GitHub</a>
-        </div>
-      </div>
-    </div>
+  <div class="col-md-4">
+    <h3 class="h6 text-uppercase text-muted">Not a land grab</h3>
+    <p class="small">The invitation to donate Spectral to the OpenAPI Initiative — made publicly in
+    January 2025, never answered — still stands. That remains the best possible outcome.</p>
   </div>
+</div>
 
-  <div class="col-md-6 col-lg-3">
-    <div class="card shadow-sm">
-      <div class="card-body d-flex flex-column">
-        <h5 class="card-title">spotlight-mcp</h5>
-        <p class="text-muted small mb-2"><span class="badge bg-secondary">AI · MCP</span></p>
-        <p class="card-text flex-grow-1">
-          Govern your APIs conversationally — a Model Context Protocol server that
-          lets any AI client lint artifacts and work with rulesets.
-        </p>
-        <div class="d-flex gap-3">
-          <a href="/mcp/" class="fw-semibold">Details →</a>
-          <a href="https://github.com/api-commons/spotlight-mcp">GitHub</a>
-        </div>
-      </div>
-    </div>
+<h2>Where it goes next</h2>
+
+<p>
+  <strong>Multi-specification.</strong> OpenAPI, AsyncAPI, Arazzo, Overlays, JSON Schema, Swagger
+  2.0, GeoJSON, OData, GraphQL, A2A agent cards, MCP, JSON-LD, APIs.json, and Markdown.
+  <strong>Multi-engine.</strong> Spectral, vacuum, Open Policy Agent, Cedar — a documented format
+  is the interchange layer between them. <strong>JavaScript stays.</strong> Browser support is a
+  hard requirement, and a compiled binary cannot serve it.
+  <a href="/scope/">The full scope →</a>
+</p>
+
+<h2>Where it lives</h2>
+
+<p>
+  <a href="https://apicommons.org">API Commons</a> is the home for now, and possibly for good. The
+  <a href="https://www.openapis.org/">OpenAPI Initiative</a> is a candidate, though its charter
+  currently bars tooling — awkward when the whole point is keeping the spec and the tool aligned.
+  The Linux Foundation is a candidate. So is a European home. That question is deliberately open,
+  and it is the first thing worth arguing about in
+  <a href="{{ site.discussion }}">the discussion</a>.
+</p>
+
+<div class="card bg-light border-0 mt-5">
+  <div class="card-body text-center py-4">
+    <h3 class="h5">If you rely on Spectral, say so</h3>
+    <p class="text-muted mb-3 col-lg-9 mx-auto">
+      No commitment, nothing legally binding — just whether you depend on it and want to see it
+      keep moving. Knowing who is out there is what makes the case for a real, permanent home.
+    </p>
+    <a class="btn btn-primary" href="{{ site.discussion }}">Add your voice →</a>
   </div>
-
-  <div class="col-md-6 col-lg-3">
-    <div class="card shadow-sm">
-      <div class="card-body d-flex flex-column">
-        <h5 class="card-title">spotlight-pipeline</h5>
-        <p class="text-muted small mb-2"><span class="badge bg-danger">CI · Governance</span></p>
-        <p class="card-text flex-grow-1">
-          Governance as code — run Spotlight as a gate in GitHub, GitLab,
-          Bitbucket, Azure, or AWS pipelines. Drop in your ruleset.
-        </p>
-        <div class="d-flex gap-3">
-          <a href="/pipeline/" class="fw-semibold">Details →</a>
-          <a href="https://github.com/api-commons/spotlight-pipeline">GitHub</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>

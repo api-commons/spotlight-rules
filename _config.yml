@@ -1,11 +1,13 @@
-title: Spotlight Rules
-name: Spotlight Rules
-description: An openly-governed, well-maintained build of the Spectral API linter — a maintained CLI, a standalone ruleset specification, and a VS Code extension.
+title: Spectral
+name: Spectral
+description: >-
+  An openly-governed, maintained build of the Spectral API linter — and the Spectral ruleset
+  format as a standalone specification that stands on its own, apart from any one tool.
 url: https://spotlight-rules.com
 keywords:
-  - API linting
   - Spectral
   - API governance
+  - API linting
   - rulesets
   - OpenAPI
   - AsyncAPI
@@ -20,6 +22,11 @@ highlighter: rouge
 
 github_org: api-commons
 
+discussion: https://github.com/orgs/api-commons/discussions/28
+repo_cli: https://github.com/api-commons/spectral-cli
+repo_rules: https://github.com/api-commons/spectral-rules
+repo_fork: https://github.com/api-commons/spectral
+
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -27,19 +34,3 @@ exclude:
   - vendor
 
 permalink: pretty
-
-defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
-      permalink: /blog/:title/
-
-collections:
-  rules:
-    output: true
-    permalink: /spec/rules/:path/
-  artifacts:
-    output: true
-    permalink: /spec/rules/:path/

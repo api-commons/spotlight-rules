@@ -52,27 +52,31 @@
       .content h3 { margin-top: 1.5rem; font-weight: 600; font-size: 1.2rem; }
       .content table { width: 100%; margin: 1rem 0; }
       .content table th, .content table td { padding: .5rem .75rem; border-bottom: 1px solid #e9ecef; vertical-align: top; }
+      .content table { display: block; overflow-x: auto; white-space: normal; }
+      .content ul, .content ol { line-height: 1.7; }
+      .content p { line-height: 1.7; }
+      blockquote { border-left: 3px solid #dee2e6; padding-left: 1rem; color: #555; margin: 1.25rem 0; }
+      .lede { font-size: 1.15rem; color: #444; }
+      .stat { font-variant-numeric: tabular-nums; font-weight: 700; }
     </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="/"><img src="/assets/spotlight-rules-logo.png" alt="" width="54" height="54" class="me-2">Spotlight Rules</a>
+        <a class="navbar-brand d-flex align-items-center" href="/"><img src="/assets/spotlight-rules-logo.png" alt="" width="54" height="54" class="me-2">Spectral</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="nav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link{% if page.nav == 'home' %} active{% endif %}" href="/">Home</a></li>
-            <li class="nav-item"><a class="nav-link{% if page.nav == 'start' %} active{% endif %}" href="/start/">Get Started</a></li>
-            <li class="nav-item"><a class="nav-link{% if page.nav == 'spec' %} active{% endif %}" href="/spec/">Spec &amp; Rules</a></li>
-            <li class="nav-item"><a class="nav-link{% if page.nav == 'services' %} active{% endif %}" href="/services/">Services</a></li>
-            <li class="nav-item"><a class="nav-link{% if page.nav == 'about' %} active{% endif %}" href="/about/">About</a></li>
-            <li class="nav-item"><a class="nav-link{% if page.nav == 'roadmap' %} active{% endif %}" href="/roadmap/">Roadmap</a></li>
-            <li class="nav-item"><a class="nav-link{% if page.nav == 'changelog' %} active{% endif %}" href="/changelog/">Changelog</a></li>
-            <li class="nav-item"><a class="nav-link{% if page.nav == 'blog' %} active{% endif %}" href="/blog/">Blog</a></li>
+            <li class="nav-item"><a class="nav-link{% if page.nav == 'why' %} active{% endif %}" href="/why/">Why</a></li>
+            <li class="nav-item"><a class="nav-link{% if page.nav == 'scope' %} active{% endif %}" href="/scope/">Scope</a></li>
+            <li class="nav-item"><a class="nav-link{% if page.nav == 'tools' %} active{% endif %}" href="/tools/">Tools</a></li>
+            <li class="nav-item"><a class="nav-link{% if page.nav == 'research' %} active{% endif %}" href="/research/">Research</a></li>
+            <li class="nav-item"><a class="nav-link{% if page.nav == 'involved' %} active{% endif %}" href="/involved/">Get Involved</a></li>
           </ul>
-          <a class="btn btn-sm btn-outline-light" href="https://github.com/api-commons" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-sm btn-outline-light" href="{{ site.discussion }}" target="_blank" rel="noopener">Join the discussion</a>
         </div>
       </div>
     </nav>
@@ -89,8 +93,9 @@
           <a href="https://apis.io/">APIs.io</a>
           <a href="https://apicommons.org/">API Commons</a>
           <a href="https://apisjson.org/">APIs.json</a>
-          <a href="https://github.com/orgs/api-commons/discussions">Discussions</a>
-          <a href="https://github.com/orgs/api-commons">GitHub</a>
+          <a href="{{ site.discussion }}">Discussion</a>
+          <a href="{{ site.repo_cli }}">spectral-cli</a>
+          <a href="{{ site.repo_rules }}">spectral-rules</a>
         </div>
         <div class="text-center py-3">
           <a href="https://apievangelist.com" target="_blank" rel="noopener" class="d-inline-flex align-items-center text-decoration-none">
