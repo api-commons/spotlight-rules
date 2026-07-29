@@ -46,12 +46,12 @@ in its first month.
     <p class="mb-3"><strong>Two ways to do it, and they count the same.</strong></p>
     <p>
       <a class="btn btn-primary" href="{{ site.discussion }}">Add your voice publicly →</a>
-      <a class="btn btn-outline-secondary ms-2" href="mailto:{{ site.email }}?subject=Spectral%20fork">Email privately →</a>
+      <!--email_off--><a class="btn btn-outline-secondary ms-2" href="mailto:{{ site.email }}?subject=Spectral%20fork">Email privately →</a><!--email_on-->
     </p>
     <p class="text-muted small mb-0">
       Plenty of people cannot post something like this under their employer's name without a
       conversation first, and some organizations have policies that make it impossible. A private
-      note to <a href="mailto:{{ site.email }}?subject=Spectral%20fork">{{ site.email }}</a> is
+      note to <!--email_off--><a href="mailto:{{ site.email }}?subject=Spectral%20fork">{{ site.email }}</a><!--email_on--> is
       just as useful — it will be counted, and <strong>nothing is attributed or shared without
       your explicit say-so</strong>.
     </p>
@@ -95,6 +95,6 @@ and it would be the best outcome for everyone who depends on it.
 <div class="card bg-light border-0 mt-4">
   <div class="card-body text-center py-4">
     <a class="btn btn-primary btn-lg" href="{{ site.discussion }}">Join the discussion →</a>
-    <a class="btn btn-outline-secondary btn-lg ms-2" href="mailto:{{ site.email }}?subject=Spectral%20fork">Email privately →</a>
+    <!--email_off--><a class="btn btn-outline-secondary btn-lg ms-2" href="mailto:{{ site.email }}?subject=Spectral%20fork">Email privately →</a><!--email_on-->
   </div>
 </div>
