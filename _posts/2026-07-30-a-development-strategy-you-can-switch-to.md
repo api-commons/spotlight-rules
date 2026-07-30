@@ -34,7 +34,7 @@ the merits.
 Worth stating plainly, because the gap between the announcement and the reality is where forks
 lose people:
 
-**Nothing is published.** The `spectral-cli` README still tells you to install
+**Nothing is published.** The `spotlight-tools` README still tells you to install
 `@stoplight/spectral-cli` from upstream, because that is still the only place the packages exist.
 The repository inherited release automation pointed at a scope it does not own, along with
 upstream's `develop` default branch and 42 of its branches. Right now this is a source archive

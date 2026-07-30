@@ -1,24 +1,27 @@
 ---
 layout: default
 nav: home
-title: Spectral
 description: >-
-  An intent to fork Spectral — a maintained CLI, and the ruleset format as a standalone
-  specification that stands on its own, apart from any one tool.
+  Spotlight — a maintained fork of the Spectral linter, and the Spectral ruleset format as a
+  standalone specification that stands on its own, apart from any one tool.
 ---
 
 <div class="hero text-center">
-  <h1 class="fw-bold mb-3">Spectral</h1>
+  <h1 class="fw-bold mb-2">Spotlight</h1>
+  <p class="fs-5 text-muted mb-3">A fork of <a href="{{ site.up_repo }}">Spectral</a>.</p>
   <p class="lead text-muted col-lg-10 mx-auto">
-    An intent to fork. A maintained build of the
-    <a href="{{ site.up_repo }}">Spectral</a> linter — and the ruleset format lifted out of it and
-    specified on its own, so your governance rules stop depending on the health of a single tool.
+    A maintained build of the <a href="{{ site.up_repo }}">Spectral</a> linter — and the Spectral
+    ruleset format lifted out of it and specified on its own, so your governance rules stop
+    depending on the health of a single tool.
   </p>
   <p class="text-muted small col-lg-8 mx-auto">
-    The name is <strong>Spotlight</strong>, and it was settled deliberately early:
+    Officially <strong>Spotlight</strong> from here on:
     <a href="{{ site.repo_rules }}">spotlight-spec</a> and
-    <a href="{{ site.repo_cli }}">spotlight-tools</a>. Renaming before anyone depends on the
-    packages costs a few links. Renaming after costs everybody's CI.
+    <a href="{{ site.repo_cli }}">spotlight-tools</a>. The name was settled deliberately early —
+    renaming before anyone depends on the packages costs a few links, renaming after costs
+    everybody's CI. <strong>The format is still the Spectral ruleset format</strong>, described
+    that way throughout, because that is what your rulesets are. The <code>spectral</code> binary
+    name is not changing either.
   </p>
   <p class="mt-4">
     <a class="btn btn-primary" href="{{ site.discussion }}">Join the discussion</a>

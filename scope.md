@@ -61,7 +61,8 @@ from day one, not an afterthought.
 A specification with one implementation is just a tool with extra paperwork. The point of writing
 it down is that other people can implement it.
 
-- **[Spectral]({{ site.repo_cli }})** — the JavaScript reference implementation.
+- **[Spotlight]({{ site.repo_cli }})** — the JavaScript reference implementation, forked from
+  Spectral and kept aligned with this specification.
 - **[vacuum]({{ site.vacuum }})** — the Go implementation. Supported, and better served by a
   written spec than by nobody having one.
 - **[Open Policy Agent](https://www.openpolicyagent.org/)** — some organizations already express
