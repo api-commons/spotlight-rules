@@ -10,8 +10,10 @@ permalink: /tools/
 
 # Tools
 
-This effort does not start from zero. A set of open governance tools already runs on the Spectral
-ruleset format, and they are why the format's health is not an abstract concern here.
+I've been hard at work filling in the gaps in the services I offer as the API Evangelist with the
+tooling needed by the folks I know building API governance programs within enterprises. These are
+modular open-source solutions that help enterprises standardize and govern how they produce and
+consume APIs.
 
 They are listed because they demonstrate something specific: **the format is already doing work
 that has nothing to do with the CLI that runs it.** Registries, baselines, scorecards, coverage
