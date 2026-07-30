@@ -22,23 +22,23 @@ durable, portable, inspectable artifact.
 
 ---
 
-| Tool | What it does |
-|---|---|
-| **api-validator** | The deepest integration — validates OpenAPI, AsyncAPI, Arazzo, and JSON Schema in the browser |
-| **ruleset-commons** | A registry of adoptable, provenanced rulesets — where rules come from, and whether you can trust them |
-| **governance-pipeline** | A reference CI/CD governance pipeline you can fork |
-| **governance-baseline** | Snapshot the violations you already have; fail only new ones. The adoption unblocker for a legacy estate |
-| **governance-scorecard** | The longitudinal view — health over time, not a point-in-time verdict |
-| **governance-coverage** | How much of a description your rules actually check |
-| **governance-certification** | Tamper-evident certificates for a governance result |
-| **governance-waivers** | Sanctioned, owned, expiring exceptions — because the alternative is people quietly ignoring the linter |
-| **governance-agent-export** | Export a ruleset into agent-native artifacts, so the rules reach the agent before it authors, not after |
-| **api-governance-graph** | Binds the governance building blocks — policies, rules, guidance, lifecycle — into one view |
-| **codefirst-governance** | Meets annotation and code-first teams where they actually are |
-| **rule-federation** | A federated rule registry — a central baseline with local overrides, for organizations that are not one team |
+| Tool | What it does | Source |
+|---|---|---|
+| **[api-validator](https://validator.apicommons.org/)** | The deepest integration — validates OpenAPI, AsyncAPI, Arazzo, and JSON Schema in the browser | [GitHub](https://github.com/api-commons/api-validator) |
+| **[ruleset-commons](https://rulesets.apicommons.org/)** | A registry of adoptable, provenanced rulesets — where rules come from, and whether you can trust them | [GitHub](https://github.com/api-commons/ruleset-commons) |
+| **[governance-pipeline](https://pipeline.apicommons.org/)** | A reference CI/CD governance pipeline you can fork | [GitHub](https://github.com/api-commons/governance-pipeline) |
+| **[governance-baseline](https://baseline.apicommons.org/)** | Snapshot the violations you already have; fail only new ones. The adoption unblocker for a legacy estate | [GitHub](https://github.com/api-commons/governance-baseline) |
+| **[governance-scorecard](https://scorecard.apicommons.org/)** | The longitudinal view — health over time, not a point-in-time verdict | [GitHub](https://github.com/api-commons/governance-scorecard) |
+| **[governance-coverage](https://coverage.apicommons.org/)** | How much of a description your rules actually check | [GitHub](https://github.com/api-commons/governance-coverage) |
+| **[governance-certification](https://certification.apicommons.org/)** | Tamper-evident certificates for a governance result | [GitHub](https://github.com/api-commons/governance-certification) |
+| **[governance-waivers](https://waivers.apicommons.org/)** | Sanctioned, owned, expiring exceptions — because the alternative is people quietly ignoring the linter | [GitHub](https://github.com/api-commons/governance-waivers) |
+| **[governance-agent-export](https://agents.apicommons.org/)** | Export a ruleset into agent-native artifacts, so the rules reach the agent before it authors, not after | [GitHub](https://github.com/api-commons/governance-agent-export) |
+| **[api-governance-graph](https://graph.apicommons.org/)** | Binds the governance building blocks — policies, rules, guidance, lifecycle — into one view | [GitHub](https://github.com/api-commons/api-governance-graph) |
+| **[codefirst-governance](https://codefirst.apicommons.org/)** | Meets annotation and code-first teams where they actually are | [GitHub](https://github.com/api-commons/codefirst-governance) |
+| **[rule-federation](https://federation.apicommons.org/)** | A federated rule registry — a central baseline with local overrides, for organizations that are not one team | [GitHub](https://github.com/api-commons/rule-federation) |
 
-All of them live under [API Commons](https://github.com/api-commons) and run in the browser or in
-CI, no backend required.
+All of them live under [API Commons](https://github.com/api-commons), run in the browser or in
+CI with no backend required, and are open source under Apache-2.0.
 
 ---
 
