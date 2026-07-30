@@ -1,0 +1,24 @@
+---
+layout: none
+permalink: /feed.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.name }} — Blog</title>
+    <link>{{ site.url }}/blog/</link>
+    <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
+    <description>{{ site.description | strip_newlines | xml_escape }}</description>
+    <language>en</language>
+    {% if site.posts.first %}<lastBuildDate>{{ site.posts.first.date | date_to_rfc822 }}</lastBuildDate>{% endif %}
+    {% for post in site.posts limit:50 %}
+    <item>
+      <title>{{ post.title | xml_escape }}</title>
+      <link>{{ post.url | prepend: site.url }}</link>
+      <guid isPermaLink="true">{{ post.url | prepend: site.url }}</guid>
+      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+      <description>{{ post.description | default: post.excerpt | strip_html | strip_newlines | xml_escape }}</description>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

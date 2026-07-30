@@ -19,6 +19,7 @@
     <meta name="keywords" content="{{ site.keywords | join: ', ' }}">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
     <link rel="icon" type="image/png" href="/assets/spotlight-rules-logo.png">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} — Blog" href="/feed.xml">
 
     <!-- Open Graph -->
     <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}">
@@ -74,6 +75,7 @@
             <li class="nav-item"><a class="nav-link{% if page.nav == 'scope' %} active{% endif %}" href="/scope/">Scope</a></li>
             <li class="nav-item"><a class="nav-link{% if page.nav == 'tools' %} active{% endif %}" href="/tools/">Tools</a></li>
             <li class="nav-item"><a class="nav-link{% if page.nav == 'research' %} active{% endif %}" href="/research/">Research</a></li>
+            <li class="nav-item"><a class="nav-link{% if page.nav == 'blog' %} active{% endif %}" href="/blog/">Blog</a></li>
             <li class="nav-item"><a class="nav-link{% if page.nav == 'involved' %} active{% endif %}" href="/involved/">Get Involved</a></li>
           </ul>
           <a class="btn btn-sm btn-outline-light" href="{{ site.discussion }}" target="_blank" rel="noopener">Join the discussion</a>
@@ -96,6 +98,7 @@
           <a href="{{ site.discussion }}">Discussion</a>
           <a href="{{ site.repo_cli }}">spectral-cli</a>
           <a href="{{ site.repo_rules }}">spectral-rules</a>
+          <a href="/feed.xml">RSS</a>
         </div>
         <div class="text-center py-3">
           <a href="https://apievangelist.com" target="_blank" rel="noopener" class="d-inline-flex align-items-center text-decoration-none">

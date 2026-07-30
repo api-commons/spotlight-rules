@@ -45,3 +45,12 @@ exclude:
   - vendor
 
 permalink: pretty
+
+defaults:
+  - scope:
+      path: ''
+      type: posts
+    values:
+      layout: post
+      nav: blog
+      author: Kin Lane
