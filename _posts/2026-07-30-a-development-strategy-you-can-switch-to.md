@@ -50,7 +50,7 @@ predictability is earned with a published calendar, not asserted in a README.
 Most of what is in those issues is bookkeeping. Three parts are load-bearing.
 
 **The npm scope, and not making you rewrite your imports.** Eleven packages need a home that is
-not `@stoplight/*`. The proposal is `@api-commons/spectral-*` — same names, same API — plus a
+not `@stoplight/*`. The proposal is `@apicommons/spectral-*` — same names, same API — plus a
 migration path built on alias installs and dependency overrides, so switching is one line and
 rolling back is deleting that line. This matters far more for the transitive case than the direct
 one: most people do not depend on Spectral directly, they get `spectral-core` underneath a
