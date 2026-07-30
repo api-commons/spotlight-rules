@@ -5,8 +5,8 @@ Website for the **Spectral** fork effort under [API Commons](https://apicommons.
 
 Jekyll + Bootstrap, built and deployed by GitHub Pages.
 
-- **The specification** — [api-commons/spectral-rules](https://github.com/api-commons/spectral-rules)
-- **The tool** — [api-commons/spectral-cli](https://github.com/api-commons/spectral-cli)
+- **The specification** — [api-commons/spotlight-spec](https://github.com/api-commons/spotlight-spec)
+- **The tool** — [api-commons/spotlight-tools](https://github.com/api-commons/spotlight-tools)
 - **Discussion** — [api-commons/discussions/28](https://github.com/orgs/api-commons/discussions/28)
 
 The domain is inherited from an earlier working name and is provisional; naming is an open

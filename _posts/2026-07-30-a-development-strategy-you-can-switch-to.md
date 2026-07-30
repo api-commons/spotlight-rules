@@ -7,8 +7,8 @@ description: >-
 
 There are now two issues open, one on each repository, and they are the whole plan:
 
-- **[spectral-cli#1]({{ site.repo_cli }}/issues/1)** — branching, releases, package management, and how you switch.
-- **[spectral-rules#1]({{ site.repo_rules }}/issues/1)** — schema identity, spec versioning, the conformance suite, and how implementers get told things.
+- **[spotlight-tools#1]({{ site.repo_cli }}/issues/1)** — branching, releases, package management, and how you switch.
+- **[spotlight-spec#1]({{ site.repo_rules }}/issues/1)** — schema identity, spec versioning, the conformance suite, and how implementers get told things.
 
 They are the first issues either repository has ever had. Please go argue with them. Nothing in
 either one is built yet, and that is deliberate — I would rather be corrected before writing the

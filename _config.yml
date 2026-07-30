@@ -23,8 +23,8 @@ highlighter: rouge
 github_org: api-commons
 
 discussion: https://github.com/orgs/api-commons/discussions/28
-repo_cli: https://github.com/api-commons/spectral-cli
-repo_rules: https://github.com/api-commons/spectral-rules
+repo_cli: https://github.com/api-commons/spotlight-tools
+repo_rules: https://github.com/api-commons/spotlight-spec
 repo_fork: https://github.com/api-commons/spectral
 email: info@apievangelist.com
 

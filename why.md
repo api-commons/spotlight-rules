@@ -10,9 +10,12 @@ permalink: /why/
 
 # Why fork Spectral
 
-> **Codename: Spotlight.** This site is still hosted on the working-name domain, and both
-> repositories keep the upstream name for now so the lineage stays obvious. The eventual name is
-> [an open question](/involved/#what-is-still-open).
+> **The name is Spotlight.** The repositories are [spotlight-spec]({{ site.repo_rules }}) and
+> [spotlight-tools]({{ site.repo_cli }}). This was originally going to stay on the upstream name for
+> a while so the lineage was obvious; that changed within a day, because carrying somebody else's
+> name while asking people to adopt new packages and a new schema identity creates a mess that
+> gets expensive to undo. Trademark made a rename inevitable regardless, and it is far cheaper now
+> than after adoption.
 
 Spectral's ruleset format became the de-facto way organizations express machine-readable API
 governance rules. National governments have written their mandatory API design rules as Spectral
@@ -112,10 +115,10 @@ unmaintained format.** You cannot fix one without a home for the other.
 
 Two repositories, deliberately separate:
 
-- **[spectral-rules]({{ site.repo_rules }})** — the ruleset and rules format as a standalone,
+- **[spotlight-spec]({{ site.repo_rules }})** — the ruleset and rules format as a standalone,
   independently versioned specification with a portable JSON Schema. Rules should be authorable,
   validatable, publishable, exchangeable, and consumable by *any* tool.
-- **[spectral-cli]({{ site.repo_cli }})** — the reference implementation, kept aligned with the
+- **[spotlight-tools]({{ site.repo_cli }})** — the reference implementation, kept aligned with the
   specification rather than the other way around.
 
 **The rules standing on their own is the whole point.** Everything else here is logistics.

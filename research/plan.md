@@ -42,6 +42,17 @@ rejected.**
 
 ## Decided
 
+**The name — Spotlight, settled immediately.** The repositories are
+[spotlight-spec]({{ site.repo_rules }}) and [spotlight-tools]({{ site.repo_cli }}). This was
+originally listed below as open, on the reasoning that both should keep the upstream name for a
+while so the lineage stayed obvious and the community could weigh in. That was wrong, and it
+changed within a day. Asking people to adopt a new scope, a new issue tracker, and a new schema
+identity while carrying somebody else's name builds a mess into the foundation — and trademark
+made a rename inevitable regardless. A rename now costs a few links. A rename after adoption costs
+everybody's CI. A name is load-bearing: an earlier generation of this exact situation produced a
+naming confusion the community is still untangling a decade later, and the lesson from it is to
+decide early, not to consult longer.
+
 **Home — API Commons now, a foundation later.** Fork the specification *and* the tool under
 [API Commons](https://apicommons.org). Escalation paths, all real: a nonprofit stood up
 underneath API Commons; a foundation working group; or a European home if that is where the
@@ -87,12 +98,6 @@ express a rule) — the spec stays one language, and a host tool can route elsew
 ---
 
 ## Open
-
-**The name.** Both repositories keep the upstream name for now so lineage stays obvious, and the
-effort carries the working codename **Spotlight** — hence the domain this site sits on. A rename is
-expected eventually; trademark considerations alone make it likely. A name is load-bearing: an
-earlier generation of this exact situation produced a naming confusion the community is still
-untangling a decade later. This is a community question and it is open.
 
 **The home.** See above. Genuinely undecided, and the first thing worth arguing about.
 

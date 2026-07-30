@@ -17,8 +17,8 @@ repositories is genuinely open, and the useful window for arguing about it is no
 
 | What | Where |
 |---|---|
-| **Problems with the CLI or engine** | [spectral-cli issues]({{ site.repo_cli }}/issues) |
-| **Problems with the ruleset format, the schema, or the spec** | [spectral-rules issues]({{ site.repo_rules }}/issues) |
+| **Problems with the CLI or engine** | [spotlight-tools issues]({{ site.repo_cli }}/issues) |
+| **Problems with the ruleset format, the schema, or the spec** | [spotlight-spec issues]({{ site.repo_rules }}/issues) |
 | **Direction, governance, naming, where this should live** | [the discussion thread]({{ site.discussion }}) |
 
 Please keep direction out of the issue trackers. Issues are for things that are broken; the

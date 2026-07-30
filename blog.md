@@ -21,8 +21,8 @@ is to over-communicate, on a schedule, in public.
 <p class="small text-muted">
   Subscribe via <a href="/feed.xml">RSS</a>. Decisions get argued in
   <a href="{{ site.discussion }}">the discussion</a>; work happens in the
-  <a href="{{ site.repo_cli }}/issues">spectral-cli</a> and
-  <a href="{{ site.repo_rules }}/issues">spectral-rules</a> issues.
+  <a href="{{ site.repo_cli }}/issues">spotlight-tools</a> and
+  <a href="{{ site.repo_rules }}/issues">spotlight-spec</a> issues.
 </p>
 
 ---

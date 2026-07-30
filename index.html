@@ -15,9 +15,10 @@ description: >-
     specified on its own, so your governance rules stop depending on the health of a single tool.
   </p>
   <p class="text-muted small col-lg-8 mx-auto">
-    Codenamed <strong>Spotlight</strong> — the working name this site is still hosted under. Both
-    repositories deliberately keep the upstream name for now so the lineage stays obvious.
-    <a href="/involved/#what-is-still-open">Naming is an open question.</a>
+    The name is <strong>Spotlight</strong>, and it was settled deliberately early:
+    <a href="{{ site.repo_rules }}">spotlight-spec</a> and
+    <a href="{{ site.repo_cli }}">spotlight-tools</a>. Renaming before anyone depends on the
+    packages costs a few links. Renaming after costs everybody's CI.
   </p>
   <p class="mt-4">
     <a class="btn btn-primary" href="{{ site.discussion }}">Join the discussion</a>
@@ -38,7 +39,7 @@ description: >-
   <div class="col-md-6">
     <div class="card shadow-sm">
       <div class="card-body d-flex flex-column">
-        <h5 class="card-title">spectral-rules</h5>
+        <h5 class="card-title">spotlight-spec</h5>
         <p class="text-muted small mb-2"><span class="badge bg-success">The specification</span></p>
         <p class="card-text flex-grow-1">
           The ruleset and rules format as a standalone, independently versioned specification with
@@ -56,7 +57,7 @@ description: >-
   <div class="col-md-6">
     <div class="card shadow-sm">
       <div class="card-body d-flex flex-column">
-        <h5 class="card-title">spectral-cli</h5>
+        <h5 class="card-title">spotlight-tools</h5>
         <p class="text-muted small mb-2"><span class="badge bg-primary">The tool</span></p>
         <p class="card-text flex-grow-1">
           A maintained build of the linter at v6.16.2 — full history preserved, telemetry removed,
