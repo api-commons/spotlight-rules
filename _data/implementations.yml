@@ -1,0 +1,127 @@
+# The implementation landscape for the Spectral ruleset format.
+#
+# Source of truth for /implementations/. Every entry states its relationship to the ruleset
+# format and links to the evidence for that claim. Rules for this file:
+#
+#   - evidence, not opinion — every relationship claim links to something checkable
+#   - no ranking, no scoring — this is a map, not a league table
+#   - maintainer corrections are merged on sight
+#   - `verified: true` means the relationship claim was checked against the linked evidence
+#
+# relationship values:
+#   engine    — executes the Spectral ruleset format directly
+#   embeds    — runs the format inside a larger product, usually behind its own interface
+#   adjacent  — solves the same problem with its own rules model, not this format
+#   unknown   — believed relevant, relationship not established. Corrections wanted.
+
+- name: spotlight-tools
+  url: https://github.com/api-commons/spotlight-tools
+  relationship: engine
+  language: TypeScript / JavaScript
+  browser: true
+  verified: true
+  summary: >-
+    The reference implementation — a maintained build of the linter at v6.16.2, with the
+    inherited telemetry removed and issues open. One conforming engine among several, not the
+    definition of correct.
+  evidence: https://github.com/api-commons/spotlight-tools
+
+- name: Spectral (upstream)
+  url: https://github.com/stoplightio/spectral
+  relationship: engine
+  language: TypeScript / JavaScript
+  browser: true
+  verified: true
+  summary: >-
+    Where the format comes from. Still the most widely installed implementation, and the reason
+    a specification is needed — for years the only definition of a valid ruleset was whatever
+    this codebase accepted.
+  evidence: https://github.com/stoplightio/spectral
+
+- name: vacuum
+  url: https://github.com/daveshanley/vacuum
+  relationship: engine
+  language: Go
+  browser: false
+  verified: true
+  summary: >-
+    The independent Go implementation, actively maintained, and the most complete alternative
+    engine. Has added capabilities of its own — rule categories among them — which is exactly
+    the kind of divergence a written specification and a conformance suite should be able to
+    absorb rather than argue about.
+  evidence: https://github.com/daveshanley/vacuum
+
+- name: IBM OpenAPI Validator
+  url: https://github.com/IBM/openapi-validator
+  relationship: embeds
+  language: TypeScript / JavaScript
+  browser: false
+  verified: true
+  summary: >-
+    IBM's validator supports Spectral rules and will pick up a standard Spectral ruleset file
+    from the working directory or any containing directory, in preference to its own IBM Cloud
+    Validation Ruleset. A clear example of the pattern this effort exists to surface — the
+    format doing load-bearing work behind somebody else's interface.
+  evidence: https://github.com/IBM/openapi-validator#readme
+
+- name: Azure API Center
+  url: https://learn.microsoft.com/en-us/azure/api-center/enable-api-analysis-linting
+  relationship: embeds
+  language: hosted service
+  browser: n/a
+  verified: true
+  summary: >-
+    Microsoft's API governance service lints API definitions on add or update, with Spectral as
+    the analyzer and the `spectral:oas` ruleset as the default analysis profile. Rulesets are
+    customized locally in the VS Code extension and deployed back. Documented as supporting
+    Spectral as the only analyzer type.
+  evidence: https://learn.microsoft.com/en-us/azure/api-center/enable-managed-api-analysis-linting
+
+- name: Redocly CLI
+  url: https://github.com/Redocly/redocly-cli
+  relationship: adjacent
+  language: TypeScript / JavaScript
+  browser: false
+  verified: true
+  summary: >-
+    Its own linting engine and its own rules model, configured through `redocly.yaml` rather
+    than a Spectral ruleset. Relevant here as substantial prior art on the same problem, and as
+    a design comparison for anyone specifying a rules format.
+  evidence: https://github.com/Redocly/redocly-cli#readme
+
+- name: SpecLynx
+  url: https://github.com/speclynx
+  relationship: adjacent
+  language: TypeScript
+  browser: true
+  verified: true
+  summary: >-
+    An independent line of API tooling — a CLI (`overlay`, `validate`), a browser-based editor,
+    and a VS Code toolkit — built on its own fork of ApiDOM, the semantic parser that underpins
+    much of the serious Swagger-era tooling. Not a consumer of the ruleset format today, and
+    among the most capable and least known parsing and validation stacks in this space.
+  evidence: https://github.com/speclynx/speclynx-cli#readme
+
+- name: APIMatic
+  url: https://www.apimatic.io/
+  relationship: unknown
+  language: hosted service
+  browser: n/a
+  verified: false
+  summary: >-
+    Commercial API tooling with its own validation and transformation layer. Listed because it
+    occupies the same problem space and because its maintainers are part of this conversation;
+    the relationship to the ruleset format is not established here. Correction welcome.
+  evidence: https://www.apimatic.io/
+
+- name: Zally
+  url: https://github.com/zalando/zally
+  relationship: adjacent
+  language: Kotlin / Java
+  browser: false
+  verified: true
+  summary: >-
+    An API linter with its own rules model, written in a JVM language, built by an organization
+    that publishes its API guidelines publicly. Prior art for the "mandatory design rules as
+    executable checks" pattern that European public-sector programmes later took much further.
+  evidence: https://github.com/zalando/zally#readme

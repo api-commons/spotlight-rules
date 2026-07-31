@@ -15,13 +15,16 @@ description: >-
     depending on the health of a single tool.
   </p>
   <p class="text-muted small col-lg-8 mx-auto">
-    Officially <strong>Spotlight</strong> from here on:
+    <strong>Spotlight</strong> is the working name —
     <a href="{{ site.repo_rules }}">spotlight-spec</a> and
-    <a href="{{ site.repo_cli }}">spotlight-tools</a>. The name was settled deliberately early —
-    renaming before anyone depends on the packages costs a few links, renaming after costs
-    everybody's CI. <strong>The format is still the Spectral ruleset format</strong>, described
-    that way throughout, because that is what your rulesets are. The <code>spectral</code> binary
-    name is not changing either.
+    <a href="{{ site.repo_cli }}">spotlight-tools</a>. It was picked early on purpose, because
+    renaming before anyone depends on the packages costs a few links and renaming after costs
+    everybody's CI. It is <strong>not settled</strong>, and
+    <a href="{{ site.repo_rules }}/issues/7">the naming question is an open issue</a> —
+    trademark, registries, and whether the specification should even share a name with the tool.
+    <strong>The format is still the Spectral ruleset format</strong>, described that way
+    throughout, because that is what your rulesets are. The <code>spectral</code> binary name is
+    not changing either.
   </p>
   <p class="mt-4">
     <a class="btn btn-primary" href="{{ site.discussion }}">Join the discussion</a>
@@ -153,12 +156,40 @@ description: >-
 <h2>Where it lives</h2>
 
 <p>
-  <a href="https://apicommons.org">API Commons</a> is the home for now, and possibly for good. The
-  <a href="https://www.openapis.org/">OpenAPI Initiative</a> is a candidate, though its charter
-  currently bars tooling — awkward when the whole point is keeping the spec and the tool aligned.
-  The Linux Foundation is a candidate. So is a European home. That question is deliberately open,
-  and it is the first thing worth arguing about in
-  <a href="{{ site.discussion }}">the discussion</a>.
+  <a href="https://apicommons.org">API Commons</a> is the home for now — deliberately a parking
+  spot rather than a destination. It is not a home for technology and not a funding mechanism; it
+  is an information, story and research-sharing venue, and somewhere neutral for a project to
+  stand while its permanent home gets worked out. Nobody driving this wants to own it.
+</p>
+
+<p>
+  The <a href="https://www.openapis.org/">OpenAPI Initiative</a> is a candidate, though its charter
+  has historically constrained tooling — awkward when the whole point is keeping the spec and the
+  tool aligned. The Linux Foundation is a candidate. A European home is a candidate. And there is a
+  structural question underneath all of them that decides more than it looks like it does: whether
+  the <strong>technical</strong> home and the <strong>fiscal</strong> home are allowed to be
+  different, because that is what determines whether this specification can ever be sponsored
+  directly rather than folded into somebody's membership story.
+  <a href="{{ site.repo_rules }}/issues/8">That question is an open issue</a>, and
+  <a href="/funding/">the funding argument is here</a>.
+</p>
+
+<h2>How the work is tracked</h2>
+
+<p>
+  <strong>Vendor neutrality is the whole argument</strong>, and neutrality that only exists in prose
+  is not neutrality. So the decisions are issues, the roadmap is generated from those issues, and
+  every item that gets built will have a single pull request pointing back at the thread that
+  argued for it. Nothing about the direction of this format should require knowing who to ask.
+  <a href="/roadmap/">The roadmap →</a>
+</p>
+
+<p>
+  The same applies to the ecosystem. The tool here is <strong>one implementation among many</strong>,
+  and that claim is worth nothing without a published list — every engine, every product that
+  embeds the format behind its own interface, and the adjacent tooling that solves the same problem
+  differently, with the evidence for each.
+  <a href="/implementations/">The implementation landscape →</a>
 </p>
 
 <div class="card bg-light border-0 mt-5">

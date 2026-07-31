@@ -19,10 +19,22 @@ repositories is genuinely open, and the useful window for arguing about it is no
 |---|---|
 | **Problems with the CLI or engine** | [spotlight-tools issues]({{ site.repo_cli }}/issues) |
 | **Problems with the ruleset format, the schema, or the spec** | [spotlight-spec issues]({{ site.repo_rules }}/issues) |
-| **Direction, governance, naming, where this should live** | [the discussion thread]({{ site.discussion }}) |
+| **Direction — naming, governance, where this lives, what the format covers** | issues on the repository it affects, labeled `roadmap` — [see the roadmap](/roadmap/) |
+| **Anything that does not have an issue yet** | [the discussion thread]({{ site.discussion }}) |
 
-Please keep direction out of the issue trackers. Issues are for things that are broken; the
-discussion is for things that are undecided.
+**This changed, deliberately.** Direction used to be pushed into a single discussion thread and
+kept out of the issue trackers. That does not scale past about a week: a thread cannot be
+labeled, cannot be cited from a procurement document, and cannot be pointed at from a pull request
+six months later.
+
+So every open decision is now **its own issue**, labeled for the roadmap, with a maturity label
+that says honestly how far the conversation has actually got. The
+[roadmap page](/roadmap/) is generated from those labels — nothing on it is hand-written. And when
+an item moves into development it gets **one pull request referencing that one issue**, so the
+homework behind every decision has provenance you can follow from the argument to the diff.
+
+The two biggest ones are open right now: [the name]({{ site.repo_rules }}/issues/7) and
+[where the specification lives]({{ site.repo_rules }}/issues/8).
 
 ## The one ask
 
@@ -61,16 +73,29 @@ in its first month.
 
 ## What is still open
 
-- **The name.** Both repositories keep the upstream name for now so the lineage stays obvious, and
-  the working codename for the effort is **Spotlight** — which is why this site is hosted at
-  `spotlight-rules.com`. Neither is permanent. A rename is expected eventually, trademark
-  considerations alone make it likely, and the right name is a community question rather than one
-  person's call. Suggestions welcome in [the discussion]({{ site.discussion }}).
-- **The home.** API Commons for now, possibly permanently. The OpenAPI Initiative is a candidate,
-  though its charter currently bars tooling. The Linux Foundation is a candidate. A European home
-  is a candidate. A nonprofit under API Commons is a candidate.
-- **Governance.** How decisions get made, who makes them, and what the contribution model is.
-- **Scope and sequencing.** [What gets supported first](/scope/), and what waits.
+Each of these is an issue now, not a paragraph. Argue in the thread that belongs to it.
+
+- **[The name]({{ site.repo_rules }}/issues/7).** **Spotlight** is a working name, picked early
+  because renaming before anyone depends on the packages is cheap and renaming after is not. It is
+  not permanent. Trademark alone makes a rename likely, the registry checks have to be done, and
+  there is a prior question underneath it: does the specification even share a name with the tool?
+- **[The home]({{ site.repo_rules }}/issues/8).** API Commons for now, as a parking spot. The
+  OpenAPI Initiative, the Linux Foundation, a European home, and a nonprofit are all candidates —
+  and the structural question of whether the technical home and the **fiscal** home can be
+  different decides more than the choice of foundation does. [The funding argument](/funding/).
+- **[Governance]({{ site.repo_rules }}/issues/3).** How decisions get made, who makes them, and
+  what the contribution model is. Co-maintainers are actively wanted.
+- **[Conformance]({{ site.repo_rules }}/issues/9) and
+  [the badge]({{ site.repo_rules }}/issues/10).** The suite that makes "multiple engines, one
+  format" testable rather than aspirational, and who gets to issue a conformance claim.
+- **Scope and sequencing.** [What gets supported first](/scope/), and what waits — including
+  [Arazzo]({{ site.repo_rules }}/issues/12),
+  [policy-engine portability]({{ site.repo_rules }}/issues/13), and
+  [the CI gate and agent consumption modes]({{ site.repo_rules }}/issues/14).
+- **[Knowing who depends on this]({{ site.repo_rules }}/issues/15)** without instrumenting anyone.
+
+The full generated list, with how mature each conversation actually is, is on
+[the roadmap](/roadmap/).
 
 ## What is not open
 

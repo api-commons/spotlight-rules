@@ -40,6 +40,7 @@ vacuum: https://github.com/daveshanley/vacuum
 nl_adr: https://gitdocumentatie.logius.nl/publicatie/api/adr/2.2.1/
 
 exclude:
+  - scripts
   - Gemfile
   - Gemfile.lock
   - README.md
