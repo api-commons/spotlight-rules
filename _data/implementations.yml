@@ -109,9 +109,9 @@
   browser: n/a
   verified: false
   summary: >-
-    Commercial API tooling with its own validation and transformation layer. Listed because it
-    occupies the same problem space and because its maintainers are part of this conversation;
-    the relationship to the ruleset format is not established here. Correction welcome.
+    Commercial API tooling with its own validation and transformation layer, and a long-standing
+    presence in this space. Listed because it occupies the same problem space; the relationship to
+    the ruleset format is not established here. Correction welcome.
   evidence: https://www.apimatic.io/
 
 - name: Zally
