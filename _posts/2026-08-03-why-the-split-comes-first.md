@@ -1,5 +1,5 @@
 ---
-title: Why the split comes first
+title: Why Splitting Spectral Spec From Tooling Is the Priority
 description: >-
   The first move after forking was not fixing the tool. It was pulling the ruleset format out of
   the tool entirely — because whatever gets built first becomes the definition, and because
