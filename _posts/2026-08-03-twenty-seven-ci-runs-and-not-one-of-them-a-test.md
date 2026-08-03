@@ -123,15 +123,32 @@ destroying the mapping to upstream's open pull requests. This repository has one
 was made by pushing a single snapshot to `main`, not by copying refs. There was never anything
 here to clean up.
 
-The mapping does exist — as remote-tracking refs in a clone on one laptop. Forty-one of them.
-Upstream now has twenty-nine heads, which means **fourteen of those branches no longer exist
-anywhere else**, because upstream deleted them after merging or abandoning the work. Four are
-Dependabot noise. Ten are not, and five of those are abandoned feature work.
+The mapping does exist — as remote-tracking refs in a clone on one laptop. Forty of them. Compared
+against upstream's twenty-nine current heads, **fourteen of those branches no longer exist anywhere
+else**, because upstream deleted them after merging or abandoning the work. Four are Dependabot
+noise. Ten are not, and five of those are abandoned feature work.
 
 So the risk was inverted. It was never "we delete branches and lose the mapping." It is that ten
 branches of other people's abandoned work survive in an untracked directory on a single machine,
 and a fresh clone ends them. Nothing is protecting them, because they were never here. That is now
 the top of that issue instead of the bottom.
+
+**Added after publishing.** Two things in the paragraph above were wrong when this went out, and
+the corrections are worth more than the original claim. The count was forty-one, not forty — a
+symbolic `HEAD` pointer counted as a branch — and the fourteen is a set difference, not the
+subtraction the sentence implied, because upstream also has three branches the cache never
+fetched.
+
+The larger correction is what the cross-reference then showed. Of upstream's thirty-five open pull
+requests, **twenty-three come from contributors' own forks** — those branches were never in
+upstream's repository and cannot be preserved by anyone but their authors. Of the twelve that do
+come from upstream branches, this cache holds nine, and **seven of the nine are Dependabot and one
+is Copilot.** Strip those, and the pool of stalled human contributions that this project has
+publicly offered a home to, insofar as it holds the branches, is **one pull request**, open since
+March.
+
+That is a smaller and less flattering number than the one implied when this was written, and it is
+the accurate one. The offer stands; the queue behind it does not exist.
 
 Two smaller corrections: an issue asserted that `commit.yml` "already runs tests and lint" — it
 never has — and the build-verification issue was written as though a green build were merely
