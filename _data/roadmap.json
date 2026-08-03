@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-03T15:19:53Z",
+  "generated": "2026-08-03T17:02:51Z",
   "repos": [
     "api-commons/spotlight-spec",
     "api-commons/spotlight-tools"
@@ -9,7 +9,7 @@
     "open": 18,
     "approved": 0,
     "deferred": 0,
-    "with_prs": 0,
+    "with_prs": 2,
     "raised": 1,
     "discussing": 10,
     "consensus": 3,
@@ -54,9 +54,9 @@
         "roadmap",
         "task"
       ],
-      "comments": 0,
+      "comments": 1,
       "created_at": "2026-07-30T22:26:36Z",
-      "updated_at": "2026-07-31T17:33:37Z",
+      "updated_at": "2026-08-03T16:56:26Z",
       "closed_at": null,
       "prs": []
     },
@@ -98,11 +98,19 @@
         "roadmap",
         "task"
       ],
-      "comments": 0,
+      "comments": 1,
       "created_at": "2026-07-31T17:33:09Z",
-      "updated_at": "2026-07-31T17:33:09Z",
+      "updated_at": "2026-08-03T16:57:28Z",
       "closed_at": null,
-      "prs": []
+      "prs": [
+        {
+          "number": 17,
+          "title": "chore(repo): retire inherited Stoplight CI and org references",
+          "url": "https://github.com/api-commons/spotlight-tools/pull/17",
+          "state": "merged",
+          "merged": true
+        }
+      ]
     },
     {
       "repo": "spotlight-spec",
@@ -381,7 +389,22 @@
       "created_at": "2026-07-30T22:26:37Z",
       "updated_at": "2026-07-31T17:33:39Z",
       "closed_at": null,
-      "prs": []
+      "prs": [
+        {
+          "number": 18,
+          "title": "fix(repo): point package metadata at this project, not upstream",
+          "url": "https://github.com/api-commons/spotlight-tools/pull/18",
+          "state": "merged",
+          "merged": true
+        },
+        {
+          "number": 19,
+          "title": "feat(repo): add SECURITY.md, GOVERNANCE.md, MAINTAINERS.yaml and NOTICE",
+          "url": "https://github.com/api-commons/spotlight-tools/pull/19",
+          "state": "merged",
+          "merged": true
+        }
+      ]
     },
     {
       "repo": "spotlight-tools",
