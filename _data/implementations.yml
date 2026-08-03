@@ -77,6 +77,131 @@
     Spectral as the only analyzer type.
   evidence: https://learn.microsoft.com/en-us/azure/api-center/enable-managed-api-analysis-linting
 
+- name: SwaggerHub / Swagger Studio
+  url: https://support.smartbear.com/swagger/studio/docs/en/api-governance.html
+  relationship: embeds
+  language: hosted service
+  browser: n/a
+  verified: true
+  summary: >-
+    SmartBear's API Governance imports Spectral rulesets as organization style guides, ships a
+    Spectral ruleset editor in the product, and exposes `spectral:upload` / `spectral:download`
+    through the CLI. The company that acquired the engine also consumes the format as a portable
+    artifact in its own platform.
+  evidence: https://support.smartbear.com/swagger/studio/docs/en/api-governance.html
+
+- name: Apigee API hub
+  url: https://docs.cloud.google.com/apigee/docs/apihub/validate-spec
+  relationship: embeds
+  language: hosted service
+  browser: n/a
+  verified: true
+  summary: >-
+    Google Cloud's API hub ships a built-in Spectral linter that validates every OpenAPI added to
+    an API version, reporting findings in the console. What the product calls a "style guide" is
+    an uploaded ruleset, with the documented constraint that it cannot reference remote URLs in
+    `extends` — a portability limit worth specifying against.
+  evidence: https://docs.cloud.google.com/apigee/docs/apihub/validate-spec
+
+- name: Postman
+  url: https://learning.postman.com/docs/api-governance/configurable-rules/spectral
+  relationship: embeds
+  language: hosted service
+  browser: n/a
+  verified: true
+  summary: >-
+    Postman's configurable API governance and security rulesets are Spectral v6 rules, including
+    custom JavaScript functions in ES6 or CommonJS. The documentation teaches the ruleset format
+    directly to users who have never installed the linter.
+  evidence: https://learning.postman.com/docs/api-governance/configurable-rules/spectral
+
+- name: IBM API Connect
+  url: https://www.ibm.com/docs/en/api-connect/saas?topic=tools-api-governance
+  relationship: embeds
+  language: hosted service
+  browser: n/a
+  verified: true
+  summary: >-
+    The governance service validates API and product documents against Spectral rulesets from the
+    API Manager UI, the Designer, or the toolkit CLI. Pre-configured global rulesets are named
+    `spectral-*` and versioned to match upstream, while custom provider-organization rulesets are
+    restricted to the built-in core functions — a vendor pinning itself to the format's version
+    and its function set, with no specification to pin to.
+  evidence: https://www.ibm.com/docs/en/api-connect/saas?topic=tools-api-governance
+
+- name: Axway Amplify Engage
+  url: https://blog.axway.com/learning-center/apis/api-design/api-linting-api-governance
+  relationship: embeds
+  language: hosted service
+  browser: n/a
+  verified: true
+  summary: >-
+    Rulesets execute automatically as services are discovered, so every discovered API carries a
+    compliance grade before anyone opens it. Governance applied at discovery rather than at
+    authoring — a different insertion point for the same artifact.
+  evidence: https://blog.axway.com/learning-center/apis/api-design/api-linting-api-governance
+
+- name: Insomnia / Inso CLI
+  url: https://developer.konghq.com/how-to/add-custom-linting-rules/
+  relationship: embeds
+  language: TypeScript / JavaScript
+  browser: false
+  verified: true
+  summary: >-
+    Kong's API client picks up a `.spectral.yaml` sitting beside the specification, defaults to
+    the standard OAS ruleset, and supports `extends` for organization rules — across local, cloud
+    and Git-synced projects, with the same file working in the desktop app and in CI via Inso.
+  evidence: https://developer.konghq.com/how-to/add-custom-linting-rules/
+
+- name: Bump.sh
+  url: https://docs.bump.sh/guides/bump-sh-tutorials/api-linting-with-vacuum/
+  relationship: embeds
+  language: hosted service
+  browser: n/a
+  verified: true
+  summary: >-
+    Lints with the Go engine rather than the original one, defaulting to the Spectral OAS ruleset,
+    with existing rulesets carried over through a `spectral:` compatibility alias. A clean example
+    of the format outliving the implementation that defined it.
+  evidence: https://docs.bump.sh/guides/bump-sh-tutorials/api-linting-with-vacuum/
+
+- name: decK file lint
+  url: https://developer.konghq.com/deck/file/lint/
+  relationship: embeds
+  language: Go
+  browser: false
+  verified: true
+  summary: >-
+    Kong's gateway configuration CLI lints any JSON or YAML file against Spectral-compatible
+    rulesets, implemented on the Go engine. Notable because the target is gateway configuration,
+    not an API description — the format being applied well outside the problem it was written for.
+  evidence: https://developer.konghq.com/deck/file/lint/
+
+- name: api-oas-checker
+  url: https://italia.github.io/api-oas-checker/
+  relationship: embeds
+  language: JavaScript
+  browser: true
+  verified: true
+  summary: >-
+    The Italian government's OpenAPI checker — a static browser application, no server or database,
+    that lints against the national API guidelines with the engine running client-side. The rules
+    are maintained as a separate public repository, which is what a national standard published as
+    a ruleset actually looks like in practice.
+  evidence: https://github.com/italia/api-oas-checker
+
+- name: Backstage API Docs Spectral Linter
+  url: https://roadie.io/backstage/plugins/api-spectral-linter/
+  relationship: embeds
+  language: TypeScript / JavaScript
+  browser: false
+  verified: true
+  summary: >-
+    A community plugin that adds a linter tab to API entities inside an internal developer portal,
+    with a default ruleset or a per-entity one set by catalog annotation. The format reaching
+    developers where they already are, through somebody else's interface.
+  evidence: https://github.com/dweber019/backstage-plugins/tree/main/plugins/api-docs-spectral-linter
+
 - name: Redocly CLI
   url: https://github.com/Redocly/redocly-cli
   relationship: adjacent
