@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-03T17:02:51Z",
+  "generated": "2026-08-03T20:01:06Z",
   "repos": [
     "api-commons/spotlight-spec",
     "api-commons/spotlight-tools"
@@ -9,7 +9,7 @@
     "open": 18,
     "approved": 0,
     "deferred": 0,
-    "with_prs": 2,
+    "with_prs": 4,
     "raised": 1,
     "discussing": 10,
     "consensus": 3,
@@ -42,7 +42,7 @@
       "repo": "spotlight-tools",
       "repo_slug": "api-commons/spotlight-tools",
       "number": 7,
-      "title": "Map the 42 inherited branches to the 38 open upstream PRs \u2014 before any cleanup",
+      "title": "Preserve the upstream branches that now exist only in one local clone, and map them to open PRs",
       "url": "https://github.com/api-commons/spotlight-tools/issues/7",
       "state": "open",
       "approved": false,
@@ -54,9 +54,9 @@
         "roadmap",
         "task"
       ],
-      "comments": 1,
+      "comments": 3,
       "created_at": "2026-07-30T22:26:36Z",
-      "updated_at": "2026-08-03T16:56:26Z",
+      "updated_at": "2026-08-03T17:14:12Z",
       "closed_at": null,
       "prs": []
     },
@@ -80,7 +80,22 @@
       "created_at": "2026-07-31T17:33:08Z",
       "updated_at": "2026-07-31T17:33:08Z",
       "closed_at": null,
-      "prs": []
+      "prs": [
+        {
+          "number": 28,
+          "title": "fix(repo): unblock CI, and correct the contact address in every manifest",
+          "url": "https://github.com/api-commons/spotlight-tools/pull/28",
+          "state": "merged",
+          "merged": true
+        },
+        {
+          "number": 32,
+          "title": "feat(repo): watch upstream and file each change as an issue, nothing more",
+          "url": "https://github.com/api-commons/spotlight-tools/pull/32",
+          "state": "merged",
+          "merged": true
+        }
+      ]
     },
     {
       "repo": "spotlight-tools",
@@ -109,6 +124,27 @@
           "url": "https://github.com/api-commons/spotlight-tools/pull/17",
           "state": "merged",
           "merged": true
+        },
+        {
+          "number": 30,
+          "title": "fix(repo): make the CI that runs actually do what it claims",
+          "url": "https://github.com/api-commons/spotlight-tools/pull/30",
+          "state": "merged",
+          "merged": true
+        },
+        {
+          "number": 31,
+          "title": "fix(repo): make the CI that runs actually do what it claims (re-land of #30)",
+          "url": "https://github.com/api-commons/spotlight-tools/pull/31",
+          "state": "merged",
+          "merged": true
+        },
+        {
+          "number": 49,
+          "title": "fix(test-harness): invalidate generated tests when the generator changes",
+          "url": "https://github.com/api-commons/spotlight-tools/pull/49",
+          "state": "open",
+          "merged": false
         }
       ]
     },
@@ -426,7 +462,15 @@
       "created_at": "2026-07-31T17:33:07Z",
       "updated_at": "2026-07-31T17:33:07Z",
       "closed_at": null,
-      "prs": []
+      "prs": [
+        {
+          "number": 32,
+          "title": "feat(repo): watch upstream and file each change as an issue, nothing more",
+          "url": "https://github.com/api-commons/spotlight-tools/pull/32",
+          "state": "merged",
+          "merged": true
+        }
+      ]
     }
   ]
 }
