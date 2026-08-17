@@ -70,6 +70,20 @@ open.
     </div>
   </div>
 
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">The alias layer, as it actually is</h5>
+        <p class="card-text flex-grow-1 small">
+          A reproducible read of how aliases work today — both forms, the six that ship built-in,
+          the <code>extends</code> boundary that makes them unshareable, and three behaviours
+          documented only by a unit test.
+        </p>
+        <a href="/research/aliases/" class="fw-semibold">Read →</a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 ---
@@ -85,6 +99,10 @@ and should; these numbers will drift.
 keyword searches), GitHub repository search, and the upstream project's own community index of
 rulesets in the wild — which was itself last updated eighteen months ago and undercounts
 significantly.
+
+**Format behaviour** was read directly from the source — `@stoplight/spectral-core` 1.23.1 as
+vendored at v6.16.2, and the published ruleset schema. Those pages cite files rather than
+summarising, so every claim can be checked against the tree and shown wrong if it is.
 
 **Everything else** — the parts that came from conversations with people who run this in
 production — informs the reasoning but is not reproduced here. Where a claim rests only on a
