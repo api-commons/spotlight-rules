@@ -1,12 +1,17 @@
 ---
-title: One industry ruleset
+title: One standard, twice — and ninety-odd, never
 description: >-
-  The ecosystem has exactly one ruleset encoding an industry standard. Not because the demand is
+  Exactly one industry standard has a ruleset behind it, and it has two. Not because the demand is
   missing, but because nobody has said what such a ruleset is allowed to claim.
 ---
 
-Count the rulesets that encode an industry standard and the answer is **one**. OWASP API Security,
-published by Stoplight, last functionally changed in September 2024, twenty-one open issues.
+Count the industry standards with a ruleset behind them and the answer is **one**. It is OWASP, and
+it has two — [Stoplight's](https://github.com/stoplightio/spectral-owasp-ruleset), last functionally
+changed in September 2024 with twenty-one open issues, and
+[API Commons' own](https://github.com/api-commons/spectral-owasp-ruleset), which maps 22 checks
+across all ten categories using only built-in functions.
+
+Two rulesets for one standard. None at all for the other ninety-odd.
 
 There is no FHIR ruleset. There has never been one — not on npm, not in the `stoplightio`
 organization, and not at any point in the history of the project's own community index, which has

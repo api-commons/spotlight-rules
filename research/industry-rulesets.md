@@ -1,15 +1,15 @@
 ---
 layout: default
 nav: research
-title: Industry rulesets, and why there is only one
+title: Industry rulesets, and why only one standard has any
 description: >-
-  The ecosystem has exactly one industry ruleset. A public catalog tracks over a hundred industry
-  standards. The gap is not appetite — it is that nobody has said what an industry ruleset is
-  allowed to assert.
+  Two industry rulesets exist and both encode the same standard. A public catalog tracks over a
+  hundred. The gap is not appetite — it is that nobody has said what an industry ruleset is allowed
+  to assert.
 permalink: /research/industry-rulesets/
 ---
 
-# Industry rulesets, and why there is only one
+# Industry rulesets, and why only one standard has any
 
 Governance conversations reach the same place every time: *we need the OWASP rules, and our own
 house rules, and whatever our regulator requires.* The first two are solved. The third is almost
@@ -30,13 +30,28 @@ out to differ enormously by standard.
 
 ## What exists
 
-**One industry ruleset.** [OWASP API Security](https://github.com/stoplightio/spectral-owasp-ruleset),
-published by Stoplight, last functionally changed September 2024, 21 open issues.
+**One industry standard is covered, by two rulesets — both of them OWASP.**
+
+- [OWASP API Security](https://github.com/stoplightio/spectral-owasp-ruleset), published by
+  Stoplight. Last functional change September 2024, 21 open issues.
+- [`@api-common/spectral-owasp-ruleset`](https://github.com/api-commons/spectral-owasp-ruleset)
+  v0.2.0, published by **API Commons — the same organization publishing this research.** 22 checks
+  mapped across all ten OWASP API Security Top 10 (2023) categories, using only Spectral's built-in
+  functions so it runs anywhere Spectral runs.
+
+> **Correction, 2026-08-17.** The first version of this page named only Stoplight's ruleset and
+> described the tier as served by nobody. That omitted API Commons' own ruleset, which is the wrong
+> omission for this page in particular to make. The argument is unchanged — **one standard has
+> coverage, and it is the same standard twice** — but the count of rulesets was wrong and the
+> conflict of interest went unstated.
 
 That is the entire tier. There is no FHIR ruleset — not on npm, not in the `stoplightio`
 organization, and not at any point in the history of the project's own
 [community index](https://github.com/stoplightio/spectral-rulesets), which has never contained the
 string. No ISO 20022 ruleset. No FDX, no CAMARA, no TM Forum, no Peppol, no X12.
+
+Two rulesets for one standard, and none at all for the other ninety-odd, is a sharper way of putting
+the problem than "there is only one."
 
 For contrast, the same ecosystem carries a dozen or more **vendor style guides** — Adidas, Azure,
 DigitalOcean, Red Hat, IBM Cloud, VTEX, SPS Commerce — because those have an obvious owner with an
