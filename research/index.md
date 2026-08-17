@@ -84,6 +84,20 @@ open.
     </div>
   </div>
 
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">Industry rulesets, and why there is only one</h5>
+        <p class="card-text flex-grow-1 small">
+          The ecosystem has exactly one ruleset encoding an industry standard, against a public
+          catalog tracking over a hundred. Sorted by what a linter could actually check — and why
+          the most-implemented standards are the ones it can say least about.
+        </p>
+        <a href="/research/industry-rulesets/" class="fw-semibold">Read →</a>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 ---
