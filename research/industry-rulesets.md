@@ -60,20 +60,28 @@ linting business, and the organizations implementing it each solve it privately,
 
 ## What is being tracked
 
-The catalog holds **610 standards**, of which **118 are typed `industry-standard`** and 37 more are
+The catalog holds **610 standards**, of which **98 are typed `industry-standard`** and 37 more are
 `regulation-compliance`.
 
-Two honest caveats before anyone quotes the 118:
+> **Correction, 2026-08-17.** This section previously said 118, with a caveat that roughly two dozen
+> of them were catalog buckets or Java platform specifications and that the realistic count was
+> "closer to 95." The catalog has since been cleaned rather than caveated. An admission test — a
+> published standard, governed by a body, scoped to a vertical — moved twenty entries out of the
+> type: the seven Java platform specifications, five horizontal formats (ISO 8601, vCard, vCard
+> Ontology, iCalendar, RDF, DOI), two things that are software rather than standards (ROS, the CKAN
+> Action API), and the five buckets, which now sit under a new `umbrella` type. Nothing was deleted.
+> **The number is 98, and it is now derived rather than estimated.**
 
-- **It is not 118 candidates.** Roughly two dozen entries are either catalog buckets ("ISO",
-  "ISO Standard", "IT Standards", "Health Standards", "Accounting Standards") or Java platform
-  specifications filed under the same type (Java EE, Jakarta EE, JPA, JSF, JAX-WS, Bean Validation,
-  JSR-303). The realistic count of distinct vertical standards is closer to **95**. That is a data
-  quality note for the catalog, not a criticism of the number.
-- **Demand data is partial.** Only 25 of the 118 carry a company count, so the ranking below covers
-  a fifth of the set and undercounts everything else.
+One caveat still stands, and it got worse on inspection:
 
-Where company counts do exist, they point somewhere specific:
+- **Demand data is not just partial, it is largely unsourced.** Twelve of the 98 carry a company
+  count. Every one of those twelve arrived in a catalog merge whose original source did not survive,
+  which means the ranking below cannot be traced to a method. A thirteenth, AIS, has been retracted
+  outright: it read 45 companies, and sampling the matched text across 250 corpora returned
+  "Air-Insulated Switchgear" every time, with no maritime hit at all. Treat the table as an ordering
+  worth investigating, not as a measurement.
+
+With that stated plainly, where counts do exist they point somewhere specific:
 
 | Standard | Companies |
 |---|---|
@@ -97,8 +105,25 @@ section shows — the worst possible news for a linter.
 an OpenAPI, AsyncAPI or Arazzo description, or any JSON/YAML you point it at.
 
 Most industry standards are not structured documents in that sense. Sorting the catalog by *what a
-ruleset could actually check* produces three very different tiers, and they are not equally
+ruleset could actually check* produces four very different tiers, and they are not equally
 serviceable.
+
+The tiers below started as a hand-made reading of the catalog. They are now **computed** from a
+`schema_forms` field carried by every industry standard, backfilled by fetching each body's actual
+artifact — 63 of the 98 have one that can be retrieved at source, and the rest are recorded as gated,
+sold, blocked to automated clients, or absent. The split:
+
+| Tier | Count | What a ruleset can claim |
+|---|---|---|
+| **A** | 30 | Real conformance. The standard *is* an API description. |
+| **B** | 36 | A meaningful subset, and never conformance. |
+| **C** | 13 | Only the API *around* an unlintable wire format. |
+| **D** | 12 | Nothing, ever. There is no wire format to check. |
+| — | 7 | Not established at the last verification pass. |
+
+Tier D is an addition to the original three, and it earns its place: a methodology, a taxonomy or an
+identifier scheme is not a Tier C standard with an awkward format. It has no format at all, and
+filing it as C implies there is something a linter is failing to reach.
 
 ### Tier A — the standard *is* an API description
 
@@ -106,14 +131,22 @@ The body publishes OpenAPI (or equivalent), and conformance is a property of the
 ruleset can check real conformance: required paths present, response schemas matching, naming
 conventions held, mandatory security schemes declared.
 
-Examples: CAMARA, TM Forum Open API, FDX, UK Open Banking, Berlin Group NextGenPSD2, Australian
-Consumer Data Standards, OGC API, RESO Web API, CDS Hooks, GSMA Open Gateway.
+Thirty standards, of which twenty-seven publish the description openly: CAMARA, GSMA Open Gateway,
+TM Forum Open API, UK Open Banking, Australian Consumer Data Standards, OGC API, RESO Web API,
+CDS Hooks, DCSA, UIC OSDM, Ed-Fi, GA4GH, COUNTER, OpenADR 3, Green Button, MEF LSO Sonata, 3GPP,
+ETSI MEC, HSDA and InterUSS among them.
+
+Three are Tier A and **gated** — FDX, Berlin Group NextGenPSD2 and Confirmation of Payee all publish
+an API description to members only. They are the most lintable standards in the catalog and the
+hardest to write a public ruleset for, which is a specific and fixable problem rather than a
+technical one.
 
 **This tier is genuinely servable today, and nothing serves it.**
 
 ### Tier B — the standard is a data model that shows up inside API descriptions
 
-FHIR, US Core, USCDI, C-CDA, GS1, MISMO, HR Open, ACORD. The standard defines resources and fields.
+FHIR, US Core, C-CDA, GS1, EPCIS, UBL, Peppol, ISO 20022, CDISC, MTConnect, DICOM, MISMO and ACORD —
+thirty-six in all. The standard defines resources and fields.
 An API implementing it usually has an OpenAPI description whose schemas *should* reflect the model.
 
 A ruleset here can check a meaningful subset — that a resource named `Patient` carries the elements
@@ -127,13 +160,31 @@ that implies otherwise is worse than no badge.
 
 ### Tier C — the wire format is not a structured document at all
 
-NACHA (fixed-width files), X12 and EDIFACT (segment grammars), FIX (tag-value), ISO 8583 (bitmapped
-binary), DICOM (binary), HL7 v2 (pipe-delimited). A JSON/YAML linter cannot inspect any of these.
+NACHA (fixed-width files), X12 and EDIFACT (segment grammars), ISO 8583 (bitmapped binary), HL7 v2
+(pipe-delimited), SEMI SECS/GEM and AIS (binary). A JSON/YAML linter cannot inspect any of these.
+
+Two moved out of this tier when the artifacts were actually fetched, and the reason is worth stating.
+**FIX** publishes its message catalog as XML against a public XSD in the FIX Repository, and **DICOM**
+publishes the entire standard as DocBook XML from which the data dictionary is extractable. Both have
+unlintable wire formats and machine-readable models at source — so a ruleset still cannot inspect an
+instance, but it *could* be generated rather than hand-written. That is a different problem from
+NACHA's, and the tiering now says so.
 
 Note what this does to the demand table above: **the standard with the largest company count in the
 catalog is the one a ruleset can say least about.** The most a ruleset can do here is govern the API
 *around* the format — that an endpoint accepting NACHA files declares the right content type, sets a
 size limit, documents its error semantics. Worth doing, easy to oversell.
+
+### Tier D — there is no wire format
+
+GHG Protocol, the GRI Standards, ISSB IFRS S1/S2, ISO 14064, ISO 30414, SAE J3016, USCDI, UPRN and the
+RESO UPI. Twelve entries that are methodologies, taxonomies, identifier schemes or disclosure
+frameworks. They are cited constantly in API conversations and there is nothing in any of them to
+serialise, let alone lint.
+
+This tier matters for one reason: it is where a ruleset would *most* easily overclaim. "USCDI
+conformance" is a phrase that can be said and cannot be checked — USCDI is a PDF list of data
+elements, and the thing that is actually checkable is US Core, a different standard in Tier B.
 
 ## What this means for the layer model
 
@@ -168,13 +219,26 @@ fall out of the above:
 - **Tier A**, so the ruleset can assert conformance rather than a proxy for it.
 - **A body that already publishes machine-readable artifacts**, so the rules can be derived from a
   source of truth rather than hand-transcribed from a PDF.
+- **Published openly**, so the ruleset can be published too.
 - **Real implementer count**, so it is used.
 - **A live conformance question**, so someone cares about the answer.
 
-On those criteria the catalog points at **FDX** and **CAMARA** ahead of FHIR — not because they
-matter more, but because they are the two where a ruleset can make a claim it can actually stand
-behind. FHIR is the more valuable target and the harder one, and doing it second rather than first
-is the difference between a demonstration and an overclaim.
+The third criterion is new, and it removes the candidate this page originally led with. **FDX
+publishes its description to members only** — as do Berlin Group and Confirmation of Payee. A
+ruleset derived from a members-only artifact cannot be published without redistributing the thing it
+was derived from, which makes those three the most lintable standards nobody can write a public
+ruleset for. That is a licensing problem wearing a technical costume, and it is not solved by
+picking a different linter.
+
+> **Correction, 2026-08-17.** This section previously recommended **FDX and CAMARA** ahead of FHIR.
+> FDX is Tier A and closed, which the first version of this page did not check. The recommendation
+> is now CAMARA alone.
+
+That leaves **CAMARA** as the first target: Tier A, openly published across ninety-three
+repositories, a live conformance question, and a Spectral ruleset for Open Gateway
+[promised publicly in December 2024](https://reports.apievangelist.com/reports/the-camara-standard/)
+that still does not exist. FHIR remains the more valuable target and the harder one, and doing it
+second rather than first is the difference between a demonstration and an overclaim.
 
 ## Open
 

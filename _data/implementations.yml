@@ -11,6 +11,8 @@
 # relationship values:
 #   engine    — executes the Spectral ruleset format directly
 #   embeds    — runs the format inside a larger product, usually behind its own interface
+#   ruleset   — publishes a ruleset as its distribution artifact; a consumer of the format
+#               rather than an implementation of it
 #   adjacent  — solves the same problem with its own rules model, not this format
 #   unknown   — believed relevant, relationship not established. Corrections wanted.
 
@@ -201,6 +203,36 @@
     with a default ruleset or a per-entity one set by catalog annotation. The format reaching
     developers where they already are, through somebody else's interface.
   evidence: https://github.com/dweber019/backstage-plugins/tree/main/plugins/api-docs-spectral-linter
+
+- name: AEP OpenAPI Linter
+  url: https://github.com/aep-dev/aep-openapi-linter
+  relationship: ruleset
+  language: YAML / JavaScript
+  browser: false
+  verified: true
+  summary: >-
+    The API Enhancement Proposals (aep.dev) publish their API guidelines as a ruleset rather
+    than as prose alone — conformance to the guidelines is checkable. `spectral.yaml` extends
+    `spectral:oas` and then composes one sub-ruleset per AEP (0004, 0122, 0131…0193) by relative
+    path, with custom JavaScript functions declared through `functionsDir`. It ships as an npm
+    package (`@aep_dev/aep-openapi-linter`, MIT) and is also consumed by raw URL, pinned to a
+    release tag. A standards body treating the format as its publication medium — and a working
+    exercise of `extends` composition, remote resolution, and version pinning all at once. Raised
+    by Mike Kistler, its author, in the fork discussion.
+  evidence: https://github.com/aep-dev/aep-openapi-linter#readme
+
+- name: Italian API guidelines rules
+  url: https://github.com/italia/api-oas-checker-rules
+  relationship: ruleset
+  language: YAML
+  browser: false
+  verified: true
+  summary: >-
+    The shared rules behind Italy's national API interoperability model (ModI), maintained as a
+    public ruleset repository in its own right, separate from the browser checker that runs them.
+    The rules outlive any one interface — which is the whole argument for specifying the format
+    they are written in.
+  evidence: https://github.com/italia/api-oas-checker-rules
 
 - name: Redocly CLI
   url: https://github.com/Redocly/redocly-cli
