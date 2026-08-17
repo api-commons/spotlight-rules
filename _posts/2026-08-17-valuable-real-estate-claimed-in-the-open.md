@@ -1,4 +1,5 @@
 ---
+date: 2026-08-17 11:00:00 -0400
 title: Valuable real estate, claimed in the open
 description: >-
   Specifications are economic land grabs. This one is too — so the only thing that distinguishes it

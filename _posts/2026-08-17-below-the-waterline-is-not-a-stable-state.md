@@ -1,4 +1,5 @@
 ---
+date: 2026-08-17 09:00:00 -0400
 title: Below the waterline is not a stable state
 description: >-
   The format did not get abandoned in a way anyone would notice. It sank into other people's
