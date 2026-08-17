@@ -27,9 +27,15 @@ That framing is probably the mistake.
 
 Tier A standards — the ones where the standard **is** an API description — already publish the
 source of truth in machine-readable form. CAMARA ships OpenAPI across ninety-three repositories.
-TM Forum, FDX, the Australian CDR, OGC API, RESO all publish machine-readable artifacts. The
-normative content a ruleset would encode is *already in a file*, versioned by the body, in a
-repository anyone can watch.
+TM Forum, the Australian CDR, OGC API, RESO and twenty-odd others publish machine-readable
+artifacts openly. The normative content a ruleset would encode is *already in a file*, versioned by
+the body, in a repository anyone can watch.
+
+The caveat is licensing, not technology. **Three Tier A standards — FDX, Berlin Group and
+Confirmation of Payee — publish to members only.** Derivation works fine against a closed artifact;
+publishing the result does not, because a derived ruleset carries the thing it was derived from.
+They are the most lintable standards nobody can write a public ruleset for, and no amount of tooling
+fixes it.
 
 A ruleset derived from that file has completely different economics:
 
@@ -57,8 +63,8 @@ actively misleading.
 
 Which means the format needs vocabulary this kind of ruleset cannot currently express:
 
-> This ruleset checks 41 of the 118 normative statements in FDX 6.0. It does not check anything
-> requiring a live request, and it cannot verify profile conformance.
+> This ruleset checks 41 of the 118 normative statements in CAMARA QualityOnDemand v1.0. It does
+> not check anything requiring a live request, and it cannot verify runtime behaviour.
 
 That is a shippable, falsifiable claim. "FHIR ruleset" is not a claim at all. And the moment a
 [conformance badge]({{ site.repo_rules }}/issues/10) exists, the difference between those two
@@ -89,7 +95,7 @@ noticing before designing around each of them separately.
 Conformance has always been a CI concern: does my document pass before I merge. That is one
 consumption mode and it is the one everything is designed for.
 
-An agent choosing between APIs has a different question — *does this conform to FDX 6.0?* — and it
+An agent choosing between APIs has a different question — *does this conform to CAMARA v1.0?* — and it
 wants a machine-readable answer at discovery time, not a pipeline it can run. Nobody can currently
 give one. Not because it is hard, but because there is no artifact whose job it is to say so.
 

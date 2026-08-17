@@ -28,24 +28,34 @@ standards. This is the short version.
 
 ## It is not a demand problem
 
-The catalog types 118 standards as industry standards — call it 95 after stripping catalog buckets
-and Java platform specs that got filed under the same label. Where implementer counts exist, they
-cluster hard in payments and healthcare: NACHA at 83 companies, ISO 20022 at 27, FHIR and EDIFACT at
-20 each, FIX at 13, DICOM and ISO 8583 at 11.
+The catalog types 98 standards as industry standards. Where implementer counts exist, they cluster
+hard in payments and healthcare: NACHA at 83 companies, ISO 20022 at 27, FHIR and EDIFACT at 20 each,
+FIX at 13, DICOM and ISO 8583 at 11.
 
 So the demand is there and it is concentrated. Which makes the absence of rulesets a design failure
 rather than an appetite one.
 
+*Updated 2026-08-17: this said 118, "call it 95 after stripping catalog buckets and Java platform
+specs." The catalog was cleaned instead of caveated — twenty entries failed an admission test and
+moved to the type that describes them — so the number is now 98 and derived rather than estimated.
+The implementer counts above are carried over unchanged and should be treated with more suspicion
+than they were: their original source did not survive a catalog merge, and one of them, AIS at 45,
+has since been retracted as a matcher artifact. The
+[research page](/research/industry-rulesets/) has the detail.*
+
 ## It is a "what can this thing even see" problem
 
 A ruleset lints a structured document. That is the entire capability. Sort industry standards by
-whether a linter can inspect the thing at all, and they fall into three tiers that are nothing like
-each other.
+whether a linter can inspect the thing at all, and they fall into four tiers that are nothing like
+each other. The split is now computed from a schema-forms field on every entry, backfilled by
+fetching each body's actual artifact: **A 30, B 36, C 13, D 12**, with seven not yet established.
 
 **Tier A — the standard is an API description.** The body publishes OpenAPI, conformance is a
-property of the description, and a ruleset can check it directly. CAMARA, TM Forum, FDX, UK Open
-Banking, Berlin Group, the Australian CDR, OGC API, RESO. **This tier is servable today and nothing
-serves it.**
+property of the description, and a ruleset can check it directly. CAMARA, TM Forum, UK Open Banking,
+the Australian CDR, OGC API, RESO, DCSA, Ed-Fi, OSDM and twenty more. **This tier is servable today
+and nothing serves it.** Three of the thirty — FDX, Berlin Group, Confirmation of Payee — publish
+that description to members only, which makes them the most lintable standards nobody can write a
+public ruleset for.
 
 **Tier B — the standard is a data model appearing inside descriptions.** FHIR, US Core, GS1, MISMO,
 ACORD. A ruleset can check a useful subset — required elements present, obvious cardinality
@@ -54,8 +64,15 @@ defined against profile logic living outside the description. Most useful tier, 
 Passing is not conformance, and a badge implying otherwise is worse than no badge.
 
 **Tier C — the wire format is not a structured document.** NACHA is fixed-width files. X12 and
-EDIFACT are segment grammars. FIX is tag-value, ISO 8583 is bitmapped binary, HL7 v2 is
-pipe-delimited. A JSON linter cannot see any of it.
+EDIFACT are segment grammars. ISO 8583 is bitmapped binary, HL7 v2 is pipe-delimited. A JSON linter
+cannot see any of it. FIX and DICOM left this tier once the artifacts were actually fetched — both
+have unlintable wire formats and a machine-readable model published at source, which is a different
+problem and a much more tractable one.
+
+**Tier D — there is no wire format.** GHG Protocol, GRI, ISSB, ISO 30414, SAE J3016, USCDI, UPRN.
+Twelve entries that are methodologies, taxonomies and identifier schemes. Nothing to lint, ever — and
+the tier where a ruleset would most easily overclaim, because "USCDI conformance" is a phrase you can
+say and cannot check.
 
 Now re-read the demand table. **The standard with the largest implementer count is the one a ruleset
 can say least about.** That inversion is the actual story, and it is why "just write more rulesets"
@@ -90,11 +107,17 @@ Not with FHIR, despite it being the obvious flag to plant.
 
 The criteria that fall out of the above are: Tier A, so the ruleset can assert conformance rather
 than a proxy for it; a body already publishing machine-readable artifacts, so rules are derived
-rather than transcribed from a PDF; real implementer count; and a live conformance question somebody
-wants answered.
+rather than transcribed from a PDF; **published openly**, so the ruleset can be published too; real
+implementer count; and a live conformance question somebody wants answered.
 
-That points at **FDX and CAMARA** first. FHIR is the more valuable target and the harder one, and
-taking it second rather than first is the difference between a demonstration and an overclaim.
+That points at **CAMARA** — Tier A, open across ninety-three repositories, and carrying a Spectral
+ruleset promised in December 2024 that still does not exist. FHIR is the more valuable target and the
+harder one, and taking it second is the difference between a demonstration and an overclaim.
+
+*Updated 2026-08-17: this recommended FDX alongside CAMARA. FDX publishes its description to members
+only — as do Berlin Group and Confirmation of Payee — so a derived ruleset could not be published
+without redistributing the artifact. Three of the thirty Tier A standards are closed, which makes
+them the most lintable standards nobody can write a public ruleset for.*
 
 This is all argued at [spotlight-spec#21]({{ site.repo_rules }}/issues/21), which asks where industry
 rulesets sit in the layer model. The answer this research suggests is that they cannot just be filed
