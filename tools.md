@@ -54,6 +54,21 @@ These are products you pay for that read the same ruleset file you keep in your 
 | **[api-oas-checker](https://italia.github.io/api-oas-checker/)** | The Italian government's checker — a static browser application that lints against the national API guidelines, with the rules maintained as a separate public ruleset repository | [GitHub](https://github.com/italia/api-oas-checker) |
 | **[Backstage API Docs Spectral Linter](https://roadie.io/backstage/plugins/api-spectral-linter/)** | Adds a linter tab to API entities inside an internal developer portal, with a default ruleset or a per-entity one set by annotation | [GitHub](https://github.com/dweber019/backstage-plugins/tree/main/plugins/api-docs-spectral-linter) |
 
+### Rulesets published as standards
+
+Not tools — publications. Guideline programmes that ship their rules as a ruleset you install
+and extend, which is the format being used as a distribution medium rather than as one tool's
+configuration file.
+
+| Ruleset | What it checks | Source |
+|---|---|---|
+| **[AEP OpenAPI Linter](https://github.com/aep-dev/aep-openapi-linter)** | Conformance to the [API Enhancement Proposals](https://aep.dev), the open successor to Google's AIPs. Extends `spectral:oas`, then composes one sub-ruleset per AEP with custom JavaScript functions; distributed as the npm package `@aep_dev/aep-openapi-linter` and by raw URL pinned to a release tag | [GitHub](https://github.com/aep-dev/aep-openapi-linter#readme) |
+| **[Italian API guidelines rules](https://github.com/italia/api-oas-checker-rules)** | The Italian government's national API interoperability guidelines, maintained as a public ruleset repository separately from the [checker](https://italia.github.io/api-oas-checker/) that runs them | [GitHub](https://github.com/italia/api-oas-checker-rules) |
+
+This is the shortest list on the page and it has no business being short. If your organization
+publishes its API guidelines as a ruleset — national programme, consortium, or one enterprise —
+[it belongs here]({{ site.discussion }}).
+
 ### Adjacent, and worth knowing
 
 | Project | What it is | Source |

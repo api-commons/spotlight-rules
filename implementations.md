@@ -40,6 +40,7 @@ ecosystem.**
 
 {% assign engines = site.data.implementations | where: "relationship", "engine" %}
 {% assign embeds = site.data.implementations | where: "relationship", "embeds" %}
+{% assign rulesets = site.data.implementations | where: "relationship", "ruleset" %}
 {% assign adjacent = site.data.implementations | where: "relationship", "adjacent" %}
 {% assign unknown = site.data.implementations | where: "relationship", "unknown" %}
 
@@ -68,6 +69,21 @@ ecosystem.**
   <p class="small mb-0"><a href="{{ i.evidence }}">Evidence</a></p>
 </div></div>
 {% endfor %}
+
+## Published as rulesets
+
+<p class="text-muted">Not implementations of the format — publications <em>in</em> it. Standards bodies and guideline programmes that ship their rules as a ruleset, distributed the way a library is distributed, so conformance to a written guideline becomes something a machine can check. These are the documents a <a href="{{ site.repo_rules }}/issues/9">ruleset conformance class</a> has to hold, and the reason "what exactly is a valid ruleset?" is a question with consequences outside any one tool.</p>
+
+{% for i in rulesets %}
+<div class="card mb-3"><div class="card-body">
+  <h3 class="h5 mb-1"><a href="{{ i.url }}">{{ i.name }}</a></h3>
+  <p class="small text-muted mb-2">{{ i.language }}{% if i.browser == true %} &middot; runs in the browser{% endif %}</p>
+  <p class="mb-2">{{ i.summary }}</p>
+  <p class="small mb-0"><a href="{{ i.evidence }}">Evidence</a></p>
+</div></div>
+{% endfor %}
+
+<p class="text-muted">This category is the thinnest one here, and it should be the fattest — national programmes, industry consortia and individual enterprises have all published rules of their own. Most of that work has never been catalogued anywhere. <a href="/involved/">Additions are wanted.</a></p>
 
 ## Adjacent
 
