@@ -1,4 +1,5 @@
 ---
+date: 2026-08-17 13:00:00 -0400
 title: Nobody should be writing industry rulesets
 description: >-
   Speculation, on purpose. If the blocker on industry rulesets is that nobody will maintain them,

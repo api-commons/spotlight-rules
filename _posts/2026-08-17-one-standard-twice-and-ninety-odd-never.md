@@ -1,4 +1,5 @@
 ---
+date: 2026-08-17 12:00:00 -0400
 title: One standard, twice — and ninety-odd, never
 description: >-
   Exactly one industry standard has a ruleset behind it, and it has two. Not because the demand is

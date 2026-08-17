@@ -1,4 +1,5 @@
 ---
+date: 2026-08-17 10:00:00 -0400
 title: Open source permanently — and how it gets paid for
 description: >-
   No commercial tier, ever. Which makes the funding question unavoidable rather than optional, so
