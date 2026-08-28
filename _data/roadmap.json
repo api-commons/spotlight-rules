@@ -1,17 +1,17 @@
 {
-  "generated": "2026-08-28T11:28:54Z",
+  "generated": "2026-08-28T22:25:03Z",
   "repos": [
     "api-commons/spotlight-spec",
     "api-commons/spotlight-tools"
   ],
   "counts": {
-    "total": 40,
-    "open": 40,
+    "total": 45,
+    "open": 45,
     "approved": 0,
     "deferred": 0,
     "with_prs": 13,
-    "raised": 1,
-    "discussing": 17,
+    "raised": 4,
+    "discussing": 18,
     "consensus": 3,
     "ready": 4
   },
@@ -32,9 +32,9 @@
         "roadmap",
         "task"
       ],
-      "comments": 1,
+      "comments": 2,
       "created_at": "2026-07-31T17:32:55Z",
-      "updated_at": "2026-08-27T15:24:22Z",
+      "updated_at": "2026-08-28T18:20:14Z",
       "closed_at": null,
       "prs": []
     },
@@ -214,9 +214,9 @@
         "roadmap",
         "task"
       ],
-      "comments": 3,
+      "comments": 4,
       "created_at": "2026-07-31T17:32:52Z",
-      "updated_at": "2026-08-27T16:02:22Z",
+      "updated_at": "2026-08-28T18:19:44Z",
       "closed_at": null,
       "prs": [
         {
@@ -315,9 +315,9 @@
         "question",
         "roadmap"
       ],
-      "comments": 3,
+      "comments": 4,
       "created_at": "2026-07-31T17:32:49Z",
-      "updated_at": "2026-08-27T15:58:16Z",
+      "updated_at": "2026-08-28T18:12:13Z",
       "closed_at": null,
       "prs": []
     },
@@ -408,9 +408,9 @@
         "maturity:discussing",
         "roadmap"
       ],
-      "comments": 0,
+      "comments": 1,
       "created_at": "2026-07-31T17:32:58Z",
-      "updated_at": "2026-07-31T17:32:58Z",
+      "updated_at": "2026-08-28T18:19:45Z",
       "closed_at": null,
       "prs": []
     },
@@ -613,6 +613,28 @@
       "prs": []
     },
     {
+      "repo": "spotlight-spec",
+      "repo_slug": "api-commons/spotlight-spec",
+      "number": 39,
+      "title": "Name the Spectral Fork",
+      "url": "https://github.com/api-commons/spotlight-spec/issues/39",
+      "state": "open",
+      "approved": false,
+      "deferred": false,
+      "maturity": "discussing",
+      "maturity_rank": 1,
+      "labels": [
+        "maturity:discussing",
+        "question",
+        "roadmap"
+      ],
+      "comments": 29,
+      "created_at": "2026-08-28T18:10:43Z",
+      "updated_at": "2026-08-28T18:29:18Z",
+      "closed_at": null,
+      "prs": []
+    },
+    {
       "repo": "spotlight-tools",
       "repo_slug": "api-commons/spotlight-tools",
       "number": 1,
@@ -687,6 +709,73 @@
       ]
     },
     {
+      "repo": "spotlight-spec",
+      "repo_slug": "api-commons/spotlight-spec",
+      "number": 41,
+      "title": "Ruleset modularity: one family of rulesets, many environments, standards and versions",
+      "url": "https://github.com/api-commons/spotlight-spec/issues/41",
+      "state": "open",
+      "approved": false,
+      "deferred": false,
+      "maturity": "raised",
+      "maturity_rank": 0,
+      "labels": [
+        "enhancement",
+        "maturity:raised",
+        "roadmap"
+      ],
+      "comments": 0,
+      "created_at": "2026-08-28T18:17:00Z",
+      "updated_at": "2026-08-28T18:17:00Z",
+      "closed_at": null,
+      "prs": []
+    },
+    {
+      "repo": "spotlight-spec",
+      "repo_slug": "api-commons/spotlight-spec",
+      "number": 42,
+      "title": "Cross-spec liaison: Overlay, Arazzo and JSON Schema \u2014 starting with aliases",
+      "url": "https://github.com/api-commons/spotlight-spec/issues/42",
+      "state": "open",
+      "approved": false,
+      "deferred": false,
+      "maturity": "raised",
+      "maturity_rank": 0,
+      "labels": [
+        "enhancement",
+        "help wanted",
+        "maturity:raised",
+        "roadmap"
+      ],
+      "comments": 0,
+      "created_at": "2026-08-28T18:17:28Z",
+      "updated_at": "2026-08-28T18:17:28Z",
+      "closed_at": null,
+      "prs": []
+    },
+    {
+      "repo": "spotlight-spec",
+      "repo_slug": "api-commons/spotlight-spec",
+      "number": 43,
+      "title": "Put \"do not fork, upstream\" in the mission: foundational dependencies stay in the open",
+      "url": "https://github.com/api-commons/spotlight-spec/issues/43",
+      "state": "open",
+      "approved": false,
+      "deferred": false,
+      "maturity": "raised",
+      "maturity_rank": 0,
+      "labels": [
+        "documentation",
+        "maturity:raised",
+        "roadmap"
+      ],
+      "comments": 0,
+      "created_at": "2026-08-28T18:18:00Z",
+      "updated_at": "2026-08-28T18:18:00Z",
+      "closed_at": null,
+      "prs": []
+    },
+    {
       "repo": "spotlight-tools",
       "repo_slug": "api-commons/spotlight-tools",
       "number": 13,
@@ -752,9 +841,9 @@
         "enhancement",
         "roadmap"
       ],
-      "comments": 1,
+      "comments": 2,
       "created_at": "2026-08-17T19:08:32Z",
-      "updated_at": "2026-08-17T19:50:34Z",
+      "updated_at": "2026-08-28T18:20:13Z",
       "closed_at": null,
       "prs": []
     },
@@ -836,9 +925,9 @@
         "enhancement",
         "roadmap"
       ],
-      "comments": 1,
+      "comments": 2,
       "created_at": "2026-08-17T19:08:37Z",
-      "updated_at": "2026-08-21T18:47:55Z",
+      "updated_at": "2026-08-28T18:19:46Z",
       "closed_at": null,
       "prs": [
         {
@@ -922,6 +1011,27 @@
       ]
     },
     {
+      "repo": "spotlight-spec",
+      "repo_slug": "api-commons/spotlight-spec",
+      "number": 40,
+      "title": "Office hours notes \u2014 2026-08-28",
+      "url": "https://github.com/api-commons/spotlight-spec/issues/40",
+      "state": "open",
+      "approved": false,
+      "deferred": false,
+      "maturity": null,
+      "maturity_rank": -1,
+      "labels": [
+        "documentation",
+        "roadmap"
+      ],
+      "comments": 0,
+      "created_at": "2026-08-28T18:16:24Z",
+      "updated_at": "2026-08-28T18:19:09Z",
+      "closed_at": null,
+      "prs": []
+    },
+    {
       "repo": "spotlight-tools",
       "repo_slug": "api-commons/spotlight-tools",
       "number": 62,
@@ -936,9 +1046,9 @@
         "enhancement",
         "roadmap"
       ],
-      "comments": 0,
+      "comments": 1,
       "created_at": "2026-08-17T19:09:38Z",
-      "updated_at": "2026-08-17T19:09:38Z",
+      "updated_at": "2026-08-28T18:20:42Z",
       "closed_at": null,
       "prs": []
     },
@@ -978,9 +1088,9 @@
         "roadmap",
         "task"
       ],
-      "comments": 0,
+      "comments": 1,
       "created_at": "2026-08-17T19:09:40Z",
-      "updated_at": "2026-08-17T19:09:40Z",
+      "updated_at": "2026-08-28T18:21:06Z",
       "closed_at": null,
       "prs": []
     },
@@ -999,9 +1109,9 @@
         "roadmap",
         "task"
       ],
-      "comments": 1,
+      "comments": 2,
       "created_at": "2026-08-17T19:09:41Z",
-      "updated_at": "2026-08-21T18:47:57Z",
+      "updated_at": "2026-08-28T18:20:40Z",
       "closed_at": null,
       "prs": []
     },
