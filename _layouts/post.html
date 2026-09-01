@@ -16,6 +16,10 @@ nav: blog
   <p class="lede">{{ page.description }}</p>
   {% endif %}
 
+  {% if page.image %}
+  <img src="{{ page.image }}" alt="" class="img-fluid rounded my-4 d-block">
+  {% endif %}
+
   <hr class="my-4">
 
   {{ content }}
