@@ -197,6 +197,22 @@ still undecided, and that one blocks the first release entirely. The contributin
 honest note stapled to the top of it rather than a rewrite. Those ten branches are still on one
 laptop.
 
+**Corrected the same evening.** The first sentence of that paragraph did not survive the day. Once
+CI could actually run, it ran: the build is verified. 1,966 unit tests and all 66 harness scenarios
+pass on Node 18, Node 20, headless Chrome — **and on Windows**, a job that had never executed once
+in this fork's history.
+
+Leaving the sentence uncorrected would misinform anyone arriving later on the single most important
+question about this project, so it is corrected here rather than quietly edited above. Everything
+else in the paragraph still stands: nothing is published, the package scope is still undecided, the
+contributing guide is still a note rather than a rewrite, and those ten branches are still on one
+laptop.
+
+Getting there was not a victory lap. Turning CI on immediately surfaced four more defects, two of
+which were in fixes written that same afternoon — including one of the fixes described above, which
+replaced a wrong path with a differently wrong one. That is the follow-up, *What CI told us the
+moment we turned it on*, published 4 August, and it is the more useful half of the story.
+
 None of today's work makes this tool better. It makes it **answerable** — a place where a security
 report reaches a person, a package page that names someone who will read the issue, a governance
 document that does not claim more than exists, and a CI configuration that can, for the first time,
